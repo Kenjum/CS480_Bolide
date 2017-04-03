@@ -1,2 +1,2 @@
-# CS480_Bolide_01_Calculator
-Calculator GUI
+# CS480_Bolide
+Project 1: id_01 Calculator
