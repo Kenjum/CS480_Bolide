@@ -27,75 +27,75 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jTextField1" max="32767" attributes="0"/>
+                  <Component id="displayTextField" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="jButton1" alignment="1" min="-2" pref="50" max="-2" attributes="0"/>
-                                  <Component id="jButton4" alignment="1" min="-2" pref="50" max="-2" attributes="0"/>
-                                  <Component id="jButton7" alignment="1" min="-2" pref="50" max="-2" attributes="0"/>
-                                  <Component id="jButton0" min="-2" pref="50" max="-2" attributes="0"/>
+                                  <Component id="jButton1" alignment="1" min="-2" pref="60" max="-2" attributes="0"/>
+                                  <Component id="jButton4" alignment="1" min="-2" pref="60" max="-2" attributes="0"/>
+                                  <Component id="jButton7" alignment="1" min="-2" pref="60" max="-2" attributes="0"/>
+                                  <Component id="jButton0" min="-2" pref="60" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jButton8" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
-                                  <Component id="jButton5" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
-                                  <Component id="jButton2" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
-                                  <Component id="jButtonDecimal" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
+                                  <Component id="jButton8" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
+                                  <Component id="jButton5" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
+                                  <Component id="jButton2" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
+                                  <Component id="jButtonDecimal" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jButton20" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="jButtonClearEntry" min="-2" pref="60" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jButton19" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="jButtonClear" min="-2" pref="60" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jButton9" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
-                          <Component id="jButton6" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
-                          <Component id="jButton3" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
-                          <Component id="jButton18" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
-                          <Component id="jButton21" min="-2" pref="50" max="-2" attributes="0"/>
+                          <Component id="jButton9" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
+                          <Component id="jButton6" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
+                          <Component id="jButton3" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
+                          <Component id="jButtonNeg" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
+                          <Component id="jButtonBackSpace" min="-2" pref="60" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jButton11" min="-2" pref="50" max="-2" attributes="0"/>
-                          <Component id="jButton12" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
-                          <Component id="jButton13" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
-                          <Component id="jButton14" alignment="1" min="-2" pref="50" max="-2" attributes="0"/>
-                          <Component id="jButton10" alignment="1" min="-2" pref="50" max="-2" attributes="0"/>
+                          <Component id="jButtonMinus" min="-2" pref="60" max="-2" attributes="0"/>
+                          <Component id="jButtonTimes" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
+                          <Component id="jButtonDivide" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
+                          <Component id="jButtonEquals" alignment="1" min="-2" pref="60" max="-2" attributes="0"/>
+                          <Component id="jButtonPlusd" alignment="1" min="-2" pref="60" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jButton17" min="-2" pref="52" max="-2" attributes="0"/>
+                                      <Component id="jButtonSqrt" min="-2" pref="60" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jButton24" min="-2" pref="52" max="-2" attributes="0"/>
+                                      <Component id="jButtonMemorySave" min="-2" pref="60" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jButton22" min="-2" pref="52" max="-2" attributes="0"/>
+                                      <Component id="jButtonMemoryClear" min="-2" pref="60" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jButton23" min="-2" pref="52" max="-2" attributes="0"/>
+                                      <Component id="jButtonMemoryRecall" min="-2" pref="60" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jButton16" min="-2" pref="52" max="-2" attributes="0"/>
+                                      <Component id="jButtonPercent" min="-2" pref="60" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jButton25" min="-2" pref="52" max="-2" attributes="0"/>
+                                      <Component id="jButtonMemoryAdd" min="-2" pref="60" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jButton15" min="-2" pref="52" max="-2" attributes="0"/>
+                                      <Component id="jButtonFlip" min="-2" pref="60" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jButton26" min="-2" pref="52" max="-2" attributes="0"/>
+                                      <Component id="jButtonMemorySub" min="-2" pref="60" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                              <Component id="jButton27" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButtonAdvanced" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -109,7 +109,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTextField1" min="-2" pref="45" max="-2" attributes="0"/>
+              <Component id="displayTextField" min="-2" pref="45" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -124,11 +124,11 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jButton13" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
-                                      <Component id="jButton21" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
-                                      <Component id="jButton19" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
-                                      <Component id="jButton20" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
-                                      <Component id="jButton27" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jButtonDivide" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <Component id="jButtonBackSpace" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <Component id="jButtonClear" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <Component id="jButtonClearEntry" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <Component id="jButtonAdvanced" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
@@ -137,9 +137,9 @@
                                               <Component id="jButton7" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                                               <Component id="jButton8" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                                               <Component id="jButton9" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
-                                              <Component id="jButton12" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
-                                              <Component id="jButton22" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
-                                              <Component id="jButton23" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                                              <Component id="jButtonTimes" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                                              <Component id="jButtonMemoryClear" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                                              <Component id="jButtonMemoryRecall" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jButton4" min="-2" pref="50" max="-2" attributes="0"/>
@@ -147,9 +147,9 @@
                                       <Group type="103" alignment="1" groupAlignment="3" attributes="0">
                                           <Component id="jButton6" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                                           <Component id="jButton5" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
-                                          <Component id="jButton11" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
-                                          <Component id="jButton17" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
-                                          <Component id="jButton24" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                                          <Component id="jButtonMinus" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                                          <Component id="jButtonSqrt" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                                          <Component id="jButtonMemorySave" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -157,23 +157,23 @@
                                       <Component id="jButton1" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                                       <Component id="jButton2" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                                       <Component id="jButton3" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
-                                      <Component id="jButton10" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
-                                      <Component id="jButton16" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
-                                      <Component id="jButton25" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <Component id="jButtonPlusd" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <Component id="jButtonPercent" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <Component id="jButtonMemoryAdd" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                           <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                              <Component id="jButton14" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
-                              <Component id="jButton18" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="jButtonEquals" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="jButtonNeg" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="238" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jButton26" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
-                          <Component id="jButton15" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                          <Component id="jButtonMemorySub" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                          <Component id="jButtonFlip" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -196,65 +196,125 @@
           <Dimension value="[40, 40]"/>
         </Property>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+      </AccessibilityProperties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton1MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton2">
       <Properties>
         <Property name="text" type="java.lang.String" value="2"/>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+      </AccessibilityProperties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton2MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton3">
       <Properties>
         <Property name="text" type="java.lang.String" value="3"/>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+      </AccessibilityProperties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton3MouseClicked"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton4">
       <Properties>
         <Property name="text" type="java.lang.String" value="4"/>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+      </AccessibilityProperties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton4MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton5">
       <Properties>
         <Property name="text" type="java.lang.String" value="5"/>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+      </AccessibilityProperties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton5MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton6">
       <Properties>
         <Property name="text" type="java.lang.String" value="6"/>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+      </AccessibilityProperties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton6MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton7">
       <Properties>
         <Property name="text" type="java.lang.String" value="7"/>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+      </AccessibilityProperties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton7MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton8">
       <Properties>
         <Property name="text" type="java.lang.String" value="8"/>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+      </AccessibilityProperties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton8MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton9">
       <Properties>
         <Property name="text" type="java.lang.String" value="9"/>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+      </AccessibilityProperties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton9MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton0">
       <Properties>
         <Property name="text" type="java.lang.String" value="0"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+      </AccessibilityProperties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton0ActionPerformed"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton0MouseClicked"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonDecimal">
       <Properties>
         <Property name="text" type="java.lang.String" value="."/>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+      </AccessibilityProperties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonDecimalMouseClicked"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="displayTextField">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -262,96 +322,189 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton10">
+    <Component class="javax.swing.JButton" name="jButtonPlusd">
       <Properties>
         <Property name="text" type="java.lang.String" value="+"/>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+      </AccessibilityProperties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonPlusdMouseClicked"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton11">
+    <Component class="javax.swing.JButton" name="jButtonMinus">
       <Properties>
         <Property name="text" type="java.lang.String" value="-"/>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+      </AccessibilityProperties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonMinusMouseClicked"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton12">
+    <Component class="javax.swing.JButton" name="jButtonTimes">
       <Properties>
         <Property name="text" type="java.lang.String" value="*"/>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+      </AccessibilityProperties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonTimesMouseClicked"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton13">
+    <Component class="javax.swing.JButton" name="jButtonDivide">
       <Properties>
         <Property name="text" type="java.lang.String" value="/"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonDivideMouseClicked"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton14">
+    <Component class="javax.swing.JButton" name="jButtonEquals">
       <Properties>
         <Property name="text" type="java.lang.String" value="="/>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+      </AccessibilityProperties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonEqualsMouseClicked"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton15">
+    <Component class="javax.swing.JButton" name="jButtonFlip">
       <Properties>
         <Property name="text" type="java.lang.String" value="1/x"/>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+      </AccessibilityProperties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonFlipMouseClicked"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton16">
+    <Component class="javax.swing.JButton" name="jButtonPercent">
       <Properties>
         <Property name="text" type="java.lang.String" value="%"/>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+      </AccessibilityProperties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonPercentMouseClicked"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton17">
+    <Component class="javax.swing.JButton" name="jButtonSqrt">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#x221a;"/>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+      </AccessibilityProperties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonSqrtMouseClicked"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton18">
+    <Component class="javax.swing.JButton" name="jButtonNeg">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#xb1;"/>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+      </AccessibilityProperties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonNegMouseClicked"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton19">
+    <Component class="javax.swing.JButton" name="jButtonClear">
       <Properties>
         <Property name="text" type="java.lang.String" value="C"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonClearMouseClicked"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton20">
+    <Component class="javax.swing.JButton" name="jButtonClearEntry">
       <Properties>
         <Property name="text" type="java.lang.String" value="CE"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonClearEntryMouseClicked"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton21">
+    <Component class="javax.swing.JButton" name="jButtonBackSpace">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#x2190;"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonBackSpaceMouseClicked"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton22">
+    <Component class="javax.swing.JButton" name="jButtonMemoryClear">
       <Properties>
         <Property name="text" type="java.lang.String" value="MC"/>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+      </AccessibilityProperties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonMemoryClearMouseClicked"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton23">
+    <Component class="javax.swing.JButton" name="jButtonMemoryRecall">
       <Properties>
         <Property name="text" type="java.lang.String" value="MR"/>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+      </AccessibilityProperties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonMemoryRecallMouseClicked"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton25">
+    <Component class="javax.swing.JButton" name="jButtonMemoryAdd">
       <Properties>
         <Property name="text" type="java.lang.String" value="M+"/>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+      </AccessibilityProperties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonMemoryAddMouseClicked"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton26">
+    <Component class="javax.swing.JButton" name="jButtonMemorySub">
       <Properties>
         <Property name="text" type="java.lang.String" value="M-"/>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+      </AccessibilityProperties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonMemorySubMouseClicked"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton27">
+    <Component class="javax.swing.JButton" name="jButtonAdvanced">
       <Properties>
         <Property name="text" type="java.lang.String" value="Advanced"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonAdvancedMouseClicked"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton24">
+    <Component class="javax.swing.JButton" name="jButtonMemorySave">
       <Properties>
         <Property name="text" type="java.lang.String" value="MS"/>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+      </AccessibilityProperties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonMemorySaveMouseClicked"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
