@@ -104,7 +104,10 @@ public class Interface extends JFrame {
                 operation = "/";
             }
             if(keyCode == e.VK_ENTER){
-                secondN = Double.parseDouble(String.valueOf(displayTextField.getText()));
+                if(!emptyText() && !answerDisplayed)
+                {
+                    secondN = Double.parseDouble(String.valueOf(displayTextField.getText()));
+                }
         
                 if(operation.contains("+"))
                 {
@@ -120,8 +123,22 @@ public class Interface extends JFrame {
                 }
                 else if(operation.contains("/"))
                 {
-                    displayTextField.setText(Double.toString(firstN/secondN));
+                    if(secondN==0)
+                    {
+                        divideZero();
+                    }
+                    else
+                    {
+                        displayTextField.setText(Double.toString(firstN/secondN));
+                    }
                 }
+                if(!error)
+                {
+                    firstN = Double.parseDouble(String.valueOf(displayTextField.getText()));
+                    intCheck();
+                    answerDisplayed = true;
+                }
+                
             }
         }
     }
@@ -327,6 +344,7 @@ public class Interface extends JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton1.setText("1");
+        jButton1.setFocusable(false);
         jButton1.setMaximumSize(new java.awt.Dimension(40, 40));
         jButton1.setMinimumSize(new java.awt.Dimension(40, 40));
         jButton1.setPreferredSize(new java.awt.Dimension(40, 40));
@@ -337,6 +355,7 @@ public class Interface extends JFrame {
         });
 
         jButton2.setText("2");
+        jButton2.setFocusable(false);
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton2MouseClicked(evt);
@@ -344,6 +363,7 @@ public class Interface extends JFrame {
         });
 
         jButton3.setText("3");
+        jButton3.setFocusable(false);
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton3MouseClicked(evt);
@@ -351,6 +371,7 @@ public class Interface extends JFrame {
         });
 
         jButton4.setText("4");
+        jButton4.setFocusable(false);
         jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton4MouseClicked(evt);
@@ -358,6 +379,7 @@ public class Interface extends JFrame {
         });
 
         jButton5.setText("5");
+        jButton5.setFocusable(false);
         jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton5MouseClicked(evt);
@@ -365,6 +387,7 @@ public class Interface extends JFrame {
         });
 
         jButton6.setText("6");
+        jButton6.setFocusable(false);
         jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton6MouseClicked(evt);
@@ -372,6 +395,7 @@ public class Interface extends JFrame {
         });
 
         jButton7.setText("7");
+        jButton7.setFocusable(false);
         jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton7MouseClicked(evt);
@@ -379,6 +403,7 @@ public class Interface extends JFrame {
         });
 
         jButton8.setText("8");
+        jButton8.setFocusable(false);
         jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton8MouseClicked(evt);
@@ -386,6 +411,7 @@ public class Interface extends JFrame {
         });
 
         jButton9.setText("9");
+        jButton9.setFocusable(false);
         jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton9MouseClicked(evt);
@@ -394,6 +420,7 @@ public class Interface extends JFrame {
 
         jButton0.setText("0");
         jButton0.setToolTipText("");
+        jButton0.setFocusable(false);
         jButton0.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton0MouseClicked(evt);
@@ -401,6 +428,7 @@ public class Interface extends JFrame {
         });
 
         jButtonDecimal.setText(".");
+        jButtonDecimal.setFocusable(false);
         jButtonDecimal.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonDecimalMouseClicked(evt);
@@ -413,6 +441,7 @@ public class Interface extends JFrame {
         displayTextField.setAutoscrolls(false);
 
         jButtonPlusd.setText("+");
+        jButtonPlusd.setFocusable(false);
         jButtonPlusd.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonPlusdMouseClicked(evt);
@@ -420,6 +449,7 @@ public class Interface extends JFrame {
         });
 
         jButtonMinus.setText("-");
+        jButtonMinus.setFocusable(false);
         jButtonMinus.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonMinusMouseClicked(evt);
@@ -427,6 +457,7 @@ public class Interface extends JFrame {
         });
 
         jButtonTimes.setText("*");
+        jButtonTimes.setFocusable(false);
         jButtonTimes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonTimesMouseClicked(evt);
@@ -434,6 +465,7 @@ public class Interface extends JFrame {
         });
 
         jButtonDivide.setText("/");
+        jButtonDivide.setFocusable(false);
         jButtonDivide.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonDivideMouseClicked(evt);
@@ -441,6 +473,7 @@ public class Interface extends JFrame {
         });
 
         jButtonEquals.setText("=");
+        jButtonEquals.setFocusable(false);
         jButtonEquals.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonEqualsMouseClicked(evt);
@@ -448,6 +481,7 @@ public class Interface extends JFrame {
         });
 
         jButtonFlip.setText("1/x");
+        jButtonFlip.setFocusable(false);
         jButtonFlip.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonFlipMouseClicked(evt);
@@ -455,6 +489,7 @@ public class Interface extends JFrame {
         });
 
         jButtonPercent.setText("%");
+        jButtonPercent.setFocusable(false);
         jButtonPercent.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonPercentMouseClicked(evt);
@@ -462,6 +497,7 @@ public class Interface extends JFrame {
         });
 
         jButtonSqrt.setText("√");
+        jButtonSqrt.setFocusable(false);
         jButtonSqrt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonSqrtMouseClicked(evt);
@@ -469,6 +505,7 @@ public class Interface extends JFrame {
         });
 
         jButtonNeg.setText("±");
+        jButtonNeg.setFocusable(false);
         jButtonNeg.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonNegMouseClicked(evt);
@@ -476,6 +513,7 @@ public class Interface extends JFrame {
         });
 
         jButtonClear.setText("C");
+        jButtonClear.setFocusable(false);
         jButtonClear.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonClearMouseClicked(evt);
@@ -484,6 +522,7 @@ public class Interface extends JFrame {
 
         jButtonBackSpace.setText("←");
         jButtonBackSpace.setToolTipText("");
+        jButtonBackSpace.setFocusable(false);
         jButtonBackSpace.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonBackSpaceMouseClicked(evt);
@@ -491,6 +530,7 @@ public class Interface extends JFrame {
         });
 
         jButtonMemoryClear.setText("MC");
+        jButtonMemoryClear.setFocusable(false);
         jButtonMemoryClear.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonMemoryClearMouseClicked(evt);
@@ -498,6 +538,7 @@ public class Interface extends JFrame {
         });
 
         jButtonMemoryRecall.setText("MR");
+        jButtonMemoryRecall.setFocusable(false);
         jButtonMemoryRecall.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonMemoryRecallMouseClicked(evt);
@@ -505,6 +546,7 @@ public class Interface extends JFrame {
         });
 
         jButtonMemoryAdd.setText("M+");
+        jButtonMemoryAdd.setFocusable(false);
         jButtonMemoryAdd.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonMemoryAddMouseClicked(evt);
@@ -512,6 +554,7 @@ public class Interface extends JFrame {
         });
 
         jButtonMemorySub.setText("M-");
+        jButtonMemorySub.setFocusable(false);
         jButtonMemorySub.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonMemorySubMouseClicked(evt);
@@ -519,6 +562,7 @@ public class Interface extends JFrame {
         });
 
         jButtonAdvanced.setText("Advanced");
+        jButtonAdvanced.setFocusable(false);
         jButtonAdvanced.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonAdvancedMouseClicked(evt);
@@ -526,6 +570,7 @@ public class Interface extends JFrame {
         });
 
         jButtonMemorySave.setText("MS");
+        jButtonMemorySave.setFocusable(false);
         jButtonMemorySave.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonMemorySaveMouseClicked(evt);
@@ -533,6 +578,7 @@ public class Interface extends JFrame {
         });
 
         jButtonClearEntry.setText("CE");
+        jButtonClearEntry.setFocusable(false);
         jButtonClearEntry.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonClearEntryMouseClicked(evt);
@@ -611,7 +657,7 @@ public class Interface extends JFrame {
                 .addComponent(displayTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonAdvanced)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -740,6 +786,7 @@ public class Interface extends JFrame {
     }//GEN-LAST:event_jButtonMemoryClearMouseClicked
 
     private void jButtonBackSpaceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonBackSpaceMouseClicked
+        answerDisplayed = false;
         delete();
     }//GEN-LAST:event_jButtonBackSpaceMouseClicked
 
@@ -747,6 +794,7 @@ public class Interface extends JFrame {
          displayTextField.setText("");
         firstN = 0;
         secondN = 0;
+        answerDisplayed = false;
         if(error)
         {
             fixError();
@@ -826,7 +874,7 @@ public class Interface extends JFrame {
     }//GEN-LAST:event_jButtonFlipMouseClicked
 
     private void jButtonEqualsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEqualsMouseClicked
-        if(!emptyText())
+        if(!emptyText() && !answerDisplayed)
         {
             secondN = Double.parseDouble(String.valueOf(displayTextField.getText()));
         }
@@ -837,7 +885,7 @@ public class Interface extends JFrame {
             }
             else if(operation.contains("-"))
             {
-                displayTextField.setText(Double.toString(firstN-secondN));
+                    displayTextField.setText(Double.toString(firstN-secondN));
             }
             else if(operation.contains("*"))
             {
@@ -856,6 +904,7 @@ public class Interface extends JFrame {
             }
             if(!error)
             {
+                firstN = Double.parseDouble(String.valueOf(displayTextField.getText()));
                 intCheck();
                 answerDisplayed = true;
             }
@@ -872,6 +921,7 @@ public class Interface extends JFrame {
         firstN = Double.parseDouble(String.valueOf(displayTextField.getText()));
         displayTextField.setText("");
         operation = "*";
+        
     }//GEN-LAST:event_jButtonTimesMouseClicked
 
     private void jButtonMinusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonMinusMouseClicked
