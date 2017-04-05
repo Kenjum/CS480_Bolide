@@ -7,9 +7,107 @@
 package calculator;
 
 import static calculator.Calculator.sInterface;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import javax.swing.JFrame;
 
-public class Interface extends javax.swing.JFrame {
+public class Interface extends JFrame {
 
+    public class AL extends KeyAdapter {
+        public void keyPressed(KeyEvent e){
+            
+            int keyCode = e.getKeyCode();
+            if(keyCode == e.VK_NUMPAD1){
+                String tempNumber = displayTextField.getText() + jButton1.getText();
+                displayTextField.setText(tempNumber);
+            }
+            if(keyCode == e.VK_NUMPAD2){
+                String tempNumber = displayTextField.getText() + jButton2.getText();
+                displayTextField.setText(tempNumber);
+            }
+            if(keyCode == e.VK_NUMPAD3){
+                String tempNumber = displayTextField.getText() + jButton3.getText();
+                displayTextField.setText(tempNumber);
+            }
+            if(keyCode == e.VK_NUMPAD4){
+                String tempNumber = displayTextField.getText() + jButton4.getText();
+                displayTextField.setText(tempNumber);
+            }
+            if(keyCode == e.VK_NUMPAD5){
+                String tempNumber = displayTextField.getText() + jButton5.getText();
+                displayTextField.setText(tempNumber);
+            }
+            if(keyCode == e.VK_NUMPAD6){
+                String tempNumber = displayTextField.getText() + jButton6.getText();
+                displayTextField.setText(tempNumber);
+            }
+            if(keyCode == e.VK_NUMPAD7){
+                String tempNumber = displayTextField.getText() + jButton7.getText();
+                displayTextField.setText(tempNumber);
+            }
+            if(keyCode == e.VK_NUMPAD8){
+                String tempNumber = displayTextField.getText() + jButton8.getText();
+                displayTextField.setText(tempNumber);
+            }
+            if(keyCode == e.VK_NUMPAD9){
+                String tempNumber = displayTextField.getText() + jButton9.getText();
+                displayTextField.setText(tempNumber);
+            }
+            if(keyCode == e.VK_NUMPAD0){
+                String tempNumber = displayTextField.getText() + jButton0.getText();
+                displayTextField.setText(tempNumber);
+            }
+            if(keyCode == e.VK_DECIMAL){
+                if(!displayTextField.getText().contains("."))
+                {
+                    displayTextField.setText(displayTextField.getText() + jButtonDecimal.getText());
+                }
+            }
+            
+            
+            if(keyCode == e.VK_MULTIPLY){
+                firstN = Double.parseDouble(String.valueOf(displayTextField.getText()));
+                displayTextField.setText("");
+                operation = "*";
+            }
+            if(keyCode == e.VK_ADD){
+                firstN = Double.parseDouble(String.valueOf(displayTextField.getText()));
+                displayTextField.setText("");
+                operation = "+";
+            }
+            if(keyCode == e.VK_SUBTRACT){
+                firstN = Double.parseDouble(String.valueOf(displayTextField.getText()));
+                displayTextField.setText("");
+                operation = "-";
+            }
+            if(keyCode == e.VK_DIVIDE){
+                firstN = Double.parseDouble(String.valueOf(displayTextField.getText()));
+                displayTextField.setText("");
+                operation = "/";
+            }
+            if(keyCode == e.VK_ENTER){
+                secondN = Double.parseDouble(String.valueOf(displayTextField.getText()));
+        
+                if(operation.contains("+"))
+                {
+                    displayTextField.setText(Double.toString(firstN+secondN));
+                }
+                else if(operation.contains("-"))
+                {
+                    displayTextField.setText(Double.toString(firstN-secondN));
+                }
+                else if(operation.contains("*"))
+                {
+                    displayTextField.setText(Double.toString(firstN*secondN));
+                }
+                else if(operation.contains("/"))
+                {
+                    displayTextField.setText(Double.toString(firstN/secondN));
+                }
+            }
+        }
+    }
+    
     double memory = 0;
     double firstN = 0;
     double secondN = 0;
@@ -18,6 +116,10 @@ public class Interface extends javax.swing.JFrame {
     
     public Interface() {
         initComponents();
+        //I used displayTextField because this was "focused" on along with the buttons
+        //the screen was selected so this was active. There are like different
+        //layers to this.
+        displayTextField.addKeyListener(new AL());
     }
 
     public void delete()
