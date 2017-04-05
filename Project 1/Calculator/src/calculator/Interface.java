@@ -17,43 +17,61 @@ public class Interface extends JFrame {
         public void keyPressed(KeyEvent e){
             
             int keyCode = e.getKeyCode();
-            if(keyCode == e.VK_NUMPAD1){
+            if(keyCode == e.VK_NUMPAD1 || keyCode == e.VK_1){
+                zeroCheck();
+                answerCheck();
                 String tempNumber = displayTextField.getText() + jButton1.getText();
                 displayTextField.setText(tempNumber);
             }
-            if(keyCode == e.VK_NUMPAD2){
+            if(keyCode == e.VK_NUMPAD2|| keyCode == e.VK_2){
+                zeroCheck();
+                answerCheck();
                 String tempNumber = displayTextField.getText() + jButton2.getText();
                 displayTextField.setText(tempNumber);
             }
-            if(keyCode == e.VK_NUMPAD3){
+            if(keyCode == e.VK_NUMPAD3|| keyCode == e.VK_3){
+                zeroCheck();
+                answerCheck();
                 String tempNumber = displayTextField.getText() + jButton3.getText();
                 displayTextField.setText(tempNumber);
             }
-            if(keyCode == e.VK_NUMPAD4){
+            if(keyCode == e.VK_NUMPAD4|| keyCode == e.VK_4){
                 String tempNumber = displayTextField.getText() + jButton4.getText();
                 displayTextField.setText(tempNumber);
             }
-            if(keyCode == e.VK_NUMPAD5){
+            if(keyCode == e.VK_NUMPAD5|| keyCode == e.VK_5){
+                zeroCheck();
+                answerCheck();
                 String tempNumber = displayTextField.getText() + jButton5.getText();
                 displayTextField.setText(tempNumber);
             }
-            if(keyCode == e.VK_NUMPAD6){
+            if(keyCode == e.VK_NUMPAD6|| keyCode == e.VK_6){
+                zeroCheck();
+                answerCheck();
                 String tempNumber = displayTextField.getText() + jButton6.getText();
                 displayTextField.setText(tempNumber);
             }
-            if(keyCode == e.VK_NUMPAD7){
+            if(keyCode == e.VK_NUMPAD7|| keyCode == e.VK_7){
+                zeroCheck();
+                answerCheck();
                 String tempNumber = displayTextField.getText() + jButton7.getText();
                 displayTextField.setText(tempNumber);
             }
-            if(keyCode == e.VK_NUMPAD8){
+            if(keyCode == e.VK_NUMPAD8|| keyCode == e.VK_8){
+                zeroCheck();
+                answerCheck();
                 String tempNumber = displayTextField.getText() + jButton8.getText();
                 displayTextField.setText(tempNumber);
             }
-            if(keyCode == e.VK_NUMPAD9){
+            if(keyCode == e.VK_NUMPAD9|| keyCode == e.VK_9){
+                zeroCheck();
+                answerCheck();
                 String tempNumber = displayTextField.getText() + jButton9.getText();
                 displayTextField.setText(tempNumber);
             }
-            if(keyCode == e.VK_NUMPAD0){
+            if(keyCode == e.VK_NUMPAD0|| keyCode == e.VK_0){
+                zeroCheck();
+                answerCheck();
                 String tempNumber = displayTextField.getText() + jButton0.getText();
                 displayTextField.setText(tempNumber);
             }
@@ -114,6 +132,9 @@ public class Interface extends JFrame {
     String operation = "";
     boolean advancedOn = false;
     
+     boolean answerDisplayed = false;
+    boolean error = false;
+    
     public Interface() {
         initComponents();
         //I used displayTextField because this was "focused" on along with the buttons
@@ -140,11 +161,126 @@ public class Interface extends JFrame {
         this.setSize(318,430);
     }
     
+   
+     //
+    private boolean isZero()
+    {
+        return displayTextField.getText().length()==1 && displayTextField.getText().charAt((0)) == '0' ;
+    }
+    private void zeroCheck()
+    {
+        if(isZero())
+        {
+            delete();
+        }
+        
+    }
     private boolean emptyText()
     {
         return displayTextField.getText().length()==0 //if text field is empty
                 ||(displayTextField.getText().charAt((displayTextField.getText().length() -1)) == '.'
                    && displayTextField.getText().charAt((0)) == '.');
+    }
+    private void intCheck()
+    {
+        if(displayTextField.getText().contains(".") &&
+                displayTextField.getText().charAt(displayTextField.getText().length() -1) == '0')
+        {
+            delete();
+            delete();
+        }
+    }
+    private void answerCheck()
+    {
+          if(answerDisplayed)
+          {
+              displayTextField.setText("");
+              answerDisplayed = false;
+          }
+    }
+    
+    
+    
+    private void disableButtons()
+    {
+        jButton0.setEnabled(false);
+        jButton1.setEnabled(false);
+        jButton2.setEnabled(false);
+        jButton3.setEnabled(false);
+        jButton4.setEnabled(false);
+        jButton5.setEnabled(false);
+        jButton6.setEnabled(false);
+        jButton7.setEnabled(false);
+        jButton8.setEnabled(false);
+        jButton9.setEnabled(false);
+        jButtonBackSpace.setEnabled(false);
+        jButtonClearEntry.setEnabled(false);
+        jButtonDecimal.setEnabled(false);
+        jButtonDivide.setEnabled(false);
+        jButtonEquals.setEnabled(false);
+        jButtonFlip.setEnabled(false);
+        jButtonMemoryAdd.setEnabled(false);
+        jButtonMemoryClear.setEnabled(false);
+        jButtonMemoryRecall.setEnabled(false);
+        jButtonMemorySave.setEnabled(false);
+        jButtonMemorySub.setEnabled(false);
+        jButtonMinus.setEnabled(false);
+        jButtonNeg.setEnabled(false);
+        jButtonPercent.setEnabled(false);
+        jButtonPlusd.setEnabled(false);
+        jButtonSqrt.setEnabled(false);
+        jButtonTimes.setEnabled(false);
+        
+    }
+    private void enableButtons()
+    {
+        jButton0.setEnabled(true);
+        jButton1.setEnabled(true);
+        jButton2.setEnabled(true);
+        jButton3.setEnabled(true);
+        jButton4.setEnabled(true);
+        jButton5.setEnabled(true);
+        jButton6.setEnabled(true);
+        jButton7.setEnabled(true);
+        jButton8.setEnabled(true);
+        jButton9.setEnabled(true);
+        jButtonBackSpace.setEnabled(true);
+        jButtonClearEntry.setEnabled(true);
+        jButtonDecimal.setEnabled(true);
+        jButtonDivide.setEnabled(true);
+        jButtonEquals.setEnabled(true);
+        jButtonFlip.setEnabled(true);
+        jButtonMemoryAdd.setEnabled(true);
+        jButtonMemoryClear.setEnabled(true);
+        jButtonMemoryRecall.setEnabled(true);
+        jButtonMemorySave.setEnabled(true);
+        jButtonMemorySub.setEnabled(true);
+        jButtonMinus.setEnabled(true);
+        jButtonNeg.setEnabled(true);
+        jButtonPercent.setEnabled(true);
+        jButtonPlusd.setEnabled(true);
+        jButtonSqrt.setEnabled(true);
+        jButtonTimes.setEnabled(true);
+        
+    }
+    //errors
+    private void divideZero()
+    {
+        error = true;
+        disableButtons();
+        displayTextField.setText("Error: Divide by Zero (press C to continue)");
+        
+    }
+    private void imaginary()
+    {
+        error = true;
+        disableButtons();
+        displayTextField.setText("Error: No Real Solution (press C to continue)");
+    }
+    private void fixError()
+    {
+        error = false;
+        enableButtons();
     }
 
     
@@ -556,7 +692,14 @@ public class Interface extends JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonMemorySaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonMemorySaveMouseClicked
-        memory = Double.parseDouble(String.valueOf(displayTextField.getText()));
+        if(emptyText())
+        {
+            memory = 0;
+        }
+        else
+        {
+            memory = Double.parseDouble(String.valueOf(displayTextField.getText()));
+        }
     }//GEN-LAST:event_jButtonMemorySaveMouseClicked
 
     private void jButtonAdvancedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAdvancedMouseClicked
@@ -574,15 +717,22 @@ public class Interface extends JFrame {
     }//GEN-LAST:event_jButtonAdvancedMouseClicked
 
     private void jButtonMemorySubMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonMemorySubMouseClicked
-        memory -= Double.parseDouble(String.valueOf(displayTextField.getText()));
+        if(!emptyText())
+        {
+            memory -= Double.parseDouble(String.valueOf(displayTextField.getText()));
+        }
     }//GEN-LAST:event_jButtonMemorySubMouseClicked
 
     private void jButtonMemoryAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonMemoryAddMouseClicked
-        memory += Double.parseDouble(String.valueOf(displayTextField.getText()));
+        if(!emptyText())
+        {
+            memory += Double.parseDouble(String.valueOf(displayTextField.getText()));
+        }
     }//GEN-LAST:event_jButtonMemoryAddMouseClicked
 
     private void jButtonMemoryRecallMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonMemoryRecallMouseClicked
         displayTextField.setText(String.valueOf(memory));
+        intCheck();
     }//GEN-LAST:event_jButtonMemoryRecallMouseClicked
 
     private void jButtonMemoryClearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonMemoryClearMouseClicked
@@ -594,9 +744,13 @@ public class Interface extends JFrame {
     }//GEN-LAST:event_jButtonBackSpaceMouseClicked
 
     private void jButtonClearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonClearMouseClicked
-        displayTextField.setText("");
+         displayTextField.setText("");
         firstN = 0;
         secondN = 0;
+        if(error)
+        {
+            fixError();
+        }
     }//GEN-LAST:event_jButtonClearMouseClicked
 
     private void jButtonNegMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonNegMouseClicked
@@ -631,41 +785,81 @@ public class Interface extends JFrame {
     }//GEN-LAST:event_jButtonNegMouseClicked
 
     private void jButtonSqrtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSqrtMouseClicked
-        double temp = Double.parseDouble(String.valueOf(displayTextField.getText()));
-        temp = Math.sqrt(temp);
-        displayTextField.setText(String.valueOf(temp));
+         if(!emptyText()){
+            double temp = Double.parseDouble(String.valueOf(displayTextField.getText()));
+            if(temp <0)
+            {
+                imaginary();
+            }
+            else
+            {
+                temp = Math.sqrt(temp);
+                displayTextField.setText(String.valueOf(temp));
+                intCheck();
+            }
+        }
     }//GEN-LAST:event_jButtonSqrtMouseClicked
 
     private void jButtonPercentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonPercentMouseClicked
-        Double temp = Double.parseDouble(String.valueOf(displayTextField.getText()));
-        displayTextField.setText(String.valueOf(firstN * (temp * .01)));
+      if(!emptyText())
+        {
+            Double temp = Double.parseDouble(String.valueOf(displayTextField.getText()));
+             displayTextField.setText(String.valueOf(firstN * (temp * .01)));
+        }
     }//GEN-LAST:event_jButtonPercentMouseClicked
 
     private void jButtonFlipMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonFlipMouseClicked
-        double temp = Double.parseDouble(String.valueOf(displayTextField.getText()));
-        temp = 1 / temp;
-        displayTextField.setText(String.valueOf(temp));
+         if(!emptyText())
+        {
+            double temp = Double.parseDouble(String.valueOf(displayTextField.getText()));
+            if(temp == 0){
+                divideZero();
+            }
+            else
+            {
+                temp = 1 / temp;
+
+            displayTextField.setText(String.valueOf(temp));
+            intCheck();
+            }
+        }
     }//GEN-LAST:event_jButtonFlipMouseClicked
 
     private void jButtonEqualsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEqualsMouseClicked
-        secondN = Double.parseDouble(String.valueOf(displayTextField.getText()));
+        if(!emptyText())
+        {
+            secondN = Double.parseDouble(String.valueOf(displayTextField.getText()));
+        }
+
+            if(operation.contains("+"))
+            {
+                displayTextField.setText(Double.toString(firstN+secondN));
+            }
+            else if(operation.contains("-"))
+            {
+                displayTextField.setText(Double.toString(firstN-secondN));
+            }
+            else if(operation.contains("*"))
+            {
+                displayTextField.setText(Double.toString(firstN*secondN));
+            }
+            else if(operation.contains("/"))
+            {
+                if(secondN == 0)
+                {
+                    divideZero();
+                }
+                else
+                {
+                    displayTextField.setText(Double.toString(firstN/secondN));
+                }
+            }
+            if(!error)
+            {
+                intCheck();
+                answerDisplayed = true;
+            }
         
-        if(operation.contains("+"))
-        {
-            displayTextField.setText(Double.toString(firstN+secondN));
-        }
-        else if(operation.contains("-"))
-        {
-            displayTextField.setText(Double.toString(firstN-secondN));
-        }
-        else if(operation.contains("*"))
-        {
-            displayTextField.setText(Double.toString(firstN*secondN));
-        }
-        else if(operation.contains("/"))
-        {
-            displayTextField.setText(Double.toString(firstN/secondN));
-        }
     }//GEN-LAST:event_jButtonEqualsMouseClicked
 
     private void jButtonDivideMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonDivideMouseClicked
@@ -693,6 +887,7 @@ public class Interface extends JFrame {
     }//GEN-LAST:event_jButtonPlusdMouseClicked
 
     private void jButtonDecimalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonDecimalMouseClicked
+       answerCheck();
         if(!displayTextField.getText().contains("."))
         {
             displayTextField.setText(displayTextField.getText() + jButtonDecimal.getText());
@@ -700,62 +895,79 @@ public class Interface extends JFrame {
     }//GEN-LAST:event_jButtonDecimalMouseClicked
 
     private void jButton0MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton0MouseClicked
-        double tempZero = Double.parseDouble(String.valueOf(displayTextField.getText()+0));
-        
-        if(tempZero != 0 || displayTextField.getText().contains("."))
-        {
+       zeroCheck();
+        answerCheck();                
         String tempNumber = displayTextField.getText() + jButton0.getText();
         displayTextField.setText(tempNumber);
-        }
+        
 
     }//GEN-LAST:event_jButton0MouseClicked
 
     private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
+        zeroCheck();
+        answerCheck();
         String tempNumber = displayTextField.getText() + jButton9.getText();
         displayTextField.setText(tempNumber);
     }//GEN-LAST:event_jButton9MouseClicked
 
     private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
+        zeroCheck();
+        answerCheck();
         String tempNumber = displayTextField.getText() + jButton8.getText();
         displayTextField.setText(tempNumber);
     }//GEN-LAST:event_jButton8MouseClicked
 
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+        zeroCheck();
+        answerCheck();
         String tempNumber = displayTextField.getText() + jButton7.getText();
         displayTextField.setText(tempNumber);
     }//GEN-LAST:event_jButton7MouseClicked
 
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        zeroCheck();
+        answerCheck();
         String tempNumber = displayTextField.getText() + jButton6.getText();
         displayTextField.setText(tempNumber);
     }//GEN-LAST:event_jButton6MouseClicked
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+       zeroCheck();
+        answerCheck();
         String tempNumber = displayTextField.getText() + jButton5.getText();
         displayTextField.setText(tempNumber);
     }//GEN-LAST:event_jButton5MouseClicked
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        zeroCheck();
+        answerCheck();
         String tempNumber = displayTextField.getText() + jButton4.getText();
         displayTextField.setText(tempNumber);
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        zeroCheck();
+        answerCheck();
         String tempNumber = displayTextField.getText() + jButton3.getText();
         displayTextField.setText(tempNumber);
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+       zeroCheck();
+        answerCheck();
         String tempNumber = displayTextField.getText() + jButton2.getText();
         displayTextField.setText(tempNumber);
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+       zeroCheck();
+        answerCheck();
         String tempNumber = displayTextField.getText() + jButton1.getText();
         displayTextField.setText(tempNumber);
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButtonClearEntryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonClearEntryMouseClicked
+        answerCheck();
         displayTextField.setText("");
     }//GEN-LAST:event_jButtonClearEntryMouseClicked
 
