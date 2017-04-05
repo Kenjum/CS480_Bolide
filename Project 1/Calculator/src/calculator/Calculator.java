@@ -13,6 +13,7 @@ public class Calculator {
     
     public static void main(String[] args) {
         sInterface.setVisible(true);
+        sInterface.setupSize();
     }
     
 }

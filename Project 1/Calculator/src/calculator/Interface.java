@@ -6,12 +6,14 @@
 
 package calculator;
 
-/**
- *
- * @author wkkiplinger
- */
+import static calculator.Calculator.sInterface;
+
 public class Interface extends javax.swing.JFrame {
 
+    double memory = 0;
+    double firstN = 0;
+    double secondN = 0;
+    String operation = "";
     boolean advancedOn = false;
     
     public Interface() {
@@ -29,6 +31,20 @@ public class Interface extends javax.swing.JFrame {
             displayTextField.setText(temp);
         }        
     }
+    
+    public void setupSize()
+    {
+        advancedOn = false;
+        this.setSize(318,430);
+    }
+    
+    private boolean emptyText()
+    {
+        return displayTextField.getText().length()==0 //if text field is empty
+                ||(displayTextField.getText().charAt((displayTextField.getText().length() -1)) == '.'
+                   && displayTextField.getText().charAt((0)) == '.');
+    }
+
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -68,9 +84,9 @@ public class Interface extends javax.swing.JFrame {
         jButtonMemorySub = new javax.swing.JButton();
         jButtonAdvanced = new javax.swing.JButton();
         jButtonMemorySave = new javax.swing.JButton();
+        jButtonClearEntry = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setResizable(false);
 
         jButton1.setText("1");
         jButton1.setMaximumSize(new java.awt.Dimension(40, 40));
@@ -155,6 +171,8 @@ public class Interface extends javax.swing.JFrame {
 
         displayTextField.setEditable(false);
         displayTextField.setBackground(new java.awt.Color(255, 255, 255));
+        displayTextField.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        displayTextField.setAutoscrolls(false);
 
         jButtonPlusd.setText("+");
         jButtonPlusd.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -276,45 +294,58 @@ public class Interface extends javax.swing.JFrame {
             }
         });
 
+        jButtonClearEntry.setText("CE");
+        jButtonClearEntry.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonClearEntryMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(displayTextField)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton0, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButtonDecimal, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButtonNeg, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButtonClear, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButtonBackSpace, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(104, 104, 104)
+                        .addComponent(jButtonAdvanced))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButtonMinus, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonTimes, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonDivide, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonEquals, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonPlusd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jButton0, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jButtonDecimal, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jButtonClear, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jButtonClearEntry, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jButtonBackSpace, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                                    .addComponent(jButtonNeg, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jButtonMinus, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButtonTimes, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButtonDivide, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButtonEquals, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButtonPlusd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(displayTextField))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -332,12 +363,7 @@ public class Interface extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jButtonFlip, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonMemorySub, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(104, 104, 104)
-                .addComponent(jButtonAdvanced)
+                                .addComponent(jButtonMemorySub, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -360,7 +386,8 @@ public class Interface extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jButtonDivide, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jButtonBackSpace, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButtonClear, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jButtonClear, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButtonClearEntry, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
@@ -427,39 +454,37 @@ public class Interface extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonMemorySaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonMemorySaveMouseClicked
-        // TODO add your handling code here:
+        memory = Double.parseDouble(String.valueOf(displayTextField.getText()));
     }//GEN-LAST:event_jButtonMemorySaveMouseClicked
 
     private void jButtonAdvancedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAdvancedMouseClicked
-        this.setResizable(true);
         if(advancedOn)
         {
             advancedOn = false;
-            this.setSize(310,420);                  //make the start off small. 
-            //displayTextField.setSize(190, 40);    need to adjust text field with screen size
+            this.setSize(318,430);                  //make the start off small. 
+            displayTextField.setSize(300, 40);      //need to adjust text field with screen size
         }else
         {
             advancedOn = true;
-            this.setSize(450,420);
-            //displayTextField.setSize(420, 40);    need to adjust text field with screen size
+            this.setSize(460,430);
+            displayTextField.setSize(420, 40);      //need to adjust text field with screen size
         }
-        this.setResizable(false);
     }//GEN-LAST:event_jButtonAdvancedMouseClicked
 
     private void jButtonMemorySubMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonMemorySubMouseClicked
-        // TODO add your handling code here:
+        memory -= Double.parseDouble(String.valueOf(displayTextField.getText()));
     }//GEN-LAST:event_jButtonMemorySubMouseClicked
 
     private void jButtonMemoryAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonMemoryAddMouseClicked
-        // TODO add your handling code here:
+        memory += Double.parseDouble(String.valueOf(displayTextField.getText()));
     }//GEN-LAST:event_jButtonMemoryAddMouseClicked
 
     private void jButtonMemoryRecallMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonMemoryRecallMouseClicked
-        // TODO add your handling code here:
+        displayTextField.setText(String.valueOf(memory));
     }//GEN-LAST:event_jButtonMemoryRecallMouseClicked
 
     private void jButtonMemoryClearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonMemoryClearMouseClicked
-        // TODO add your handling code here:
+        memory = 0;
     }//GEN-LAST:event_jButtonMemoryClearMouseClicked
 
     private void jButtonBackSpaceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonBackSpaceMouseClicked
@@ -468,17 +493,23 @@ public class Interface extends javax.swing.JFrame {
 
     private void jButtonClearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonClearMouseClicked
         displayTextField.setText("");
+        firstN = 0;
+        secondN = 0;
     }//GEN-LAST:event_jButtonClearMouseClicked
 
     private void jButtonNegMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonNegMouseClicked
-        
-        if(displayTextField.getText().charAt((displayTextField.getText().length() -1)) == '.')
+
+        if( emptyText())
+        {
+            //do nothing when text field is empty or only contains a decimal 
+        }
+        else if(displayTextField.getText().charAt((displayTextField.getText().length() -1)) == '.')
         {
             double temp = Double.parseDouble(String.valueOf(displayTextField.getText()));
             temp = temp *(-1);
             displayTextField.setText(String.valueOf(temp));
             delete();
-            
+
         }
         else if(displayTextField.getText().contains("."))
         {
@@ -493,40 +524,70 @@ public class Interface extends javax.swing.JFrame {
             displayTextField.setText(String.valueOf(temp));
             delete();
             delete();
-            
-        }
+
+        }        
     }//GEN-LAST:event_jButtonNegMouseClicked
 
     private void jButtonSqrtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSqrtMouseClicked
-        // TODO add your handling code here:
+        double temp = Double.parseDouble(String.valueOf(displayTextField.getText()));
+        temp = Math.sqrt(temp);
+        displayTextField.setText(String.valueOf(temp));
     }//GEN-LAST:event_jButtonSqrtMouseClicked
 
     private void jButtonPercentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonPercentMouseClicked
-        // TODO add your handling code here:
+        Double temp = Double.parseDouble(String.valueOf(displayTextField.getText()));
+        displayTextField.setText(String.valueOf(firstN * (temp * .01)));
     }//GEN-LAST:event_jButtonPercentMouseClicked
 
     private void jButtonFlipMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonFlipMouseClicked
-        // TODO add your handling code here:
+        double temp = Double.parseDouble(String.valueOf(displayTextField.getText()));
+        temp = 1 / temp;
+        displayTextField.setText(String.valueOf(temp));
     }//GEN-LAST:event_jButtonFlipMouseClicked
 
     private void jButtonEqualsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEqualsMouseClicked
-        // TODO add your handling code here:
+        secondN = Double.parseDouble(String.valueOf(displayTextField.getText()));
+        
+        if(operation.contains("+"))
+        {
+            displayTextField.setText(Double.toString(firstN+secondN));
+        }
+        else if(operation.contains("-"))
+        {
+            displayTextField.setText(Double.toString(firstN-secondN));
+        }
+        else if(operation.contains("*"))
+        {
+            displayTextField.setText(Double.toString(firstN*secondN));
+        }
+        else if(operation.contains("/"))
+        {
+            displayTextField.setText(Double.toString(firstN/secondN));
+        }
     }//GEN-LAST:event_jButtonEqualsMouseClicked
 
     private void jButtonDivideMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonDivideMouseClicked
-        // TODO add your handling code here:
+        firstN = Double.parseDouble(String.valueOf(displayTextField.getText()));
+        displayTextField.setText("");
+        operation = "/";
     }//GEN-LAST:event_jButtonDivideMouseClicked
 
     private void jButtonTimesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonTimesMouseClicked
-        // TODO add your handling code here:
+        firstN = Double.parseDouble(String.valueOf(displayTextField.getText()));
+        displayTextField.setText("");
+        operation = "*";
     }//GEN-LAST:event_jButtonTimesMouseClicked
 
     private void jButtonMinusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonMinusMouseClicked
-        // TODO add your handling code here:
+        firstN = Double.parseDouble(String.valueOf(displayTextField.getText()));
+        displayTextField.setText("");
+        operation = "-";
     }//GEN-LAST:event_jButtonMinusMouseClicked
 
     private void jButtonPlusdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonPlusdMouseClicked
-        // TODO add your handling code here:
+        firstN = Double.parseDouble(String.valueOf(displayTextField.getText()));
+        displayTextField.setText("");
+        operation = "+";
     }//GEN-LAST:event_jButtonPlusdMouseClicked
 
     private void jButtonDecimalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonDecimalMouseClicked
@@ -592,9 +653,11 @@ public class Interface extends javax.swing.JFrame {
         displayTextField.setText(tempNumber);
     }//GEN-LAST:event_jButton1MouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
+    private void jButtonClearEntryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonClearEntryMouseClicked
+        displayTextField.setText("");
+    }//GEN-LAST:event_jButtonClearEntryMouseClicked
+
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -642,6 +705,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JButton jButtonAdvanced;
     private javax.swing.JButton jButtonBackSpace;
     private javax.swing.JButton jButtonClear;
+    private javax.swing.JButton jButtonClearEntry;
     private javax.swing.JButton jButtonDecimal;
     private javax.swing.JButton jButtonDivide;
     private javax.swing.JButton jButtonEquals;
