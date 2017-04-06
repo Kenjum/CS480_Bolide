@@ -11,21 +11,21 @@
  *  hidden and revealed when pressing the "advanced button."
  *
  *  Our submitted Preliminary development plan when going into this was "we're 
- *  good, believe use." We set up a something a little more concrete. We would
+ *  good, believe use." We set up something a little more concrete. We would
  *  design the layout in a gui, have a button that changes the screen size, 
  *  and then stomp out any bugs after our pretty basic funcitonality button 
  *  funcitons. 
  *
  *  For our design and architecture approach, we wanted something similar to 
  *  a standard calculator you would find on a computer. We laid out something
- *  similar in the swing editor. We then built upon the generated code. We gave
+ *  similar in the swing editor. We then built upon the generated code. We 
  *  had a few variables save the use inputs and when a certain function was 
  *  input, we would pass that to equal and check which appropriate thing it 
  *  should do.
  *
  *  As far as implementation, it was pretty straight forward. We had a few 
  *  variables for holding information to work with each other later. We had 
- *  buttons with immediate effects operate yield instand results. We would also 
+ *  buttons with immediate effects yield instant results. We would also 
  *  read from the display window and write to it. For the number buttons, we 
  *  would concatinate it to whatever was already in the text box. There was a
  *  lot of conversion between strings and doubles. 
@@ -35,7 +35,7 @@
  *  we eventually added to what some online resources suggest to do and it 
  *  worked, but this part definitely took the longest to figure out.
  *
- *  For Testing approach and testing data, we would test normal cases that would
+ *  For testing approach and testing data, we would test normal cases that would
  *  throw errors on a regular calculator like dividing by zero or something. We
  *  would also check things like what if some of our +/- buttons would work
  *  on the zero value. We mainly aimed for illegal arithmatic moves.
@@ -198,6 +198,7 @@ public class Interface extends JFrame {
     String operation = "";
     boolean advancedOn = false;
     
+    //toggles for checks lower in the program
     boolean answerDisplayed = false;
     boolean error = false;
     
@@ -210,6 +211,7 @@ public class Interface extends JFrame {
         displayTextField.addKeyListener(new AL());
     }
 
+    //This is to subtract subtract 1 character form the display
     public void delete()
     {
         String temp = null;
@@ -230,11 +232,13 @@ public class Interface extends JFrame {
     }
     
    
-    //
+    //will show at least 1 zero instead of leaving it empty if zero is selected.
     private boolean isZero()
     {
         return displayTextField.getText().length()==1 && displayTextField.getText().charAt((0)) == '0' ;
     }
+    
+    //check if it is only a zero, then will delete.
     private void zeroCheck()
     {
         if(isZero())
@@ -243,12 +247,14 @@ public class Interface extends JFrame {
         }
         
     }
+    //checks if the text field is empty
     private boolean emptyText()
     {
         return displayTextField.getText().length()==0 //if text field is empty
                 ||(displayTextField.getText().charAt((displayTextField.getText().length() -1)) == '.'
                    && displayTextField.getText().charAt((0)) == '.');
     }
+    //checks if value is int (in regards to double generating "." and "0" after value"
     private void intCheck()
     {
         if(displayTextField.getText().contains(".") &&
@@ -258,6 +264,7 @@ public class Interface extends JFrame {
             delete();
         }
     }
+    //resets field
     private void answerCheck()
     {
           if(answerDisplayed)
@@ -266,8 +273,6 @@ public class Interface extends JFrame {
               answerDisplayed = false;
           }
     }
-    
-    
     
     private void disableButtons()
     {

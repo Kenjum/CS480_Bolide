@@ -11,21 +11,21 @@
  *  hidden and revealed when pressing the "advanced button."
  *
  *  Our submitted Preliminary development plan when going into this was "we're 
- *  good, believe use." We set up a something a little more concrete. We would
+ *  good, believe use." We set up something a little more concrete. We would
  *  design the layout in a gui, have a button that changes the screen size, 
  *  and then stomp out any bugs after our pretty basic funcitonality button 
  *  funcitons. 
  *
  *  For our design and architecture approach, we wanted something similar to 
  *  a standard calculator you would find on a computer. We laid out something
- *  similar in the swing editor. We then built upon the generated code. We gave
+ *  similar in the swing editor. We then built upon the generated code. We 
  *  had a few variables save the use inputs and when a certain function was 
  *  input, we would pass that to equal and check which appropriate thing it 
  *  should do.
  *
  *  As far as implementation, it was pretty straight forward. We had a few 
  *  variables for holding information to work with each other later. We had 
- *  buttons with immediate effects operate yield instand results. We would also 
+ *  buttons with immediate effects yield instant results. We would also 
  *  read from the display window and write to it. For the number buttons, we 
  *  would concatinate it to whatever was already in the text box. There was a
  *  lot of conversion between strings and doubles. 
@@ -35,7 +35,7 @@
  *  we eventually added to what some online resources suggest to do and it 
  *  worked, but this part definitely took the longest to figure out.
  *
- *  For Testing approach and testing data, we would test normal cases that would
+ *  For testing approach and testing data, we would test normal cases that would
  *  throw errors on a regular calculator like dividing by zero or something. We
  *  would also check things like what if some of our +/- buttons would work
  *  on the zero value. We mainly aimed for illegal arithmatic moves.
