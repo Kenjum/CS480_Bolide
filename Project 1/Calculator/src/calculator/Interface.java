@@ -1,7 +1,49 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ *  Company: Bolide
+ *  CEO: 
+ *       Kenji Kiplinger
+ *  Other Staff:
+ *       Ka-Hei Lee, Luis Lopez, BGryce Metcalf, Ramon Moreno, Awais Ibrahim
+ *
+ *  The project had us design a calculator with standard functionality, 
+ *  something similar to the standard calculators on computers. Along with the
+ *  functionality, we had keybinds and and advanced functions which would be
+ *  hidden and revealed when pressing the "advanced button."
+ *
+ *  Our submitted Preliminary development plan when going into this was "we're 
+ *  good, believe use." We set up a something a little more concrete. We would
+ *  design the layout in a gui, have a button that changes the screen size, 
+ *  and then stomp out any bugs after our pretty basic funcitonality button 
+ *  funcitons. 
+ *
+ *  For our design and architecture approach, we wanted something similar to 
+ *  a standard calculator you would find on a computer. We laid out something
+ *  similar in the swing editor. We then built upon the generated code. We gave
+ *  had a few variables save the use inputs and when a certain function was 
+ *  input, we would pass that to equal and check which appropriate thing it 
+ *  should do.
+ *
+ *  As far as implementation, it was pretty straight forward. We had a few 
+ *  variables for holding information to work with each other later. We had 
+ *  buttons with immediate effects operate yield instand results. We would also 
+ *  read from the display window and write to it. For the number buttons, we 
+ *  would concatinate it to whatever was already in the text box. There was a
+ *  lot of conversion between strings and doubles. 
+ *
+ *  The biggest issue we encountered was how to incorporate keybinds. We had 
+ *  resources online, but we didn't quite understand how to interpret them.
+ *  we eventually added to what some online resources suggest to do and it 
+ *  worked, but this part definitely took the longest to figure out.
+ *
+ *  For Testing approach and testing data, we would test normal cases that would
+ *  throw errors on a regular calculator like dividing by zero or something. We
+ *  would also check things like what if some of our +/- buttons would work
+ *  on the zero value. We mainly aimed for illegal arithmatic moves.
+ *
+ *  Somthing we would do for future improvements is have create more separate
+ *  functions because we have some repeating code in our project and that's not
+ *  necessary. Otherwise, everything else is pretty smooth.
+ *
  */
 
 package calculator;
@@ -13,10 +55,13 @@ import javax.swing.JFrame;
 
 public class Interface extends JFrame {
 
+    //This class is constantly listening for key inputs. If they match with
+    //whatever we set it up to do, it will do it.
     public class AL extends KeyAdapter {
         public void keyPressed(KeyEvent e){
             
             int keyCode = e.getKeyCode();
+            //Example, if numpad 1 or key 1, it will add a 1.
             if(keyCode == e.VK_NUMPAD1 || keyCode == e.VK_1){
                 zeroCheck();
                 answerCheck();
@@ -82,7 +127,7 @@ public class Interface extends JFrame {
                 }
             }
             
-            
+            //These buttons are for the function keys on the keypad
             if(keyCode == e.VK_MULTIPLY){
                 firstN = Double.parseDouble(String.valueOf(displayTextField.getText()));
                 displayTextField.setText("");
@@ -143,20 +188,25 @@ public class Interface extends JFrame {
         }
     }
     
+    //Memory is for the M keys. We save firstN a lot and use the secondN to 
+    //put calculations together. operation is to save the operation sign so
+    //we can do the appropriate command when the equals button is pressed.
+    //The advancedOn is for toggling the screen size.
     double memory = 0;
     double firstN = 0;
     double secondN = 0;
     String operation = "";
     boolean advancedOn = false;
     
-     boolean answerDisplayed = false;
+    boolean answerDisplayed = false;
     boolean error = false;
     
     public Interface() {
         initComponents();
         //I used displayTextField because this was "focused" on along with the buttons
         //the screen was selected so this was active. There are like different
-        //layers to this.
+        //layers to this. We disabled the buttons ability to change focus so the
+        //keybinds work all the time.
         displayTextField.addKeyListener(new AL());
     }
 
@@ -172,6 +222,7 @@ public class Interface extends JFrame {
         }        
     }
     
+    //sets up the appropriate screen size.
     public void setupSize()
     {
         advancedOn = false;
@@ -179,7 +230,7 @@ public class Interface extends JFrame {
     }
     
    
-     //
+    //
     private boolean isZero()
     {
         return displayTextField.getText().length()==1 && displayTextField.getText().charAt((0)) == '0' ;
@@ -280,7 +331,8 @@ public class Interface extends JFrame {
         jButtonTimes.setEnabled(true);
         
     }
-    //errors
+    //errors for dividing by zero or improperly using negative numbers.
+    //below this is the functionality for the buttons.
     private void divideZero()
     {
         error = true;
