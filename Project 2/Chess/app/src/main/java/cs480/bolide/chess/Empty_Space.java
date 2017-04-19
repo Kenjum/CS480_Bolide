@@ -5,5 +5,8 @@ package cs480.bolide.chess;
  */
 
 public class Empty_Space extends ChessPiece {
+    public Empty_Space(int x,int y){
+        super(x,y,Color.None,Type.Empty_Space);
+    }
 
 }

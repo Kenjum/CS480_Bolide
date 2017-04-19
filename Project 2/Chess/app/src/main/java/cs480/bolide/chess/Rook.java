@@ -12,6 +12,11 @@ public class Rook extends ChessPiece {
         super(-1,-1, c,Type.Rook);
 
     }
+    public Rook(int x, int y, Color c){
+        super(x,y,c,Type.Rook);
+
+
+    }
 
 
 }

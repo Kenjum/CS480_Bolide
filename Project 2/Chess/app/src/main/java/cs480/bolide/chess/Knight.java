@@ -12,4 +12,9 @@ public class Knight extends ChessPiece {
         super(-1,-1, c,Type.Knight);
 
     }
+    public Knight(int x, int y, Color c){
+        super(x,y,c,Type.Knight);
+
+
+    }
 }

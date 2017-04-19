@@ -15,4 +15,8 @@ public class King extends ChessPiece {
         inCheck = false;
 
     }
+    public King(int x, int y, Color c){
+        super(x,y,c,Type.King);
+        inCheck = false;
+    }
 }

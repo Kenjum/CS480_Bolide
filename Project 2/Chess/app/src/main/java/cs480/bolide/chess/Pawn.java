@@ -12,5 +12,10 @@ public class Pawn extends ChessPiece {
         super(-1,-1, c,Type.Pawn);
 
     }
+    public Pawn(int x, int y, Color c){
+        super(x,y,c,Type.Pawn);
+
+
+    }
 
 }
