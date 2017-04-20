@@ -29,6 +29,7 @@
                 android:layout_weight="1"
                 android:background="@android:color/white"
                 android:onClick="onClick"
+                android:src="@drawable/black_rook"
                 android:tag="0" />
 
             <ImageButton
@@ -38,6 +39,7 @@
                 android:layout_weight="1"
                 android:background="@android:color/darker_gray"
                 android:onClick="onClick"
+                android:src="@drawable/black_knight"
                 android:tag="1" />
 
             <ImageButton
@@ -45,9 +47,10 @@
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_weight="1"
-                 android:background="@android:color/white"
+                android:background="@android:color/white"
                 android:onClick="onClick"
-                android:tag="2"/>
+                android:src="@drawable/black_bishop"
+                android:tag="2" />
 
             <ImageButton
                 android:id="@+id/block4"
@@ -56,16 +59,18 @@
                 android:layout_weight="1"
                 android:background="@android:color/darker_gray"
                 android:onClick="onClick"
-                android:tag="3"/>
+                android:src="@drawable/black_queen"
+                android:tag="3" />
 
             <ImageButton
                 android:id="@+id/block5"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_weight="1"
-                 android:background="@android:color/white"
+                android:background="@android:color/white"
                 android:onClick="onClick"
-                android:tag="4"/>
+                android:src="@drawable/black_king"
+                android:tag="4" />
 
             <ImageButton
                 android:id="@+id/block6"
@@ -74,16 +79,18 @@
                 android:layout_weight="1"
                 android:background="@android:color/darker_gray"
                 android:onClick="onClick"
-                android:tag="5"/>
+                android:src="@drawable/black_bishop"
+                android:tag="5" />
 
             <ImageButton
                 android:id="@+id/block7"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_weight="1"
-                 android:background="@android:color/white"
+                android:background="@android:color/white"
                 android:onClick="onClick"
-                android:tag="6"/>
+                android:src="@drawable/black_knight"
+                android:tag="6" />
 
             <ImageButton
                 android:id="@+id/block8"
@@ -92,7 +99,8 @@
                 android:layout_weight="1"
                 android:background="@android:color/darker_gray"
                 android:onClick="onClick"
-                android:tag="7"/>
+                android:src="@drawable/black_rook"
+                android:tag="7" />
         </TableRow>
 
         <TableRow
@@ -107,6 +115,7 @@
                 android:layout_weight="1"
                 android:background="@android:color/darker_gray"
                 android:onClick="onClick"
+                android:src="@drawable/black_pawn"
                 android:tag="10" />
 
             <ImageButton
@@ -116,6 +125,7 @@
                 android:layout_weight="1"
                 android:background="@android:color/white"
                 android:onClick="onClick"
+                android:src="@drawable/black_pawn"
                 android:tag="11" />
 
             <ImageButton
@@ -125,6 +135,7 @@
                 android:layout_weight="1"
                 android:background="@android:color/darker_gray"
                 android:onClick="onClick"
+                android:src="@drawable/black_pawn"
                 android:tag="12" />
 
             <ImageButton
@@ -134,6 +145,7 @@
                 android:layout_weight="1"
                 android:background="@android:color/white"
                 android:onClick="onClick"
+                android:src="@drawable/black_pawn"
                 android:tag="13" />
 
             <ImageButton
@@ -143,6 +155,7 @@
                 android:layout_weight="1"
                 android:background="@android:color/darker_gray"
                 android:onClick="onClick"
+                android:src="@drawable/black_pawn"
                 android:tag="14" />
 
             <ImageButton
@@ -152,6 +165,7 @@
                 android:layout_weight="1"
                 android:background="@android:color/white"
                 android:onClick="onClick"
+                android:src="@drawable/black_pawn"
                 android:tag="15" />
 
             <ImageButton
@@ -161,6 +175,7 @@
                 android:layout_weight="1"
                 android:background="@android:color/darker_gray"
                 android:onClick="onClick"
+                android:src="@drawable/black_pawn"
                 android:tag="16" />
 
             <ImageButton
@@ -170,6 +185,7 @@
                 android:layout_weight="1"
                 android:background="@android:color/white"
                 android:onClick="onClick"
+                android:src="@drawable/black_pawn"
                 android:tag="17" />
         </TableRow>
 
@@ -497,6 +513,7 @@
                 android:layout_weight="1"
                 android:background="@android:color/white"
                 android:onClick="onClick"
+                android:src="@drawable/white_pawn"
                 android:tag="60" />
 
             <ImageButton
@@ -506,6 +523,7 @@
                 android:layout_weight="1"
                 android:background="@android:color/darker_gray"
                 android:onClick="onClick"
+                android:src="@drawable/white_pawn"
                 android:tag="61" />
 
             <ImageButton
@@ -515,6 +533,7 @@
                 android:layout_weight="1"
                 android:background="@android:color/white"
                 android:onClick="onClick"
+                android:src="@drawable/white_pawn"
                 android:tag="62" />
 
             <ImageButton
@@ -524,6 +543,7 @@
                 android:layout_weight="1"
                 android:background="@android:color/darker_gray"
                 android:onClick="onClick"
+                android:src="@drawable/white_pawn"
                 android:tag="63" />
 
             <ImageButton
@@ -533,6 +553,7 @@
                 android:layout_weight="1"
                 android:background="@android:color/white"
                 android:onClick="onClick"
+                android:src="@drawable/white_pawn"
                 android:tag="64" />
 
             <ImageButton
@@ -542,6 +563,7 @@
                 android:layout_weight="1"
                 android:background="@android:color/darker_gray"
                 android:onClick="onClick"
+                android:src="@drawable/white_pawn"
                 android:tag="65" />
 
             <ImageButton
@@ -551,6 +573,7 @@
                 android:layout_weight="1"
                 android:background="@android:color/white"
                 android:onClick="onClick"
+                android:src="@drawable/white_pawn"
                 android:tag="66" />
 
             <ImageButton
@@ -560,6 +583,7 @@
                 android:layout_weight="1"
                 android:background="@android:color/darker_gray"
                 android:onClick="onClick"
+                android:src="@drawable/white_pawn"
                 android:tag="67" />
         </TableRow>
 
@@ -575,6 +599,7 @@
                 android:layout_weight="1"
                 android:background="@android:color/darker_gray"
                 android:onClick="onClick"
+                android:src="@drawable/white_rook"
                 android:tag="70" />
 
             <ImageButton
@@ -584,6 +609,7 @@
                 android:layout_weight="1"
                 android:background="@android:color/white"
                 android:onClick="onClick"
+                android:src="@drawable/white_knight"
                 android:tag="71" />
 
             <ImageButton
@@ -593,6 +619,7 @@
                 android:layout_weight="1"
                 android:background="@android:color/darker_gray"
                 android:onClick="onClick"
+                android:src="@drawable/white_bishop"
                 android:tag="72" />
 
             <ImageButton
@@ -602,6 +629,7 @@
                 android:layout_weight="1"
                 android:background="@android:color/white"
                 android:onClick="onClick"
+                android:src="@drawable/white_queen"
                 android:tag="73" />
 
             <ImageButton
@@ -611,6 +639,7 @@
                 android:layout_weight="1"
                 android:background="@android:color/darker_gray"
                 android:onClick="onClick"
+                android:src="@drawable/white_king"
                 android:tag="74" />
 
             <ImageButton
@@ -620,6 +649,7 @@
                 android:layout_weight="1"
                 android:background="@android:color/white"
                 android:onClick="onClick"
+                android:src="@drawable/white_bishop"
                 android:tag="75" />
 
             <ImageButton
@@ -629,6 +659,7 @@
                 android:layout_weight="1"
                 android:background="@android:color/darker_gray"
                 android:onClick="onClick"
+                android:src="@drawable/white_knight"
                 android:tag="76" />
 
             <ImageButton
@@ -638,6 +669,7 @@
                 android:layout_weight="1"
                 android:background="@android:color/white"
                 android:onClick="onClick"
+                android:src="@drawable/white_rook"
                 android:tag="77" />
         </TableRow>
     </TableLayout>

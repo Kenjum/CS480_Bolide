@@ -38,6 +38,11 @@ public abstract class ChessPiece {
     public Type getType(){
         return type;
     }
+    public Color getColor(){ return color; }
+    public void setMoved(boolean a){
+        moved = a;
+    }
+    public boolean getMoved(){ return moved;}
 
 
 
