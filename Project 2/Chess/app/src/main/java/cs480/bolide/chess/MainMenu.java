@@ -11,7 +11,7 @@ public class MainMenu extends AppCompatActivity {
     public Button buttonLocal;
 
     public void onClick(View View){
-        Intent createGame = new Intent(MainMenu.this,LocalChessBoard.class);
+        Intent createGame = new Intent(MainMenu.this,ChessBoard_UInterface.class);
         startActivity(createGame);
     }
 
