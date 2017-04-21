@@ -43,6 +43,42 @@ public abstract class ChessPiece {
         moved = a;
     }
     public boolean getMoved(){ return moved;}
+    public String printName(){
+
+        String c;
+        if(color == Color.White)
+        {
+            c = "White ";
+        }
+        else{
+            c = "Black ";
+        }
+        switch(type){
+
+            case King:
+                return c + "King";
+
+            case Queen:
+                return c+ "Queen";
+
+            case Knight:
+                return c + "Knight";
+
+            case Rook:
+                return c + "Rook";
+
+            case Bishop:
+                return c + "Bishop";
+
+            case Pawn:
+                return c + "Pawn";
+
+            default:
+                return "";
+
+
+        }
+    }
 
 
 

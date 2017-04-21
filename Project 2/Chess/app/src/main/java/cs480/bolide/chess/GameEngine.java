@@ -4,6 +4,8 @@ package cs480.bolide.chess;
 import static android.icu.lang.UProperty.MATH;
 
 public class GameEngine{
+    private Color turn = Color.White;
+
     ArrayBoard gameBoard;
     public GameEngine(){
         gameBoard = new ArrayBoard();
@@ -21,6 +23,9 @@ public class GameEngine{
 
         ChessPiece tempPiece1 = gameBoard.getPieceAt(y1, x1);
         ChessPiece tempPiece2 = gameBoard.getPieceAt(y2, x2);
+        if(tempPiece1.getColor()!= turn){
+            return false;
+        }
         if (tempPiece1.getColor() == tempPiece2.getColor()) {
             return false;
         }
@@ -50,6 +55,7 @@ public class GameEngine{
                     if (checkForEmpty(x2, y2)) {
                         return false;
                     }
+                    nextTurn();
                     return true;
                 }
                 if (tempPiece1.getColor() == Color.White) {
@@ -63,6 +69,7 @@ public class GameEngine{
                             return false;
                     }
                 }
+                nextTurn();
                 return true;
             }
         }
@@ -71,7 +78,10 @@ public class GameEngine{
             int xPath = Math.abs(x2 - x1);
             int yPath = Math.abs(y2 - y1);
             if (xPath <= 2 && yPath <= 2) {
-                if (xPath == 2 && yPath == 1 || xPath == 1 && yPath == 2) return true;
+                if (xPath == 2 && yPath == 1 || xPath == 1 && yPath == 2) {
+                    nextTurn();
+                    return true;
+                }
             }
         }
         //logic for the move for rooks
@@ -101,6 +111,7 @@ public class GameEngine{
                             if (!checkForEmpty(x2, i)) return false;
                         }
                     }
+                    nextTurn();
                     return true;
                 }
             }
@@ -146,6 +157,7 @@ public class GameEngine{
                         j--;
                     }
                 }
+                nextTurn();
                 return true;
             }
         }
@@ -165,6 +177,7 @@ public class GameEngine{
                                 return false;
                         }
                     }
+                    nextTurn();
                     return true;
                 } else {
                     if (y2 - y1 < 0) {
@@ -176,6 +189,7 @@ public class GameEngine{
                             if (!checkForEmpty(x2, i)) return false;
                         }
                     }
+                    nextTurn();
                     return true;
                 }
             }
@@ -215,13 +229,28 @@ public class GameEngine{
                         i++;
                         j--;
                     }
-                }return true;
+                }
+                nextTurn();
+                return true;
             }
-        }return false;
+        }
+        //logic for moving the king (needed)
+        return false;
     }
     public boolean checkForEmpty(int x, int y){
         if( gameBoard.getPieceAt(y,x).getType() == Type.Empty_Space){
             return true;
         }return false;
+    }
+    private void nextTurn(){
+        if(turn == Color.White){
+            turn = Color.Black;
+        }
+        else{
+            turn = Color.White;
+        }
+    }
+    public Color getTurn(){
+        return turn;
     }
 }
