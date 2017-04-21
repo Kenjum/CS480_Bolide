@@ -8,7 +8,7 @@ import android.widget.Button;
 
 public class MainMenu extends AppCompatActivity {
 
-    public Button buttonLocal;
+    public Button startGame;
 
     public void onClick(View View){
         Intent createGame = new Intent(MainMenu.this,ChessBoard_UInterface.class);

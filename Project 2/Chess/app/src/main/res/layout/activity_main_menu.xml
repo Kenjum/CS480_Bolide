@@ -7,13 +7,13 @@
     tools:context="cs480.bolide.chess.MainMenu">
 
     <Button
-        android:id="@+id/LocalGame"
+        android:id="@+id/StartGame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
         android:onClick="onClick"
-        android:text="Local Game"
+        android:text="Start Game"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

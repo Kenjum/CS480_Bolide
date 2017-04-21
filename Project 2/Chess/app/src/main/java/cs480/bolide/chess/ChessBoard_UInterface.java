@@ -2,8 +2,13 @@ package cs480.bolide.chess;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.DrawableContainer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.PopupMenu;
+import android.view.ContextMenu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -36,8 +41,8 @@ public class ChessBoard_UInterface extends AppCompatActivity {
         oldImButton = null;
     }
     public void onClick(View view){
-        ImageButton imButton = (ImageButton) view;
-        TextView debugXY = (TextView)findViewById(R.id.Debug);
+        final ImageButton imButton = (ImageButton) view;
+        final TextView debugXY = (TextView)findViewById(R.id.Debug);
         int temp = (Integer.parseInt(imButton.getTag().toString()));
         if(!alreadySelected) {
             if(!newGame.checkForEmpty( temp % 10,temp / 10)){
@@ -46,7 +51,7 @@ public class ChessBoard_UInterface extends AppCompatActivity {
                 y_initial = temp / 10;
                 if(newGame.getTurn() == newGame.gameBoard.getPieceAt(y_initial,x_initial).getColor()) {
                     oldImButton = imButton;
-                    debugXY.setTextKeepState(newGame.gameBoard.getPieceAt(y_initial, x_initial).printName() + "Selected!!!!");
+                    debugXY.setTextKeepState(newGame.gameBoard.getPieceAt(y_initial, x_initial).printName() + " Selected!");
                 }
                 else{
                     reset();
@@ -70,6 +75,82 @@ public class ChessBoard_UInterface extends AppCompatActivity {
                 if(validTurn == true){
                     imButton.setImageDrawable(oldImButton.getDrawable());
                     oldImButton.setImageDrawable(null);
+                    /*
+                        the following code will check if a pawn is ready to be promoted,
+                        if so a popup menu will occur
+                     */
+                    if(newGame.getPromotion() == true){
+                        PopupMenu promoteMenu = new PopupMenu(ChessBoard_UInterface.this, imButton);
+                        promoteMenu.getMenuInflater().inflate(R.menu.promotion_popup_menu, promoteMenu.getMenu());
+                        promoteMenu.show();
+                        /*
+                            The following final variables are for the use of the onMenuItemClickLister,
+                            without them are the keyword final the listener would not function properly
+                         */
+                        final Color currentColor = newGame.gameBoard.getPieceAt(y_final,x_final).getColor();
+                        final  Bitmap Bqueen = BitmapFactory.decodeResource(getResources(),R.drawable.black_queen);
+                        final  Bitmap Wqueen = BitmapFactory.decodeResource(getResources(),R.drawable.white_queen);
+                        final  Bitmap Brook = BitmapFactory.decodeResource(getResources(),R.drawable.black_rook);
+                        final  Bitmap Wrook = BitmapFactory.decodeResource(getResources(),R.drawable.white_rook);
+                        final  Bitmap Bknight = BitmapFactory.decodeResource(getResources(),R.drawable.black_knight);
+                        final  Bitmap Wknight = BitmapFactory.decodeResource(getResources(),R.drawable.white_knight);
+                        final  Bitmap Bbishop = BitmapFactory.decodeResource(getResources(),R.drawable.black_bishop);
+                        final  Bitmap Wbishop = BitmapFactory.decodeResource(getResources(),R.drawable.white_bishop);
+                        final int x = x_final;
+                        final int y = y_final;
+                        promoteMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                            @Override
+                            public boolean onMenuItemClick(MenuItem item) {
+                                /*
+                                The switch statement is to figure out which item was selected User
+                                Furthermore, it will promote the pawn into the chosen input and update the Graphic of the chess piece
+                                 */
+                                switch (item.getItemId()) {
+                                    case R.id.PromoteQueen:
+                                        newGame.promote(x,y, currentColor, Type.Queen);
+                                        if(currentColor==Color.Black){
+                                            imButton.setImageBitmap(Bqueen);
+                                        }else{
+                                            imButton.setImageBitmap(Wqueen);
+                                        }
+                                        break;
+                                    case R.id.PromoteKnight:
+                                        newGame.promote(x,y, currentColor, Type.Knight);
+                                        if(currentColor==Color.Black){
+                                            imButton.setImageBitmap(Bknight);
+                                        }else{
+                                            imButton.setImageBitmap(Wknight);
+                                        }
+                                        break;
+                                    case R.id.PromoteBishop:
+                                        newGame.promote(x,y, currentColor, Type.Bishop);
+                                        if(currentColor==Color.Black){
+                                            imButton.setImageBitmap(Bbishop);
+                                        }else{
+                                            imButton.setImageBitmap(Wbishop);
+                                        }
+                                        break;
+                                    case R.id.PromoteRook:
+                                        newGame.promote(x,y, currentColor, Type.Rook);
+                                        if(currentColor==Color.Black){
+                                            imButton.setImageBitmap(Brook);
+                                        }else{
+                                            imButton.setImageBitmap(Wrook);
+                                        }
+                                        break;
+                                    default:
+                                        newGame.promote(x,y, currentColor, Type.Queen);
+                                        if(currentColor==Color.Black){
+                                            imButton.setImageBitmap(Bqueen);
+                                        }else{
+                                            imButton.setImageBitmap(Wqueen);
+                                        }
+                                        break;
+                                }
+                                    return false;
+                                }
+                            });
+                        }
                 }else{
                     debugXY.setTextKeepState("Invalid Move");
                 }

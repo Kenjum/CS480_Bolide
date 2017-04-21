@@ -63,6 +63,19 @@ public class ArrayBoard {
         board[y1][x1] = new Empty_Space(y1,x1);
     }
 
+    /*
+     promotePieceAt will replace the ChessPiece at [y][x] with another of of Type t.
+     The new ChessPiece will we have the same color as the one it replaced.
+     This function was designed to promote pawns into other pieces.
+     */
+    public void promotePieceAt(int x, int y, Color c, Type t ){
+       if(t == Type.Queen) board[y][x] = new Queen(x,y,c);
+       else if(t == Type.Rook)board[y][x] = new Rook(x,y,c);
+       else if(t == Type.Knight)board[y][x] = new Knight(x,y,c);
+       else if(t == Type.Bishop)board[y][x] = new Bishop(x,y,c);
+
+    }
+
 
 
 

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/PromoteQueen"
+        android:title="Queen"/>
+    <item
+        android:id="@+id/PromoteRook"
+        android:title="Rook"/>
+    <item
+        android:id="@+id/PromoteKnight"
+        android:title="Knight"/>
+    <item
+        android:id="@+id/PromoteBishop"
+        android:title="Bishop"/>
+
+
+
+
+
+
+
+</menu>

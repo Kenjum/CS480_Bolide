@@ -7,19 +7,50 @@ public class GameEngine {
     private Color turn = Color.White;
 
     ArrayBoard gameBoard;
+    private boolean promotable = false;
 
     public GameEngine() {
         gameBoard = new ArrayBoard();
     }
 
     public boolean turn(int x1, int y1, int x2, int y2) {
+        promotable = false;
         boolean validturn = validMove(x1, y1, x2, y2);
         if (validturn == false) {
             return false;
         }
         gameBoard.getPieceAt(y1, x1).setMoved(true);
         gameBoard.move(x1, y1, x2, y2);
+        checkForPromotion(x2,y2);
         return true;
+    }
+    /*
+        promote simply passes the variables int x, int y, Color c, Type newType to the promotePieceAt() function in the ArrayBoard class.
+        It is used is the UI class, and to prevent the UI from directly altering the ArrayBoard
+     */
+    public void promote(int x, int y, Color c, Type newType){
+        gameBoard.promotePieceAt(x,y,c, newType);
+    }
+    /*
+        checkForPromotion checks is ChessPiece of Type pawn reaches to the other side of the board.
+        Blacks pawns will need to reach any block with y = 7, White pawns will need to reach any block with y = 0,
+     */
+    public void checkForPromotion(int x,int y){
+        ChessPiece tempPiece1 = gameBoard.getPieceAt(y, x);
+        if(tempPiece1.getType() == Type.Pawn) {
+            if (tempPiece1.getColor() == Color.White) {
+                if (y == 0) promotable = true;
+            } else {
+                if (y == 7) promotable = true;
+            }
+        }
+    }
+    /*
+        getPromotion simply returns the global boolean variable promotable
+        used to see if a pwan is able to be promoted
+     */
+    public boolean getPromotion(){
+        return promotable;
     }
 
     public boolean validMove(int x1, int y1, int x2, int y2) {
