@@ -799,20 +799,20 @@ public class GameEngine {
         //false means not in check
         ChessPiece king = findKing(blackWhite);
         boolean result = false;
+        if (checkPawn(king) == true) {
+            result = true;
+        }
+        if (checkKnight(king) == true) {
+            result = true;
+        }
 
-        if (checkPawn(king)) {
+        if (checkBishopAndQueen(king) == true) {
             result = true;
         }
-        if (checkKnight(king)) {
+        if (checkRookAndQueen(king) == true) {
             result = true;
         }
-        if (checkBishopAndQueen(king)) {
-            result = true;
-        }
-        if (checkRookAndQueen(king)) {
-            result = true;
-        }
-        if (checkKing(king)) {
+        if (checkKing(king) == true) {
             result = true;
         }
 
@@ -1060,11 +1060,6 @@ public class GameEngine {
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////checkRookAndQueen
     public boolean checkRookAndQueen(ChessPiece king){
-        boolean skip1 = false;
-        boolean skip2 = false;
-        boolean skip3 = false;
-        boolean skip4 = false;
-
         Color playerC = Color.White;
         Color enemyC = Color.Black;
         if(king.getColor() == Color.Black){
@@ -1076,11 +1071,9 @@ public class GameEngine {
             //checking horizontal
             int y = king.getP1();
             for (int x = king.getP2(); x < 8; x++) {
-                if(skip1 == true){
-                }
-                else if (gameBoard.getPieceAt(y, x).getColor() == playerC) {
+                if (gameBoard.getPieceAt(y, x).getColor() == playerC) {
                     //Not Check
-                    skip1 = true;
+                    break;
                 }
                 //If other pieces other than rook appear, no check
                 else if (gameBoard.getPieceAt(y, x).getColor() == enemyC) {
@@ -1089,13 +1082,13 @@ public class GameEngine {
                             gameBoard.getPieceAt(y, x).getType() == Type.Pawn ||
                             gameBoard.getPieceAt(y, x).getType() == Type.King) {
                         //Not Check
-                        skip1 = true;
+                        break;
                     }
                     //if rook uninterrupted, check
                     else if (gameBoard.getPieceAt(y, x).getType() == Type.Rook ||
                             gameBoard.getPieceAt(y, x).getType() == Type.Queen) {
                         //Check
-                        return true;
+                        return false;
                     }
                 }
             }
@@ -1107,11 +1100,9 @@ public class GameEngine {
             //checking horizontal
             int x = king.getP2();
             for (int y = king.getP1(); y < 8; y++) {
-                if(skip2 == true){
-                }
-                else if (gameBoard.getPieceAt(y, x).getColor() == playerC) {
+                if (gameBoard.getPieceAt(y, x).getColor() == playerC) {
                     //Not Check
-                    skip2 = true;
+                    break;
                 }
                 //If other pieces other than rook appear, no check
                 else if (gameBoard.getPieceAt(y, x).getColor() == enemyC) {
@@ -1120,7 +1111,7 @@ public class GameEngine {
                             gameBoard.getPieceAt(y, x).getType() == Type.Pawn ||
                             gameBoard.getPieceAt(y, x).getType() == Type.King) {
                         //Not Check
-                        skip2 = true;
+                        break;
                     }
                     //if rook uninterrupted, check
                     else if (gameBoard.getPieceAt(y, x).getType() == Type.Rook ||
@@ -1137,11 +1128,9 @@ public class GameEngine {
             //checking horizontal
             int y = king.getP1();
             for (int x = 7; x > king.getP2(); x--) {
-                if(skip3 == true){
-                }
-                else if (gameBoard.getPieceAt(y, x).getColor() == playerC) {
+                if (gameBoard.getPieceAt(y, x).getColor() == playerC) {
                     //Not Check
-                    skip3 = true;
+                    break;
                 }
                 //If other pieces other than rook appear, no check
                 else if (gameBoard.getPieceAt(y, x).getColor() == enemyC) {
@@ -1150,7 +1139,7 @@ public class GameEngine {
                             gameBoard.getPieceAt(y, x).getType() == Type.Pawn ||
                             gameBoard.getPieceAt(y, x).getType() == Type.King) {
                         //Not Check
-                        skip3 = true;
+                        break;
                     }
                     //if rook uninterrupted, check
                     else if (gameBoard.getPieceAt(y, x).getType() == Type.Rook ||
@@ -1168,11 +1157,9 @@ public class GameEngine {
             //checking horizontal
             int x = king.getP2();
             for (int y = 7; y > king.getP1(); y--) {
-                if(skip4 == true){
-                }
-                else if (gameBoard.getPieceAt(y, x).getColor() == playerC) {
+                if (gameBoard.getPieceAt(y, x).getColor() == playerC) {
                     //Not Check
-                    skip4 = true;
+                    break;
                 }
                 //If other pieces other than rook appear, no check
                 else if (gameBoard.getPieceAt(y, x).getColor() == enemyC) {
@@ -1181,13 +1168,13 @@ public class GameEngine {
                             gameBoard.getPieceAt(y, x).getType() == Type.Pawn ||
                             gameBoard.getPieceAt(y, x).getType() == Type.King) {
                         //Not Check
-                        skip4 = true;
+                        break;
                     }
                     //if rook uninterrupted, check
                     else if (gameBoard.getPieceAt(y, x).getType() == Type.Rook ||
                             gameBoard.getPieceAt(y, x).getType() == Type.Queen) {
                         //Check
-                        return true;
+                        return false;
                     }
                 }
             }

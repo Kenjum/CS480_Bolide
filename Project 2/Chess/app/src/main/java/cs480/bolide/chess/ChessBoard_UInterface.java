@@ -72,15 +72,15 @@ public class ChessBoard_UInterface extends AppCompatActivity {
                 debugXY.setTextKeepState("");
             }else{
                 boolean validTurn = newGame.turn(x_initial,y_initial,x_final,y_final);
-
+/*
                 //checking if move will make check
-                int colorToCheck = getCurrentTurn(newGame);
-                boolean checkCheck = newGame.isCheck(colorToCheck);
+                boolean checkCheck = newGame.isCheck(0);
+                boolean checkCheck2 = newGame.isCheck(1);
                 //This is to check ex)if White move, white will not be in check.
-                if(checkCheck == true){
-                    debugXY.setTextKeepState("Will be in check");
+                if(checkCheck == true || checkCheck2 == true){
+                    debugXY.setTextKeepState("Will be in check " +checkCheck + " " + checkCheck2 + newGame.findKing(0).getP1() + newGame.findKing(0).getP2() + newGame.findKing(1).getP1() + newGame.findKing(1).getP2());
                 }
-
+*/
 
                 if(validTurn == true){
                     imButton.setImageDrawable(oldImButton.getDrawable());
@@ -168,13 +168,6 @@ public class ChessBoard_UInterface extends AppCompatActivity {
                 reset();
             }
         }
-    }
-
-    public int getCurrentTurn(GameEngine ge){
-        if(ge.getTurn() == Color.White){
-            return 0;
-        }else
-            return 1;
     }
 
     //Createa the layout
