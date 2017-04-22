@@ -16,6 +16,18 @@ public class GameEngine {
     public boolean turn(int x1, int y1, int x2, int y2) {
         promotable = false;
         boolean validturn = validMove(x1, y1, x2, y2);
+        //Testing   TODO
+        //These have to be reversed to white(1) black(0)
+        int playerC = 0;
+        if (getTurn() == Color.White) {
+            playerC = 0;
+        } else{
+            playerC = 1;
+        }
+
+        boolean unsafeMove = isCheck(playerC);
+        System.out.println("Unsafe Move:" + unsafeMove);
+        //
         if (validturn == false) {
             return false;
         }
@@ -788,48 +800,80 @@ public class GameEngine {
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
-    public ChessPiece findKing(int blackWhite) {
+    public int findKingY(int blackWhite) {
         //0 is white, 1 is black
         ChessPiece temp = gameBoard.getPieceAt(0, 0);
+        int resultY = 0;
 
         for (int y = 0; y < 8; y++) {      //y
             for (int x = 0; x < 8; x++) {  //x
-                if (gameBoard.getPieceAt(y, x).getType() == Type.King) {
-                    //getting white king
-                    if (blackWhite == 0) {
-                        if (gameBoard.getPieceAt(y, x).getColor() == Color.White) {
-                            return gameBoard.getPieceAt(y, x);
-
-                        }
+                //White King
+                if(blackWhite == 0){
+                    if (gameBoard.getPieceAt(y, x).getType() == Type.King && gameBoard.getPieceAt(y, x).getColor() == Color.White){
+                        return y;
                     }
-                    //getting black king
-                    else if (blackWhite == 1) {
-
-                        if (gameBoard.getPieceAt(y, x).getColor() == Color.Black) {
-                            return gameBoard.getPieceAt(y, x);
-                        }
+                }
+                //BlackKing
+                if(blackWhite == 1){
+                    if (gameBoard.getPieceAt(y, x).getType() == Type.King && gameBoard.getPieceAt(y, x).getColor() == Color.Black){
+                        return y;
                     }
                 }
             }
         }
         //get king location
-        return temp;
+        return resultY;
+    }
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    public int findKingX(int blackWhite) {
+        //0 is white, 1 is black
+        ChessPiece temp = gameBoard.getPieceAt(0, 0);
+        int resultX = 0;
+
+        for (int y = 0; y < 8; y++) {      //y
+            for (int x = 0; x < 8; x++) {  //x
+                //White King
+                if(blackWhite == 0){
+                    if (gameBoard.getPieceAt(y, x).getType() == Type.King && gameBoard.getPieceAt(y, x).getColor() == Color.White){
+                        return x;
+                    }
+                }
+                //BlackKing
+                if(blackWhite == 1){
+                    if (gameBoard.getPieceAt(y, x).getType() == Type.King && gameBoard.getPieceAt(y, x).getColor() == Color.Black){
+                        return x;
+                    }
+                }
+            }
+        }
+        //get king location
+        return resultX;
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
-    public boolean isCheck(int blackWhite) {
+    public boolean isCheck(int blackWhite) {    //TODO
         //0 is checking for white, 1 is checking for black
         //for first king then second
         //false means not in check
-        ChessPiece king = findKing(blackWhite);
+        Color BWColor = Color.White;
+
+        if(blackWhite == 1){
+            BWColor = Color.Black;
+        }else{
+            BWColor = Color.White;
+        }
+
+
+        ChessPiece king = new King(findKingY(blackWhite),findKingX(blackWhite),BWColor);
+        System.out.println("CurrentPlayer King x:" + king.getP2() + " " + "y:" + king.getP1());
         boolean result = false;
+
         if (checkPawn(king) == true) {
             result = true;
         }
         if (checkKnight(king) == true) {
             result = true;
         }
-
         if (checkBishopAndQueen(king) == true) {
             result = true;
         }
@@ -839,12 +883,11 @@ public class GameEngine {
         if (checkKing(king) == true) {
             result = true;
         }
-
         return result;
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////checkPawn
-    public boolean checkPawn(ChessPiece king){
+    public boolean checkPawn(ChessPiece king){  //TODO
         Color enemyC = Color.Black;
         int vertical = 0;
         if(king.getColor() == Color.White){
@@ -855,79 +898,81 @@ public class GameEngine {
         }
 
         try {
-            if (gameBoard.getPieceAt(king.getP2() + vertical, king.getP1() - 1).getColor() == enemyC && gameBoard.getPieceAt(king.getP2() + vertical, king.getP1() - 1).getType() == Type.Pawn) {
+            System.out.println("Enemy Pawn Location 1 " +"x:"+ (king.getP2() - 1)+ "y:"+ (king.getP1() + vertical));
+            if (gameBoard.getPieceAt(king.getP1() + vertical, king.getP2() - 1).getType() == Type.Pawn && gameBoard.getPieceAt(king.getP1() + vertical, king.getP2() - 1).getColor() == enemyC) {
                 return true;
             }
         } catch (IndexOutOfBoundsException e) {
-            System.out.println("out of bounds");
+            System.out.println("out of bounds Pawn 1");
         }
         try {
-            if (gameBoard.getPieceAt(king.getP2() + vertical, king.getP1() + 1).getColor() == enemyC && gameBoard.getPieceAt(king.getP2() + vertical, king.getP1() + 1).getType() == Type.Pawn) {
+            System.out.println("Enemy Pawn Location 2 " +"x:"+ (king.getP2() + 1)+ "y:"+ (king.getP1() + vertical));
+            if (gameBoard.getPieceAt(king.getP1() + vertical, king.getP2() + 1).getType() == Type.Pawn && gameBoard.getPieceAt(king.getP1() + vertical, king.getP2() + 1).getColor() == enemyC) {
                 return true;
             }
         } catch (IndexOutOfBoundsException e) {
-            System.out.println("out of bounds");
+            System.out.println("out of bounds Pawn 2");
         }
         return false;
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////checkKnight
-    public boolean checkKnight(ChessPiece king){
+    public boolean checkKnight(ChessPiece king){ //TODO
         Color enemyC = Color.Black;
-        if(king.getColor() == Color.Black){
+        if(king.getColor() == Color.White){
             enemyC = Color.White;
         }
 
         try {
-            if (gameBoard.getPieceAt(king.getP2() + 2, king.getP1() - 1).getType() == Type.Knight && gameBoard.getPieceAt(king.getP2() + 2, king.getP1() - 1).getColor() == enemyC) {
+            if (gameBoard.getPieceAt(king.getP1() - 1, king.getP2() + 2).getType() == Type.Knight && gameBoard.getPieceAt(king.getP1() - 1, king.getP2() + 2).getColor() == enemyC) {
                 return true;
             }
         } catch (IndexOutOfBoundsException e) {
             System.out.println("out of bounds");
         }
         try {
-            if (gameBoard.getPieceAt(king.getP2() + 2, king.getP1() + 1).getType() == Type.Knight && gameBoard.getPieceAt(king.getP2() + 2, king.getP1() + 1).getColor() == enemyC) {
+            if (gameBoard.getPieceAt(king.getP1() + 1, king.getP2() + 2).getType() == Type.Knight && gameBoard.getPieceAt(king.getP1() + 1, king.getP2() + 2).getColor() == enemyC) {
                 return true;
             }
         } catch (IndexOutOfBoundsException e) {
             System.out.println("out of bounds");
         }
         try {
-            if (gameBoard.getPieceAt(king.getP2() - 2, king.getP1() - 1).getType() == Type.Knight && gameBoard.getPieceAt(king.getP2() - 2, king.getP1() - 1).getColor() == enemyC) {
+            if (gameBoard.getPieceAt(king.getP1() - 1, king.getP2() - 2).getType() == Type.Knight && gameBoard.getPieceAt(king.getP1() - 1, king.getP2() - 2).getColor() == enemyC) {
                 return true;
             }
         } catch (IndexOutOfBoundsException e) {
             System.out.println("out of bounds");
         }
         try {
-            if (gameBoard.getPieceAt(king.getP2() - 2, king.getP1() + 1).getType() == Type.Knight && gameBoard.getPieceAt(king.getP2() - 2, king.getP1() + 1).getColor() == enemyC) {
+            if (gameBoard.getPieceAt(king.getP1() + 1, king.getP2() - 2).getType() == Type.Knight && gameBoard.getPieceAt(king.getP1() + 1, king.getP2() - 2).getColor() == enemyC) {
                 return true;
             }
         } catch (IndexOutOfBoundsException e) {
             System.out.println("out of bounds");
         }
         try {
-            if (gameBoard.getPieceAt(king.getP2() - 1, king.getP1() + 2).getType() == Type.Knight && gameBoard.getPieceAt(king.getP2() - 1, king.getP1() + 2).getColor() == enemyC) {
+            if (gameBoard.getPieceAt(king.getP1() + 2, king.getP2() - 1).getType() == Type.Knight && gameBoard.getPieceAt(king.getP1() + 2, king.getP2() - 1).getColor() == enemyC) {
                 return true;
             }
         } catch (IndexOutOfBoundsException e) {
             System.out.println("out of bounds");
         }
         try {
-            if (gameBoard.getPieceAt(king.getP2() + 1, king.getP1() + 2).getType() == Type.Knight && gameBoard.getPieceAt(king.getP2() + 1, king.getP1() + 2).getColor() == enemyC) {
+            if (gameBoard.getPieceAt(king.getP1() + 2, king.getP2() + 1).getType() == Type.Knight && gameBoard.getPieceAt(king.getP1() + 2, king.getP2() + 1).getColor() == enemyC) {
                 return true;
             }
         } catch (IndexOutOfBoundsException e) {
             System.out.println("out of bounds");
         }
         try {
-            if (gameBoard.getPieceAt(king.getP2() - 1, king.getP1() - 2).getType() == Type.Knight && gameBoard.getPieceAt(king.getP2() - 1, king.getP1() - 2).getColor() == enemyC) {
+            if (gameBoard.getPieceAt(king.getP1() - 2, king.getP2() - 1).getType() == Type.Knight && gameBoard.getPieceAt(king.getP1() - 2, king.getP2() - 1).getColor() == enemyC) {
                 return true;
             }
         } catch (IndexOutOfBoundsException e) {
             System.out.println("out of bounds");
         }
         try {
-            if (gameBoard.getPieceAt(king.getP2() + 1, king.getP1() - 2).getType() == Type.Knight && gameBoard.getPieceAt(king.getP2() + 1, king.getP1() - 2).getColor() == enemyC) {
+            if (gameBoard.getPieceAt(king.getP1() - 2, king.getP2() + 1).getType() == Type.Knight && gameBoard.getPieceAt(king.getP1() - 2, king.getP2() + 1).getColor() == enemyC) {
                 return true;
             }
         } catch (IndexOutOfBoundsException e) {
@@ -936,7 +981,7 @@ public class GameEngine {
         return false;
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////checkBishopAndQueen
-    public boolean checkBishopAndQueen(ChessPiece king){
+    public boolean checkBishopAndQueen(ChessPiece king){ //TODO
         boolean skip1 = false;
         boolean skip2 = false;
         boolean skip3 = false;
@@ -949,15 +994,14 @@ public class GameEngine {
             enemyC = Color.White;
         }
 
-        try {
-            for (int y = king.getP1(); y < 8; y++) {
-                for (int x = king.getP2(); x < 8; x++) {
-                    //checking diagonals
+        for (int y = king.getP1(); y < 8; y++) {
+            for (int x = king.getP2(); x < 8; x++) {
+                //checking diagonals
                     if (x == y && skip1 == false) {
                         //No check if own pieces
                         if (gameBoard.getPieceAt(y, x).getColor() == playerC) {
                             //Not Check
-                            skip1 = true;
+                            //skip1 = true;
                         }
                         //If other pieces other than bishop appear, no check
                         else if (gameBoard.getPieceAt(y, x).getColor() == enemyC) {
@@ -966,31 +1010,27 @@ public class GameEngine {
                                     gameBoard.getPieceAt(y, x).getType() == Type.Pawn ||
                                     gameBoard.getPieceAt(y, x).getType() == Type.King) {
                                 //Not Check
-                                skip1 = true;
+                                //skip1 = true;
                             }
                             //if bishop uninterrupted, check
-                            else if (gameBoard.getPieceAt(y, x).getType() == Type.Bishop ||
+                            if (gameBoard.getPieceAt(y, x).getType() == Type.Bishop ||
                                     gameBoard.getPieceAt(y, x).getType() == Type.Queen) {
                                 //Check
+                                System.out.println("Bishop 1 hit");
                                 return true;
                             }
                         }
                     }
                 }
             }
-        } catch (IndexOutOfBoundsException e) {
-            System.out.println("out of bounds");
-        }
-
-        try {
-            for (int y = 7; y > king.getP1(); y--) {
-                for (int x = king.getP2(); x < 8; x++) {
-                    //checking diagonals
+        for (int y = 7; y > king.getP1(); y--) {
+            for (int x = king.getP2(); x < 8; x++) {
+                //checking diagonals
                     if (x == y && skip2 == false) {
                         //No check if own pieces
                         if (gameBoard.getPieceAt(y, x).getColor() == playerC) {
                             //Not Check
-                            skip2 = true;
+                            //skip2 = true;
                         }
                         //If other pieces other than bishop appear, no check
                         else if (gameBoard.getPieceAt(y, x).getColor() == enemyC) {
@@ -999,26 +1039,22 @@ public class GameEngine {
                                     gameBoard.getPieceAt(y, x).getType() == Type.Pawn ||
                                     gameBoard.getPieceAt(y, x).getType() == Type.King) {
                                 //Not Check
-                                skip2 = true;
+                                //skip2 = true;
                             }
                             //if bishop uninterrupted, check
-                            else if (gameBoard.getPieceAt(y, x).getType() == Type.Bishop ||
+                            if (gameBoard.getPieceAt(y, x).getType() == Type.Bishop ||
                                     gameBoard.getPieceAt(y, x).getType() == Type.Queen) {
                                 //Check
+                                System.out.println("Bishop 1 hit");
                                 return true;
                             }
                         }
                     }
                 }
             }
-        } catch (IndexOutOfBoundsException e) {
-            System.out.println("out of bounds");
-        }
-
-        try {
-            for (int y = king.getP1(); y < 8; y++) {
-                for (int x = 7; x > king.getP2(); x--) {
-                    //checking diagonals
+        for (int y = king.getP1(); y < 8; y++) {
+            for (int x = 7; x > king.getP2(); x--) {
+                //checking diagonals
                     if (x == y && skip3 == false) {
                         //No check if own pieces
                         if (gameBoard.getPieceAt(y, x).getColor() == playerC) {
@@ -1032,31 +1068,27 @@ public class GameEngine {
                                     gameBoard.getPieceAt(y, x).getType() == Type.Pawn ||
                                     gameBoard.getPieceAt(y, x).getType() == Type.King) {
                                 //Not Check
-                                skip3 = true;
+                                //skip3 = true;
                             }
                             //if bishop uninterrupted, check
-                            else if (gameBoard.getPieceAt(y, x).getType() == Type.Bishop ||
+                            if (gameBoard.getPieceAt(y, x).getType() == Type.Bishop ||
                                     gameBoard.getPieceAt(y, x).getType() == Type.Queen) {
                                 //Check
+                                System.out.println("Bishop 1 hit");
                                 return true;
                             }
                         }
                     }
                 }
             }
-        } catch (IndexOutOfBoundsException e) {
-            System.out.println("out of bounds");
-        }
-
-        try {
-            for (int y = 7; y > king.getP1(); y--) {
-                for (int x = 7; x > king.getP2(); x--) {
-                    //checking diagonals
+        for (int y = 7; y > king.getP1(); y--) {
+            for (int x = 7; x > king.getP2(); x--) {
+                //checking diagonals
                     if (x == y && skip4 == false) {
                         //No check if own pieces
                         if (gameBoard.getPieceAt(y, x).getColor() == playerC) {
                             //Not Check
-                            skip4 = true;
+                            //skip4 = true;
                         }
                         //If other pieces other than bishop appear, no check
                         else if (gameBoard.getPieceAt(y, x).getColor() == enemyC) {
@@ -1065,25 +1097,23 @@ public class GameEngine {
                                     gameBoard.getPieceAt(y, x).getType() == Type.Pawn ||
                                     gameBoard.getPieceAt(y, x).getType() == Type.King) {
                                 //Not Check
-                                skip4 = true;
+                                //skip4 = true;
                             }
                             //if bishop uninterrupted, check
-                            else if (gameBoard.getPieceAt(y, x).getType() == Type.Bishop ||
+                            if (gameBoard.getPieceAt(y, x).getType() == Type.Bishop ||
                                     gameBoard.getPieceAt(y, x).getType() == Type.Queen) {
                                 //Check
+                                System.out.println("Bishop 1 hit");
                                 return true;
                             }
                         }
                     }
                 }
             }
-        } catch (IndexOutOfBoundsException e) {
-            System.out.println("out of bounds");
-        }
         return false;
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////checkRookAndQueen
-    public boolean checkRookAndQueen(ChessPiece king){
+    public boolean checkRookAndQueen(ChessPiece king){ //TODO
         Color playerC = Color.White;
         Color enemyC = Color.Black;
         if(king.getColor() == Color.Black){
@@ -1091,10 +1121,11 @@ public class GameEngine {
             enemyC = Color.White;
         }
 
-        try {
+
             //checking horizontal
             int y = king.getP1();
             for (int x = king.getP2(); x < 8; x++) {
+                try {
                 if (gameBoard.getPieceAt(y, x).getColor() == playerC) {
                     //Not Check
                     break;
@@ -1115,15 +1146,16 @@ public class GameEngine {
                         return false;
                     }
                 }
-            }
-        } catch (IndexOutOfBoundsException e) {
-            System.out.println("out of bounds");
+            }catch (IndexOutOfBoundsException e) {
+                    System.out.println("out of bounds");
+                }
         }
 
-        try {
+
             //checking horizontal
-            int x = king.getP2();
-            for (int y = king.getP1(); y < 8; y++) {
+        int x = king.getP2();
+        for (y = king.getP1(); y < 8; y++) {
+            try {
                 if (gameBoard.getPieceAt(y, x).getColor() == playerC) {
                     //Not Check
                     break;
@@ -1144,14 +1176,15 @@ public class GameEngine {
                         return true;
                     }
                 }
-            }
-        } catch (IndexOutOfBoundsException e) {
-            System.out.println("out of bounds");
+            }catch (IndexOutOfBoundsException e) {
+                    System.out.println("out of bounds");
+                }
         }
-        try {
+
             //checking horizontal
-            int y = king.getP1();
-            for (int x = 7; x > king.getP2(); x--) {
+        y = king.getP1();
+        for (x = 7; x > king.getP2(); x--) {
+            try {
                 if (gameBoard.getPieceAt(y, x).getColor() == playerC) {
                     //Not Check
                     break;
@@ -1172,15 +1205,16 @@ public class GameEngine {
                         return true;
                     }
                 }
-            }
-        } catch (IndexOutOfBoundsException e) {
-            System.out.println("out of bounds");
+            }catch (IndexOutOfBoundsException e) {
+                    System.out.println("out of bounds");
+                }
         }
 
-        try {
+
             //checking horizontal
-            int x = king.getP2();
-            for (int y = 7; y > king.getP1(); y--) {
+        x = king.getP2();
+        for (y = 7; y > king.getP1(); y--) {
+            try {
                 if (gameBoard.getPieceAt(y, x).getColor() == playerC) {
                     //Not Check
                     break;
@@ -1198,17 +1232,17 @@ public class GameEngine {
                     else if (gameBoard.getPieceAt(y, x).getType() == Type.Rook ||
                             gameBoard.getPieceAt(y, x).getType() == Type.Queen) {
                         //Check
-                        return false;
+                        return true;
                     }
                 }
-            }
-        } catch (IndexOutOfBoundsException e) {
-            System.out.println("out of bounds");
+            }catch (IndexOutOfBoundsException e) {
+                    System.out.println("out of bounds");
+                }
         }
         return false;
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////checkKing
-    public boolean checkKing(ChessPiece king){
+    public boolean checkKing(ChessPiece king){  //TODO
         Color enemyC = Color.Black;
         if(king.getColor() == Color.Black){
             enemyC = Color.White;
