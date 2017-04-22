@@ -131,7 +131,6 @@ public class GameEngine {
                                 return false;
                         }
                     }
-                    nextTurn();
                     return true;
                 } else {
                     if (y2 - y1 < 0) {
@@ -590,7 +589,133 @@ public class GameEngine {
             }
             //Rook (and Queen)
 
+                for (int i =x2+1; i<=7;i++){
+                    if(x2==7){
+                        break;
+                    }
+                    if(gameBoard.getPieceAt(y2,i).getType()!= Type.Empty_Space) {
+                        if (gameBoard.getPieceAt(y2, i).getColor() != turn) {
+                            if (gameBoard.getPieceAt(y2, i).getType() == Type.Queen || gameBoard.getPieceAt(y2, i).getType() == Type.Rook) {
+                                return false;
+                            }
+                        }
+                        else{break;}
+                    }
+                }
+            for (int i =x2-1; i>=0;i--){
+                if(x2==0){
+                    break;
+                }
+                if(gameBoard.getPieceAt(y2,i).getType()!= Type.Empty_Space) {
+                    if (gameBoard.getPieceAt(y2, i).getColor() != turn) {
+                        if (gameBoard.getPieceAt(y2, i).getType() == Type.Queen || gameBoard.getPieceAt(y2, i).getType() == Type.Rook) {
+                            return false;
+                        }
+                    }
+                    else{break;}
+                }
+            }
+            for(int i = y2 + 1; i<=7;i++){
+                if(y2==7){
+                    break;
+                }
+                if(gameBoard.getPieceAt(i,x2).getType()!= Type.Empty_Space) {
+                    if (gameBoard.getPieceAt(i, x2).getColor() != turn) {
+                        if (gameBoard.getPieceAt(i, x2).getType() == Type.Queen || gameBoard.getPieceAt(i, x2).getType() == Type.Rook) {
+                            return false;
+                        }
+                    }
+                    else{break;}
+                }
+
+            }
+            for(int i = y2 - 1; i<=0;i--) {
+                if (y2 == 0) {
+                    break;
+                }
+                if (gameBoard.getPieceAt(i, x2).getType() != Type.Empty_Space) {
+                    if (gameBoard.getPieceAt(i, x2).getColor() != turn) {
+                        if (gameBoard.getPieceAt(i, x2).getType() == Type.Queen || gameBoard.getPieceAt(i, x2).getType() == Type.Rook) {
+                            return false;
+                        }
+                    } else {
+                        break;
+                    }
+                }
+            }
+
             //bishop (and Queen)
+
+            int tempx=x2+1;
+            int tempy=y2+1;
+            while(tempx<7&&tempy<7){
+                if(gameBoard.getPieceAt(tempy,tempx).getColor()==turn){
+                    break;
+                }
+                if(gameBoard.getPieceAt(tempy,tempx).getType() == Type.Queen||gameBoard.getPieceAt(tempy,tempx).getType() == Type.Bishop){
+                    return false;
+                }
+                if(gameBoard.getPieceAt(tempy,tempx).getType() == Type.Empty_Space) {
+                    tempx++;
+                    tempy++;
+                }
+                else{
+                    break;
+                }
+            }
+            tempx=x2-1;
+            tempy=y2-1;
+            while(tempx>0&&tempy>0){
+                if(gameBoard.getPieceAt(tempy,tempx).getColor()==turn){
+                    break;
+                }
+                if(gameBoard.getPieceAt(tempy,tempx).getType() == Type.Queen||gameBoard.getPieceAt(tempy,tempx).getType() == Type.Bishop){
+                    return false;
+                }
+                if(gameBoard.getPieceAt(tempy,tempx).getType() == Type.Empty_Space) {
+                    tempx--;
+                    tempy--;
+                }
+                else{
+                    break;
+                }
+            }
+            tempx=x2+1;
+            tempy=y2-1;
+            while(tempx<7&&tempy>0){
+                if(gameBoard.getPieceAt(tempy,tempx).getColor()==turn){
+                    break;
+                }
+                if(gameBoard.getPieceAt(tempy,tempx).getType() == Type.Queen||gameBoard.getPieceAt(tempy,tempx).getType() == Type.Bishop){
+                    return false;
+                }
+                if(gameBoard.getPieceAt(tempy,tempx).getType() == Type.Empty_Space) {
+                    tempx++;
+                    tempy--;
+                }
+                else{
+                    break;
+                }
+            }
+            tempx=x2-1;
+            tempy=y2+1;
+            while(tempx>0&&tempy<7){
+                if(gameBoard.getPieceAt(tempy,tempx).getColor()==turn){
+                    break;
+                }
+                if(gameBoard.getPieceAt(tempy,tempx).getType() == Type.Queen||gameBoard.getPieceAt(tempy,tempx).getType() == Type.Bishop){
+                    return false;
+                }
+                if(gameBoard.getPieceAt(tempy,tempx).getType() == Type.Empty_Space) {
+                    tempx--;
+                    tempy++;
+                }
+                else{
+                    break;
+                }
+            }
+
+
 
 
 
