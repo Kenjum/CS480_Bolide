@@ -641,7 +641,7 @@ public class GameEngine {
                 }
 
             }
-            for(int i = y2 - 1; i<=0;i--) {
+            for(int i = y2 - 1; i>=0;i--) {
                 if (y2 == 0) {
                     break;
                 }
