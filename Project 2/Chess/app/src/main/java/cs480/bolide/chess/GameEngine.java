@@ -706,14 +706,14 @@ public class GameEngine {
         }
 
         try {
-            if (gameBoard.getPieceAt(king.getP2() - 1, king.getP1() + vertical).getColor() == enemyC && gameBoard.getPieceAt(king.getP2() - 1, king.getP1() + vertical).getType() == Type.Pawn) {
+            if (gameBoard.getPieceAt(king.getP2() + vertical, king.getP1() - 1).getColor() == enemyC && gameBoard.getPieceAt(king.getP2() + vertical, king.getP1() - 1).getType() == Type.Pawn) {
                 return true;
             }
         } catch (IndexOutOfBoundsException e) {
             System.out.println("out of bounds");
         }
         try {
-            if (gameBoard.getPieceAt(king.getP2() + 1, king.getP1() + vertical).getColor() == enemyC && gameBoard.getPieceAt(king.getP2() + 1, king.getP1() + vertical).getType() == Type.Pawn) {
+            if (gameBoard.getPieceAt(king.getP2() + vertical, king.getP1() + 1).getColor() == enemyC && gameBoard.getPieceAt(king.getP2() + vertical, king.getP1() + 1).getType() == Type.Pawn) {
                 return true;
             }
         } catch (IndexOutOfBoundsException e) {
