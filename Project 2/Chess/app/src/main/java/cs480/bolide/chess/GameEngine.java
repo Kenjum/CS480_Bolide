@@ -14,13 +14,29 @@ public class GameEngine {
     }
 
     public boolean turn(int x1, int y1, int x2, int y2) {
+
+
         promotable = false;
         boolean validturn = validMove(x1, y1, x2, y2);
         if (validturn == false) {
             return false;
         }
-        gameBoard.getPieceAt(y1, x1).setMoved(true);
         gameBoard.move(x1, y1, x2, y2);
+        if (getTurn() == Color.White) {
+            if(isCheck(0)){
+                gameBoard.move(x2, y2, x1, y1);
+                return false;
+            }
+        }
+
+        if (getTurn() == Color.Black) {
+            if(isCheck(1)){
+                gameBoard.move(x2, y2, x1, y1);
+                return false;
+            }
+        }
+        gameBoard.getPieceAt(y1, x1).setMoved(true);
+
         checkForPromotion(x2,y2);
         return true;
     }
