@@ -72,9 +72,20 @@ public class ChessBoard_UInterface extends AppCompatActivity {
                 debugXY.setTextKeepState("");
             }else{
                 boolean validTurn = newGame.turn(x_initial,y_initial,x_final,y_final);
+
+                //checking if move will make check
+                int colorToCheck = getCurrentTurn(newGame);
+                boolean checkCheck = newGame.isCheck(colorToCheck);
+                //This is to check ex)if White move, white will not be in check.
+                if(checkCheck == true){
+                    debugXY.setTextKeepState("Will be in check");
+                }
+
+
                 if(validTurn == true){
                     imButton.setImageDrawable(oldImButton.getDrawable());
                     oldImButton.setImageDrawable(null);
+                    newGame.nextTurn();
                     /*
                         the following code will check if a pawn is ready to be promoted,
                         if so a popup menu will occur
@@ -157,6 +168,13 @@ public class ChessBoard_UInterface extends AppCompatActivity {
                 reset();
             }
         }
+    }
+
+    public int getCurrentTurn(GameEngine ge){
+        if(ge.getTurn() == Color.White){
+            return 0;
+        }else
+            return 1;
     }
 
     //Createa the layout
