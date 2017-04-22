@@ -134,6 +134,7 @@ public class GameEngine {
                                 return false;
                         }
                     }
+                    nextTurn();
                     return true;
                 } else {
                     if (y2 - y1 < 0) {
@@ -268,7 +269,360 @@ public class GameEngine {
                 return true;
             }
         }
-        //logic for moving the king (needed)
+        //logic for king movement
+        if(tempPiece1.getType()==Type.King){
+            //avoid pawn
+            if(turn == Color.White){
+                if(y2-1 >=0 && x2+1<=7 && x2-1 >=0) {
+                    if (gameBoard.getPieceAt(y2 - 1, x2 - 1).getColor() != turn && gameBoard.getPieceAt(y2 - 1, x2 - 1).getType() == Type.Pawn) {
+                        return false;
+                    }
+                    if (gameBoard.getPieceAt(y2 - 1, x2 + 1).getColor() != turn && gameBoard.getPieceAt(y2 - 1, x2 + 1).getType() == Type.Pawn) {
+                        return false;
+                    }
+                }
+                if(x2 == 0&& y2>0 &&gameBoard.getPieceAt(y2-1,x2+1).getColor()!=turn &&gameBoard.getPieceAt(y2-1,x2+1).getType() ==Type.Pawn ){
+                    return false;
+                }
+                if(x2 == 7&& y2>0 &&gameBoard.getPieceAt(y2-1,x2-1).getColor()!=turn &&gameBoard.getPieceAt(y2-1,x2-1).getType() ==Type.Pawn ){
+                    return false;
+                }
+            }
+            else{
+                if(y2+ 1 <=7 && x2+1<=7 && x2-1 >=0) {
+                    if (gameBoard.getPieceAt(y2 + 1, x2 - 1).getColor() != turn && gameBoard.getPieceAt(y2 + 1, x2 - 1).getType() == Type.Pawn) {
+                        return false;
+                    }
+                    if (gameBoard.getPieceAt(y2 + 1, x2 + 1).getColor() != turn && gameBoard.getPieceAt(y2 + 1, x2 + 1).getType() == Type.Pawn) {
+                        return false;
+                    }
+                }
+                if(x2 == 0&& y2<7 &&gameBoard.getPieceAt(y2+1,x2+1).getColor()!=turn &&gameBoard.getPieceAt(y2+1,x2+1).getType() ==Type.Pawn ){
+                    return false;
+                }
+                if(x2 == 7&& y2<7 &&gameBoard.getPieceAt(y2+1,x2-1).getColor()!=turn &&gameBoard.getPieceAt(y2+1,x2-1).getType() ==Type.Pawn ){
+                    return false;
+                }
+
+            }
+            //avoid other king
+            if(y2+ 1 <=7 &&y2 -1 >=0&& x2+1<=7 && x2-1 >=0){
+                if((gameBoard.getPieceAt(y2+1,x2+1).getType()==Type.King&&!(y2+1==y1 && x2+1 == x1))||
+                        (gameBoard.getPieceAt(y2,x2+1).getType()==Type.King&&!(y2==y1 && x2+1 == x1)) ||
+                        (gameBoard.getPieceAt(y2-1,x2+1).getType()==Type.King&&!(y2-1==y1 && x2+1 == x1))||
+                        (gameBoard.getPieceAt(y2-1,x2).getType()==Type.King&&!(y2-1==y1 && x2 == x1))||
+                        (gameBoard.getPieceAt(y2-1,x2-1).getType()==Type.King&&!(y2-1==y1 && x2-1 == x1))||
+                        (gameBoard.getPieceAt(y2,x2-1).getType()==Type.King&&!(y2==y1 && x2-1 == x1))||
+                        (gameBoard.getPieceAt(y2+1,x2-1).getType()==Type.King&&!(y2+1==y1 && x2-1 == x1))||
+                        (gameBoard.getPieceAt(y2+1,x2).getType()==Type.King&&!(y2+1==y1 && x2 == x1))){
+                    return false;
+                }
+            }
+            if(y2 == 7 && x2 == 0){
+                if((gameBoard.getPieceAt(y2-1,x2).getType()==Type.King&& gameBoard.getPieceAt(y2-1,x2).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2-1,x2+1).getType()==Type.King&& gameBoard.getPieceAt(y2-1,x2+1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2,x2+1).getType()==Type.King&& gameBoard.getPieceAt(y2,x2+1).getColor() != turn)){
+                    return false;
+                }
+            }
+            if(y2 == 0 && x2 == 0){
+                if((gameBoard.getPieceAt(y2+1,x2).getType()==Type.King&& gameBoard.getPieceAt(y2+1,x2).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+1,x2+1).getType()==Type.King&& gameBoard.getPieceAt(y2+1,x2+1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2,x2+1).getType()==Type.King&& gameBoard.getPieceAt(y2,x2+1).getColor() != turn)){
+                    return false;
+                }
+
+            }
+            if(y2 == 0 && x2 == 7){
+                if((gameBoard.getPieceAt(y2,x2-1).getType()==Type.King&& gameBoard.getPieceAt(y2,x2-1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2-1,x2-1).getType()==Type.King&& gameBoard.getPieceAt(y2-1,x2-1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2-1,x2).getType()==Type.King&& gameBoard.getPieceAt(y2-1,x2).getColor() != turn)){
+                    return false;
+                }
+            }
+            if(y2 == 7 && x2 == 7){
+                if((gameBoard.getPieceAt(y2-1,x2).getType()==Type.King&& gameBoard.getPieceAt(y2-1,x2).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2-1,x2-1).getType()==Type.King&& gameBoard.getPieceAt(y2-1,x2-1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2,x2-1).getType()==Type.King&& gameBoard.getPieceAt(y2,x2-1).getColor() != turn)){
+                    return false;
+                }
+            }
+            if(y2 == 7){
+                if((gameBoard.getPieceAt(y2,x2-1).getType()==Type.King&& gameBoard.getPieceAt(y2,x2-1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2-1,x2-1).getType()==Type.King&& gameBoard.getPieceAt(y2-1,x2-1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2-1,x2).getType()==Type.King&& gameBoard.getPieceAt(y2-1,x2).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2-1,x2+1).getType()==Type.King&& gameBoard.getPieceAt(y2-1,x2+1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2,x2+1).getType()==Type.King&& gameBoard.getPieceAt(y2,x2+1).getColor() != turn)){
+                    return false;
+                }
+            }
+            if(y2 ==0){
+                if((gameBoard.getPieceAt(y2,x2-1).getType()==Type.King&& gameBoard.getPieceAt(y2,x2-1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+1,x2-1).getType()==Type.King&& gameBoard.getPieceAt(y2+1,x2-1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+1,x2).getType()==Type.King&& gameBoard.getPieceAt(y2+1,x2).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+1,x2+1).getType()==Type.King&& gameBoard.getPieceAt(y2+1,x2+1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2,x2+1).getType()==Type.King&& gameBoard.getPieceAt(y2,x2+1).getColor() != turn)){
+                    return false;
+                }
+
+            }
+            if(x2 ==0){
+                if((gameBoard.getPieceAt(y2+1,x2).getType()==Type.King&& gameBoard.getPieceAt(y2+1,x2).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+1,x2+1).getType()==Type.King&& gameBoard.getPieceAt(y2+1,x2+1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2,x2+1).getType()==Type.King&& gameBoard.getPieceAt(y2,x2+1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2-1,x2+1).getType()==Type.King&& gameBoard.getPieceAt(y2-1,x2+1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+1,x2).getType()==Type.King&& gameBoard.getPieceAt(y2+1,x2).getColor() != turn)){
+                    return false;
+                }
+
+            }
+            if(x2 ==7){
+                if((gameBoard.getPieceAt(y2+1,x2).getType()==Type.King&& gameBoard.getPieceAt(y2+1,x2).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+1,x2-1).getType()==Type.King&& gameBoard.getPieceAt(y2+1,x2-1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2,x2-1).getType()==Type.King&& gameBoard.getPieceAt(y2,x2-1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2-1,x2-1).getType()==Type.King&& gameBoard.getPieceAt(y2-1,x2-1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2-1,x2).getType()==Type.King&& gameBoard.getPieceAt(y2-1,x2).getColor() != turn)){
+                    return false;
+                }
+
+            }
+            //avoid knights
+            //1
+            if(x2>1 && x2<6 &&y2>1&&y2<6 ){
+                if((gameBoard.getPieceAt(y2-2,x2-1).getType()==Type.Knight&& gameBoard.getPieceAt(y2-2,x2-1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2-2,x2+1).getType()==Type.Knight&& gameBoard.getPieceAt(y2-2,x2+1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2-1,x2+2).getType()==Type.Knight&& gameBoard.getPieceAt(y2-1,x2+2).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+1,x2+2).getType()==Type.Knight&& gameBoard.getPieceAt(y2+1,x2+2).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+2,x2+1).getType()==Type.Knight&& gameBoard.getPieceAt(y2+2,x2+1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+2,x2-1).getType()==Type.Knight&& gameBoard.getPieceAt(y2+2,x2-1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+1,x2-2).getType()==Type.Knight&& gameBoard.getPieceAt(y2+1,x2-2).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2-1,x2-2).getType()==Type.Knight&& gameBoard.getPieceAt(y2-1,x2-2).getColor() != turn)){
+                    return false;
+                }
+            }
+
+
+            //2
+            if(y2 == 1 &&x2>1&&x2<6 ){
+                if((    (gameBoard.getPieceAt(y2-1,x2+2).getType()==Type.Knight&& gameBoard.getPieceAt(y2-1,x2+2).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+1,x2+2).getType()==Type.Knight&& gameBoard.getPieceAt(y2+1,x2+2).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+2,x2+1).getType()==Type.Knight&& gameBoard.getPieceAt(y2+2,x2+1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+2,x2-1).getType()==Type.Knight&& gameBoard.getPieceAt(y2+2,x2-1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+1,x2-2).getType()==Type.Knight&& gameBoard.getPieceAt(y2+1,x2-2).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2-1,x2-2).getType()==Type.Knight&& gameBoard.getPieceAt(y2-1,x2-2).getColor() != turn))){
+                    return false;
+                }
+
+            }
+            if(y2 == 6 &&x2>1&&x2<6 ){
+                if((gameBoard.getPieceAt(y2-2,x2-1).getType()==Type.Knight&& gameBoard.getPieceAt(y2-2,x2-1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2-2,x2+1).getType()==Type.Knight&& gameBoard.getPieceAt(y2-2,x2+1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2-1,x2+2).getType()==Type.Knight&& gameBoard.getPieceAt(y2-1,x2+2).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+1,x2-2).getType()==Type.Knight&& gameBoard.getPieceAt(y2+1,x2-2).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2-1,x2-2).getType()==Type.Knight&& gameBoard.getPieceAt(y2-1,x2-2).getColor() != turn)){
+                    return false;
+                }
+            }
+            if(x2==1&& y2>1&&y2<6){
+                if((gameBoard.getPieceAt(y2-2,x2-1).getType()==Type.Knight&& gameBoard.getPieceAt(y2-2,x2-1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2-2,x2+1).getType()==Type.Knight&& gameBoard.getPieceAt(y2-2,x2+1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2-1,x2+2).getType()==Type.Knight&& gameBoard.getPieceAt(y2-1,x2+2).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+1,x2+2).getType()==Type.Knight&& gameBoard.getPieceAt(y2+1,x2+2).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+2,x2+1).getType()==Type.Knight&& gameBoard.getPieceAt(y2+2,x2+1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+2,x2-1).getType()==Type.Knight&& gameBoard.getPieceAt(y2+2,x2-1).getColor() != turn)){
+                    return false;
+                }
+            }
+            if(x2==6 && y2>1&&y2<6){
+                if((gameBoard.getPieceAt(y2-2,x2-1).getType()==Type.Knight&& gameBoard.getPieceAt(y2-2,x2-1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2-2,x2+1).getType()==Type.Knight&& gameBoard.getPieceAt(y2-2,x2+1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+2,x2+1).getType()==Type.Knight&& gameBoard.getPieceAt(y2+2,x2+1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+2,x2-1).getType()==Type.Knight&& gameBoard.getPieceAt(y2+2,x2-1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+1,x2-2).getType()==Type.Knight&& gameBoard.getPieceAt(y2+1,x2-2).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2-1,x2-2).getType()==Type.Knight&& gameBoard.getPieceAt(y2-1,x2-2).getColor() != turn)){
+                    return false;
+                }
+            }
+            //3
+            if(y2 == 0&& x2>1&&x2<6){
+                if((gameBoard.getPieceAt(y2+1,x2+2).getType()==Type.Knight&& gameBoard.getPieceAt(y2+1,x2+2).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+2,x2+1).getType()==Type.Knight&& gameBoard.getPieceAt(y2+2,x2+1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+2,x2-1).getType()==Type.Knight&& gameBoard.getPieceAt(y2+2,x2-1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+1,x2-2).getType()==Type.Knight&& gameBoard.getPieceAt(y2+1,x2-2).getColor() != turn)){
+                    return false;
+                }
+            }
+            if(y2==7&& x2>1&&x2<6){
+                if((gameBoard.getPieceAt(y2-2,x2-1).getType()==Type.Knight&& gameBoard.getPieceAt(y2-2,x2-1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2-2,x2+1).getType()==Type.Knight&& gameBoard.getPieceAt(y2-2,x2+1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2-1,x2+2).getType()==Type.Knight&& gameBoard.getPieceAt(y2-1,x2+2).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2-1,x2-2).getType()==Type.Knight&& gameBoard.getPieceAt(y2-1,x2-2).getColor() != turn)){
+                    return false;
+                }
+
+            }
+            if(x2==0 && y2>1&&y2<6){
+                if((gameBoard.getPieceAt(y2-2,x2+1).getType()==Type.Knight&& gameBoard.getPieceAt(y2-2,x2+1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2-1,x2+2).getType()==Type.Knight&& gameBoard.getPieceAt(y2-1,x2+2).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+1,x2+2).getType()==Type.Knight&& gameBoard.getPieceAt(y2+1,x2+2).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+2,x2+1).getType()==Type.Knight&& gameBoard.getPieceAt(y2+2,x2+1).getColor() != turn)){
+                    return false;
+                }
+            }
+            if(x2==7 && y2>1 && y2<6){
+                if((gameBoard.getPieceAt(y2-2,x2-1).getType()==Type.Knight&& gameBoard.getPieceAt(y2-2,x2-1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+2,x2-1).getType()==Type.Knight&& gameBoard.getPieceAt(y2+2,x2-1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+1,x2-2).getType()==Type.Knight&& gameBoard.getPieceAt(y2+1,x2-2).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2-1,x2-2).getType()==Type.Knight&& gameBoard.getPieceAt(y2-1,x2-2).getColor() != turn)){
+                    return false;
+                }
+            }
+            //4 four corners
+            if(x2==0 &&y2==0){
+                if((gameBoard.getPieceAt(y2+1,x2+2).getType()==Type.Knight&& gameBoard.getPieceAt(y2+1,x2+2).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+2,x2+1).getType()==Type.Knight&& gameBoard.getPieceAt(y2+2,x2+1).getColor() != turn)){
+                    return false;
+                }
+
+            }
+            if(x2==0&& y2==7){
+                if((gameBoard.getPieceAt(y2-2,x2+1).getType()==Type.Knight&& gameBoard.getPieceAt(y2-2,x2+1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2-1,x2+2).getType()==Type.Knight&& gameBoard.getPieceAt(y2-1,x2+2).getColor() != turn)){
+                    return false;
+                }
+            }
+            if(x2== 7 && y2 == 0){
+                if((gameBoard.getPieceAt(y2+2,x2-1).getType()==Type.Knight&& gameBoard.getPieceAt(y2+2,x2-1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+1,x2-2).getType()==Type.Knight&& gameBoard.getPieceAt(y2+1,x2-2).getColor() != turn)){
+                    return false;
+                }
+            }
+            if(x2==7&&y2==7){
+                if((gameBoard.getPieceAt(y2-2,x2-1).getType()==Type.Knight&& gameBoard.getPieceAt(y2-2,x2-1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2-1,x2-2).getType()==Type.Knight&& gameBoard.getPieceAt(y2-1,x2-2).getColor() != turn)){
+                    return false;
+                }
+            }
+
+            //5 top left quadrant
+            if(x2==1&&y2==0){
+                if((gameBoard.getPieceAt(y2+1,x2+2).getType()==Type.Knight&& gameBoard.getPieceAt(y2+1,x2+2).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+2,x2+1).getType()==Type.Knight&& gameBoard.getPieceAt(y2+2,x2+1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+2,x2-1).getType()==Type.Knight&& gameBoard.getPieceAt(y2+2,x2-1).getColor() != turn)){
+                    return false;
+                }
+            }
+            if(x2==0&& y2==1){
+                if((gameBoard.getPieceAt(y2-1,x2+2).getType()==Type.Knight&& gameBoard.getPieceAt(y2-1,x2+2).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+1,x2+2).getType()==Type.Knight&& gameBoard.getPieceAt(y2+1,x2+2).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+2,x2+1).getType()==Type.Knight&& gameBoard.getPieceAt(y2+2,x2+1).getColor() != turn)){
+                    return false;
+                }
+            }
+            if(x2==1 && y2 == 1){
+                if((gameBoard.getPieceAt(y2-1,x2+2).getType()==Type.Knight&& gameBoard.getPieceAt(y2-1,x2+2).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+1,x2+2).getType()==Type.Knight&& gameBoard.getPieceAt(y2+1,x2+2).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+2,x2+1).getType()==Type.Knight&& gameBoard.getPieceAt(y2+2,x2+1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+2,x2-1).getType()==Type.Knight&& gameBoard.getPieceAt(y2+2,x2-1).getColor() != turn)){
+                    return false;
+                }
+            }
+            //6 top right quadrant
+            if(x2==6&&y2==0){
+                if((gameBoard.getPieceAt(y2+2,x2+1).getType()==Type.Knight&& gameBoard.getPieceAt(y2+2,x2+1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+2,x2-1).getType()==Type.Knight&& gameBoard.getPieceAt(y2+2,x2-1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+1,x2-2).getType()==Type.Knight&& gameBoard.getPieceAt(y2+1,x2-2).getColor() != turn)){
+                    return false;
+                }
+            }
+            if(x2==6&&y2==1){
+                if((gameBoard.getPieceAt(y2+2,x2+1).getType()==Type.Knight&& gameBoard.getPieceAt(y2+2,x2+1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+2,x2-1).getType()==Type.Knight&& gameBoard.getPieceAt(y2+2,x2-1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+1,x2-2).getType()==Type.Knight&& gameBoard.getPieceAt(y2+1,x2-2).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2-1,x2-2).getType()==Type.Knight&& gameBoard.getPieceAt(y2-1,x2-2).getColor() != turn)){
+                    return false;
+                }
+            }
+            if(x2==7&&y2==1){
+                if((gameBoard.getPieceAt(y2+2,x2-1).getType()==Type.Knight&& gameBoard.getPieceAt(y2+2,x2-1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+1,x2-2).getType()==Type.Knight&& gameBoard.getPieceAt(y2+1,x2-2).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2-1,x2-2).getType()==Type.Knight&& gameBoard.getPieceAt(y2-1,x2-2).getColor() != turn)){
+                    return false;
+                }
+            }
+            //7 bottom left quadrant
+            if(x2==0&&y2==6){
+                if((gameBoard.getPieceAt(y2-2,x2+1).getType()==Type.Knight&& gameBoard.getPieceAt(y2-2,x2+1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2-1,x2+2).getType()==Type.Knight&& gameBoard.getPieceAt(y2-1,x2+2).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+1,x2+2).getType()==Type.Knight&& gameBoard.getPieceAt(y2+1,x2+2).getColor() != turn)){
+                    return false;
+                }
+            }
+            if(x2==1&&y2==6){
+                if((gameBoard.getPieceAt(y2-2,x2-1).getType()==Type.Knight&& gameBoard.getPieceAt(y2-2,x2-1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2-2,x2+1).getType()==Type.Knight&& gameBoard.getPieceAt(y2-2,x2+1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2-1,x2+2).getType()==Type.Knight&& gameBoard.getPieceAt(y2-1,x2+2).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+1,x2+2).getType()==Type.Knight&& gameBoard.getPieceAt(y2+1,x2+2).getColor() != turn)){
+                    return false;
+                }
+            }
+            if(x2==1&&y2==7){
+                if((gameBoard.getPieceAt(y2-2,x2-1).getType()==Type.Knight&& gameBoard.getPieceAt(y2-2,x2-1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2-2,x2+1).getType()==Type.Knight&& gameBoard.getPieceAt(y2-2,x2+1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2-1,x2+2).getType()==Type.Knight&& gameBoard.getPieceAt(y2-1,x2+2).getColor() != turn)){
+                    return false;
+                }
+            }
+            //8
+            if(x2==6&&y2==6){
+                if((gameBoard.getPieceAt(y2-2,x2-1).getType()==Type.Knight&& gameBoard.getPieceAt(y2-2,x2-1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2-2,x2+1).getType()==Type.Knight&& gameBoard.getPieceAt(y2-2,x2+1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+1,x2-2).getType()==Type.Knight&& gameBoard.getPieceAt(y2+1,x2-2).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2-1,x2-2).getType()==Type.Knight&& gameBoard.getPieceAt(y2-1,x2-2).getColor() != turn)){
+                    return false;
+                }
+            }
+            if(x2==6&&y2==7){
+                if((gameBoard.getPieceAt(y2-2,x2-1).getType()==Type.Knight&& gameBoard.getPieceAt(y2-2,x2-1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2-2,x2+1).getType()==Type.Knight&& gameBoard.getPieceAt(y2-2,x2+1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2-1,x2-2).getType()==Type.Knight&& gameBoard.getPieceAt(y2-1,x2-2).getColor() != turn)){
+                    return false;
+                }
+            }
+            if(x2==7&&y2==6){
+                if((gameBoard.getPieceAt(y2-2,x2-1).getType()==Type.Knight&& gameBoard.getPieceAt(y2-2,x2-1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+1,x2-2).getType()==Type.Knight&& gameBoard.getPieceAt(y2+1,x2-2).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2-1,x2-2).getType()==Type.Knight&& gameBoard.getPieceAt(y2-1,x2-2).getColor() != turn)){
+                    return false;
+                }
+            }
+            //Rook (and Queen)
+            //bishop (and Queen)
+
+
+
+
+
+
+
+
+
+            if((y2 -y1 == 1|| y2 -y1 == -1) && x1==x2){
+                nextTurn();
+                return true;
+            }
+            else if(y2 == y1 && (x1 -x2 == 1 || x1 -x2 ==-1)){
+                nextTurn();
+                return true;
+            }
+            else if((x1 -x2 == 1 || x1 -x2 ==-1)&&(y2 -y1 == 1|| y2 -y1 == -1)){
+                nextTurn();
+                return true;
+            }
+
+
+        }
+
         return false;
     }
 
