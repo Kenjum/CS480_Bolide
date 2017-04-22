@@ -589,6 +589,7 @@ public class GameEngine {
                 }
             }
             //Rook (and Queen)
+
             //bishop (and Queen)
 
 
@@ -600,15 +601,15 @@ public class GameEngine {
 
 
             if((y2 -y1 == 1|| y2 -y1 == -1) && x1==x2){
-                nextTurn();
+
                 return true;
             }
             else if(y2 == y1 && (x1 -x2 == 1 || x1 -x2 ==-1)){
-                nextTurn();
+
                 return true;
             }
             else if((x1 -x2 == 1 || x1 -x2 ==-1)&&(y2 -y1 == 1|| y2 -y1 == -1)){
-                nextTurn();
+
                 return true;
             }
 
