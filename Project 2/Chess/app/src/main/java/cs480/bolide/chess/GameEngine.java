@@ -610,6 +610,7 @@ public class GameEngine {
                             if (gameBoard.getPieceAt(y2, i).getType() == Type.Queen || gameBoard.getPieceAt(y2, i).getType() == Type.Rook) {
                                 return false;
                             }
+                            else break;
                         }
                         else{
                             if(i!=x1){
@@ -627,6 +628,7 @@ public class GameEngine {
                         if (gameBoard.getPieceAt(y2, i).getType() == Type.Queen || gameBoard.getPieceAt(y2, i).getType() == Type.Rook) {
                             return false;
                         }
+                        else break;
                     }
                     else{
                         if(i!=x1){
@@ -644,6 +646,7 @@ public class GameEngine {
                         if (gameBoard.getPieceAt(i, x2).getType() == Type.Queen || gameBoard.getPieceAt(i, x2).getType() == Type.Rook) {
                             return false;
                         }
+                        else break;
                     }
                     else{
                         if(i!=y1){
@@ -662,6 +665,7 @@ public class GameEngine {
                         if (gameBoard.getPieceAt(i, x2).getType() == Type.Queen || gameBoard.getPieceAt(i, x2).getType() == Type.Rook) {
                             return false;
                         }
+                        else break;
                     } else {
                         if(i != y1) {
 
@@ -675,7 +679,7 @@ public class GameEngine {
 
             int tempx=x2+1;
             int tempy=y2+1;
-            while(tempx<7&&tempy<7){
+            while(tempx<=7&&tempy<=7){
 
                 if(gameBoard.getPieceAt(tempy,tempx).getColor()==turn){
                     if(tempx!=x1||tempy!=y1) {
@@ -695,7 +699,7 @@ public class GameEngine {
             }
             tempx=x2-1;
             tempy=y2-1;
-            while(tempx>0&&tempy>0){
+            while(tempx>=0&&tempy>=0){
                 if(gameBoard.getPieceAt(tempy,tempx).getColor()==turn){
                     if(tempx!=x1||tempy!=y1) {
                         break;
@@ -708,13 +712,15 @@ public class GameEngine {
                     tempx--;
                     tempy--;
                 }
+
                 else{
                     break;
                 }
+
             }
             tempx=x2+1;
             tempy=y2-1;
-            while(tempx<7&&tempy>0){
+            while(tempx<=7&&tempy>=0){
                 if(gameBoard.getPieceAt(tempy,tempx).getColor()==turn){
                     if(tempx!=x1||tempy!=y1) {
                         break;
@@ -733,7 +739,7 @@ public class GameEngine {
             }
             tempx=x2-1;
             tempy=y2+1;
-            while(tempx>0&&tempy<7){
+            while(tempx>=0&&tempy<=7){
                 if(gameBoard.getPieceAt(tempy,tempx).getColor()==turn){
                     if(tempx!=x1||tempy!=y1) {
                         break;
