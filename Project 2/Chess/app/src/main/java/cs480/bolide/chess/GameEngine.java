@@ -1161,39 +1161,12 @@ public class GameEngine {
 
 
             //checking horizontal
-            int y = king.getP1();
-            for (int x = king.getP2(); x < 8; x++) {
-                try {
-                if (gameBoard.getPieceAt(y, x).getColor() == playerC) {
-                    //Not Check
-                    break;
-                }
-                //If other pieces other than rook appear, no check
-                else if (gameBoard.getPieceAt(y, x).getColor() == enemyC) {
-                    if (gameBoard.getPieceAt(y, x).getType() == Type.Knight ||
-                            gameBoard.getPieceAt(y, x).getType() == Type.Bishop ||
-                            gameBoard.getPieceAt(y, x).getType() == Type.Pawn ||
-                            gameBoard.getPieceAt(y, x).getType() == Type.King) {
-                        //Not Check
-                        break;
-                    }
-                    //if rook uninterrupted, check
-                    else if (gameBoard.getPieceAt(y, x).getType() == Type.Rook ||
-                            gameBoard.getPieceAt(y, x).getType() == Type.Queen) {
-                        //Check
-                        return false;
-                    }
-                }
-            }catch (IndexOutOfBoundsException e) {
-                    System.out.println("out of bounds");
-                }
-        }
-
-
-            //checking horizontal
+        int y = king.getP1();
         int x = king.getP2();
-        for (y = king.getP1(); y < 8; y++) {
-            try {
+            while (x < 8) {
+                try {
+                    x++;
+                    System.out.println("Rook 1 x:"+x+" y:"+y);
                 if (gameBoard.getPieceAt(y, x).getColor() == playerC) {
                     //Not Check
                     break;
@@ -1215,14 +1188,50 @@ public class GameEngine {
                     }
                 }
             }catch (IndexOutOfBoundsException e) {
-                    System.out.println("out of bounds");
+                    System.out.println("Rook 1 OOB");
+                }
+        }
+
+
+            //checking horizontal
+        y = king.getP1();
+        x = king.getP2();
+        while (y < 8) {
+            try {
+                y++;
+                System.out.println("Rook 2 x:"+x+" y:"+y);
+                if (gameBoard.getPieceAt(y, x).getColor() == playerC) {
+                    //Not Check
+                    break;
+                }
+                //If other pieces other than rook appear, no check
+                else if (gameBoard.getPieceAt(y, x).getColor() == enemyC) {
+                    if (gameBoard.getPieceAt(y, x).getType() == Type.Knight ||
+                            gameBoard.getPieceAt(y, x).getType() == Type.Bishop ||
+                            gameBoard.getPieceAt(y, x).getType() == Type.Pawn ||
+                            gameBoard.getPieceAt(y, x).getType() == Type.King) {
+                        //Not Check
+                        break;
+                    }
+                    //if rook uninterrupted, check
+                    else if (gameBoard.getPieceAt(y, x).getType() == Type.Rook ||
+                            gameBoard.getPieceAt(y, x).getType() == Type.Queen) {
+                        //Check
+                        return true;
+                    }
+                }
+            }catch (IndexOutOfBoundsException e) {
+                    System.out.println("Rook 2 OOB");
                 }
         }
 
             //checking horizontal
         y = king.getP1();
-        for (x = 7; x > king.getP2(); x--) {
+        x = king.getP2();
+        while (x > 0) {
             try {
+                x--;
+                System.out.println("Rook 3 x:"+x+" y:"+y);
                 if (gameBoard.getPieceAt(y, x).getColor() == playerC) {
                     //Not Check
                     break;
@@ -1244,15 +1253,18 @@ public class GameEngine {
                     }
                 }
             }catch (IndexOutOfBoundsException e) {
-                    System.out.println("out of bounds");
+                    System.out.println("Rook 3 OOB");
                 }
         }
 
 
             //checking horizontal
+        y = king.getP1();
         x = king.getP2();
-        for (y = 7; y > king.getP1(); y--) {
+        while (y > 0) {
             try {
+                y--;
+                System.out.println("Rook 4 x:"+x+" y:"+y);
                 if (gameBoard.getPieceAt(y, x).getColor() == playerC) {
                     //Not Check
                     break;
@@ -1274,7 +1286,7 @@ public class GameEngine {
                     }
                 }
             }catch (IndexOutOfBoundsException e) {
-                    System.out.println("out of bounds");
+                    System.out.println("Rook 4 OOB");
                 }
         }
         return false;
