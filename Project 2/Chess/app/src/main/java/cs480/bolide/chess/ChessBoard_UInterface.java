@@ -1,9 +1,11 @@
 package cs480.bolide.chess;
 
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.DrawableContainer;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.PopupMenu;
@@ -86,10 +88,23 @@ public class ChessBoard_UInterface extends AppCompatActivity {
                     imButton.setImageDrawable(oldImButton.getDrawable());
                     oldImButton.setImageDrawable(null);
                     newGame.nextTurn();
+
+                    //The popup for check. white - 0, black - 1
+                    int playerC = 0;
+                    if (newGame.getTurn() == Color.White) {
+                        playerC = 0;
+                    } else{
+                        playerC = 1;
+                    }
+                    if(newGame.isCheck(playerC)){
+                        showCheck(view);
+                    }
+
                     /*
                         the following code will check if a pawn is ready to be promoted,
                         if so a popup menu will occur
                      */
+
                     if(newGame.getPromotion() == true){
                         PopupMenu promoteMenu = new PopupMenu(ChessBoard_UInterface.this, imButton);
                         promoteMenu.getMenuInflater().inflate(R.menu.promotion_popup_menu, promoteMenu.getMenu());
@@ -168,6 +183,18 @@ public class ChessBoard_UInterface extends AppCompatActivity {
                 reset();
             }
         }
+    }
+
+    public void showCheck(View view) {
+        AlertDialog.Builder myAlert = new AlertDialog.Builder(this);
+        myAlert.setMessage("Check!")
+                .setPositiveButton("Dismiss", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+        myAlert.show();
     }
 
     //Createa the layout

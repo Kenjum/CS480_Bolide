@@ -16,25 +16,35 @@ public class GameEngine {
     public boolean turn(int x1, int y1, int x2, int y2) {
         promotable = false;
         boolean validturn = validMove(x1, y1, x2, y2);
-        //Testing   TODO
+        //Testing //TODO
+        //
+        if (validturn == false) {
+            return false;
+        }
+
+        gameBoard.move(x1, y1, x2, y2);
+        if (checkFuture()) {    //checks if you move the piece, will it still be in check
+            gameBoard.move(x2, y2, x1, y1);
+            return false;
+        }
+        gameBoard.getPieceAt(y1, x1).setMoved(true);
+        checkForPromotion(x2,y2);
+        return true;
+    }
+
+    public boolean checkFuture(){//TODO
         int playerC = 0;
         if (getTurn() == Color.White) {
             playerC = 0;
         } else{
             playerC = 1;
         }
-
         boolean unsafeMove = isCheck(playerC);
         System.out.println("Unsafe Move:" + unsafeMove);
-        //
-        if (validturn == false) {
-            return false;
-        }
-        gameBoard.getPieceAt(y1, x1).setMoved(true);
-        gameBoard.move(x1, y1, x2, y2);
-        checkForPromotion(x2,y2);
-        return true;
+
+        return unsafeMove;
     }
+
     /*
         promote simply passes the variables int x, int y, Color c, Type newType to the promotePieceAt() function in the ArrayBoard class.
         It is used is the UI class, and to prevent the UI from directly altering the ArrayBoard
