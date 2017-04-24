@@ -22,6 +22,8 @@ public class GameEngine {
             return false;
         }
 
+        int test = gameStateCheck();
+
         gameBoard.move(x1, y1, x2, y2);
         if (checkFuture()) {    //checks if you move the piece, will it still be in check
             gameBoard.move(x2, y2, x1, y1);
@@ -913,7 +915,6 @@ public class GameEngine {
         }
 
         try {
-            System.out.println("Enemy Pawn Location 1 " +"x:"+ (king.getP2() - 1)+ "y:"+ (king.getP1() + vertical));
             if (gameBoard.getPieceAt(king.getP1() + vertical, king.getP2() - 1).getType() == Type.Pawn && gameBoard.getPieceAt(king.getP1() + vertical, king.getP2() - 1).getColor() == enemyC) {
                 return true;
             }
@@ -921,7 +922,6 @@ public class GameEngine {
             System.out.println("out of bounds Pawn 1");
         }
         try {
-            System.out.println("Enemy Pawn Location 2 " +"x:"+ (king.getP2() + 1)+ "y:"+ (king.getP1() + vertical));
             if (gameBoard.getPieceAt(king.getP1() + vertical, king.getP2() + 1).getType() == Type.Pawn && gameBoard.getPieceAt(king.getP1() + vertical, king.getP2() + 1).getColor() == enemyC) {
                 return true;
             }
@@ -1017,7 +1017,6 @@ public class GameEngine {
                 x++;
                 y++;
                 if (skip1 == false) {
-                    System.out.println("Bishop 1 x:" + x + " y:" + y);
                     //No check if own pieces
                     if (gameBoard.getPieceAt(y, x).getColor() == playerC) {
                         //Not Check
@@ -1055,7 +1054,6 @@ public class GameEngine {
                 y--;
                 //checking diagonals
                 if (skip2 == false) {
-                    System.out.println("Bishop 2 x:" + x + " y:" + y);
                     //No check if own pieces
                     if (gameBoard.getPieceAt(y, x).getColor() == playerC) {
                         //Not Check
@@ -1092,7 +1090,6 @@ public class GameEngine {
                 y++;
                 //checking diagonals
                 if (skip3 == false) {
-                    System.out.println("Bishop 3 x:" + x + " y:" + y);
                     //No check if own pieces
                     if (gameBoard.getPieceAt(y, x).getColor() == playerC) {
                         //Not Check
@@ -1129,7 +1126,6 @@ public class GameEngine {
                 y--;
                 //checking diagonals
                 if (skip4 == false) {
-                    System.out.println("Bishop 4 x:" + x + " y:" + y);
                     //No check if own pieces
                     if (gameBoard.getPieceAt(y, x).getColor() == playerC) {
                         //Not Check
@@ -1176,7 +1172,6 @@ public class GameEngine {
             while (x < 8) {
                 try {
                     x++;
-                    System.out.println("Rook 1 x:"+x+" y:"+y);
                 if (gameBoard.getPieceAt(y, x).getColor() == playerC) {
                     //Not Check
                     break;
@@ -1209,7 +1204,6 @@ public class GameEngine {
         while (y < 8) {
             try {
                 y++;
-                System.out.println("Rook 2 x:"+x+" y:"+y);
                 if (gameBoard.getPieceAt(y, x).getColor() == playerC) {
                     //Not Check
                     break;
@@ -1241,7 +1235,6 @@ public class GameEngine {
         while (x > 0) {
             try {
                 x--;
-                System.out.println("Rook 3 x:"+x+" y:"+y);
                 if (gameBoard.getPieceAt(y, x).getColor() == playerC) {
                     //Not Check
                     break;
@@ -1274,7 +1267,6 @@ public class GameEngine {
         while (y > 0) {
             try {
                 y--;
-                System.out.println("Rook 4 x:"+x+" y:"+y);
                 if (gameBoard.getPieceAt(y, x).getColor() == playerC) {
                     //Not Check
                     break;
@@ -1366,4 +1358,111 @@ public class GameEngine {
         return false;
     }
 
+    public int gameStateCheck(){    //TODO
+        //return 0 = ignore. 1 = stalemate. 2 = checkmate
+        boolean cantMove = false;
+        int result = 0;
+        int playerC = 0;   //0 = white, 1 = black
+        if(getTurn() == Color.Black){
+            playerC = 1;
+        }else{
+            playerC = 0;
+        }
+
+        for(int y = 0; y<8; y++){
+            for(int x = 0; x<8; x++){
+                //pass in getTurn for which colors to be checking.
+                //function for pawn
+                if(gameBoard.getPieceAt(y,x).getType() == Type.Pawn && gameBoard.getPieceAt(y,x).getColor() == getTurn()){
+                    ChessPiece pawn = new Pawn(y,x,getTurn());
+                    cantMove = gameStatePawn(pawn);
+                }
+                //function for knights
+                else if(gameBoard.getPieceAt(y,x).getType() == Type.Knight && gameBoard.getPieceAt(y,x).getColor() == getTurn()){
+                    ChessPiece knight = new Knight(y,x,getTurn());
+                    cantMove = gameStateKnight(knight);
+                }
+                //function for bishop
+                else if(gameBoard.getPieceAt(y,x).getType() == Type.Bishop && gameBoard.getPieceAt(y,x).getColor() == getTurn()){
+                    ChessPiece bishop = new Bishop(y,x,getTurn());
+                    cantMove = gameStateBishop(bishop);
+                }
+                //function for rook
+                else if(gameBoard.getPieceAt(y,x).getType() == Type.Rook && gameBoard.getPieceAt(y,x).getColor() == getTurn()){
+                    ChessPiece rook = new Rook(y,x,getTurn());
+                    cantMove = gameStateRook(rook);
+                }
+                //function for queen
+                else if(gameBoard.getPieceAt(y,x).getType() == Type.Queen && gameBoard.getPieceAt(y,x).getColor() == getTurn()){
+                    ChessPiece queen = new Queen(y,x,getTurn());
+                    cantMove = gameStateQueen(queen);
+                }
+                //function for king
+                else if(gameBoard.getPieceAt(y,x).getType() == Type.King && gameBoard.getPieceAt(y,x).getColor() == getTurn()){
+                    ChessPiece king = new King(y,x,getTurn());
+                    cantMove = gameStateKing(king);
+                }
+            }
+        }
+        if(isCheck(playerC) && cantMove){   //checkmate
+            result = 2;
+        }
+        else if(cantMove){                  //stalemate
+            result = 1;
+        }
+        return result;
+    }
+    //Variable for which direction (for pawn).
+    //Check for possible steps
+    public boolean gameStatePawn(ChessPiece pawn){ //TODO
+        int vertical = 0;
+        if(getTurn() == Color.Black){
+            vertical = 1;
+        }else{
+            vertical = -1;
+        }
+        try {
+
+            if (gameBoard.getPieceAt(pawn.getP1() + vertical, pawn.getP2()).getType() == Type.Empty_Space) {
+                System.out.println("Pawn can move " +"x:"+ (pawn.getP2())+ "y:"+ (pawn.getP1() + vertical));
+                return true;
+            }
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Pawn move OOB");
+        }
+        try {
+
+            if (gameBoard.getPieceAt(pawn.getP1() + vertical, pawn.getP2() - 1).getType() != Type.Empty_Space && gameBoard.getPieceAt(pawn.getP1() + vertical, pawn.getP2() - 1).getColor() == getTurn()) {
+                System.out.println("Pawn 1 can take " +"x:"+ (pawn.getP2() - 1)+ "y:"+ (pawn.getP1() + vertical));
+                return true;
+            }
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Pawn 1 move OOB");
+        }
+        try {
+
+            if (gameBoard.getPieceAt(pawn.getP1() + vertical, pawn.getP2() + 1).getType() != Type.Empty_Space && gameBoard.getPieceAt(pawn.getP1() + vertical, pawn.getP2() + 1).getColor() == getTurn()) {
+                System.out.println("Pawn 2 can take " +"x:"+ (pawn.getP2() + 1)+ "y:"+ (pawn.getP1() + vertical));
+                return true;
+            }
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Pawn 2 move OOB");
+        }
+        return false;
+    }
+    public boolean gameStateKnight(ChessPiece knight){ //TODO
+        return false;
+    }
+    public boolean gameStateBishop(ChessPiece bishop){ //TODO
+        return false;
+    }
+    public boolean gameStateRook(ChessPiece rook){ //TODO
+        return false;
+    }
+    public boolean gameStateQueen(ChessPiece queen){ //TODO
+        return false;
+    }
+    public boolean gameStateKing(ChessPiece king){ //TODO
+        return false;
+    }
 }
