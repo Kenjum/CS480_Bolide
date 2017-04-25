@@ -5,4 +5,10 @@
     android:name="com.google.android.gms.maps.SupportMapFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="bolide.cppmap.MapsActivity" />
+    tools:context="bolide.cppmap.MapsActivity"
+    map:cameraTargetLat="34.0554622"
+    map:cameraTargetLng="-117.8181957"
+    map:cameraZoom="15"
+    map:mapType="terrain"
+    map:uiCompass="true"
+    />
