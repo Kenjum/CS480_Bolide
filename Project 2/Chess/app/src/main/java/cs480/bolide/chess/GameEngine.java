@@ -22,8 +22,6 @@ public class GameEngine {
             return false;
         }
 
-        int test = gameStateCheck();
-
         gameBoard.move(x1, y1, x2, y2);
         if (checkFuture()) {    //checks if you move the piece, will it still be in check
             gameBoard.move(x2, y2, x1, y1);
@@ -1360,7 +1358,7 @@ public class GameEngine {
 
     public int gameStateCheck(){    //TODO
         //return 0 = ignore. 1 = stalemate. 2 = checkmate
-        boolean cantMove = false;
+        boolean cantMove = true;
         int result = 0;
         int playerC = 0;   //0 = white, 1 = black
         if(getTurn() == Color.Black){
@@ -1369,38 +1367,52 @@ public class GameEngine {
             playerC = 0;
         }
 
+        //go through the whole board
         for(int y = 0; y<8; y++){
             for(int x = 0; x<8; x++){
                 //pass in getTurn for which colors to be checking.
                 //function for pawn
                 if(gameBoard.getPieceAt(y,x).getType() == Type.Pawn && gameBoard.getPieceAt(y,x).getColor() == getTurn()){
                     ChessPiece pawn = new Pawn(y,x,getTurn());
-                    cantMove = gameStatePawn(pawn);
+                    if(gameStatePawn(pawn) == false){
+                        cantMove = false;
+                    }
                 }
                 //function for knights
                 else if(gameBoard.getPieceAt(y,x).getType() == Type.Knight && gameBoard.getPieceAt(y,x).getColor() == getTurn()){
                     ChessPiece knight = new Knight(y,x,getTurn());
-                    cantMove = gameStateKnight(knight);
+                    if(gameStateKnight(knight) == false){
+                        cantMove = false;
+                    }
                 }
                 //function for bishop
                 else if(gameBoard.getPieceAt(y,x).getType() == Type.Bishop && gameBoard.getPieceAt(y,x).getColor() == getTurn()){
                     ChessPiece bishop = new Bishop(y,x,getTurn());
-                    cantMove = gameStateBishop(bishop);
+                    if(gameStateBishop(bishop) == false){
+                        cantMove = false;
+                    }
+
                 }
                 //function for rook
                 else if(gameBoard.getPieceAt(y,x).getType() == Type.Rook && gameBoard.getPieceAt(y,x).getColor() == getTurn()){
                     ChessPiece rook = new Rook(y,x,getTurn());
-                    cantMove = gameStateRook(rook);
+                    if(gameStateRook(rook) == false){
+                        cantMove = false;
+                    }
                 }
                 //function for queen
                 else if(gameBoard.getPieceAt(y,x).getType() == Type.Queen && gameBoard.getPieceAt(y,x).getColor() == getTurn()){
                     ChessPiece queen = new Queen(y,x,getTurn());
-                    cantMove = gameStateQueen(queen);
+                    if(gameStateQueen(queen) == false){
+                        cantMove = false;
+                    }
                 }
                 //function for king
                 else if(gameBoard.getPieceAt(y,x).getType() == Type.King && gameBoard.getPieceAt(y,x).getColor() == getTurn()){
                     ChessPiece king = new King(y,x,getTurn());
-                    cantMove = gameStateKing(king);
+                    if(gameStateKing(king) == false){
+                        cantMove = false;
+                    }
                 }
             }
         }
@@ -1409,7 +1421,10 @@ public class GameEngine {
         }
         else if(cantMove){                  //stalemate
             result = 1;
+        }else{
+            result = 0;
         }
+
         return result;
     }
     //Variable for which direction (for pawn).
@@ -1425,7 +1440,7 @@ public class GameEngine {
 
             if (gameBoard.getPieceAt(pawn.getP1() + vertical, pawn.getP2()).getType() == Type.Empty_Space) {
                 System.out.println("Pawn can move " +"x:"+ (pawn.getP2())+ "y:"+ (pawn.getP1() + vertical));
-                return true;
+                return false;
             }
         } catch (IndexOutOfBoundsException e) {
             System.out.println("Pawn move OOB");
@@ -1434,7 +1449,7 @@ public class GameEngine {
 
             if (gameBoard.getPieceAt(pawn.getP1() + vertical, pawn.getP2() - 1).getType() != Type.Empty_Space && gameBoard.getPieceAt(pawn.getP1() + vertical, pawn.getP2() - 1).getColor() == getTurn()) {
                 System.out.println("Pawn 1 can take " +"x:"+ (pawn.getP2() - 1)+ "y:"+ (pawn.getP1() + vertical));
-                return true;
+                return false;
             }
         } catch (IndexOutOfBoundsException e) {
             System.out.println("Pawn 1 move OOB");
@@ -1443,26 +1458,31 @@ public class GameEngine {
 
             if (gameBoard.getPieceAt(pawn.getP1() + vertical, pawn.getP2() + 1).getType() != Type.Empty_Space && gameBoard.getPieceAt(pawn.getP1() + vertical, pawn.getP2() + 1).getColor() == getTurn()) {
                 System.out.println("Pawn 2 can take " +"x:"+ (pawn.getP2() + 1)+ "y:"+ (pawn.getP1() + vertical));
-                return true;
+                return false;
             }
         } catch (IndexOutOfBoundsException e) {
             System.out.println("Pawn 2 move OOB");
         }
-        return false;
+        return true;
     }
     public boolean gameStateKnight(ChessPiece knight){ //TODO
-        return false;
+
+        return true;
     }
     public boolean gameStateBishop(ChessPiece bishop){ //TODO
-        return false;
+
+        return true;
     }
     public boolean gameStateRook(ChessPiece rook){ //TODO
-        return false;
+
+        return true;
     }
     public boolean gameStateQueen(ChessPiece queen){ //TODO
-        return false;
+
+        return true;
     }
     public boolean gameStateKing(ChessPiece king){ //TODO
-        return false;
+
+        return true;
     }
 }

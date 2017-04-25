@@ -89,6 +89,7 @@ public class ChessBoard_UInterface extends AppCompatActivity {
                     oldImButton.setImageDrawable(null);
                     newGame.nextTurn();
 
+
                     //The popup for check. white - 0, black - 1
                     int playerC = 0;
                     if (newGame.getTurn() == Color.White) {
@@ -96,7 +97,12 @@ public class ChessBoard_UInterface extends AppCompatActivity {
                     } else{
                         playerC = 1;
                     }
-                    if(newGame.isCheck(playerC)){
+                    if (newGame.gameStateCheck() == 2) {
+                        showCheckmate(view);
+                    }else if(newGame.gameStateCheck() == 1){
+                        showStalemate(view);
+                    }
+                    else if(newGame.isCheck(playerC)){
                         showCheck(view);
                     }
 
@@ -188,6 +194,30 @@ public class ChessBoard_UInterface extends AppCompatActivity {
     public void showCheck(View view) {
         AlertDialog.Builder myAlert = new AlertDialog.Builder(this);
         myAlert.setMessage("Check!")
+                .setPositiveButton("Dismiss", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+        myAlert.show();
+    }
+
+    public void showStalemate(View view) {
+        AlertDialog.Builder myAlert = new AlertDialog.Builder(this);
+        myAlert.setMessage("Stalemate!")
+                .setPositiveButton("Dismiss", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+        myAlert.show();
+    }
+
+    public void showCheckmate(View view) {
+        AlertDialog.Builder myAlert = new AlertDialog.Builder(this);
+        myAlert.setMessage("Checkmate!")
                 .setPositiveButton("Dismiss", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
