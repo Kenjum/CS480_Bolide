@@ -11,6 +11,8 @@ public class GameEngine {
     ArrayBoard gameBoard;
     ArrayBoard testBoard;
     private boolean promotable = false;
+    private boolean castled = false;
+    private boolean queenSideCastled = false;
 
     public GameEngine() {
         gameBoard = new ArrayBoard();
@@ -334,14 +336,14 @@ public class GameEngine {
                     return false;
                 }
             }
-            if(y2 == 7 && x2 == 0){
+            else if(y2 == 7 && x2 == 0){
                 if((gameBoard.getPieceAt(y2-1,x2).getType()==Type.King&& gameBoard.getPieceAt(y2-1,x2).getColor() != turn)||
                         (gameBoard.getPieceAt(y2-1,x2+1).getType()==Type.King&& gameBoard.getPieceAt(y2-1,x2+1).getColor() != turn)||
                         (gameBoard.getPieceAt(y2,x2+1).getType()==Type.King&& gameBoard.getPieceAt(y2,x2+1).getColor() != turn)){
                     return false;
                 }
             }
-            if(y2 == 0 && x2 == 0){
+            else if(y2 == 0 && x2 == 0){
                 if((gameBoard.getPieceAt(y2+1,x2).getType()==Type.King&& gameBoard.getPieceAt(y2+1,x2).getColor() != turn)||
                         (gameBoard.getPieceAt(y2+1,x2+1).getType()==Type.King&& gameBoard.getPieceAt(y2+1,x2+1).getColor() != turn)||
                         (gameBoard.getPieceAt(y2,x2+1).getType()==Type.King&& gameBoard.getPieceAt(y2,x2+1).getColor() != turn)){
@@ -349,21 +351,21 @@ public class GameEngine {
                 }
 
             }
-            if(y2 == 0 && x2 == 7){
+            else if(y2 == 0 && x2 == 7){
                 if((gameBoard.getPieceAt(y2,x2-1).getType()==Type.King&& gameBoard.getPieceAt(y2,x2-1).getColor() != turn)||
-                        (gameBoard.getPieceAt(y2-1,x2-1).getType()==Type.King&& gameBoard.getPieceAt(y2-1,x2-1).getColor() != turn)||
-                        (gameBoard.getPieceAt(y2-1,x2).getType()==Type.King&& gameBoard.getPieceAt(y2-1,x2).getColor() != turn)){
+                        (gameBoard.getPieceAt(y2+1,x2-1).getType()==Type.King&& gameBoard.getPieceAt(y2+1,x2-1).getColor() != turn)||
+                        (gameBoard.getPieceAt(y2+1,x2).getType()==Type.King&& gameBoard.getPieceAt(y2+1,x2).getColor() != turn)){
                     return false;
                 }
             }
-            if(y2 == 7 && x2 == 7){
+            else if(y2 == 7 && x2 == 7){
                 if((gameBoard.getPieceAt(y2-1,x2).getType()==Type.King&& gameBoard.getPieceAt(y2-1,x2).getColor() != turn)||
                         (gameBoard.getPieceAt(y2-1,x2-1).getType()==Type.King&& gameBoard.getPieceAt(y2-1,x2-1).getColor() != turn)||
                         (gameBoard.getPieceAt(y2,x2-1).getType()==Type.King&& gameBoard.getPieceAt(y2,x2-1).getColor() != turn)){
                     return false;
                 }
             }
-            if(y2 == 7){
+            else if(y2 == 7){
                 if((gameBoard.getPieceAt(y2,x2-1).getType()==Type.King&& gameBoard.getPieceAt(y2,x2-1).getColor() != turn)||
                         (gameBoard.getPieceAt(y2-1,x2-1).getType()==Type.King&& gameBoard.getPieceAt(y2-1,x2-1).getColor() != turn)||
                         (gameBoard.getPieceAt(y2-1,x2).getType()==Type.King&& gameBoard.getPieceAt(y2-1,x2).getColor() != turn)||
@@ -372,7 +374,7 @@ public class GameEngine {
                     return false;
                 }
             }
-            if(y2 ==0){
+            else if(y2 ==0){
                 if((gameBoard.getPieceAt(y2,x2-1).getType()==Type.King&& gameBoard.getPieceAt(y2,x2-1).getColor() != turn)||
                         (gameBoard.getPieceAt(y2+1,x2-1).getType()==Type.King&& gameBoard.getPieceAt(y2+1,x2-1).getColor() != turn)||
                         (gameBoard.getPieceAt(y2+1,x2).getType()==Type.King&& gameBoard.getPieceAt(y2+1,x2).getColor() != turn)||
@@ -382,7 +384,7 @@ public class GameEngine {
                 }
 
             }
-            if(x2 ==0){
+            else if(x2 ==0){
                 if((gameBoard.getPieceAt(y2+1,x2).getType()==Type.King&& gameBoard.getPieceAt(y2+1,x2).getColor() != turn)||
                         (gameBoard.getPieceAt(y2+1,x2+1).getType()==Type.King&& gameBoard.getPieceAt(y2+1,x2+1).getColor() != turn)||
                         (gameBoard.getPieceAt(y2,x2+1).getType()==Type.King&& gameBoard.getPieceAt(y2,x2+1).getColor() != turn)||
@@ -392,7 +394,7 @@ public class GameEngine {
                 }
 
             }
-            if(x2 ==7){
+            else if(x2 ==7){
                 if((gameBoard.getPieceAt(y2+1,x2).getType()==Type.King&& gameBoard.getPieceAt(y2+1,x2).getColor() != turn)||
                         (gameBoard.getPieceAt(y2+1,x2-1).getType()==Type.King&& gameBoard.getPieceAt(y2+1,x2-1).getColor() != turn)||
                         (gameBoard.getPieceAt(y2,x2-1).getType()==Type.King&& gameBoard.getPieceAt(y2,x2-1).getColor() != turn)||
@@ -769,6 +771,7 @@ public class GameEngine {
                     break;
                 }
             }
+            
 
 
 
@@ -2146,5 +2149,16 @@ public class GameEngine {
         } catch (IndexOutOfBoundsException e) {
         }
         return true;
+    }
+
+
+    private void resetCatsle(){
+        castled = false;
+        queenSideCastled =false;
+    }
+    public boolean getQueencat(){
+        boolean temp = queenSideCastled;
+        resetCatsle();
+        return temp;
     }
 }
