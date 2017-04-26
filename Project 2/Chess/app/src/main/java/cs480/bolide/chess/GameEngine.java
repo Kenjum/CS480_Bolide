@@ -1,5 +1,53 @@
-package cs480.bolide.chess;
+/*
+-Project description:
+Create a board game (chess for +10/15 points) for mobile (in our case android) and give it server-client
+multiplayer capabilities.
 
+-Preliminary development plan:
+The chess was straight forward enough. We were going to use a 2d array and then draw from that data to
+the interactive portion. There was a class for each piece and we'd have movement functions for checking
+and relocating pieces. However, I (Kenji) was ignorant of  how server-clients worked. I was under the
+impression that one phone could host itself as the server and clients could connect to it. Apparently,
+to do peer to peer, you would have to use wifi. To use servers, we would have to use either cloud or
+google play services.
+
+-Design and architecture approach:
+We had a user interface class deal with the visuals. All the logic was put in the game engine. We had
+classes for each piece, which were derived from a ChessPiece class. There was a class for the 2d array.
+We made a clone of the main gameboard so we could revert if the "what if" move wasn't good.
+
+-Discussion of implementation:
+We had a grid set up of boxes and superimposed pictures of chess pieces on top of them. We tried to
+keep the code in appropriate areas. There were a lot of for loops for y and x axis navigations. We had
+various setups for the different pieces. The pawns could be hard coded, but if we were going to check
+the top right diagonal of a bishop, we would get the x and y axis and increment them until they passed
+their boundries.
+NOTE: To test the program, you have to hook it up to your phone.
+NOTE: When castling, you have to move the rook yourself.
+
+-Discussion of most prominant issues encountered during development:
+Since Bryce and I (Kenji) did most of the coding for the first assignment, I told the others they should start
+this one. The others weren't familiar with Android Studio and I gave everyone a crash course and shared some resources.
+Although this probably was unfair of me, I wasn't hearing communication. No requests for help or progress updates.
+However however as the leader, I should have been more involved which is my fault. The second week we were drowning in
+homework/tests/projects from other classes. There was also a family emergency. Work couldn't start until
+two days prior the due date. We came across various bugs which took a decent amount of time to stomp out. I was
+tempted by those extra points and didn't realize how much extra work chess is, compared to something like checkers
+or tic-tac-toe. If I hadn't chose chess, we could have had this knocked out much sooner. Hell, maybe even on time.
+I wasn't familiar with server-client interactions as described above. Our research pointed us to google play servies
+and using their api and servers. Their videos on integration seemed simple enough. Like, the hardest thing we would
+have to do would be what information would be passed and freezing the player whose turn it wasn't. We would have to
+pay a one time fee of $25 for access to these tools, but we figured we should turn in what we have instead of taking
+another day or two to integrate multiplayer, considering how many points we're already going to be penalized for.
+
+-Testing approach and testing data:
+System.out.println()'s were strategically placed to make sure the right squares and information were being checked.
+
+-Suggestions of future improvements:
+Better management. Better communication. Better coding practices. If offered to create a board game, make tic-tac-toe.
+*/
+
+package cs480.bolide.chess;
 
 import java.lang.reflect.Array;
 
@@ -1800,14 +1848,14 @@ public class GameEngine {
                     }
                 }
                 //function for knights
-                else if(gameBoard.getPieceAt(y,x).getType() == Type.Knight && gameBoard.getPieceAt(y,x).getColor() == getTurn()){
+                if(gameBoard.getPieceAt(y,x).getType() == Type.Knight && gameBoard.getPieceAt(y,x).getColor() == getTurn()){
                     ChessPiece knight = new Knight(y,x,getTurn());
                     if(gameStateKnight(knight) == false){
                         cantMove = false;
                     }
                 }
                 //function for bishop
-                else if(gameBoard.getPieceAt(y,x).getType() == Type.Bishop && gameBoard.getPieceAt(y,x).getColor() == getTurn()){
+                if(gameBoard.getPieceAt(y,x).getType() == Type.Bishop && gameBoard.getPieceAt(y,x).getColor() == getTurn()){
                     ChessPiece bishop = new Bishop(y,x,getTurn());
                     if(gameStateBishop(bishop) == false){
                         cantMove = false;
@@ -1815,21 +1863,21 @@ public class GameEngine {
 
                 }
                 //function for rook
-                else if(gameBoard.getPieceAt(y,x).getType() == Type.Rook && gameBoard.getPieceAt(y,x).getColor() == getTurn()){
+                if(gameBoard.getPieceAt(y,x).getType() == Type.Rook && gameBoard.getPieceAt(y,x).getColor() == getTurn()){
                     ChessPiece rook = new Rook(y,x,getTurn());
                     if(gameStateRook(rook) == false){
                         cantMove = false;
                     }
                 }
                 //function for queen
-                else if(gameBoard.getPieceAt(y,x).getType() == Type.Queen && gameBoard.getPieceAt(y,x).getColor() == getTurn()){
+                if(gameBoard.getPieceAt(y,x).getType() == Type.Queen && gameBoard.getPieceAt(y,x).getColor() == getTurn()){
                     ChessPiece queen = new Queen(y,x,getTurn());
-                    if(gameStateRook(queen) == false || gameStateBishop(queen)){
+                    if(gameStateRook(queen) == false || gameStateBishop(queen) == false){
                         cantMove = false;
                     }
                 }
                 //function for king
-                else if(gameBoard.getPieceAt(y,x).getType() == Type.King && gameBoard.getPieceAt(y,x).getColor() == getTurn()){
+                if(gameBoard.getPieceAt(y,x).getType() == Type.King && gameBoard.getPieceAt(y,x).getColor() == getTurn()){
                     ChessPiece king = new King(y,x,getTurn());
                     if(gameStateKing(king) == false){
                         cantMove = false;
