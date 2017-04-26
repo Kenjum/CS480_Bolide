@@ -1758,7 +1758,7 @@ public class GameEngine {
                 //function for queen
                 else if(gameBoard.getPieceAt(y,x).getType() == Type.Queen && gameBoard.getPieceAt(y,x).getColor() == getTurn()){
                     ChessPiece queen = new Queen(y,x,getTurn());
-                    if(gameStateQueen(queen) == false){
+                    if(gameStateRook(queen) == false || gameStateBishop(queen)){
                         cantMove = false;
                     }
                 }
@@ -1956,7 +1956,7 @@ public class GameEngine {
         return true;
     }
 
-    //Bishop
+    //Bishop and Queen
     public boolean gameStateBishop(ChessPiece bishop){ //TODO
         testBoard.cloneBoard(gameBoard);
         boolean skip1 = false;
@@ -2076,7 +2076,7 @@ public class GameEngine {
         return true;
     }
 
-    //Rook
+    //Rook and Queen
     public boolean gameStateRook(ChessPiece rook){ //TODO
         testBoard.cloneBoard(gameBoard);
         boolean skip1 = false;
@@ -2192,236 +2192,6 @@ public class GameEngine {
         return true;
     }
 
-    //Queen
-    public boolean gameStateQueen(ChessPiece queen){ //TODO
-        testBoard.cloneBoard(gameBoard);
-        boolean skip1 = false;
-        boolean skip2 = false;
-        boolean skip3 = false;
-        boolean skip4 = false;
-
-        Color playerC = Color.White;
-        if(queen.getColor() == Color.Black){
-            playerC = Color.Black;
-        }
-
-        //checking horizontal
-        int y = queen.getP1();
-        int x = queen.getP2();
-        while (x < 8) {
-            try {
-                x++;
-                if (skip1 == false) {
-                    //No check if own pieces
-                    if (gameBoard.getPieceAt(y, x).getColor() == playerC) {
-                        skip1 = true;
-                    }
-                    //If any enemy targets
-                    else if (gameBoard.getPieceAt(y, x).getColor() != playerC) {
-                        gameBoard.move(queen.getP1(), queen.getP2(), y, x);
-                        if(checkFuture() == false){
-                            gameBoard.cloneBoard(testBoard);
-                            return false;
-                        }
-                        gameBoard.cloneBoard(testBoard);
-                    }
-
-                }
-            }catch (IndexOutOfBoundsException e) {
-            }
-        }
-        //checking vertical
-        y = queen.getP1();
-        x = queen.getP2();
-        while (y < 8) {
-            try {
-                y++;
-                if (skip2 == false) {
-                    //No check if own pieces
-                    if (gameBoard.getPieceAt(y, x).getColor() == playerC) {
-                        skip2 = true;
-                    }
-                    //If any enemy targets
-                    else if (gameBoard.getPieceAt(y, x).getColor() != playerC) {
-                        gameBoard.move(queen.getP1(), queen.getP2(), y, x);
-                        if(checkFuture() == false){
-                            gameBoard.cloneBoard(testBoard);
-                            return false;
-                        }
-                        gameBoard.cloneBoard(testBoard);
-                    }
-
-                }
-            }catch (IndexOutOfBoundsException e) {
-            }
-        }
-        //checking horizontal
-        y = queen.getP1();
-        x = queen.getP2();
-        while (x > 0) {
-            try {
-                x--;
-                if (skip3 == false) {
-                    //No check if own pieces
-                    if (gameBoard.getPieceAt(y, x).getColor() == playerC) {
-                        skip3 = true;
-                    }
-                    //If any enemy targets
-                    else if (gameBoard.getPieceAt(y, x).getColor() != playerC) {
-                        gameBoard.move(queen.getP1(), queen.getP2(), y, x);
-                        if(checkFuture() == false){
-                            gameBoard.cloneBoard(testBoard);
-                            return false;
-                        }
-                        gameBoard.cloneBoard(testBoard);
-                    }
-
-                }
-            }catch (IndexOutOfBoundsException e) {
-            }
-        }
-        //checking vertical
-        y = queen.getP1();
-        x = queen.getP2();
-        while (y > 0) {
-            try {
-                y--;
-                if (skip4 == false) {
-                    //No check if own pieces
-                    if (gameBoard.getPieceAt(y, x).getColor() == playerC) {
-                        skip4 = true;
-                    }
-                    //If any enemy targets
-                    else if (gameBoard.getPieceAt(y, x).getColor() != playerC) {
-                        gameBoard.move(queen.getP1(), queen.getP2(), y, x);
-                        if(checkFuture() == false){
-                            gameBoard.cloneBoard(testBoard);
-                            return false;
-                        }
-                        gameBoard.cloneBoard(testBoard);
-                    }
-
-                }
-            }catch (IndexOutOfBoundsException e) {
-            }
-        }
-
-        skip1 = false;
-        skip2 = false;
-        skip3 = false;
-        skip4 = false;
-
-        playerC = Color.White;
-        if(queen.getColor() == Color.Black){
-            playerC = Color.Black;
-        }
-
-        y = queen.getP1();
-        x = queen.getP2();
-        while (x < 7 && y < 7) {
-            try {
-                x++;
-                y++;
-                if (skip1 == false) {
-                    //No check if own pieces
-                    if (gameBoard.getPieceAt(y, x).getColor() == playerC) {
-                        skip1 = true;
-                    }
-                    //If any enemy targets
-                    else if (gameBoard.getPieceAt(y, x).getColor() != playerC) {
-                        gameBoard.move(queen.getP1(), queen.getP2(), y, x);
-                        if(checkFuture() == false){
-                            gameBoard.cloneBoard(testBoard);
-                            return false;
-                        }
-                        gameBoard.cloneBoard(testBoard);
-                    }
-
-                }
-
-            }catch (IndexOutOfBoundsException e){
-            }
-        }
-        y = queen.getP1();
-        x = queen.getP2();
-        while (x < 7 && y > 0) {
-            try {
-                x++;
-                y--;
-                //checking diagonals
-                if (skip2 == false) {
-                    //No check if own pieces
-                    if (gameBoard.getPieceAt(y, x).getColor() == playerC) {
-                        skip2 = true;
-                    }
-                    //If any enemy targets
-                    else if (gameBoard.getPieceAt(y, x).getColor() != playerC) {
-                        gameBoard.move(queen.getP1(), queen.getP2(), y, x);
-                        if(checkFuture() == false){
-                            gameBoard.cloneBoard(testBoard);
-                            return false;
-                        }
-                        gameBoard.cloneBoard(testBoard);
-                    }
-
-                }
-            }catch(IndexOutOfBoundsException e){
-            }
-        }
-        y = queen.getP1();
-        x = queen.getP2();
-        while (x > 0 && y < 7) {
-            try {
-                x--;
-                y++;
-                //checking diagonals
-                if (skip3 == false) {
-                    //No check if own pieces
-                    if (gameBoard.getPieceAt(y, x).getColor() == playerC) {
-                        skip3 = true;
-                    }
-                    //If any enemy targets
-                    else if (gameBoard.getPieceAt(y, x).getColor() != playerC) {
-                        gameBoard.move(queen.getP1(), queen.getP2(), y, x);
-                        if(checkFuture() == false){
-                            gameBoard.cloneBoard(testBoard);
-                            return false;
-                        }
-                        gameBoard.cloneBoard(testBoard);
-                    }
-
-                }
-            }catch(IndexOutOfBoundsException e){
-            }
-        }
-        y = queen.getP1();
-        x = queen.getP2();
-        while (x > 0 && y > 0) {
-            try {
-                x--;
-                y--;
-                //checking diagonals
-                if (skip4 == false) {
-                    //No check if own pieces
-                    if (gameBoard.getPieceAt(y, x).getColor() == playerC) {
-                        skip4 = true;
-                    }
-                    //If any enemy targets
-                    else if (gameBoard.getPieceAt(y, x).getColor() != playerC) {
-                        gameBoard.move(queen.getP1(), queen.getP2(), y, x);
-                        if(checkFuture() == false){
-                            gameBoard.cloneBoard(testBoard);
-                            return false;
-                        }
-                        gameBoard.cloneBoard(testBoard);
-                    }
-
-                }
-            }catch(IndexOutOfBoundsException e){
-            }
-        }
-        return true;
-    }
 
     //King
     public boolean gameStateKing(ChessPiece king){ //TODO
