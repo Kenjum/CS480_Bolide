@@ -70,7 +70,7 @@ public class ArrayBoard {
     public void move(int x1, int y1, int x2, int y2) {
         board[y2][x2]= board[y1][x1];
         board[y1][x1] = new Empty_Space(y1,x1);
-        board[y2][x2].setMoved(true);
+
     }
 
     /*
