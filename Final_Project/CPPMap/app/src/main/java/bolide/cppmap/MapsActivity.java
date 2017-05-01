@@ -1,24 +1,20 @@
 package bolide.cppmap;
 
+import android.Manifest;
 import android.content.pm.PackageManager;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentActivity;
-import android.os.Bundle;
-import android.app.Activity;
 import android.support.v4.content.ContextCompat;
-import android.Manifest;
 import android.support.v7.app.AppCompatActivity;
 
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.GoogleMap.OnMyLocationButtonClickListener;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.maps.GoogleMap.OnMyLocationButtonClickListener;
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback,OnMyLocationButtonClickListener, ActivityCompat.OnRequestPermissionsResultCallback {
     GoogleMap mMap;
@@ -39,6 +35,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+
     }
 
 
@@ -62,6 +60,41 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         //Get Location of the user
         mMap.setOnMyLocationButtonClickListener(this);
         enableMyLocation();
+
+        // 8: College of Science Building
+        mMap.addMarker(new MarkerOptions()
+            .position(new LatLng(34.058562, -117.825102))
+            .title("8: College of Science Building"));
+        // 1: Building One
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.059499, -117.824131))
+                .title("1: Building One"));
+        // 2: College of Agriculture
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.057725, -117.826502))
+                .title("2: College of Agriculture"));
+        // 3: Science Laboratory
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.058562, -117.825102))
+                .title("3: Science Laboratory"));
+        // 4: Biotechnology Building
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.057172, -117.826655))
+                .title("4: Biotechnology Building"));
+        // 5: College of Letters, Arts and Social Sciences
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.057476, -117.825196))
+                .title("5: College of Letters, Arts and Social Sciences"));
+        // 6: College of Education and Integrative Studies
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.058589, -117.822823))
+                .title("6: College of Education and Integrative Studies"));
+        // 7: College of Environmental Design
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.057044, -117.827392))
+                .title("7: College of Environmental Design"));
+
+
     }
     private void enableMyLocation() {
 
