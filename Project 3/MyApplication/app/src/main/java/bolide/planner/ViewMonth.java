@@ -7,6 +7,15 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CalendarView;
+import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
 
 
 /**
@@ -18,10 +27,23 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class ViewMonth extends Fragment {
+
+    private ImageView previousButton, nextButton;
+    private TextView currentDate;
+    private GridView calendarGridView;
+    private Button addEventButton;
+    private static final int MAX_CALENDAR_COLUMN = 42;
+    private int month, year;
+    private SimpleDateFormat formatter = new SimpleDateFormat("MMMM yyyy", Locale.ENGLISH);
+    private Calendar cal = Calendar.getInstance(Locale.ENGLISH);
+    private Context context;
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
+    CalendarView myCalender;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -60,11 +82,22 @@ public class ViewMonth extends Fragment {
         }
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_view_month, container, false);
+       return inflater.inflate(R.layout.fragment_view_month, container, false);
+
+        /* starts the ui for the month view ** we may or may not use this**
+        inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
+        View view = inflater.inflate(R.layout.fragment_view_month, container, false);
+        previousButton = (ImageView)view.findViewById(R.id.previous_month);
+        nextButton = (ImageView)view.findViewById(R.id.next_month);
+        currentDate = (TextView)view.findViewById(R.id.display_current_date);
+        addEventButton = (Button)view.findViewById(R.id.add_calendar_event);
+        calendarGridView = (GridView)view.findViewById(R.id.calendar_grid);
+        */
     }
 
     // TODO: Rename method, update argument and hook method into UI event
