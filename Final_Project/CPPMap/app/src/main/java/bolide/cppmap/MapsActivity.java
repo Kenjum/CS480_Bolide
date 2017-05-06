@@ -2,6 +2,7 @@ package bolide.cppmap;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -15,6 +16,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polyline;
+import com.google.android.gms.maps.model.PolylineOptions;
 
 //imports for spinner
 import java.util.ArrayList;
@@ -29,7 +32,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     GoogleMap mMap;
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
     private boolean mPermissionDenied = false;
-    
+    /*
     //Spinner for drop down menu
     Spinner spinner = (Spinner) findViewById(R.id.spinner);
     // Create an ArrayAdapter using the string array and a default spinner layout
@@ -39,7 +42,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 // Apply the adapter to the spinner
 spinner.setAdapter(adapter);
-    
+    */
     /*
     LatLngBounds CalPolyPomona is used to create the boundry
     The new LatLng is the southwest corner, the second is the northeast
@@ -113,6 +116,7 @@ spinner.setAdapter(adapter);
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.057044, -117.827392))
                 .title("7: College of Environmental Design"));
+
 
 
     }
