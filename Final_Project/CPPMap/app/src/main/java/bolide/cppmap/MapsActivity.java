@@ -34,17 +34,17 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     GoogleMap mMap;
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
     private boolean mPermissionDenied = false;
-    /*
+
+
     //Spinner for drop down menu
-    Spinner spinner = (Spinner) findViewById(R.id.spinner);
+    //Spinner spinner = (Spinner) findViewById(R.id.spinner);
     // Create an ArrayAdapter using the string array and a default spinner layout
-    ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-            R.array.locations_array, android.R.layout.simple_spinner_item);
+    //ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.locations_array, android.R.layout.simple_spinner_item);
 // Specify the layout to use when the list of choices appears
-adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+    //adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 // Apply the adapter to the spinner
-spinner.setAdapter(adapter);
-    */
+    //spinner.setAdapter(adapter);
+
     /*
     LatLngBounds CalPolyPomona is used to create the boundry
     The new LatLng is the southwest corner, the second is the northeast
@@ -60,8 +60,27 @@ spinner.setAdapter(adapter);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        Spinner viewSpinner = (Spinner) findViewById(R.id.spinner);
+        ArrayAdapter viewAdapter = ArrayAdapter.createFromResource(this,R.array.locations_array,R.layout.support_simple_spinner_dropdown_item);
+        viewSpinner.setAdapter(viewAdapter);
+        viewSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                switch(position){
+                    case 0://month
+                        break;
+                    case 1://week
+                        break;
+                    case 2://day
+                        break;
+                }
+            }
 
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
 
+            }
+        });
     }
 
 
@@ -239,7 +258,8 @@ spinner.setAdapter(adapter);
         // 8: College of Science Building
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.058670, -117.824736))
-                .title("8: College of Science Building"));
+                .title("8: College of Science Building")
+                .snippet(new Details().bldg8));
         //9: College of Engineering
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.059093, -117.822404))

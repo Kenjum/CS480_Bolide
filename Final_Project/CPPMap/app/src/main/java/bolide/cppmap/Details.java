@@ -23,4 +23,6 @@ public class Details {
     String bldg8 = "Home to the departments of Biological Sciences, Chemistry, Biochemistry, \n" +
             "Computer Science, Geological Sciences, Kinesiology and Health Promotion,\n" +
             "Math and Statistics, as well as the Physics and Astronomy Department.";
+    Details(){
+    }
 }
