@@ -2,6 +2,8 @@ package bolide.cppmap;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -9,10 +11,13 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMap.OnMyLocationButtonClickListener;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
@@ -25,6 +30,7 @@ import java.util.ArrayList;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,20 +42,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private boolean mPermissionDenied = false;
 
 
-    //Spinner for drop down menu
-    //Spinner spinner = (Spinner) findViewById(R.id.spinner);
-    // Create an ArrayAdapter using the string array and a default spinner layout
-    //ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.locations_array, android.R.layout.simple_spinner_item);
-// Specify the layout to use when the list of choices appears
-    //adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-// Apply the adapter to the spinner
-    //spinner.setAdapter(adapter);
-
     /*
     LatLngBounds CalPolyPomona is used to create the boundry
     The new LatLng is the southwest corner, the second is the northeast
      */
+
     private LatLngBounds CalPolyPomona = new LatLngBounds( new LatLng(34.048359, -117.828218), new LatLng(34.065156, -117.806628));
+    Marker testMarker;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,14 +59,20 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+
+
         Spinner viewSpinner = (Spinner) findViewById(R.id.spinner);
         ArrayAdapter viewAdapter = ArrayAdapter.createFromResource(this,R.array.locations_array,R.layout.support_simple_spinner_dropdown_item);
         viewSpinner.setAdapter(viewAdapter);
         viewSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                //switch statement is for proof of concept
                 switch(position){
-                    case 0://month
+                    case 0:
+                        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(testMarker.getPosition(), 20));
+                        testMarker.showInfoWindow();
                         break;
                     case 1://week
                         break;
@@ -103,6 +108,27 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mMap.setMinZoomPreference(15);
         //Get Location of the user
         mMap.setOnMyLocationButtonClickListener(this);
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
+                    @Override
+                    public View getInfoWindow(Marker marker) {
+                        return null;
+                    }
+                    @Override
+                    public View getInfoContents(Marker marker) {
+                        View v = getLayoutInflater().inflate(R.layout.custom_info_window, null);
+                        ImageView image = (ImageView) v.findViewById(R.id.imageView1);
+                        TextView discription = (TextView) v.findViewById(R.id.tvSnippet);
+                        image.setImageBitmap(BitmapFactory.decodeResource(getResources(),R.drawable.building1));
+                        discription.setText(marker.getSnippet());
+                        return v;
+                    }
+                });
+                return false;
+            }
+        });
         enableMyLocation();
         buildBuildings();
         generatePaths();
@@ -151,43 +177,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
 
     }
+    
 
-    /*
-    private boolean initMap(){
-        if(mMap == null){
-            SupportMapFragment mapFragment =
-                    (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
-            //mMap = mapFragment.getMap();
-
-            if(mMap != null){
-                mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
-                    @Override
-                    public View getInfoWindow(Marker marker) {
-                        return null;
-                    }
-
-                    @Override
-                    public View getInfoContents(Marker marker) {
-                        View v = getLayoutInflater().inflate(R.layout.info_window, null);
-                        TextView tvLocality = (TextView) v.findViewById(R.id.tvLocality);
-                        TextView tvLat = (TextView) v.findViewById(R.id.tvLat);
-                        TextView tvLng = (TextView) v.findViewById(R.id.tvLng);
-                        TextView tvSnippet = (TextView) v.findViewById(R.id.tvSnippet);
-
-                        LatLng latLng = marker.getPosition();
-                        tvLocality.setText(marker.getTitle());
-                        tvLat.setText("Latitude: " +latLng.latitude);
-                        tvLng.setText("Longitude: "+latLng.longitude);
-                        tvSnippet.setText(marker.getSnippet());
-
-                        return v;
-                    }
-                });
-            }
-        }
-        return(mMap != null);
-    }
-    */
     @Override
     protected void onResumeFragments() {
         super.onResumeFragments();
@@ -220,13 +211,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     //function for placing building markers
     private void buildBuildings(){
-
         // 1: Building One
-        mMap.addMarker(new MarkerOptions()
+        testMarker = mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.059499, -117.824131))
                 .title("1: Building One")
                 .snippet("Holds the Departments of Communication, Economics, and Philosophy. It also\n" +
-                        "contains the home of IT Services and the Kellogg Honors College."));
+                        "contains the home of IT Services and the Kellogg Honors College.")
+        );
         // 2: College of Agriculture
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.057725, -117.826502))
