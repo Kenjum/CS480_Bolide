@@ -1,17 +1,12 @@
 package bolide.planner;
 
-import android.app.Fragment;
-import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.CalendarView;
 import android.widget.Spinner;
-
-import bolide.planner.Fragments.DayFragment;
-import bolide.planner.Fragments.MonthFragment;
 
 public class MainActivity extends AppCompatActivity {
     Spinner viewSpinner;
@@ -50,5 +45,10 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void notesOnClick(View view){
+        Intent i = new Intent (this, ViewNotes.class);
+        startActivity(i);
     }
 }
