@@ -15,6 +15,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
@@ -25,6 +26,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
 
@@ -84,8 +86,8 @@ spinner.setAdapter(adapter);
         mMap.setOnMyLocationButtonClickListener(this);
         enableMyLocation();
         buildBuildings();
-
-
+        generatePaths();
+        //initMap();
 
 
     }
@@ -131,8 +133,42 @@ spinner.setAdapter(adapter);
 
     }
 
+    /*
+    private boolean initMap(){
+        if(mMap == null){
+            SupportMapFragment mapFragment =
+                    (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+            //mMap = mapFragment.getMap();
 
+            if(mMap != null){
+                mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
+                    @Override
+                    public View getInfoWindow(Marker marker) {
+                        return null;
+                    }
 
+                    @Override
+                    public View getInfoContents(Marker marker) {
+                        View v = getLayoutInflater().inflate(R.layout.info_window, null);
+                        TextView tvLocality = (TextView) v.findViewById(R.id.tvLocality);
+                        TextView tvLat = (TextView) v.findViewById(R.id.tvLat);
+                        TextView tvLng = (TextView) v.findViewById(R.id.tvLng);
+                        TextView tvSnippet = (TextView) v.findViewById(R.id.tvSnippet);
+
+                        LatLng latLng = marker.getPosition();
+                        tvLocality.setText(marker.getTitle());
+                        tvLat.setText("Latitude: " +latLng.latitude);
+                        tvLng.setText("Longitude: "+latLng.longitude);
+                        tvSnippet.setText(marker.getSnippet());
+
+                        return v;
+                    }
+                });
+            }
+        }
+        return(mMap != null);
+    }
+    */
     @Override
     protected void onResumeFragments() {
         super.onResumeFragments();
@@ -146,13 +182,32 @@ spinner.setAdapter(adapter);
     private void showMissingPermissionError() {
         PermissionUtils.PermissionDeniedDialog.newInstance(true).show(getSupportFragmentManager(), "dialog");
     }
+
+    public void generatePaths(){
+        Marker pathPoint = mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.058835, -117.824326)).visible(false));
+        pathPoint.setTag("path");
+
+        Marker pathPoint2 = mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.057983, -117.823473)).visible(false));
+        pathPoint2.setTag("path");
+
+        //polyline
+        Polyline line = mMap.addPolyline(new PolylineOptions()
+                .add(pathPoint.getPosition(), pathPoint2.getPosition())
+                .width(5)
+                .color(Color.RED));
+    }
+
     //function for placing building markers
     private void buildBuildings(){
 
         // 1: Building One
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.059499, -117.824131))
-                .title("1: Building One"));
+                .title("1: Building One")
+                .snippet("Holds the Departments of Communication, Economics, and Philosophy. It also\n" +
+                        "contains the home of IT Services and the Kellogg Honors College."));
         // 2: College of Agriculture
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.057725, -117.826502))
