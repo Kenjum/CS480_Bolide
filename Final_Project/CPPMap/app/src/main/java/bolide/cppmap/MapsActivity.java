@@ -159,11 +159,11 @@ spinner.setAdapter(adapter);
                 .title("2: College of Agriculture"));
         // 3: Science Laboratory
         mMap.addMarker(new MarkerOptions()
-                .position(new LatLng(34.058562, -117.825102))
+                .position(new LatLng(34.058101, -117.825659))
                 .title("3: Science Laboratory"));
         // 4: Biotechnology Building
         mMap.addMarker(new MarkerOptions()
-                .position(new LatLng(34.057172, -117.826655))
+                .position(new LatLng(34.057479, -117.825380))
                 .title("4: Biotechnology Building"));
         //4A: Bio Trek Learning Center
         mMap.addMarker(new MarkerOptions()
@@ -171,7 +171,7 @@ spinner.setAdapter(adapter);
                 .title("4A: Bio Trek Learning Center"));
         // 5: College of Letters, Arts and Social Sciences
         mMap.addMarker(new MarkerOptions()
-                .position(new LatLng(34.057476, -117.825196))
+                .position(new LatLng(34.057852, -117.824200))
                 .title("5: College of Letters, Arts and Social Sciences"));
         // 6: College of Education and Integrative Studies
         mMap.addMarker(new MarkerOptions()
@@ -183,7 +183,7 @@ spinner.setAdapter(adapter);
                 .title("7: College of Environmental Design"));
         // 8: College of Science Building
         mMap.addMarker(new MarkerOptions()
-                .position(new LatLng(34.058562, -117.825102))
+                .position(new LatLng(34.058670, -117.824736))
                 .title("8: College of Science Building"));
         //9: College of Engineering
         mMap.addMarker(new MarkerOptions()
@@ -320,7 +320,7 @@ spinner.setAdapter(adapter);
         //43: Kellogg Gymnasium 44: swimming pool
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.054263, -117.819278))
-                .title("43: Kellogg Gymnasium\n44: swimming pool"));
+                .title("43: Kellogg Gymnasium 44: swimming pool"));
         //45: Agricultural Engineering
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.061132, -117.811036))
@@ -341,6 +341,189 @@ spinner.setAdapter(adapter);
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.061381, -117.815756))
                 .title("49: Training Center"));
+        //52: Vista Market
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.053928, -117.817950))
+                .title("52: Vista Market"));
+        //54: Residence Suites, Vista de las Estrellas
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.055359, -117.818905))
+                .title("54: Residence Suites, Vista de las Estrellas"));
+        //55: Foundation Administration Offices
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.056215, -117.819824))
+                .title("55: Foundation Administration Offices"));
+        //56: Storage Building
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.061885, -117.810827))
+                .title("56: Storage Building"));
+        //57: Residence Halls, Palmitas
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.060521, -117.822323))
+                .title("57: Residence Halls, Palmitas"));
+        //58: Residence Halls, Cedritos
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.061503, -117.821223))
+                .title("58: Residence Halls, Cedritos"));
+        //59:La Cienega Center - University Housing Services
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.060838, -117.821909))
+                .title("59:La Cienega Center - University Housing Services"));
+        //60: Residence Suites
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.054906, -117.818549))
+                .title("60: Residence Suites"));
+        //61: Residence Suites, Vista del Sol
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.054768, -117.818050))
+                .title("61: Residence Suites, Vista del Sol"));
+        //62: Residence Suites, Vista de las Montanas
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.054399, -117.817465))
+                .title("62: Residence Suites, Vista de las Montanas"));
+        //63: Residence Suites, Vista del Luna
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.053710, -117.817138))
+                .title("63: Residence Suites, Vista del Luna"));
+        //64: Rose Float Laboratory
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.060184, -117.808222))
+                .title("64: Rose Float Laboratory"));
+        //65: Pesticide Building
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.061620, -117.810742))
+                .title("65: Pesticide Building"));
+        //66: Bronco Bookstore
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.056024, -117.820506))
+                .title("66: Bronco Bookstore"));
+        //67: Equine Research Facility
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.059253, -117.813959))
+                .title("67: Equine Research Facility"));
+        //68: Hay Barn
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.054375, -117.827668))
+                .title("68: Hay Barn"));
+        //70: Los Olivos Comons
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.062332, -117.821550))
+                .title("70: Los Olivos Comons"));
+        //71: Recreation/Maintenance
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.062992, -117.816752))
+                .title("71: Recreation/Maintenance"));
+        //75: Procurement/Receiving
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.059590, -117.807834))
+                .title("75: Procurement/Receiving"));
+        //76: Kellogg West Education/Dining
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.056560, -117.824966))
+                .title("76: Kellogg West Education/Dining"));
+        //77: Kellogg West Main Lodge
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.056340, -117.825972))
+                .title("77: Kellogg West Main Lodge"));
+        //78: Kellogg West Addition
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.056772, -117.825690))
+                .title("78: Kellogg West Addition"));
+        //79: Collins College of Hospitality Management
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.054942, -117.823998))
+                .title("79: Collins College of Hospitality Management"));
+        //79A: Collins College of Hospitality Management
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.055098, -117.824765))
+                .title("79A: Collins College of Hospitality Management"));
+        //79B: Collins College of Hospitality Management
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.055318, -117.824457))
+                .title("79B: Collins College of Hospitality Management"));
+        //80: Collins College of Hospitality Management, Marriott Learning Center
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.054887, -117.825224))
+                .title("80: Collins College of Hospitality Management, Marriott Learning Center"));
+        //81: Facilities Management
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.059511, -117.808871))
+                .title("81: Facilities Management"));
+        //82: Facilities Management Warehouse
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.059789, -117.808664))
+                .title("82: Facilities Management Warehouse"));
+        //82A: Carpenter Shop
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.059969, -117.808919))
+                .title("82A: Carpenter Shop"));
+        //83: Auto Shop
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.059429, -117.808208))
+                .title("83: Auto Shop"));
+        //85: I-Poly High School
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.050909, -117.819478))
+                .title("85: I-Poly High School"));
+        //86: English Language Institute
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.053356, -117.819679))
+                .title("86: English Language Institute"));
+        //86A: English Language Institute
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.053225, -117.819977))
+                .title("86A: English Language Institute"));
+        //86B: English Language Institute
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.053500, -117.820086))
+                .title("86B: English Language Institute"));
+        //86C: English Language Institute
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.053317, -117.820168))
+                .title("86C: English Language Institute"));
+        //89: Interim Design Center
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.060594, -117.812267))
+                .title("89: Interim Design Center"));
+
+        //90: Medic-1
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.061185, -117.816596))
+                .title("90: Medic-1"));
+        //91:Student Affairs Information Technology Services
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.061403, -117.818651))
+                .title("91:Student Affairs Information Technology Services"));
+        //92: Laboratory Facility
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.057763, -117.826177))
+                .title("92: Laboratory Facility"));
+        //94: University Office Building
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.059105, -117.823269))
+                .title("94: University Office Building"));
+        //95: Cultural Centers
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.057945, -117.82269))
+                .title("95: Cultural Centers"));
+        //97: Campus Center
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.057845, -117.823344))
+                .title("97: Campus Center"));
+        //98: Classroom/Laboratory/Administration
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.059467, -117.820099))
+                .title("98: Classroom/Laboratory/Administration"));
+        //99: Storage Building
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.061853, -117.810996))
+                .title("99: Storage Building"));
+        //100: Storage Building
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.062035, -117.810819))
+                .title("100: Storage Building"));
+
+
 
 
     }
