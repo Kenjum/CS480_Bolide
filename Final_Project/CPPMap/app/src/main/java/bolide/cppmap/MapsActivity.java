@@ -1,10 +1,14 @@
 package bolide.cppmap;
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -26,21 +30,29 @@ import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 
 //imports for spinner
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.List;
+
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
 
-public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback,OnMyLocationButtonClickListener, ActivityCompat.OnRequestPermissionsResultCallback {
+public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, DirectionFinderListener, OnMyLocationButtonClickListener, ActivityCompat.OnRequestPermissionsResultCallback {
     GoogleMap mMap;
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
     private boolean mPermissionDenied = false;
 
+    private List<Marker> originMarkers = new ArrayList<>();
+    private List<Marker> destinationMarkers = new ArrayList<>();
+    private List<Polyline> polylinePaths = new ArrayList<>();
+    private ProgressDialog progressDialog;
 
     /*
     LatLngBounds CalPolyPomona is used to create the boundry
@@ -61,8 +73,18 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+        //TODO for navigation
+        Button btnGo = (Button) findViewById(R.id.btnGo);
+
+        btnGo.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                sendRequest();
+            }
+        });
 
 
+        //Spinner
         Spinner viewSpinner = (Spinner) findViewById(R.id.spinner);
         ArrayAdapter viewAdapter = ArrayAdapter.createFromResource(this,R.array.locations_array,R.layout.support_simple_spinner_dropdown_item);
         viewSpinner.setAdapter(viewAdapter);
@@ -102,6 +124,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         //Sets the boundry
         mMap.setLatLngBoundsForCameraTarget(CalPolyPomona);
         LatLng nearPomona = new LatLng(34.0554622,-117.8181957);
@@ -132,8 +155,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         });
         enableMyLocation();
         buildBuildings();
-        generatePaths();
-        //initMap();
 
 
     }
@@ -178,7 +199,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
 
     }
-    
+
 
     @Override
     protected void onResumeFragments() {
@@ -194,20 +215,16 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         PermissionUtils.PermissionDeniedDialog.newInstance(true).show(getSupportFragmentManager(), "dialog");
     }
 
-    public void generatePaths(){
-        Marker pathPoint = mMap.addMarker(new MarkerOptions()
-                .position(new LatLng(34.058835, -117.824326)).visible(false));
-        pathPoint.setTag("path");
+    public void sendRequest(){  //TODO
 
-        Marker pathPoint2 = mMap.addMarker(new MarkerOptions()
-                .position(new LatLng(34.057983, -117.823473)).visible(false));
-        pathPoint2.setTag("path");
-
-        //polyline
-        Polyline line = mMap.addPolyline(new PolylineOptions()
-                .add(pathPoint.getPosition(), pathPoint2.getPosition())
-                .width(5)
-                .color(Color.RED));
+//      .getPosition.toString() yields "(coord, coord)". This is to remove the parenthesis.
+        String test1 = "(34.057777, -117.823837)".replaceAll("[()]", "");
+        String test2 = "Cal Poly Pomona";
+        try{
+            new DirectionFinder(this,test1,test2).execute();
+        }catch(UnsupportedEncodingException e){
+            e.printStackTrace();
+        }
     }
 
     //function for placing building markers
@@ -653,7 +670,47 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
 
+    @Override
+    public void onDirectionFinderStart() {
+        progressDialog = ProgressDialog.show(this, "Please wait.",
+                "Finding direction..!", true);
 
+        if (originMarkers != null) {
+            for (Marker marker : originMarkers) {
+                marker.remove();
+            }
+        }
 
+        if (destinationMarkers != null) {
+            for (Marker marker : destinationMarkers) {
+                marker.remove();
+            }
+        }
 
+        if (polylinePaths != null) {
+            for (Polyline polyline:polylinePaths ) {
+                polyline.remove();
+            }
+        }
+    }
+
+    @Override
+    public void onDirectionFinderSuccess(List<Route> routes) {
+        progressDialog.dismiss();
+        polylinePaths = new ArrayList<>();
+        originMarkers = new ArrayList<>();
+        destinationMarkers = new ArrayList<>();
+
+        for (Route route : routes) {
+            PolylineOptions polylineOptions = new PolylineOptions().
+                    geodesic(true).
+                    color(Color.BLUE).
+                    width(10);
+
+            for (int i = 0; i < route.points.size(); i++)
+                polylineOptions.add(route.points.get(i));
+
+            polylinePaths.add(mMap.addPolyline(polylineOptions));
+        }
+    }
 }
