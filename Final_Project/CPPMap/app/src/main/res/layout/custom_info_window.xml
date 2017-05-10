@@ -1,17 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <ImageView
-        android:id="@+id/imageView1"
+    <TextView
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/common_google_signin_btn_icon_dark" />
+        android:text="[PlaceHolder]"
+        android:textAllCaps="true"
+        android:textColor="@android:color/black"
+        android:textSize="18sp" />
+
+
+    <ImageView
+        android:id="@+id/marker_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/common_google_signin_btn_icon_dark"
+        android:layout_below="@id/title"/>
+
     <TextView
-        android:id="@+id/tvSnippet"
-        android:layout_below="@id/imageView1"
+        android:id="@+id/descTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/marker_image"
+        android:text="Description:"
+        android:textAllCaps="true"
+        android:textColor="@android:color/black"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_below="@id/descTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 </RelativeLayout>

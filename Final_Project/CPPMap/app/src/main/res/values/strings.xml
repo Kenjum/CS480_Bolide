@@ -5,8 +5,12 @@
     <string name="location_permission_denied">This sample requires location permission to enable the \'my location\' layer. Please try again and grant access to use the location.\nIf the permission has been permanently denied, it can be enabled from the System Settings &gt; Apps &gt; \'Google Maps API Demos\'.</string>
     <string name="permission_required_toast">Location permission is required for this demo.</string>
     <string-array name="locations_array">
-        <item>Bldg 1</item>
-        <item>Bldg 2</item>
-        <item>Bldg 3</item>
+        <item>My Location</item>
+        <item>1: Building One</item>
+        <item>2: College of Agriculture</item>
+        <item>3: Science Laboratory"</item>
+        <item>4: Biotechnology Building</item>
+        <item>5: College of Letters, Arts and Social Sciences</item>
+        <item>6: College of Education and Integrative Studies</item>
     </string-array>
 </resources>

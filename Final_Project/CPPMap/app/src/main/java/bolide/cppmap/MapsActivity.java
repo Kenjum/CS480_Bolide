@@ -6,9 +6,6 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -20,8 +17,6 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMap.OnMyLocationButtonClickListener;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptor;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
@@ -41,8 +36,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.AdapterView.OnItemSelectedListener;
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, DirectionFinderListener, OnMyLocationButtonClickListener, ActivityCompat.OnRequestPermissionsResultCallback {
     GoogleMap mMap;
@@ -91,16 +84,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         viewSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                //switch statement is for proof of concept
-                switch(position){
-                    case 0:
-                        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(testMarker.getPosition(), 20));
-                        testMarker.showInfoWindow();
-                        break;
-                    case 1://week
-                        break;
-                    case 2://day
-                        break;
+                if(position ==0){
+
+                }else {
+                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(building[position].getPosition(), 20));
+                    building[position].showInfoWindow();
                 }
             }
 
@@ -143,10 +131,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     @Override
                     public View getInfoContents(Marker marker) {
                         View v = getLayoutInflater().inflate(R.layout.custom_info_window, null);
-                        ImageView image = (ImageView) v.findViewById(R.id.imageView1);
-                        TextView discription = (TextView) v.findViewById(R.id.tvSnippet);
-                        image.setImageBitmap(BitmapFactory.decodeResource(getResources(),R.drawable.building1));
+                        ImageView image = (ImageView) v.findViewById(R.id.marker_image);
+                        TextView Title = (TextView) v.findViewById(R.id.title);
+                        TextView discription = (TextView) v.findViewById(R.id.description);
+                        image.setImageBitmap((Bitmap)marker.getTag());
                         discription.setText(marker.getSnippet());
+                        Title.setText(marker.getTitle());
                         return v;
                     }
                 });
@@ -231,11 +221,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private void buildBuildings(){
 
         // 1: Building One
-        testMarker = mMap.addMarker(new MarkerOptions()
+        building[1] = mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.059499, -117.824131))
                 .title("1: Building One")
                 .snippet("Holds the Departments of Communication, Economics, and Philosophy. It also\n" +
                         "contains the home of IT Services and the Kellogg Honors College."));
+        building[1].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building1));
         // 2: College of Agriculture
         building[2] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.057725, -117.826502))
