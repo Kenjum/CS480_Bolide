@@ -287,10 +287,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         building[17] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.059630, -117.821398))
                 .title("17: Engineering Laboratories"));
-        //20: Residence Hall, Enchinitas
+        //20: Residence Hall, Encinitas
         building[20] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.062248, -117.820642))
-                .title("20: Residence Hall, Enchinitas"));
+                .title("20: Residence Hall, Encinitas"));
         //21: Residence Hall, Montecito
         building[21] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.062081, -117.819266))
