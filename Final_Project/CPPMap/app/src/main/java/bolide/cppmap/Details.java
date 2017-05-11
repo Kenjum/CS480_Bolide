@@ -46,5 +46,43 @@ public class Details {
     String bldg24C = "Classroom";
     String bldg24D = "Classroom";
     String bldg24E = "Classroom";
+    String bldg25 = "Houses the Department of Theatre and New Dance along with Technical Services.";
+    String bldg26 = "Contains the B.E.A.T Office, Native American Student Center, Pride Center, " +
+                    "the Latter Day Saints Student Association and REACH.";
+    String bldg26A = "Home of Student Orientation Services.";
+    String bldg28 = "";
+    String bldg29 = "Houses the Arabian Horse Center as well as the Veterinarian Clinic.";
+    String bldg30 = "";
+    String bldg31 = "";
+    String bldg32 = "";
+    String bldg33 = "";
+    String bldg34 = "";
+    String bldg35 = "Home to Subway, Qdoba, Hibachi San, Peet’s Coffee, and Round Table. It also " +
+                    "contains ASI, the Games Room Etc., Bronco Copy N Mail, and the Cal Poly Federal Credit Union.";
+    String bldg35A = "";
+    String bldg37  = "";
+    String bldg38 = "";
+    String bldg41 = "Holds the Women’s Locker Room, Training Room and Volleyball Office.";
+    String bldg42 = "Campus GYM for students. It has workout equipment, an indoor track, basketball " +
+                    "courts and studios for classes. It also contains Jamba Juice and a swimming pool out back.";
+    String bldg43 = "Contains all of the sports offices, Men’s Locker Room, Human Performance Lab and the gymnasium itself.";
+    String bldg45 = "Home of the Apparel Merchandising & Management Department, Agriculture Engineering-Landscape " +
+                    "Irrigation Science, Apparel Technology & Research Center, Landscape Irrigation Science, and the " +
+                    "Center for Turf, Irrigation & Landscape Technology.";
+    String bldg46 = "Includes the Immunization Clinic and provides other health services as well.";
+    String bldg47 = "";
+    String bldg48 = "";
+    String bldg49 = "";
+    String bldg52 = "Campus store with groceries and produce items. It is also attached to the campus Denny’s.";
+    String bldg54 = "On campus apartment type housing.";
+    String bldg55 = "";
+    String bldg56 = "";
+    String bldg57 = "On campus dorms used for student housing.";
+    String bldg58 = "On campus dorms used for student housing.";
+    String bldg59 = "University Housing Services office that also contains a small fitness center.";
+    String bldg60 = "On campus apartment type housing.";
+    String bldg61 = "On campus apartment type housing.";
+    String bldg62 = "On campus apartment type housing.";
+    String bldg63 = "On campus apartment type housing.";
     
 }
