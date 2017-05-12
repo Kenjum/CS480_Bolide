@@ -29,13 +29,13 @@ public class AddNote extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         boolean isInserted = dbNotes.insertData(editTextTitle.getText().toString(),
-                                editTextBody.getText().toString(),
-                                "1");
+                                editTextBody.getText().toString());
                         if(isInserted == true){
                             Toast.makeText(AddNote.this,"Data Inserted", Toast.LENGTH_LONG).show();
                         }else{
                             Toast.makeText(AddNote.this,"Data not Inserted", Toast.LENGTH_LONG).show();
                         }
+                        finish();
                     }
                 }
         );
