@@ -10,11 +10,13 @@ import android.widget.Spinner;
 
 public class MainActivity extends AppCompatActivity {
     Spinner viewSpinner;
+    DatabaseHelperNotes dbNotes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        dbNotes = new DatabaseHelperNotes(this);
         viewSpinner = (Spinner) findViewById(R.id.views_spinner);
         ArrayAdapter viewAdapter = ArrayAdapter.createFromResource(this,R.array.views,R.layout.support_simple_spinner_dropdown_item);
         viewSpinner.setAdapter(viewAdapter);
