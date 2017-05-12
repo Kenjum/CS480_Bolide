@@ -287,10 +287,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         building[17] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.059630, -117.821398))
                 .title("17: Engineering Laboratories"));
-        //20: Residence Hall, Enchinitas
+        //20: Residence Hall, Encinitas
         building[20] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.062248, -117.820642))
-                .title("20: Residence Hall, Enchinitas"));
+                .title("20: Residence Hall, Encinitas"));
         //21: Residence Hall, Montecito
         building[21] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.062081, -117.819266))
@@ -479,10 +479,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         building[68] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.054375, -117.827668))
                 .title("68: Hay Barn"));
-        //70: Los Olivos Comons
+        //70: Los Olivos Commons
         building[70] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.062332, -117.821550))
-                .title("70: Los Olivos Comons"));
+                .title("70: Los Olivos Commons"));
         //71: Recreation/Maintenance
         building[71] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.062992, -117.816752))
