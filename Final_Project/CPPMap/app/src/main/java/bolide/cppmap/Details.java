@@ -2,6 +2,8 @@ package bolide.cppmap;
 
 ///Contains the descriptions for each of the markers.
 //Can add these to an array to correspond with the markers' index
+//Empty Strings are those where a description didn't seem necessary/was hard to find
+
 public class Details {
     String bldg1 = "Holds the Departments of Communication, Economics, and Philosophy. It also\n" +
             "contains the home of IT Services and the Kellogg Honors College.";
@@ -84,5 +86,62 @@ public class Details {
     String bldg61 = "On campus apartment type housing.";
     String bldg62 = "On campus apartment type housing.";
     String bldg63 = "On campus apartment type housing.";
-    
+    String bldg64 = "";
+    String bldg65 = "";
+    String bldg66 = "Houses the bookstore, classrooms, the Kinesiology & Health Promotion Department " +
+                    "and Renaissance Scholars.";
+    String bldg67 = "Contains the Equine Outreach Program.";
+    String bldg68 = "";
+    String bldg70 = "The campus dining hall for on campus residents.";
+    String bldg71 = "";
+    String bldg75 = "";
+    String bldg76 = "Part of Kellogg West Conference Center and Hotel";
+    String bldg77 = "Part of Kellogg West Conference Center and Hotel";
+    String bldg78 = "Part of Kellogg West Conference Center and Hotel";
+    String bldg79 = "Holds the Restaurant at Kellogg Ranch and the School of Hotel and Restaurant Management ";
+    String bldg79A = "Part of Collins College of Hospitality Management.";
+    String bldg79B = "Contains the Collins College of Hospitality Management, Hospitality Management " +
+                     "Council, and the Professional Development Institute (CSHM).";
+    String bldg80 = "Part of Collins College of Hospitality Management.";
+    String bldg81 = "Houses Logistics and Recycling and Mechanical & Engineering Services.";
+    String bldg82 = "";
+    String bldg82A = "";
+    String bldg83 = "";
+    String bldg85 = "A college preparatory high school on campus operated in conjunction with the " +
+                    "College of Education and Integrative Studies.";
+    String bldg86 = "The Cal Poly English Language Institute";
+    String bldg86A = "Part of the Cal Poly English Language Institute";
+    String bldg86B = "Part of the Cal Poly English Language Institute";
+    String bldg86C = "Part of the Cal Poly English Language Institute";
+    String bldg89 = "";
+    String bldg90 = "Provides ambulance services to the campus community.";
+    String bldg91 = "Serves as the liaison between the Division of Student Affairs and the Division " +
+                    "of Information Technology supporting the Student Affair Division's use of and access to technology.";
+    String bldg92 = "";
+    String bldg94 = "Contains the Departments of Ethnic & Women’s Studies, Interdisciplinary General " +
+                    "Education (IGE), History, Liberal Studies, and Political Science. ";
+    String bldg95 = "Includes the African American Student Center, Asian & Pacific Islander Student " +
+                    "Center, Cesar E. Chavez Center for Higher Education, Native American Student " +
+                    "Center, Pride Center and Women's Resource Center.";
+    String bldg97 = "Includes Carl’s Jr., Panda Express, Taco Bell Express, Pony Express, Jamba Juice " +
+                    "Express, Fresh Escape and International Grounds. The building also has the Career " +
+                    "Center and Campus Center Computing Lab.";
+    String bldg98 = "Contains Academic Programs, Administrative Office, Campus Tour Information, " +
+                    "Classrooms, Division of Academic & Student Affairs, Financial Aid & Scholarships, " +
+                    "Orientation Services, Pony Express, Registrar’s Office and Student Accounting & Cashiering Services.";
+    String bldg99 = "";
+    String bldg100 = "";
+    String bldg106 = "Parking Lot for student parking.";
+    String bldg109 = "Headquarters for Police and Parking Services. Also includes the Rideshare Office.";
+    String bldg111 = "Home of the President of the University.";
+    String bldg112 = "Venue for weddings, corporate meetings, birthday parties, and other special events.";
+    String bldg113 = "Part of the Kellogg House Pomona.";
+    String bldg116 = "Provide quality preschool services for campus student-parents, faculty, staff, alumni and community.";
+    String bldg162 = "Includes 2 auditorium style lecture halls along with restrooms.";
+    String bldg163 = "Includes classrooms for College of Business classes.";
+    String bldg164 = "Includes the Departments for Accounting, Computer Information Systems, Finance, " +
+                     "Real Estate & Law, International Business & Marketing, Management & Human Resources " +
+                     "and Technology and Operations Management. The building also has Einstein Bros Bagels and Pony Express.";
+    String bldg193 = "";
+    String bldg200 = "Provides apartment style housing for students. ";
 }
