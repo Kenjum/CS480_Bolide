@@ -22,6 +22,11 @@ public class ViewNotes extends AppCompatActivity {
         populateList();
     }
 
+    protected void onResume(){
+        super.onResume();
+        populateList();
+    }
+
     protected void populateList() {
         dbNotes = new DatabaseHelperNotes(this);
         c = dbNotes.getAllData();
