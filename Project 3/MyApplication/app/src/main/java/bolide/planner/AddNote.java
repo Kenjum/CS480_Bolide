@@ -11,12 +11,15 @@ public class AddNote extends AppCompatActivity {
     EditText editTextTitle,editTextBody;
     Button btn_Save;
     DatabaseHelperNotes dbNotes;
+    ViewNotes vn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_note);
 
         dbNotes = new DatabaseHelperNotes(this);
+        vn = new ViewNotes();
         editTextTitle = (EditText)findViewById(R.id.editTextTitle);
         editTextBody = (EditText)findViewById(R.id.editTextBody);
         btn_Save = (Button)findViewById(R.id.btn_Save);
@@ -35,6 +38,8 @@ public class AddNote extends AppCompatActivity {
                         }else{
                             Toast.makeText(AddNote.this,"Data not Inserted", Toast.LENGTH_LONG).show();
                         }
+
+                        //vn.populateList();
                         finish();
                     }
                 }

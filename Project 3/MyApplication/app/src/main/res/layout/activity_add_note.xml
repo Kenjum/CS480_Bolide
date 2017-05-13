@@ -49,8 +49,8 @@
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
         android:text="Play"
-        android:layout_alignBaseline="@+id/btn_Stop"
-        android:layout_alignBottom="@+id/btn_Stop"
+        android:layout_alignBaseline="@+id/btn_StopPlayback"
+        android:layout_alignBottom="@+id/btn_StopPlayback"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -58,20 +58,29 @@
         android:id="@+id/btn_Record"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hold to record"
         android:layout_alignBaseline="@+id/btn_Save"
         android:layout_alignBottom="@+id/btn_Save"
         android:layout_alignLeft="@+id/btn_Play"
-        android:layout_alignStart="@+id/btn_Play" />
+        android:layout_alignStart="@+id/btn_Play"
+        android:text="Record" />
 
     <Button
-        android:id="@+id/btn_Stop"
+        android:id="@+id/btn_StopPlayback"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Stop"
-        android:layout_marginBottom="15dp"
         android:layout_above="@+id/btn_Record"
+        android:layout_marginBottom="15dp"
+        android:layout_toEndOf="@+id/btn_Play"
         android:layout_toRightOf="@+id/btn_Play"
-        android:layout_toEndOf="@+id/btn_Play" />
+        android:text="Stop Playback" />
+
+    <Button
+        android:id="@+id/btn_StopRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/btn_Record"
+        android:layout_toEndOf="@+id/btn_Record"
+        android:layout_toRightOf="@+id/btn_Record"
+        android:text="Stop Recording" />
 
 </RelativeLayout>
