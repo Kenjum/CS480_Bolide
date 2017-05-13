@@ -55,6 +55,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private LatLngBounds CalPolyPomona = new LatLngBounds( new LatLng(34.048359, -117.828218), new LatLng(34.065156, -117.806628));
     Marker testMarker;
     Marker building[] = new Marker[220];
+    Details info = new Details();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -109,6 +110,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
      */
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
@@ -141,6 +143,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     }
                 });
                 return false;
+
             }
         });
         enableMyLocation();
@@ -224,241 +227,343 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         building[1] = mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.059499, -117.824131))
                 .title("1: Building One")
-                .snippet("Holds the Departments of Communication, Economics, and Philosophy. It also\n" +
-                        "contains the home of IT Services and the Kellogg Honors College."));
+                .snippet(info.bldg1));
         building[1].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building1));
         // 2: College of Agriculture
         building[2] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.057725, -117.826502))
-                .title("2: College of Agriculture"));
+                .title("2: College of Agriculture")
+                .snippet(info.bldg2));
+        building[2].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building2));
         // 3: Science Laboratory
         building[3] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.058101, -117.825659))
-                .title("3: Science Laboratory"));
+                .title("3: Science Laboratory")
+                .snippet(info.bldg3));
+        building[3].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building3));
         // 4: Biotechnology Building
         building[4] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.057479, -117.825380))
-                .title("4: Biotechnology Building"));
+                .title("4: Biotechnology Building")
+                .snippet(info.bldg4));
+        building[4].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building4));
         //4A: Bio Trek Learning Center
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.057213, -117.826046))
-                .title("4A: Bio Trek Learning Center"));
+                .title("4A: Bio Trek Learning Center")
+                .snippet(info.bldg4A));
         // 5: College of Letters, Arts and Social Sciences
         building[5] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.057852, -117.824200))
-                .title("5: College of Letters, Arts and Social Sciences"));
+                .title("5: College of Letters, Arts and Social Sciences")
+                .snippet(info.bldg5));
+        building[5].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building5));
         // 6: College of Education and Integrative Studies
         building[6] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.058589, -117.822823))
-                .title("6: College of Education and Integrative Studies"));
+                .title("6: College of Education and Integrative Studies")
+                .snippet(info.bldg6));
+         building[6].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building6));
         // 7: College of Environmental Design
         building[7] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.057044, -117.827392))
-                .title("7: College of Environmental Design"));
+                .title("7: College of Environmental Design")
+                .snippet(info.bldg7));
+        building[7].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building7));
         // 8: College of Science Building
         building[8] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.058670, -117.824736))
-                .title("8: College of Science Building"));
+                .title("8: College of Science Building")
+                .snippet(info.bldg8));
+        building[8].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building8));
         //9: College of Engineering
         building[9] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.059093, -117.822404))
-                .title("9: College of Engineering "));
+                .title("9: College of Engineering ")
+                .snippet(info.bldg9));
+        building[9].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building9));
         //13: Art Department and Engineering Annex
         building[13] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.058657, -117.820977))
-                .title("13: Art Department and Engineering Anex"));
+                .title("13: Art Department and Engineering Anex")
+                .snippet(info.bldg13));
+        //   building[13].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building13));
         //13B: Army ROTC
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.058238, -117.820787))
-                .title("13B: Army ROTC "));
+                .title("13B: Army ROTC ")
+                .snippet(info.bldg13B));
         //13C: Army ROTC
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.058355, -117.820678))
-                .title("13C: Army ROTC "));
+                .title("13C: Army ROTC ")
+                .snippet(info.bldg13C));
         //13D: Pre-College TRIO Programs
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.058481, -117.820435))
-                .title("13D: Pre-College TRIO Programs"));
+                .title("13D: Pre-College TRIO Programs")
+                .snippet(info.bldg13D));
         //15: Library
         building[15] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.057887, -117.821539))
-                .title("15: Library"));
+                .title("15: Library")
+                .snippet(info.bldg15));
+        //    building[15].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building15));
         //17: Engineering Laboratories
         building[17] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.059630, -117.821398))
-                .title("17: Engineering Laboratories"));
+                .title("17: Engineering Laboratories")
+                .snippet(info.bldg17));
+        //     building[17].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building17));
         //20: Residence Hall, Encinitas
         building[20] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.062248, -117.820642))
-                .title("20: Residence Hall, Encinitas"));
+                .title("20: Residence Hall, Encinitas")
+                .snippet(info.bldg20));
+        //       building[20].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building20));
         //21: Residence Hall, Montecito
         building[21] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.062081, -117.819266))
-                .title("21: Residence Hall, Montecito"));
+                .title("21: Residence Hall, Montecito")
+                .snippet(info.bldg21));
+        //       building[21].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building21));
         //22: Residence Hall, Alamitos
         building[22] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.062114, -117.818024))
-                .title("22: Residence Hall, Alamitos"));
+                .title("22: Residence Hall, Alamitos")
+                .snippet(info.bldg22));
+        //      building[22].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building22));
         //23: Resedence Hall, Aliso
         building[23] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.062845, -117.817848))
-                .title("23: Resedence Hall, Aliso"));
+                .title("23: Resedence Hall, Aliso")
+                .snippet(info.bldg23));
+        //      building[23].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building23));
         //24: Music
         building[24] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.056936, -117.822586))
-                .title("24: Music"));
+                .title("24: Music")
+                .snippet(info.bldg24));
+        //     building[24].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building24));
         //24A: Temp Class A
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.056280, -117.822476))
-                .title("24A: Temp Class A"));
+                .title("24A: Temp Class A")
+                .snippet(info.bldg24A));
         //24B: Temp Class B
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.056166, -117.822405))
-                .title("24B: Temp Class B"));
+                .title("24B: Temp Class B")
+                .snippet(info.bldg24B));
         //24C: Temp Class C
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.055930, -117.822375))
-                .title("24C: Temp Class C"));
+                .title("24C: Temp Class C")
+                .snippet(info.bldg24C));
         //24D: Temp Class D
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.056022, -117.822510))
-                .title("24D: Temp Class D"));
+                .title("24D: Temp Class D")
+                .snippet(info.bldg24D));
         //24E: Temp Class E
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.056172, -117.822624))
-                .title("24E: Temp Class E"));
+                .title("24E: Temp Class E")
+                .snippet(info.bldg24E));
         //25: Drama Department/Theatre
         building[25] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.056447, -117.822122))
-                .title("25: Drama Department/Theatre"));
+                .title("25: Drama Department/Theatre")
+                .snippet(info.bldg25));
         //26: University Plaza
         building[26] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.056950, -117.820554))
-                .title("26: University Plaza"));
+                .title("26: University Plaza")
+                .snippet(info.bldg26));
+        //    building[26].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building26));
         //26A: Student Orientation Center
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.056709, -117.820577))
-                .title("26A: Student Orientation Center"));
+                .title("26A: Student Orientation Center")
+                .snippet(info.bldg26A));
         //28: Fruit/crops Unit
         building[28] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.059874, -117.810962))
-                .title("28: Fruit/crops Unit"));
+                .title("28: Fruit/crops Unit")
+                .snippet(info.bldg28));
+        //       building[28].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building28));
         //29: W.K. Kellogg Arabian Horse Center
         building[29] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.058483, -117.814486))
                 .title("29: W.K. Kellogg Arabian Horse Center"));
+//        building[29].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building29));
         //30: Agricultural Unit
         building[30] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.055163, -117.828428))
-                .title("30: Agricultural Unit"));
+                .title("30: Agricultural Unit")
+                .snippet(info.bldg30));
+//        building[30].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building30));
         //31: Poultry Unit/Poultry Houses
         building[31] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.054615, -117.828307))
-                .title("30: Agricultural Unit"));
+                .title("30: Agricultural Unit")
+                .snippet(info.bldg31));
+//        building[31].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building31));
         //32:Beef Unit/ Feed Shed
         building[32] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.055488, -117.827618))
-                .title("32:Beef Unit/ Feed Shed"));
+                .title("32:Beef Unit/ Feed Shed")
+                .snippet(info.bldg32));
+//        building[32].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building32));
         //33: Feed Mill
         building[33] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.053965, -117.827521))
-                .title("33: Feed Mill"));
+                .title("33: Feed Mill")
+                .snippet(info.bldg33));
+//        building[33].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building33));
         //34: Meat Laboratory
         building[34] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.053952, -117.828074))
-                .title("34: Meat Laboratory "));
+                .title("34: Meat Laboratory ")
+                .snippet(info.bldg34));
+        //       building[34].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building34));
         //35: BSC - Bronco Student Center
         building[35] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.056285, -117.821159))
-                .title("35: BSC - Bronco Student Center"));
+                .title("35: BSC - Bronco Student Center")
+                .snippet(info.bldg35));
+//        building[35].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building35));
         //35A: W. Keith and Janet Kellogg University Art Gallery
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.057001, -117.821712))
-                .title("35A: W. Keith and Janet Kellogg University Art Gallery"));
+                .title("35A: W. Keith and Janet Kellogg University Art Gallery")
+                .snippet(info.bldg35A));
         //37: Swine Unit/Shelters
         building[37] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.052152, -117.822887))
-                .title("37: Swine Unit/Shelters"));
+                .title("37: Swine Unit/Shelters")
+                .snippet(info.bldg37));
+//        building[37].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building37));
         //38: Sheep/Wool Unit
         building[38] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.052159, -117.822381))
-                .title("38: Sheep/Wool Unit"));
+                .title("38: Sheep/Wool Unit")
+                .snippet(info.bldg38));
+//        building[38].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building38));
         //41: Darlene May Gymnasium
         building[41] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.054076, -117.821229))
-                .title("41: Darlene May Gymnasium"));
+                .title("41: Darlene May Gymnasium")
+                .snippet(info.bldg41));
+        //    building[41].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building41));
         //42: BRIC - Bronco Recreation Intramural Complex
         building[42] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.054684, -117.820473))
-                .title("42: BRIC - Bronco Recreation Intramural Complex"));
+                .title("42: BRIC - Bronco Recreation Intramural Complex")
+                .snippet(info.bldg42));
+        //      building[42].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building42));
         //43: Kellogg Gymnasium
         building[43] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.054263, -117.819278))
-                .title("43: Kellogg Gymnasium 44: swimming pool"));
+                .title("43: Kellogg Gymnasium 44: swimming pool")
+                .snippet(info.bldg43));
+//        building[43].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building43));
         //45: Agricultural Engineering
         building[45] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.061132, -117.811036))
-                .title("45: Agricultural Engineering"));
+                .title("45: Agricultural Engineering")
+                .snippet(info.bldg45));
+//        building[45].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building45));
         //46: Health Services
         building[46] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.057830, -117.827853))
-                .title("46: Health Services"));
+                .title("46: Health Services")
+                .snippet(info.bldg46));
+//        building[46].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building46));
         //47: Agricultural Engineering Tractor Shop
         building[47] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.061781, -117.815016))
-                .title("47: Agricultural Engineering Tractor Shop"));
+                .title("47: Agricultural Engineering Tractor Shop")
+                .snippet(info.bldg47));
+        //building[47].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building47));
         //48: Custodial Offices
         building[48] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.061110, -117.815418))
-                .title("48: Custodial Offices"));
+                .title("48: Custodial Offices")
+                .snippet(info.bldg48));
+        //building[48].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building48));
         //49: Training Center
         building[49] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.061381, -117.815756))
-                .title("49: Training Center"));
+                .title("49: Training Center")
+                .snippet(info.bldg49));
+        //building[49].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building49));
         //52: Vista Market
         building[52] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.053928, -117.817950))
-                .title("52: Vista Market"));
+                .title("52: Vista Market")
+                .snippet(info.bldg52));
+//        building[52].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building52));
         //54: Residence Suites, Vista de las Estrellas
         building[54] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.055359, -117.818905))
-                .title("54: Residence Suites, Vista de las Estrellas"));
+                .title("54: Residence Suites, Vista de las Estrellas")
+                .snippet(info.bldg54));
+//        building[54].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building54));
         //55: Foundation Administration Offices
         building[55] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.056215, -117.819824))
-                .title("55: Foundation Administration Offices"));
+                .title("55: Foundation Administration Offices")
+                .snippet(info.bldg55));
+//        building[55].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building55));
         //56: Storage Building
         building[56] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.061885, -117.810827))
-                .title("56: Storage Building"));
+                .title("56: Storage Building")
+                .snippet(info.bldg56));
+//        building[56].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building56));
         //57: Residence Halls, Palmitas
         building[57] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.060521, -117.822323))
-                .title("57: Residence Halls, Palmitas"));
+                .title("57: Residence Halls, Palmitas")
+                .snippet(info.bldg57));
+//        building[57].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building57));
         //58: Residence Halls, Cedritos
         building[58] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.061503, -117.821223))
-                .title("58: Residence Halls, Cedritos"));
+                .title("58: Residence Halls, Cedritos")
+                .snippet(info.bldg58));
+//        building[58].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building58));
         //59:La Cienega Center - University Housing Services
         building[59] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.060838, -117.821909))
-                .title("59:La Cienega Center - University Housing Services"));
+                .title("59:La Cienega Center - University Housing Services")
+                .snippet(info.bldg59));
+//        building[59].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building59));
         //60: Residence Suites
         building[60] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.054906, -117.818549))
-                .title("60: Residence Suites"));
+                .title("60: Residence Suites")
+                .snippet(info.bldg60));
+        //       building[60].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building60));
         //61: Residence Suites, Vista del Sol
         building[61] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.054768, -117.818050))
-                .title("61: Residence Suites, Vista del Sol"));
+                .title("61: Residence Suites, Vista del Sol")
+                .snippet(info.bldg61));
+//        building[61].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building61));
         //62: Residence Suites, Vista de las Montanas
         building[62] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.054399, -117.817465))
-                .title("62: Residence Suites, Vista de las Montanas"));
+                .title("62: Residence Suites, Vista de las Montanas")
+                .snippet(info.bldg62));
+//        building[62].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building62));
         //63: Residence Suites, Vista del Luna
         building[63] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.053710, -117.817138))
-                .title("63: Residence Suites, Vista del Luna"));
+                .title("63: Residence Suites, Vista del Luna")
+                .snippet(info.bldg63));
+        //       building[63].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building63));
         //64: Rose Float Laboratory
         building[64] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.060184, -117.808222))
