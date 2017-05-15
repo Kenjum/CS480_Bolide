@@ -14,6 +14,7 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -66,7 +67,7 @@ public class ViewMonth extends LinearLayout {
         inflater.inflate(R.layout.view_month_layout, this);
         loadDateFormat(attrs);
         assignUiElements();
-        assignClickHandlers();
+        assignClickHandlers(context);
         updateCalendar();
     }
 
@@ -92,7 +93,7 @@ public class ViewMonth extends LinearLayout {
         grid = (GridView) findViewById(R.id.calendar_grid);
     }
 
-    private void assignClickHandlers() {
+    private void assignClickHandlers(final Context context) {
         // add one month and refresh UI
         btnNext.setOnClickListener(new OnClickListener() {
             @Override
@@ -116,11 +117,12 @@ public class ViewMonth extends LinearLayout {
 
             @Override
             public boolean onItemLongClick(AdapterView<?> view, View cell, int position, long id) {
+                Toast.makeText(context,"Date Pressed", Toast.LENGTH_LONG).show();
                 // handle long-press
-                if (eventHandler == null)
-                    return false;
+                //if (eventHandler == null)
+                //    return false;
 
-                eventHandler.onDayLongPress((Date) view.getItemAtPosition(position));
+                //eventHandler.onDayLongPress((Date) view.getItemAtPosition(position));
                 return true;
             }
         });

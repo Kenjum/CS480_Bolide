@@ -79,6 +79,7 @@ public class ViewDay extends LinearLayout {
         btnPrev = (ImageView) findViewById(R.id.calendar_prev_button);
         btnNext = (ImageView) findViewById(R.id.calendar_next_button);
         txtDate = (TextView) findViewById(R.id.calendar_date_display);
+        txtDate.setText(displayDateInString(currentDate.getTime()));
     }
 
     private void assignClickHandlers() {
@@ -86,8 +87,7 @@ public class ViewDay extends LinearLayout {
         btnNext.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                currentDate.add(Calendar.DAY_OF_MONTH, 1);
-                previousCalendarDate();
+                nextCalendarDate();
             }
         });
 
@@ -95,8 +95,7 @@ public class ViewDay extends LinearLayout {
         btnPrev.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                currentDate.add(Calendar.DAY_OF_MONTH, -1);
-                nextCalendarDate();
+                previousCalendarDate();
             }
         });
     }
@@ -119,7 +118,6 @@ public class ViewDay extends LinearLayout {
      * Display dates correctly in grid
      */
     public void updateCalendar() {
-        updateCalendar(null);
     }
 
     /**

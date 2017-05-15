@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 1://week
                         fragmentView.setVisibility(View.GONE);
-                        //day_fragment.setVisibility(View.GONE);
+                        day_fragment.setVisibility(View.GONE);
                         break;
                     case 2://day
                         fragmentView.setVisibility(View.GONE);
