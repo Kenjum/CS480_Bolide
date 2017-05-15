@@ -40,8 +40,7 @@
     <string name="time_22pm">22 pm</string>
     <string name="time_23pm">23 pm</string>
     <string name="time_24pm">24 pm</string>
-    <string name="birth_day">I am going to birthday party</string>
-    <string name="current_day_date">8 October, 2016</string>
+
     <string name="title_activity_add_note">Save Note</string>
     <string name="title_activity_view_notes">Notes</string>
 

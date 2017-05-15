@@ -1,5 +1,8 @@
 package bolide.planner;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,6 +10,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+
+import bolide.planner.Fragments.DayFragment;
+import bolide.planner.Views.ViewDay;
 
 public class MainActivity extends AppCompatActivity {
     Spinner viewSpinner;
@@ -17,9 +23,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         dbNotes = new DatabaseHelperNotes(this);
-        viewSpinner = (Spinner) findViewById(R.id.views_spinner);
-        ArrayAdapter viewAdapter = ArrayAdapter.createFromResource(this,R.array.views,R.layout.support_simple_spinner_dropdown_item);
-        viewSpinner.setAdapter(viewAdapter);
+        CreateSpinner();
         final View fragmentView = (View)findViewById(R.id.fragment);
         final View day_fragment = (View)findViewById(R.id.fragmentday);
         day_fragment.setVisibility(View.GONE);
@@ -33,13 +37,13 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 1://week
                         fragmentView.setVisibility(View.GONE);
-                        day_fragment.setVisibility(View.GONE);
+                        //day_fragment.setVisibility(View.GONE);
                         break;
                     case 2://day
                         fragmentView.setVisibility(View.GONE);
                         day_fragment.setVisibility(View.VISIBLE);
                         break;
-                }
+                };
             }
 
             @Override
@@ -52,5 +56,10 @@ public class MainActivity extends AppCompatActivity {
     public void notesOnClick(View view){
         Intent i = new Intent (this, ViewNotes.class);
         startActivity(i);
+    }
+    private void CreateSpinner(){
+        viewSpinner = (Spinner) findViewById(R.id.views_spinner);
+        ArrayAdapter viewAdapter = ArrayAdapter.createFromResource(this,R.array.views,R.layout.support_simple_spinner_dropdown_item);
+        viewSpinner.setAdapter(viewAdapter);
     }
 }

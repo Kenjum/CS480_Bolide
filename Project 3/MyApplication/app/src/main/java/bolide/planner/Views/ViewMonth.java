@@ -50,7 +50,8 @@ public class ViewMonth extends LinearLayout {
     public ViewMonth(Context context) {
         super(context);
     }
-ViewMonth(Context context, AttributeSet attrs) {
+
+    ViewMonth(Context context, AttributeSet attrs) {
         super(context, attrs);
         initControl(context, attrs);
     }
@@ -60,17 +61,12 @@ ViewMonth(Context context, AttributeSet attrs) {
         initControl(context, attrs);
     }
 
-    /**
-     * Load control xml layout
-     */
     private void initControl(Context context, AttributeSet attrs) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.view_month_layout, this);
-
         loadDateFormat(attrs);
         assignUiElements();
         assignClickHandlers();
-
         updateCalendar();
     }
 
