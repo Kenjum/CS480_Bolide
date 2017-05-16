@@ -55,6 +55,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private LatLngBounds CalPolyPomona = new LatLngBounds( new LatLng(34.048359, -117.828218), new LatLng(34.065156, -117.806628));
     Marker testMarker;
     Marker building[] = new Marker[220];
+    Marker current = null;
     Details info = new Details();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,8 +89,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 if(position ==0){
 
                 }else {
+                    current = building[position];
                     mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(building[position].getPosition(), 20));
-                    building[position].showInfoWindow();
+                    current.setTag(BitmapFactory.decodeResource(getResources(),info.getPicture(current.getTitle())));
+                    current.showInfoWindow();
                 }
             }
 
@@ -125,6 +128,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(Marker marker) {
+                current = marker;
+                current.setTag(BitmapFactory.decodeResource(getResources(),info.getPicture(current.getTitle())));
+
                 mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
                     @Override
                     public View getInfoWindow(Marker marker) {
@@ -136,7 +142,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         ImageView image = (ImageView) v.findViewById(R.id.marker_image);
                         TextView Title = (TextView) v.findViewById(R.id.title);
                         TextView discription = (TextView) v.findViewById(R.id.description);
-                        image.setImageBitmap((Bitmap)marker.getTag());
+                        image.setImageBitmap((Bitmap)current.getTag());
                         discription.setText(marker.getSnippet());
                         Title.setText(marker.getTitle());
                         return v;
@@ -228,25 +234,25 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .position(new LatLng(34.059499, -117.824131))
                 .title("1: Building One")
                 .snippet(info.bldg1));
-        building[1].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building1));
+        //building[1].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building1));
         // 2: College of Agriculture
         building[2] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.057725, -117.826502))
                 .title("2: College of Agriculture")
                 .snippet(info.bldg2));
-        building[2].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building2));
+       // building[2].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building2));
         // 3: Science Laboratory
         building[3] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.058101, -117.825659))
                 .title("3: Science Laboratory")
                 .snippet(info.bldg3));
-        building[3].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building3));
+        //building[3].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building3));
         // 4: Biotechnology Building
         building[4] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.057479, -117.825380))
                 .title("4: Biotechnology Building")
                 .snippet(info.bldg4));
-        building[4].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building4));
+        //building[4].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building4));
         //4A: Bio Trek Learning Center
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.057213, -117.826046))
@@ -257,31 +263,31 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .position(new LatLng(34.057852, -117.824200))
                 .title("5: College of Letters, Arts and Social Sciences")
                 .snippet(info.bldg5));
-        building[5].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building5));
+        //building[5].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building5));
         // 6: College of Education and Integrative Studies
         building[6] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.058589, -117.822823))
                 .title("6: College of Education and Integrative Studies")
                 .snippet(info.bldg6));
-         building[6].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building6));
+        // building[6].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building6));
         // 7: College of Environmental Design
         building[7] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.057044, -117.827392))
                 .title("7: College of Environmental Design")
                 .snippet(info.bldg7));
-        building[7].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building7));
+        //building[7].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building7));
         // 8: College of Science Building
         building[8] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.058670, -117.824736))
                 .title("8: College of Science Building")
                 .snippet(info.bldg8));
-        building[8].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building8));
+        //building[8].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building8));
         //9: College of Engineering
         building[9] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.059093, -117.822404))
-                .title("9: College of Engineering ")
+                .title("9: College of Engineering")
                 .snippet(info.bldg9));
-        building[9].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building9));
+        //building[9].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building9));
         //13: Art Department and Engineering Annex
         building[13] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.058657, -117.820977))
@@ -291,12 +297,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         //13B: Army ROTC
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.058238, -117.820787))
-                .title("13B: Army ROTC ")
+                .title("13B: Army ROTC")
                 .snippet(info.bldg13B));
         //13C: Army ROTC
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.058355, -117.820678))
-                .title("13C: Army ROTC ")
+                .title("13C: Army ROTC")
                 .snippet(info.bldg13C));
         //13D: Pre-College TRIO Programs
         mMap.addMarker(new MarkerOptions()
@@ -406,7 +412,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         //31: Poultry Unit/Poultry Houses
         building[31] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.054615, -117.828307))
-                .title("30: Agricultural Unit")
+                .title("31: Poultry Unit/Poultry Houses")
                 .snippet(info.bldg31));
 //        building[31].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building31));
         //32:Beef Unit/ Feed Shed
@@ -424,7 +430,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         //34: Meat Laboratory
         building[34] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.053952, -117.828074))
-                .title("34: Meat Laboratory ")
+                .title("34: Meat Laboratory")
                 .snippet(info.bldg34));
         //       building[34].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building34));
         //35: BSC - Bronco Student Center
@@ -465,7 +471,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         //43: Kellogg Gymnasium
         building[43] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.054263, -117.819278))
-                .title("43: Kellogg Gymnasium 44: swimming pool")
+                .title("43: Kellogg Gymnasium")
                 .snippet(info.bldg43));
 //        building[43].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building43));
         //45: Agricultural Engineering

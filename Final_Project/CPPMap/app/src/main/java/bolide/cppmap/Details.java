@@ -4,7 +4,12 @@ package bolide.cppmap;
 //Can add these to an array to correspond with the markers' index
 //Empty Strings are those where a description didn't seem necessary/was hard to find
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Details {
+    Map<String, Integer> pictures = new HashMap<String,Integer>();
+
     String bldg1 = "Holds the Departments of Communication, Economics, and Philosophy. It also\n" +
             "contains the home of IT Services and the Kellogg Honors College.";
     String bldg2 = "Has the Departments of Agribusiness & Food Industry Management/Agricultural\n" +
@@ -144,4 +149,117 @@ public class Details {
                      "and Technology and Operations Management. The building also has Einstein Bros Bagels and Pony Express.";
     String bldg193 = "";
     String bldg200 = "Provides apartment style housing for students. ";
+    public Details(){
+        addPictures();
+    }
+    private void addPictures(){
+        pictures.put("1: Building One",R.drawable.building1);
+        pictures.put("2: College of Agriculture",R.drawable.building2);
+        pictures.put("3: Science Laboratory",R.drawable.building3);
+        pictures.put("4: Biotechnology Building",R.drawable.building4);
+        pictures.put("4A: Bio Trek Learning Center",R.drawable.building4a);
+        pictures.put("5: College of Letters, Arts and Social Sciences",R.drawable.building5);
+        pictures.put("6: College of Education and Integrative Studies",R.drawable.building6);
+        pictures.put("7: College of Environmental Design",R.drawable.building7);
+        pictures.put("8: College of Science Building",R.drawable.building8);
+        pictures.put("9: College of Engineering",R.drawable.building9);
+        pictures.put("13: Art Department and Engineering Anex",R.drawable.building13);
+        pictures.put("13B: Army ROTC",R.drawable.building13b);
+        pictures.put("13C: Army ROTC",R.drawable.building13c);
+        pictures.put("13D: Pre-College TRIO Programs",R.drawable.building13d);
+        pictures.put("15: Library",R.drawable.building15);
+        pictures.put("17: Engineering Laboratories",R.drawable.building17);
+        pictures.put("20: Residence Hall, Encinitas",R.drawable.building20);
+        pictures.put("21: Residence Hall, Montecito",R.drawable.building21);
+        pictures.put("22: Residence Hall, Alamitos",R.drawable.building22);
+        pictures.put("23: Resedence Hall, Aliso",R.drawable.building23);
+        pictures.put("24: Music",R.drawable.building25);
+        pictures.put("24A: Temp Class A",R.drawable.building24a);
+        pictures.put("24B: Temp Class B",R.drawable.building24b);
+        pictures.put("24C: Temp Class C",R.drawable.building24c);
+        pictures.put("24D: Temp Class D",R.drawable.building24d);
+        pictures.put("24E: Temp Class E",R.drawable.building24e);
+        pictures.put("25: Drama Department/Theatre",R.drawable.building25);
+        pictures.put("26: University Plaza",R.drawable.building26);
+        pictures.put("26A: Student Orientation Center",R.drawable.building26a);
+        pictures.put("28: Fruit/crops Unit",R.drawable.building28);
+        pictures.put("29: W.K. Kellogg Arabian Horse Center",R.drawable.building29);
+        pictures.put("30: Agricultural Unit",R.drawable.building30);
+        pictures.put("31: Poultry Unit/Poultry Houses",R.drawable.building31);
+        pictures.put("32:Beef Unit/ Feed Shed",R.drawable.building32);
+        pictures.put("33: Feed Mill",R.drawable.building33);
+        pictures.put("34: Meat Laboratory",R.drawable.building34);
+        pictures.put("35: BSC - Bronco Student Center",R.drawable.building35);
+        pictures.put("35A: W. Keith and Janet Kellogg University Art Gallery",R.drawable.building35a);
+        pictures.put("37: Swine Unit/Shelters",R.drawable.building37);
+        pictures.put("38: Sheep/Wool Unit",R.drawable.building38);
+        pictures.put("41: Darlene May Gymnasium",R.drawable.building41);
+        pictures.put("42: BRIC - Bronco Recreation Intramural Complex",R.drawable.building42);
+        pictures.put("43: Kellogg Gymnasium",R.drawable.building43);
+        pictures.put("45: Agricultural Engineering",R.drawable.building45);
+        pictures.put("46: Health Services",R.drawable.building46);
+        pictures.put("47: Agricultural Engineering Tractor Shop",R.drawable.building47);
+        pictures.put("48: Custodial Offices",R.drawable.building48);
+        pictures.put("49: Training Center",R.drawable.building49);
+        pictures.put("52: Vista Market",R.drawable.building52);
+        pictures.put("54: Residence Suites, Vista de las Estrellas",R.drawable.building54);
+        pictures.put("55: Foundation Administration Offices",R.drawable.building55);
+        pictures.put("56: Storage Building",R.drawable.building56);
+        pictures.put("57: Residence Halls, Palmitas",R.drawable.building57);
+        pictures.put("58: Residence Halls, Cedritos",R.drawable.building58);
+        pictures.put("59:La Cienega Center - University Housing Services",R.drawable.building59);
+        pictures.put("60: Residence Suites",R.drawable.building60);
+        pictures.put("61: Residence Suites, Vista del Sol",R.drawable.building61);
+        pictures.put("62: Residence Suites, Vista de las Montanas",R.drawable.building62);
+        pictures.put("63: Residence Suites, Vista del Luna",R.drawable.building63);
+        pictures.put("64: Rose Float Laboratory",R.drawable.building64);
+        pictures.put("65: Pesticide Building",R.drawable.building65);
+        pictures.put("66: Bronco Bookstore",R.drawable.building66);
+        pictures.put("67: Equine Research Facility",R.drawable.building67);
+        pictures.put("68: Hay Barn",R.drawable.building68);
+        pictures.put("70: Los Olivos Commons",R.drawable.building70);
+        pictures.put("71: Recreation/Maintenance",R.drawable.building71);
+        pictures.put("75: Procurement/Receiving",R.drawable.building75);
+        pictures.put("76: Kellogg West Education/Dining",R.drawable.building76);
+        pictures.put("77: Kellogg West Main Lodge",R.drawable.building77);
+        pictures.put("78: Kellogg West Addition",R.drawable.building78);
+        pictures.put("79: Collins College of Hospitality Management",R.drawable.building79);
+        pictures.put("79A: Collins College of Hospitality Management",R.drawable.building79a);
+        pictures.put("79B: Collins College of Hospitality Management",R.drawable.building79b);
+        pictures.put("80: Collins College of Hospitality Management, Marriott Learning Center",0);
+        pictures.put("81: Facilities Management",0);
+        pictures.put("82: Facilities Management Warehouse",0);
+        pictures.put("82A: Carpenter Shop",0);
+        pictures.put("83: Auto Shop",0);
+        pictures.put("85: I-Poly High School",0);
+        pictures.put("86: English Language Institute",0);
+        pictures.put("86A: English Language Institute",0);
+        pictures.put("86B: English Language Institute",0);
+        pictures.put("86C: English Language Institute",0);
+        pictures.put("89: Interim Design Center",0);
+        pictures.put("90: Medic-1",0);
+        pictures.put("91:Student Affairs Information Technology Services",0);
+        pictures.put("92: Laboratory Facility",0);
+        pictures.put("94: University Office Building",0);
+        pictures.put("95: Cultural Centers",0);
+        pictures.put("97: Campus Center",0);
+        pictures.put("98: Classroom/Laboratory/Administration",0);
+        pictures.put("99: Storage Building",0);
+        pictures.put("100: Storage Building",0);
+        pictures.put("106: Parking Structure",0);
+        pictures.put("109: Police and Parking Services",0);
+        pictures.put("111: Manor House",0);
+        pictures.put("112: Kellogg House Pomona",0);
+        pictures.put("113: Guest House",0);
+        pictures.put("116: Child Care Center",0);
+        pictures.put("162: College of Business Admistration",0);
+        pictures.put("163: College of Business Admistration",0);
+        pictures.put("164: College of Business Admistration",0);
+        pictures.put("193: Chilled Water Center Plant",0);
+        pictures.put("200: University Village",0);
+
+    }
+    public int getPicture(String title){
+        return pictures.get(title);
+    }
 }
