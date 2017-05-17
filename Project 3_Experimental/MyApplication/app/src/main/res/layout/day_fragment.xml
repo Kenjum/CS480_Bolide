@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <bolide.planner.Views.ViewDay
+        xmlns:calendarNS="http://schemas.android.com/apk/res/bolide.planner"
+        android:id="@+id/calendar_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.07"
+        calendarNS:dateFormat="MMMM yyyy">
+    </bolide.planner.Views.ViewDay>
+
+</LinearLayout>
