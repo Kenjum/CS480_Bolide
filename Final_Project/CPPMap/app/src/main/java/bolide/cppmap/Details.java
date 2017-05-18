@@ -226,7 +226,7 @@ public class Details {
         pictures.put("79: Collins College of Hospitality Management",R.drawable.building79);
         pictures.put("79A: Collins College of Hospitality Management",R.drawable.building79a);
         pictures.put("79B: Collins College of Hospitality Management",R.drawable.building79b);
-        pictures.put("80: Collins College of Hospitality Management, Marriott Learning Center",0);
+        pictures.put("80: Collins College of Hospitality Management, Marriott Learning Center",R.drawable.building79b);
         pictures.put("81: Facilities Management",R.drawable.building81);
         pictures.put("82: Facilities Management Warehouse",R.drawable.building82);
         pictures.put("82A: Carpenter Shop",R.drawable.building82a);

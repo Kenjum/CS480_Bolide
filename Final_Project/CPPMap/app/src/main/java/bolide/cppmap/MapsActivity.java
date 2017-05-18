@@ -46,14 +46,14 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private List<Marker> destinationMarkers = new ArrayList<>();
     private List<Polyline> polylinePaths = new ArrayList<>();
     private ProgressDialog progressDialog;
-
+    Bitmap pict;
     /*
     LatLngBounds CalPolyPomona is used to create the boundry
     The new LatLng is the southwest corner, the second is the northeast
      */
 
     private LatLngBounds CalPolyPomona = new LatLngBounds( new LatLng(34.048359, -117.828218), new LatLng(34.065156, -117.806628));
-    Marker testMarker;
+
     Marker building[] = new Marker[220];
     Marker current = null;
     Details info = new Details();
@@ -90,8 +90,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                 }else {
                     current = building[position];
+
                     mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(building[position].getPosition(), 20));
                     current.setTag(BitmapFactory.decodeResource(getResources(),info.getPicture(current.getTitle())));
+                    pict = (Bitmap)current.getTag();
                     current.showInfoWindow();
                 }
             }
@@ -130,7 +132,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             public boolean onMarkerClick(Marker marker) {
                 current = marker;
                 current.setTag(BitmapFactory.decodeResource(getResources(),info.getPicture(current.getTitle())));
-
+                pict = (Bitmap)current.getTag();
                 mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
                     @Override
                     public View getInfoWindow(Marker marker) {
@@ -142,13 +144,21 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         ImageView image = (ImageView) v.findViewById(R.id.marker_image);
                         TextView Title = (TextView) v.findViewById(R.id.title);
                         TextView discription = (TextView) v.findViewById(R.id.description);
-                        image.setImageBitmap((Bitmap)current.getTag());
+                        image.setImageBitmap(pict);
                         discription.setText(marker.getSnippet());
                         Title.setText(marker.getTitle());
                         return v;
                     }
                 });
                 return false;
+
+            }
+        });
+        mMap.setOnInfoWindowCloseListener(new GoogleMap.OnInfoWindowCloseListener() {
+            @Override
+            public void onInfoWindowClose(Marker marker) {
+
+                    pict.recycle();
 
             }
         });
