@@ -6,6 +6,5 @@
     <color name="colorWhite">#ffffff</color>
     <color name="colorBlack">#000000</color>
     <color name="greyed_out">#808080</color>
-    <color name="today">#0000ff</color>
     <color name="colorDivider">#aaaaaa</color>
 </resources>

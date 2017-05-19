@@ -14,6 +14,7 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -50,7 +51,8 @@ public class ViewMonth extends LinearLayout {
     public ViewMonth(Context context) {
         super(context);
     }
-ViewMonth(Context context, AttributeSet attrs) {
+
+    ViewMonth(Context context, AttributeSet attrs) {
         super(context, attrs);
         initControl(context, attrs);
     }
@@ -60,17 +62,12 @@ ViewMonth(Context context, AttributeSet attrs) {
         initControl(context, attrs);
     }
 
-    /**
-     * Load control xml layout
-     */
     private void initControl(Context context, AttributeSet attrs) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.view_month_layout, this);
-
         loadDateFormat(attrs);
         assignUiElements();
-        assignClickHandlers();
-
+        assignClickHandlers(context);
         updateCalendar();
     }
 
@@ -96,7 +93,7 @@ ViewMonth(Context context, AttributeSet attrs) {
         grid = (GridView) findViewById(R.id.calendar_grid);
     }
 
-    private void assignClickHandlers() {
+    private void assignClickHandlers(final Context context) {
         // add one month and refresh UI
         btnNext.setOnClickListener(new OnClickListener() {
             @Override
@@ -120,11 +117,12 @@ ViewMonth(Context context, AttributeSet attrs) {
 
             @Override
             public boolean onItemLongClick(AdapterView<?> view, View cell, int position, long id) {
+                Toast.makeText(context,"Date Pressed", Toast.LENGTH_LONG).show();
                 // handle long-press
-                if (eventHandler == null)
-                    return false;
+                //if (eventHandler == null)
+                //    return false;
 
-                eventHandler.onDayLongPress((Date) view.getItemAtPosition(position));
+                //eventHandler.onDayLongPress((Date) view.getItemAtPosition(position));
                 return true;
             }
         });
@@ -222,7 +220,7 @@ ViewMonth(Context context, AttributeSet attrs) {
             } else if (day == today.getDate()) {
                 // if it is today, set it to blue/bold
                 ((TextView) view).setTypeface(null, Typeface.BOLD);
-                ((TextView) view).setTextColor(getResources().getColor(R.color.today));
+                //((TextView) view).setTextColor(getResources().getColor(R.color.today));
             }
 
             // set text

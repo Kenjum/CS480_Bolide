@@ -46,15 +46,16 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private List<Marker> destinationMarkers = new ArrayList<>();
     private List<Polyline> polylinePaths = new ArrayList<>();
     private ProgressDialog progressDialog;
-
+    Bitmap pict;
     /*
     LatLngBounds CalPolyPomona is used to create the boundry
     The new LatLng is the southwest corner, the second is the northeast
      */
 
     private LatLngBounds CalPolyPomona = new LatLngBounds( new LatLng(34.048359, -117.828218), new LatLng(34.065156, -117.806628));
-    Marker testMarker;
+
     Marker building[] = new Marker[220];
+    Marker current = null;
     Details info = new Details();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,8 +89,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 if(position ==0){
 
                 }else {
+                    current = building[position];
+
                     mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(building[position].getPosition(), 20));
-                    building[position].showInfoWindow();
+                    current.setTag(BitmapFactory.decodeResource(getResources(),info.getPicture(current.getTitle())));
+                    pict = (Bitmap)current.getTag();
+                    current.showInfoWindow();
                 }
             }
 
@@ -125,6 +130,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(Marker marker) {
+                current = marker;
+                current.setTag(BitmapFactory.decodeResource(getResources(),info.getPicture(current.getTitle())));
+                pict = (Bitmap)current.getTag();
                 mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
                     @Override
                     public View getInfoWindow(Marker marker) {
@@ -136,13 +144,21 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         ImageView image = (ImageView) v.findViewById(R.id.marker_image);
                         TextView Title = (TextView) v.findViewById(R.id.title);
                         TextView discription = (TextView) v.findViewById(R.id.description);
-                        image.setImageBitmap((Bitmap)marker.getTag());
+                        image.setImageBitmap(pict);
                         discription.setText(marker.getSnippet());
                         Title.setText(marker.getTitle());
                         return v;
                     }
                 });
                 return false;
+
+            }
+        });
+        mMap.setOnInfoWindowCloseListener(new GoogleMap.OnInfoWindowCloseListener() {
+            @Override
+            public void onInfoWindowClose(Marker marker) {
+
+                    pict.recycle();
 
             }
         });
@@ -228,25 +244,25 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .position(new LatLng(34.059499, -117.824131))
                 .title("1: Building One")
                 .snippet(info.bldg1));
-        building[1].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building1));
+        //building[1].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building1));
         // 2: College of Agriculture
         building[2] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.057725, -117.826502))
                 .title("2: College of Agriculture")
                 .snippet(info.bldg2));
-        building[2].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building2));
+       // building[2].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building2));
         // 3: Science Laboratory
         building[3] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.058101, -117.825659))
                 .title("3: Science Laboratory")
                 .snippet(info.bldg3));
-        building[3].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building3));
+        //building[3].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building3));
         // 4: Biotechnology Building
         building[4] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.057479, -117.825380))
                 .title("4: Biotechnology Building")
                 .snippet(info.bldg4));
-        building[4].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building4));
+        //building[4].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building4));
         //4A: Bio Trek Learning Center
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.057213, -117.826046))
@@ -257,31 +273,31 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .position(new LatLng(34.057852, -117.824200))
                 .title("5: College of Letters, Arts and Social Sciences")
                 .snippet(info.bldg5));
-        building[5].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building5));
+        //building[5].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building5));
         // 6: College of Education and Integrative Studies
         building[6] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.058589, -117.822823))
                 .title("6: College of Education and Integrative Studies")
                 .snippet(info.bldg6));
-         building[6].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building6));
+        // building[6].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building6));
         // 7: College of Environmental Design
         building[7] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.057044, -117.827392))
                 .title("7: College of Environmental Design")
                 .snippet(info.bldg7));
-        building[7].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building7));
+        //building[7].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building7));
         // 8: College of Science Building
         building[8] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.058670, -117.824736))
                 .title("8: College of Science Building")
                 .snippet(info.bldg8));
-        building[8].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building8));
+        //building[8].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building8));
         //9: College of Engineering
         building[9] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.059093, -117.822404))
-                .title("9: College of Engineering ")
+                .title("9: College of Engineering")
                 .snippet(info.bldg9));
-        building[9].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building9));
+        //building[9].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building9));
         //13: Art Department and Engineering Annex
         building[13] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.058657, -117.820977))
@@ -291,12 +307,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         //13B: Army ROTC
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.058238, -117.820787))
-                .title("13B: Army ROTC ")
+                .title("13B: Army ROTC")
                 .snippet(info.bldg13B));
         //13C: Army ROTC
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.058355, -117.820678))
-                .title("13C: Army ROTC ")
+                .title("13C: Army ROTC")
                 .snippet(info.bldg13C));
         //13D: Pre-College TRIO Programs
         mMap.addMarker(new MarkerOptions()
@@ -406,7 +422,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         //31: Poultry Unit/Poultry Houses
         building[31] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.054615, -117.828307))
-                .title("30: Agricultural Unit")
+                .title("31: Poultry Unit/Poultry Houses")
                 .snippet(info.bldg31));
 //        building[31].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building31));
         //32:Beef Unit/ Feed Shed
@@ -424,7 +440,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         //34: Meat Laboratory
         building[34] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.053952, -117.828074))
-                .title("34: Meat Laboratory ")
+                .title("34: Meat Laboratory")
                 .snippet(info.bldg34));
         //       building[34].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building34));
         //35: BSC - Bronco Student Center
@@ -465,7 +481,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         //43: Kellogg Gymnasium
         building[43] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.054263, -117.819278))
-                .title("43: Kellogg Gymnasium 44: swimming pool")
+                .title("43: Kellogg Gymnasium")
                 .snippet(info.bldg43));
 //        building[43].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building43));
         //45: Agricultural Engineering
@@ -567,168 +583,209 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         //64: Rose Float Laboratory
         building[64] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.060184, -117.808222))
-                .title("64: Rose Float Laboratory"));
+                .title("64: Rose Float Laboratory")
+                .snippet(info.bldg64));
         //65: Pesticide Building
         building[65] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.061620, -117.810742))
-                .title("65: Pesticide Building"));
+                .title("65: Pesticide Building")
+                .snippet(info.bldg65));
         //66: Bronco Bookstore
         building[66] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.056024, -117.820506))
-                .title("66: Bronco Bookstore"));
+                .title("66: Bronco Bookstore")
+                .snippet(info.bldg66));
         //67: Equine Research Facility
         building[67] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.059253, -117.813959))
-                .title("67: Equine Research Facility"));
+                .title("67: Equine Research Facility")
+                .snippet(info.bldg67));
         //68: Hay Barn
         building[68] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.054375, -117.827668))
-                .title("68: Hay Barn"));
+                .title("68: Hay Barn")
+                .snippet(info.bldg68));
         //70: Los Olivos Commons
         building[70] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.062332, -117.821550))
-                .title("70: Los Olivos Commons"));
+                .title("70: Los Olivos Commons")
+                .snippet(info.bldg70));
         //71: Recreation/Maintenance
         building[71] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.062992, -117.816752))
-                .title("71: Recreation/Maintenance"));
+                .title("71: Recreation/Maintenance")
+                .snippet(info.bldg71));
         //75: Procurement/Receiving
         building[75] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.059590, -117.807834))
-                .title("75: Procurement/Receiving"));
+                .title("75: Procurement/Receiving")
+                .snippet(info.bldg75));
         //76: Kellogg West Education/Dining
         building[76] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.056560, -117.824966))
-                .title("76: Kellogg West Education/Dining"));
+                .title("76: Kellogg West Education/Dining")
+                .snippet(info.bldg76));
         //77: Kellogg West Main Lodge
         building[77] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.056340, -117.825972))
-                .title("77: Kellogg West Main Lodge"));
+                .title("77: Kellogg West Main Lodge")
+                .snippet(info.bldg77));
         //78: Kellogg West Addition
         building[78] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.056772, -117.825690))
-                .title("78: Kellogg West Addition"));
+                .title("78: Kellogg West Addition")
+                .snippet(info.bldg78));
         //79: Collins College of Hospitality Management
         building[79] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.054942, -117.823998))
-                .title("79: Collins College of Hospitality Management"));
+                .title("79: Collins College of Hospitality Management")
+                .snippet(info.bldg79));
         //79A: Collins College of Hospitality Management
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.055098, -117.824765))
-                .title("79A: Collins College of Hospitality Management"));
+                .title("79A: Collins College of Hospitality Management")
+                .snippet(info.bldg79A));
         //79B: Collins College of Hospitality Management
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.055318, -117.824457))
-                .title("79B: Collins College of Hospitality Management"));
+                .title("79B: Collins College of Hospitality Management")
+                .snippet(info.bldg79B));
         //80: Collins College of Hospitality Management, Marriott Learning Center
         building[80] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.054887, -117.825224))
-                .title("80: Collins College of Hospitality Management, Marriott Learning Center"));
+                .title("80: Collins College of Hospitality Management, Marriott Learning Center")
+                .snippet(info.bldg80));
         //81: Facilities Management
         building[81] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.059511, -117.808871))
-                .title("81: Facilities Management"));
+                .title("81: Facilities Management")
+                .snippet(info.bldg81));
         //82: Facilities Management Warehouse
         building[82] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.059789, -117.808664))
-                .title("82: Facilities Management Warehouse"));
+                .title("82: Facilities Management Warehouse")
+                .snippet(info.bldg82));
         //82A: Carpenter Shop
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.059969, -117.808919))
-                .title("82A: Carpenter Shop"));
+                .title("82A: Carpenter Shop")
+                .snippet(info.bldg82A));
         //83: Auto Shop
         building[83] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.059429, -117.808208))
-                .title("83: Auto Shop"));
+                .title("83: Auto Shop")
+                .snippet(info.bldg83));
         //85: I-Poly High School
         building[85] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.050909, -117.819478))
-                .title("85: I-Poly High School"));
+                .title("85: I-Poly High School")
+                .snippet(info.bldg85));
         //86: English Language Institute
         building[86] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.053356, -117.819679))
-                .title("86: English Language Institute"));
+                .title("86: English Language Institute")
+                .snippet(info.bldg86));
         //86A: English Language Institute
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.053225, -117.819977))
-                .title("86A: English Language Institute"));
+                .title("86A: English Language Institute")
+                .snippet(info.bldg86A));
         //86B: English Language Institute
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.053500, -117.820086))
-                .title("86B: English Language Institute"));
+                .title("86B: English Language Institute")
+                .snippet(info.bldg86B));
         //86C: English Language Institute
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.053317, -117.820168))
-                .title("86C: English Language Institute"));
+                .title("86C: English Language Institute")
+                .snippet(info.bldg86C));
         //89: Interim Design Center
         building[89] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.060594, -117.812267))
-                .title("89: Interim Design Center"));
+                .title("89: Interim Design Center")
+                .snippet(info.bldg89));
 
         //90: Medic-1
         building[90] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.061185, -117.816596))
-                .title("90: Medic-1"));
+                .title("90: Medic-1")
+                .snippet(info.bldg90));
         //91:Student Affairs Information Technology Services
         building[91] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.061403, -117.818651))
-                .title("91:Student Affairs Information Technology Services"));
+                .title("91:Student Affairs Information Technology Services")
+                .snippet(info.bldg91));
         //92: Laboratory Facility
         building[92] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.057763, -117.826177))
-                .title("92: Laboratory Facility"));
+                .title("92: Laboratory Facility")
+                .snippet(info.bldg92));
         //94: University Office Building
         building[94] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.059105, -117.823269))
-                .title("94: University Office Building"));
+                .title("94: University Office Building")
+                .snippet(info.bldg94));
         //95: Cultural Centers
         building[95] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.057945, -117.82269))
-                .title("95: Cultural Centers"));
+                .title("95: Cultural Centers")
+                .snippet(info.bldg95));
         //97: Campus Center
         building[97] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.057845, -117.823344))
-                .title("97: Campus Center"));
+                .title("97: Campus Center")
+                .snippet(info.bldg97));
         //98: Classroom/Laboratory/Administration
         building[98] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.059467, -117.820099))
-                .title("98: Classroom/Laboratory/Administration"));
+                .title("98: Classroom/Laboratory/Administration")
+                .snippet(info.bldg98));
         //99: Storage Building
         building[99] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.061853, -117.810996))
-                .title("99: Storage Building"));
+                .title("99: Storage Building")
+                .snippet(info.bldg99));
         //100: Storage Building
         building[100] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.062035, -117.810819))
-                .title("100: Storage Building"));
+                .title("100: Storage Building")
+                .snippet(info.bldg100));
         //106: Parking Structure
         building[106] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.060183, -117.816986))
-                .title("106: Parking Structure"));
+                .title("106: Parking Structure")
+                .snippet(info.bldg106));
         //109: Police and Parking Services
         building[109] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.060717, -117.815772))
-                .title("109: Police and Parking Services"));
+                .title("109: Police and Parking Services")
+                .snippet(info.bldg109));
         //111: Manor House
         building[111] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.060512, -117.822935))
-                .title("111: Manor House"));
+                .title("111: Manor House")
+                .snippet(info.bldg111));
         //112: Kellogg House Pomona
         building[112] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.062604, -117.824471))
-                .title("112: Kellogg House Pomona"));
+                .title("112: Kellogg House Pomona")
+                .snippet(info.bldg112));
         //113: Guest House
         building[113] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.062441, -117.824738))
-                .title("113: Guest House"));
+                .title("113: Guest House")
+                .snippet(info.bldg113));
         //116: Child Care Center
         building[116] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.056123, -117.819481))
-                .title("116: Child Care Center"));
+                .title("116: Child Care Center")
+                .snippet(info.bldg116));
         //162: College of Business Admistration
         building[162] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.061289, -117.819552))
-                .title("162: College of Business Admistration"));
+                .title("162: College of Business Admistration")
+                .snippet(info.bldg162));
         //163: College of Business Admistration
         building[163] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.061216, -117.820182))
@@ -736,15 +793,18 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         //164: College of Business Admistration
         building[164] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.061583, -117.819867))
-                .title("164: College of Business Admistration"));
+                .title("164: College of Business Admistration")
+                .snippet(info.bldg164));
         //193: Chilled Water Center Plant
         building[193] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.057019, -117.829539))
-                .title("193: Chilled Water Center Plant"));
+                .title("193: Chilled Water Center Plant")
+                .snippet(info.bldg193));
         //200: University Village
         building[200] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.048704, -117.815410))
-                .title("200: University Village"));
+                .title("200: University Village")
+                .snippet(info.bldg200));
 
 
 
