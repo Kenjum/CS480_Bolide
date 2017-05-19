@@ -1,15 +1,15 @@
 package bolide.planner;
 
 import java.util.Date;
-public class EventObject {
+public class EventObjects {
     private int id;
     private String message;
     private Date date;
-    public EventObject(String message, Date date) {
+    public EventObjects(String message, Date date) {
         this.message = message;
         this.date = date;
     }
-    public EventObject(int id, String message, Date date) {
+    public EventObjects(int id, String message, Date date) {
         this.date = date;
         this.message = message;
         this.id = id;

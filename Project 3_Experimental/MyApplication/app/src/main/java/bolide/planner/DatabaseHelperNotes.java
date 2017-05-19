@@ -9,19 +9,17 @@ import android.database.sqlite.SQLiteDatabase;
 public class DatabaseHelperNotes extends SQLiteOpenHelper{
     public static final String DATABASE_NAME = "Notes.db";
     public static final String TABLE_NAME = "notes_table";
-    public static final String COL_0 = "_id";    //Audio files will be related to ID
-    public static final String COL_1 = "message";
-    public static final String COL_2 = "reminder";
-    public static final String COL_3 = "end";
+    public static final String COL_0 = "ID";    //Audio files will be related to ID
+    public static final String COL_1 = "TITLE";
+    public static final String COL_2 = "BODY";
 
     public DatabaseHelperNotes(Context context){
         super(context, DATABASE_NAME, null, 2);
     }
 
-    public void onCreate(SQLiteDatabase db){
-        db.execSQL("create table " + TABLE_NAME + " (`_id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, `message` TEXT NOT NULL, `reminder` TEXT NOT NULL, `end` TEXT");
+    public void onCreate(SQLiteDatabase db) {
+        db.execSQL("create table " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, TITLE TEXT, BODY TEXT)");
     }
-
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);

@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Locale;
 
 import bolide.planner.DatabaseQuery;
-import bolide.planner.EventObject;
+import bolide.planner.EventObjects;
 import bolide.planner.GridAdapter;
 import bolide.planner.R;
 
@@ -90,7 +90,7 @@ public class ViewMonth extends LinearLayout{
     private void setUpCalendarAdapter(){
         List<Date> dayValueInCells = new ArrayList<Date>();
         mQuery = new DatabaseQuery(context);
-        List<EventObject> mEvents = mQuery.getAllFutureEvents();
+        List<EventObjects> mEvents = mQuery.getAllFutureEvents();
         Calendar mCal = (Calendar)cal.clone();
         mCal.set(Calendar.DAY_OF_MONTH, 1);
         int firstDayOfTheMonth = mCal.get(Calendar.DAY_OF_WEEK) - 1;
@@ -102,7 +102,7 @@ public class ViewMonth extends LinearLayout{
         Log.d(TAG, "Number of date " + dayValueInCells.size());
         String sDate = formatter.format(cal.getTime());
         currentDate.setText(sDate);
-        mAdapter = new GridAdapter(context, dayValueInCells, cal, mEvents);
+        mAdapter = new GridAdapter(context, dayValueInCells, cal, mEvents,Calendar.getInstance().get(Calendar.DAY_OF_MONTH),Calendar.getInstance().get(Calendar.MONTH));
         calendarGridView.setAdapter(mAdapter);
     }
 }

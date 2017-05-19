@@ -8,4 +8,5 @@
     <color name="greyed_out">#808080</color>
     <color name="colorDivider">#aaaaaa</color>
     <color name="today">#ff0000</color>
+    <color name="greyday">#eeeeee</color>
 </resources>
