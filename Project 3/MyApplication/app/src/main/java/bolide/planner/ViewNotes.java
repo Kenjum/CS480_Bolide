@@ -75,17 +75,22 @@ public class ViewNotes extends AppCompatActivity {
         finally{
             c.close();
         }
-
     }
 
-    public void onClick(View v){
-        switch(v.getId()){
-
-        }
-    }
-
+    //Creates an instance, insert it, get the id, set that as extra, then delete just created entry.
     public void addOnClick(View view){
+        dbNotes = new DatabaseHelperNotes(this);
+        c = dbNotes.getAllData();
+        dbNotes.insertData("temp", "temp");
+        String temp = "";
+        while(c.moveToNext()){
+            temp = c.getString(0);
+        }
         Intent i = new Intent (this, AddNote.class);
+        dbNotes.deleteData(temp);
+        int tempI = Integer.parseInt(temp) + 1;
+        temp = Integer.toString(tempI);
+        i.putExtra("id",temp);
         startActivity(i);
     }
 }
