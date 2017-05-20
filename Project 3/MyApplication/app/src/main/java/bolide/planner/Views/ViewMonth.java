@@ -1,247 +1,108 @@
 package bolide.planner.Views;
-
 import android.content.Context;
-import android.content.res.TypedArray;
-import android.graphics.Color;
-import android.graphics.Typeface;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashSet;
+import java.util.List;
+import java.util.Locale;
 
+import bolide.planner.DatabaseQuery;
+import bolide.planner.EventObjects;
+import bolide.planner.GridAdapter;
 import bolide.planner.R;
 
-public class ViewMonth extends LinearLayout {
-    // for logging
-    private static final String LOGTAG = "Calendar View";
-    // how many days to show, defaults to six weeks, 42 days
-    private static final int DAYS_COUNT = 42;
-    // default date format
-    private static final String DATE_FORMAT = "MMM yyyy";
-
-    // date format
-    private String dateFormat;
-
-    // current displayed month
-    private Calendar currentDate = Calendar.getInstance();
-
-    //event handling
-    private EventHandler eventHandler = null;
-
-    // internal components
-    private LinearLayout header;
-    private ImageView btnPrev;
-    private ImageView btnNext;
-    private TextView txtDate;
-    private GridView grid;
-
+public class ViewMonth extends LinearLayout{
+    private static final String TAG = ViewMonth.class.getSimpleName();
+    private ImageView previousButton, nextButton;
+    private TextView currentDate;
+    private GridView calendarGridView;
+    private Button addEventButton;
+    private static final int MAX_CALENDAR_COLUMN = 42;
+    private int month, year;
+    private SimpleDateFormat formatter = new SimpleDateFormat("MMMM yyyy", Locale.ENGLISH);
+    private Calendar cal = Calendar.getInstance(Locale.ENGLISH);
+    private Context context;
+    private GridAdapter mAdapter;
+    private DatabaseQuery mQuery;
     public ViewMonth(Context context) {
         super(context);
     }
-
-    ViewMonth(Context context, AttributeSet attrs) {
+    public ViewMonth(Context context, AttributeSet attrs) {
         super(context, attrs);
-        initControl(context, attrs);
+        this.context = context;
+        initializeUILayout();
+        setUpCalendarAdapter();
+        setPreviousButtonClickEvent();
+        setNextButtonClickEvent();
+        setGridCellClickEvents();
+        Log.d(TAG, "I need to call this method");
     }
-
     public ViewMonth(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        initControl(context, attrs);
     }
-
-    private void initControl(Context context, AttributeSet attrs) {
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        inflater.inflate(R.layout.view_month_layout, this);
-        loadDateFormat(attrs);
-        assignUiElements();
-        assignClickHandlers(context);
-        updateCalendar();
+    private void initializeUILayout(){
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
+        View view = inflater.inflate(R.layout.view_month_layout, this);
+        previousButton = (ImageView)view.findViewById(R.id.previous_month);
+        nextButton = (ImageView)view.findViewById(R.id.next_month);
+        currentDate = (TextView)view.findViewById(R.id.display_current_date);
+        addEventButton = (Button)view.findViewById(R.id.add_calendar_event);
+        calendarGridView = (GridView)view.findViewById(R.id.calendar_grid);
     }
-
-    private void loadDateFormat(AttributeSet attrs) {
-        TypedArray ta = getContext().obtainStyledAttributes(attrs, R.styleable.CalendarView);
-
-        try {
-            // try to load provided date format, and fallback to default otherwise
-            dateFormat = ta.getString(R.styleable.CalendarView_dateFormat);
-            if (dateFormat == null)
-                dateFormat = DATE_FORMAT;
-        } finally {
-            ta.recycle();
-        }
-    }
-
-    private void assignUiElements() {
-        // layout is inflated, assign local variables to components
-        header = (LinearLayout) findViewById(R.id.calendar_header);
-        btnPrev = (ImageView) findViewById(R.id.calendar_prev_button);
-        btnNext = (ImageView) findViewById(R.id.calendar_next_button);
-        txtDate = (TextView) findViewById(R.id.calendar_date_display);
-        grid = (GridView) findViewById(R.id.calendar_grid);
-    }
-
-    private void assignClickHandlers(final Context context) {
-        // add one month and refresh UI
-        btnNext.setOnClickListener(new OnClickListener() {
+    private void setPreviousButtonClickEvent(){
+        previousButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                currentDate.add(Calendar.MONTH, 1);
-                updateCalendar();
+                cal.add(Calendar.MONTH, -1);
+                setUpCalendarAdapter();
             }
         });
-
-        // subtract one month and refresh UI
-        btnPrev.setOnClickListener(new OnClickListener() {
+    }
+    private void setNextButtonClickEvent(){
+        nextButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                currentDate.add(Calendar.MONTH, -1);
-                updateCalendar();
+                cal.add(Calendar.MONTH, 1);
+                setUpCalendarAdapter();
             }
         });
-
-        // long-pressing a day
-        grid.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-
+    }
+    private void setGridCellClickEvents(){
+        calendarGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public boolean onItemLongClick(AdapterView<?> view, View cell, int position, long id) {
-                Toast.makeText(context,"Date Pressed", Toast.LENGTH_LONG).show();
-                // handle long-press
-                //if (eventHandler == null)
-                //    return false;
-
-                //eventHandler.onDayLongPress((Date) view.getItemAtPosition(position));
-                return true;
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(context, "Clicked " + position, Toast.LENGTH_LONG).show();
             }
         });
     }
-
-    /**
-     * Display dates correctly in grid
-     */
-    public void updateCalendar() {
-        updateCalendar(null);
-    }
-
-    /**
-     * Display dates correctly in grid
-     */
-    public void updateCalendar(HashSet<Date> events) {
-        ArrayList<Date> cells = new ArrayList<>();
-        Calendar calendar = (Calendar) currentDate.clone();
-
-        // determine the cell for current month's beginning
-        calendar.set(Calendar.DAY_OF_MONTH, 1);
-        int monthBeginningCell = calendar.get(Calendar.DAY_OF_WEEK) - 1;
-
-        // move calendar backwards to the beginning of the week
-        calendar.add(Calendar.DAY_OF_MONTH, -monthBeginningCell);
-
-        // fill cells
-        while (cells.size() < DAYS_COUNT) {
-            cells.add(calendar.getTime());
-            calendar.add(Calendar.DAY_OF_MONTH, 1);
+    private void setUpCalendarAdapter(){
+        List<Date> dayValueInCells = new ArrayList<Date>();
+        mQuery = new DatabaseQuery(context);
+        List<EventObjects> mEvents = mQuery.getAllFutureEvents();
+        Calendar mCal = (Calendar)cal.clone();
+        mCal.set(Calendar.DAY_OF_MONTH, 1);
+        int firstDayOfTheMonth = mCal.get(Calendar.DAY_OF_WEEK) - 1;
+        mCal.add(Calendar.DAY_OF_MONTH, -firstDayOfTheMonth);
+        while(dayValueInCells.size() < MAX_CALENDAR_COLUMN){
+            dayValueInCells.add(mCal.getTime());
+            mCal.add(Calendar.DAY_OF_MONTH, 1);
         }
-
-        // update grid
-        grid.setAdapter(new CalendarAdapter(getContext(), cells, events));
-
-        // update title
-        SimpleDateFormat sdf = new SimpleDateFormat(dateFormat);
-        txtDate.setText(sdf.format(currentDate.getTime()));
-
-        // set header color according to current season
-        int month = currentDate.get(Calendar.MONTH);
-
-    }
-
-
-    private class CalendarAdapter extends ArrayAdapter<Date> {
-        // days with events
-        private HashSet<Date> eventDays;
-
-        // for view inflation
-        private LayoutInflater inflater;
-
-        public CalendarAdapter(Context context, ArrayList<Date> days, HashSet<Date> eventDays) {
-            super(context, R.layout.single_cell_layout, days);
-            this.eventDays = eventDays;
-            inflater = LayoutInflater.from(context);
-        }
-
-        @Override
-        public View getView(int position, View view, ViewGroup parent) {
-            // day in question
-            Date date = getItem(position);
-            int day = date.getDate();
-            int month = date.getMonth();
-            int year = date.getYear();
-
-            // today
-            Date today = new Date();
-
-            // inflate item if it does not exist yet
-            if (view == null)
-                view = inflater.inflate(R.layout.single_cell_layout, parent, false);
-
-            // if this day has an event, specify event image
-            view.setBackgroundResource(0);
-            if (eventDays != null) {
-                for (Date eventDate : eventDays) {
-                    if (eventDate.getDate() == day &&
-                            eventDate.getMonth() == month &&
-                            eventDate.getYear() == year) {
-                        // mark this day for event
-                        //view.setBackgroundResource(R.drawable.reminder);
-                        break;
-                    }
-                }
-            }
-
-            // clear styling
-            ((TextView) view).setTypeface(null, Typeface.NORMAL);
-            ((TextView) view).setTextColor(Color.BLACK);
-
-            if (month != today.getMonth() || year != today.getYear()) {
-                // if this day is outside current month, grey it out
-                ((TextView) view).setTextColor(getResources().getColor(R.color.greyed_out));
-            } else if (day == today.getDate()) {
-                // if it is today, set it to blue/bold
-                ((TextView) view).setTypeface(null, Typeface.BOLD);
-                //((TextView) view).setTextColor(getResources().getColor(R.color.today));
-            }
-
-            // set text
-            ((TextView) view).setText(String.valueOf(date.getDate()));
-
-            return view;
-        }
-    }
-
-    /**
-     * Assign event handler to be passed needed events
-     */
-    public void setEventHandler(EventHandler eventHandler) {
-        this.eventHandler = eventHandler;
-    }
-
-    /**
-     * This interface defines what events to be reported to
-     * the outside world
-     */
-    public interface EventHandler {
-        void onDayLongPress(Date date);
+        Log.d(TAG, "Number of date " + dayValueInCells.size());
+        String sDate = formatter.format(cal.getTime());
+        currentDate.setText(sDate);
+        mAdapter = new GridAdapter(context, dayValueInCells, cal, mEvents,Calendar.getInstance().get(Calendar.DAY_OF_MONTH),Calendar.getInstance().get(Calendar.MONTH));
+        calendarGridView.setAdapter(mAdapter);
     }
 }
