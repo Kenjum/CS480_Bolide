@@ -131,8 +131,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             @Override
             public boolean onMarkerClick(Marker marker) {
                 current = marker;
-                current.setTag(BitmapFactory.decodeResource(getResources(),info.getPicture(current.getTitle())));
-                pict = (Bitmap)current.getTag();
+                pict =  BitmapFactory.decodeResource(getResources(),info.getPicture(current.getTitle()));
                 mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
                     @Override
                     public View getInfoWindow(Marker marker) {
