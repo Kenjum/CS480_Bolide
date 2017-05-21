@@ -228,6 +228,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 //      .getPosition.toString() yields "(coord, coord)". This is to remove the parenthesis.
         String test1 = "(34.057777, -117.823837)".replaceAll("[()]", "");
+        test1 = current.getPosition().toString().replaceAll("lat/lng:", "");
+        System.err.println("test1 = "+test1);
         String test2 = "Cal Poly Pomona";
         try{
             new DirectionFinder(this,test1,test2).execute();
