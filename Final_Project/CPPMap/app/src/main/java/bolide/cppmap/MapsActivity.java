@@ -2,10 +2,14 @@ package bolide.cppmap;
 
 import android.Manifest;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -42,6 +46,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
     private boolean mPermissionDenied = false;
 
+    Location location;                      //user location
+    private String provider;
+    private LocationManager locationManager;
     private List<Marker> originMarkers = new ArrayList<>();
     private List<Marker> destinationMarkers = new ArrayList<>();
     private List<Polyline> polylinePaths = new ArrayList<>();
@@ -103,6 +110,24 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
             }
         });
+        //THIS IS FOR GETTING USER LOCATION
+        //Location Manager
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+
+        Criteria criteria = new Criteria();
+        criteria.setAccuracy(Criteria.ACCURACY_FINE);
+        criteria.setAltitudeRequired(false);
+        criteria.setSpeedRequired(false);
+        criteria.setBearingRequired(false);
+        criteria.setCostAllowed(false);
+
+        provider = locationManager.getBestProvider(criteria, false);
+
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        location = locationManager.getLastKnownLocation(provider);
+
     }
 
 
@@ -224,14 +249,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
     public void sendRequest(){  //TODO
-
-//      .getPosition.toString() yields "(coord, coord)". This is to remove the parenthesis.
-        String test1 = "(34.057777, -117.823837)".replaceAll("[()]", "");
-        test1 = current.getPosition().toString().replaceAll("lat/lng:", "");
-        System.err.println("test1 = "+test1);
-        String test2 = "Cal Poly Pomona";
+        String destination = current.getPosition().toString().replaceAll("lat/lng:", "");
+        String userLocation = String.valueOf(location.getLatitude()) + ", "+ String.valueOf(location.getLongitude());
         try{
-            new DirectionFinder(this,test1,test2).execute();
+            new DirectionFinder(this, userLocation, destination).execute();
         }catch(UnsupportedEncodingException e){
             e.printStackTrace();
         }
