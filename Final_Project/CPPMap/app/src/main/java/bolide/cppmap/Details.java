@@ -10,6 +10,7 @@ import java.util.Map;
 public class Details {
     Map<String, Integer> pictures = new HashMap<String,Integer>();
 
+    //buildings
     String bldg1 = "Holds the Departments of Communication, Economics, and Philosophy. It also\n" +
             "contains the home of IT Services and the Kellogg Honors College.";
     String bldg2 = "Has the Departments of Agribusiness & Food Industry Management/Agricultural\n" +
@@ -142,6 +143,7 @@ public class Details {
     String bldg112 = "Venue for weddings, corporate meetings, birthday parties, and other special events.";
     String bldg113 = "Part of the Kellogg House Pomona.";
     String bldg116 = "Provide quality preschool services for campus student-parents, faculty, staff, alumni and community.";
+    String bldg118 ="";
     String bldg162 = "Includes 2 auditorium style lecture halls along with restrooms.";
     String bldg163 = "Includes classrooms for College of Business classes.";
     String bldg164 = "Includes the Departments for Accounting, Computer Information Systems, Finance, " +
@@ -149,10 +151,57 @@ public class Details {
                      "and Technology and Operations Management. The building also has Einstein Bros Bagels and Pony Express.";
     String bldg193 = "";
     String bldg200 = "Provides apartment style housing for students. ";
+
+    String bldg211="";
+    String bldg220 ="";
+
+    //parking lots
+    String lota ="";
+    String lotb="";
+    String lote1 ="";
+    String lote2 = "";
+    String lotf1 = "";
+    String lotf2 = "";
+    String lotf3 = "";
+    String lotf4 = "";
+    String lotf5 = "";
+    String lotf8 = "";
+    String lotf9 = "";
+    String lotf10 = "";
+    String lotg = "";
+    String loth = "";
+    String loti = "";
+    String lotj = "";
+    String lotl = "";
+    String lotm = "";
+    String lotn = "";
+    String loto = "";
+    String lotp = "";
+    String lotq = "";
+    String lotr = "";
+    String lotu = "";
+    String lotunpavedoverflow = "";
+    String lotoverfow = "";
+    String lotstruct2 ="";
+
+    //other points
+    String pumpkin ="";
+    String biotrek = "";
+    String emeadow = "";
+    String jgarden ="";
+    String track = "";
+    String baseball ="";
+    String rose ="";
+    String soccer ="";
+    String tennis="";
+    String quad ="";
+    String tpond ="";
+
     public Details(){
         addPictures();
     }
     private void addPictures(){
+        //buildings
         pictures.put("1: Building One",R.drawable.building1);
         pictures.put("2: College of Agriculture",R.drawable.building2);
         pictures.put("3: Science Laboratory",R.drawable.building3);
@@ -165,8 +214,8 @@ public class Details {
         pictures.put("9: College of Engineering",R.drawable.building9);
         pictures.put("13: Art Department and Engineering Anex",R.drawable.building13);
         pictures.put("13B: Army ROTC",R.drawable.building13b);
-        pictures.put("13C: Army ROTC",R.drawable.building13c);
-        pictures.put("13D: Pre-College TRIO Programs",R.drawable.building13d);
+        pictures.put("13C: Army ROTC",R.drawable.building13b);
+        pictures.put("13D: Pre-College TRIO Programs",R.drawable.building13b);
         pictures.put("15: Library",R.drawable.building15);
         pictures.put("17: Engineering Laboratories",R.drawable.building17);
         pictures.put("20: Residence Hall, Encinitas",R.drawable.building20);
@@ -175,10 +224,10 @@ public class Details {
         pictures.put("23: Resedence Hall, Aliso",R.drawable.building23);
         pictures.put("24: Music",R.drawable.building25);
         pictures.put("24A: Temp Class A",R.drawable.building24a);
-        pictures.put("24B: Temp Class B",R.drawable.building24b);
-        pictures.put("24C: Temp Class C",R.drawable.building24c);
-        pictures.put("24D: Temp Class D",R.drawable.building24d);
-        pictures.put("24E: Temp Class E",R.drawable.building24e);
+        pictures.put("24B: Temp Class B",R.drawable.building24a);
+        pictures.put("24C: Temp Class C",R.drawable.building24a);
+        pictures.put("24D: Temp Class D",R.drawable.building24a);
+        pictures.put("24E: Temp Class E",R.drawable.building24a);
         pictures.put("25: Drama Department/Theatre",R.drawable.building25);
         pictures.put("26: University Plaza",R.drawable.building26);
         pictures.put("26A: Student Orientation Center",R.drawable.building26a);
@@ -252,13 +301,59 @@ public class Details {
         pictures.put("112: Kellogg House Pomona",R.drawable.building112);
         pictures.put("113: Guest House",R.drawable.building113);
         pictures.put("116: Child Care Center",R.drawable.building116);
+        pictures.put("118: American Red Cross",R.drawable.building118);
         pictures.put("162: College of Business Admistration",R.drawable.building162);
         pictures.put("163: College of Business Admistration",R.drawable.building163);
         pictures.put("164: College of Business Admistration",R.drawable.building164);
         pictures.put("193: Chilled Water Center Plant",R.drawable.building193);
         pictures.put("200: University Village",R.drawable.building200);
+        pictures.put("211: Agriscapes/Farm Store",R.drawable.building211);
+        pictures.put("220: Center for Training, Technology and Incubation",R.drawable.building220);
+
+        //parking lots
+        pictures.put("Parking Lot A",R.drawable.lota);
+        pictures.put("Parking Lot B",R.drawable.lotb);
+        pictures.put("Parking Lot E1",R.drawable.lote1);
+        pictures.put("Parking Lot E2",R.drawable.lote2);
+        pictures.put("Parking Lot F1",R.drawable.lotf1);
+        pictures.put("Parking Lot F2",R.drawable.lotf2);
+        pictures.put("Parking Lot F3",R.drawable.lotf3);
+        pictures.put("Parking Lot F4",R.drawable.lotf4);
+        pictures.put("Parking Lot F5",R.drawable.lotf5);
+        pictures.put("Parking Lot F8",R.drawable.lotf8);
+        pictures.put("Parking Lot F9",R.drawable.lotf9);
+        pictures.put("Parking Lot F10",R.drawable.lotf10);
+        pictures.put("Parking Lot G",R.drawable.lotg);
+        pictures.put("Parking Lot H",R.drawable.loth);
+        pictures.put("Parking Lot I",R.drawable.loti);
+        pictures.put("Parking Lot J",R.drawable.lotj);
+        pictures.put("Parking Lot L",R.drawable.lotl);
+        pictures.put("Parking Lot M",R.drawable.lotm);
+        pictures.put("Parking Lot N",R.drawable.lotn);
+        pictures.put("Parking Lot O",R.drawable.loto);
+        pictures.put("Parking Lot P",R.drawable.lotp);
+        pictures.put("Parking Structure 2",R.drawable.lotstruct2);
+        pictures.put("Parking Lot Q",R.drawable.lotq);
+        pictures.put("Parking Lot R",R.drawable.lotr);
+        pictures.put("Parking Lot U",R.drawable.lotu);
+        pictures.put("Unpaved Overflow Parking",R.drawable.lotlogo);
+        pictures.put("Overflow Parking",R.drawable.lotlogo);
+
+        //other points
+        pictures.put("Pumpkin patch",R.drawable.pumpkinpatch);
+        pictures.put("BioTrek Ethnobotany Garden",R.drawable.biotrekgarden);
+        pictures.put("Engineering Meadow",R.drawable.emeadow);
+        pictures.put("Japanese Garden",R.drawable.jgarden);
+        pictures.put("Kellogg track and Soccer Stadium",R.drawable.track);
+        pictures.put("Scolinos Baseball Field",R.drawable.bbfield);
+        pictures.put("Rose Garden",R.drawable.rose);
+        pictures.put("Soccer Field",R.drawable.soccer);
+        pictures.put("Tennis court",R.drawable.tennis);
+        pictures.put("University Quad",R.drawable.quad);
+        pictures.put("Turtle Pond",R.drawable.tpond);
 
     }
+
     public int getPicture(String title){
         return pictures.get(title);
     }

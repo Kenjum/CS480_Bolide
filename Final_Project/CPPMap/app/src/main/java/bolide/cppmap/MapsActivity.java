@@ -21,6 +21,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMap.OnMyLocationButtonClickListener;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
@@ -61,7 +62,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private LatLngBounds CalPolyPomona = new LatLngBounds( new LatLng(34.048359, -117.828218), new LatLng(34.065156, -117.806628));
 
-    Marker building[] = new Marker[220];
+    Marker building[] = new Marker[221];
     Marker current = null;
     Details info = new Details();
     @Override
@@ -188,6 +189,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         });
         enableMyLocation();
         buildBuildings();
+        buildParkingLots();
+        buildOtherAreas();
 
 
     }
@@ -258,6 +261,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
     }
 
+
+
     //function for placing building markers
     private void buildBuildings(){
 
@@ -272,7 +277,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .position(new LatLng(34.057725, -117.826502))
                 .title("2: College of Agriculture")
                 .snippet(info.bldg2));
-       // building[2].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building2));
+        // building[2].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building2));
         // 3: Science Laboratory
         building[3] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.058101, -117.825659))
@@ -777,7 +782,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         building[106] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.060183, -117.816986))
                 .title("106: Parking Structure")
-                .snippet(info.bldg106));
+                .snippet(info.bldg106)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
         //109: Police and Parking Services
         building[109] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.060717, -117.815772))
@@ -803,6 +809,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .position(new LatLng(34.056123, -117.819481))
                 .title("116: Child Care Center")
                 .snippet(info.bldg116));
+        //118: American Red Cross
+        building[118] =mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.061289, -117.819552))
+                .title("118: American Red Cross")
+                .snippet(info.bldg118));
         //162: College of Business Admistration
         building[162] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.061289, -117.819552))
@@ -811,7 +822,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         //163: College of Business Admistration
         building[163] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.061216, -117.820182))
-                .title("163: College of Business Admistration"));
+                .title("163: College of Business Admistration")
+                .snippet(info.bldg163));
         //164: College of Business Admistration
         building[164] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.061583, -117.819867))
@@ -828,18 +840,256 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .title("200: University Village")
                 .snippet(info.bldg200));
 
-
-
+        //211: Agriscapes/Farm Store
+        building[211] =mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.048422, -117.819040))
+                .title("211: Agriscapes/Farm Store")
+                .snippet(info.bldg211));
+        //220: Center for Training, Technology and Incubation
+        building[220] =mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.050322, -117.815124))
+                .title("220: Center for Training, Technology and Incubation")
+                .snippet(info.bldg220));
 
     }
 
 
     //function for placing Parking Lot markers
     private void buildParkingLots(){
+        //Lot A
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.060597, -117.824458))
+                .title("Parking Lot A")
+                .snippet(info.lota)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+        //Lot B
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.051815, -117.815982))
+                .title("Parking Lot B")
+                .snippet(info.lotb)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+        //Lot E1
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.061361, -117.811669))
+                .title("Parking Lot E1")
+                .snippet(info.lote1)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+        //Lot E2
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.060774, -117.812506))
+                .title("Parking Lot E2")
+                .snippet(info.lote2)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+        //Lot F1
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.062285, -117.817034))
+                .title("Parking Lot F1")
+                .snippet(info.lotf1)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+        //Lot F2
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.061556, -117.817721))
+                .title("Parking Lot F2")
+                .snippet(info.lotf2)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+        //Lot F3
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.061983, -117.816283))
+                .title("Parking Lot F3")
+                .snippet(info.lotf3)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+        //Lot F4
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.061129, -117.817313))
+                .title("Parking Lot F4")
+                .snippet(info.lotf4)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+        //Lot F5
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.061591, -117.815532))
+                .title("Parking Lot F5")
+                .snippet(info.lotf5)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
 
+        //Lot F8
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.059191, -117.817206))
+                .title("Parking Lot F8")
+                .snippet(info.lotf8)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+        //Lot F9
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.060311, -117.815382))
+                .title("Parking Lot F9")
+                .snippet(info.lotf9)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+        //Lot F10
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.061040, -117.814502))
+                .title("Parking Lot F10")
+                .snippet(info.lotf10)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+        //Lot G
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.055618, -117.819717))
+                .title("Parking Lot G")
+                .snippet(info.lotg)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+        //Lot H
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.060969, -117.818730))
+                .title("Parking Lot H")
+                .snippet(info.loth)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+        //Lot I
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.048843, -117.819554))
+                .title("Parking Lot I")
+                .snippet(info.loti)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+        //Lot J
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.057245, -117.828768))
+                .title("Parking Lot J")
+                .snippet(info.lotj)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+        //Lot L
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.055485, -117.825452))
+                .title("Parking Lot L")
+                .snippet(info.lotl)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+        //Lot M
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.055485, -117.829271))
+                .title("Parking Lot M")
+                .snippet(info.lotm)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+        //Lot N
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.056143, -117.818822))
+                .title("Parking Lot N")
+                .snippet(info.lotn)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+        //Lot O
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.049921, -117.814423))
+                .title("Parking Lot O")
+                .snippet(info.loto)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+        //Overflow Parking
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.053437, -117.810647))
+                .title("Overflow Parking")
+                .snippet(info.lotoverfow)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+        //Lot P
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.054254, -117.815410))
+                .title("Parking Lot P")
+                .snippet(info.lotp)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+        //Parking Structure 2
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.051729, -117.819723))
+                .title("Parking Structure 2")
+                .snippet(info.lotstruct2)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+        //Lot Q
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.055036, -117.817105))
+                .title("Parking Lot Q")
+                .snippet(info.lotq)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+        //Lot R
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.063551, -117.825602))
+                .title("Parking Lot R")
+                .snippet(info.lotr)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+        //Lot U
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.049027, -117.817319))
+                .title("Parking Lot U")
+                .snippet(info.lotu)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+        //Unpaved Overflow
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.049578, -117.813821))
+                .title("Unpaved Overflow Parking")
+                .snippet(info.lotunpavedoverflow)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
     }
+
     //function for placing markers of other points of interest
     private void buildOtherAreas(){
+        //Pumpkin patch
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.049560, -117.818306))
+                .title("Pumpkin patch")
+                .snippet(info.pumpkin)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+
+        //BioTrek Ethnobotany Garden
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.057135, -117.826465))
+                .title("BioTrek Ethnobotany Garden")
+                .snippet(info.biotrek)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+        //Engineering Meadow
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.058548, -117.823724))
+                .title("Engineering Meadow")
+                .snippet(info.emeadow)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+        //Japanese Garden
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.059832, -117.820457))
+                .title("Japanese Garden")
+                .snippet(info.jgarden)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+        //Kellogg track and Soccer Stadium
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.052341, -117.816815))
+                .title("Kellogg track and Soccer Stadium")
+                .snippet(info.track)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+        //Scolinos Baseball Field
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.053513, -117.815971))
+                .title("Scolinos Baseball Field")
+                .snippet(info.baseball)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+        //Rose Garden
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.060819, -117.820413))
+                .title("Rose Garden")
+                .snippet(info.rose)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+        //Soccer Field
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.052695, -117.818546))
+                .title("Soccer Field")
+                .snippet(info.soccer)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+        //Tennis court
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.052891, -117.820391))
+                .title("Tennis court")
+                .snippet(info.tennis)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+        //University Quad
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.058548, -117.823724))
+                .title("University Quad")
+                .snippet(info.quad)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+        //Turtle Pond
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(34.061033, -117.821571))
+                .title("Turtle Pond")
+                .snippet(info.tpond)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
 
     }
     //function for placing Path markers
