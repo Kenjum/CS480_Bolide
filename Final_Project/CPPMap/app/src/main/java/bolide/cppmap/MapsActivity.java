@@ -60,11 +60,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     The new LatLng is the southwest corner, the second is the northeast
      */
 
-    private LatLngBounds CalPolyPomona = new LatLngBounds( new LatLng(34.048359, -117.828218), new LatLng(34.065156, -117.806628));
+    private LatLngBounds CalPolyPomona = new LatLngBounds(new LatLng(34.048359, -117.828218), new LatLng(34.065156, -117.806628));
 
     Marker building[] = new Marker[221];
     Marker current = null;
     Details info = new Details();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,7 +80,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         //TODO for navigation
         Button btnGo = (Button) findViewById(R.id.btnGo);
 
-        btnGo.setOnClickListener(new View.OnClickListener(){
+        btnGo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 sendRequest();
@@ -89,19 +90,19 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         //Spinner
         Spinner viewSpinner = (Spinner) findViewById(R.id.spinner);
-        ArrayAdapter viewAdapter = ArrayAdapter.createFromResource(this,R.array.locations_array,R.layout.support_simple_spinner_dropdown_item);
+        ArrayAdapter viewAdapter = ArrayAdapter.createFromResource(this, R.array.locations_array, R.layout.support_simple_spinner_dropdown_item);
         viewSpinner.setAdapter(viewAdapter);
         viewSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if(position ==0){
+                if (position == 0) {
 
-                }else {
+                } else {
                     current = building[position];
 
                     mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(building[position].getPosition(), 20));
-                    current.setTag(BitmapFactory.decodeResource(getResources(),info.getPicture(current.getTitle())));
-                    pict = (Bitmap)current.getTag();
+                    current.setTag(BitmapFactory.decodeResource(getResources(), info.getPicture(current.getTitle())));
+                    pict = (Bitmap) current.getTag();
                     current.showInfoWindow();
                 }
             }
@@ -148,7 +149,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         //Sets the boundry
         mMap.setLatLngBoundsForCameraTarget(CalPolyPomona);
-        LatLng nearPomona = new LatLng(34.0554622,-117.8181957);
+        LatLng nearPomona = new LatLng(34.0554622, -117.8181957);
         //Set max Zoom
         mMap.setMinZoomPreference(15);
         //Get Location of the user
@@ -157,12 +158,14 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             @Override
             public boolean onMarkerClick(Marker marker) {
                 current = marker;
-                pict =  BitmapFactory.decodeResource(getResources(),info.getPicture(current.getTitle()));
+                current.setTag(BitmapFactory.decodeResource(getResources(), info.getPicture(current.getTitle())));
+                pict = (Bitmap) current.getTag();
                 mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
                     @Override
                     public View getInfoWindow(Marker marker) {
                         return null;
                     }
+
                     @Override
                     public View getInfoContents(Marker marker) {
                         View v = getLayoutInflater().inflate(R.layout.custom_info_window, null);
@@ -183,7 +186,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             @Override
             public void onInfoWindowClose(Marker marker) {
 
-                    pict.recycle();
+                pict.recycle();
 
             }
         });
@@ -194,6 +197,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
     }
+
     private void enableMyLocation() {
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -205,14 +209,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             mMap.setMyLocationEnabled(true);
         }
     }
+
     @Override
     public boolean onMyLocationButtonClick() {
         return false;
 
     }
-
-
-
 
 
     @Override
@@ -251,8 +253,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         PermissionUtils.PermissionDeniedDialog.newInstance(true).show(getSupportFragmentManager(), "dialog");
     }
 
-    public void sendRequest(){  //TODO
+    public void sendRequest() {  //TODO
         String destination = current.getPosition().toString().replaceAll("lat/lng:", "");
+        //permission check
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        location = locationManager.getLastKnownLocation(provider);
         String userLocation = String.valueOf(location.getLatitude()) + ", "+ String.valueOf(location.getLongitude());
         try{
             new DirectionFinder(this, userLocation, destination).execute();
