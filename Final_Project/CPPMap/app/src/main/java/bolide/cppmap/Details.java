@@ -11,25 +11,25 @@ public class Details {
     Map<String, Integer> pictures = new HashMap<String,Integer>();
 
     //buildings
-    String bldg1 = "Holds the Departments of Communication, Economics, and Philosophy. It also\n" +
+    String bldg1 = "Holds the Departments of Communication, Economics, and Philosophy. It also " +
             "contains the home of IT Services and the Kellogg Honors College.";
-    String bldg2 = "Has the Departments of Agribusiness & Food Industry Management/Agricultural\n" +
-            "Science, Animal & Veterinary Sciences, Apparel Merchandising & Management, \n" +
+    String bldg2 = "Has the Departments of Agribusiness & Food Industry Management/Agricultural " +
+            "Science, Animal & Veterinary Sciences, Apparel Merchandising & Management, " +
             "Human Nutrition & Food Science and Plant Science.";
     String bldg3 = "Contains classrooms, laboratories and the College of Science Advising Center.";
     String bldg4 = "Holds Science Laboratories along with classrooms as well.";
     String bldg4A = "A greenhouse that houses a rainforest ecosystem that is constantly developing. " +
                     "Houses 100 different species of plants from all over the globe.";
-    String bldg5 = "Home of the Departments of English and Foreign Language, Geography and\n" +
+    String bldg5 = "Home of the Departments of English and Foreign Language, Geography and " +
             "Anthropology, and Psychology and Sociology.";
-    String bldg6 = "Houses the Departments of Ethnic and Women's Studies, Education, \n" +
+    String bldg6 = "Houses the Departments of Ethnic and Women's Studies, Education, " +
             "Interdisciplinary General Education(IGE), and Liberal Studies.";
-    String bldg7 = "The College of Environmental Design offers undergraduate and graduate degrees\n" +
-            "in Architecture, Landscape Architecture, and Urban and Regional Planning;\n" +
-            "undergraduate degrees in Art History and Graphic Design; and a graduate degree \n" +
+    String bldg7 = "The College of Environmental Design offers undergraduate and graduate degrees " +
+            "in Architecture, Landscape Architecture, and Urban and Regional Planning, " +
+            "undergraduate degrees in Art History and Graphic Design; and a graduate degree " +
             "in Regenerative Studies.";
-    String bldg8 = "Home to the departments of Biological Sciences, Chemistry, Biochemistry, \n" +
-            "Computer Science, Geological Sciences, Kinesiology and Health Promotion,\n" +
+    String bldg8 = "Home to the departments of Biological Sciences, Chemistry, Biochemistry, " +
+            "Computer Science, Geological Sciences, Kinesiology and Health Promotion, " +
             "Math and Statistics, as well as the Physics and Astronomy Department.";
     String bldg9 = "A greenhouse that houses a rainforest ecosystem that is constantly developing. " +
                     "Houses 100 different species of plants from all over the globe.";
