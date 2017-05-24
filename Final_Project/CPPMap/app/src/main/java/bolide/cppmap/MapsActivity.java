@@ -278,153 +278,198 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .position(new LatLng(34.059499, -117.824131))
                 .title("1: Building One")
                 .snippet(info.bldg1));
+        building[1].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon));
+        building[1].setTag("Classrooms");
         //building[1].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building1));
         // 2: College of Agriculture
         building[2] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.057725, -117.826502))
                 .title("2: College of Agriculture")
                 .snippet(info.bldg2));
+        building[2].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon));
+        building[2].setTag("Classrooms");
         // building[2].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building2));
         // 3: Science Laboratory
         building[3] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.058101, -117.825659))
                 .title("3: Science Laboratory")
                 .snippet(info.bldg3));
+        building[3].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon));
+        building[3].setTag("Classrooms");
         //building[3].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building3));
         // 4: Biotechnology Building
         building[4] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.057479, -117.825380))
                 .title("4: Biotechnology Building")
                 .snippet(info.bldg4));
+        building[4].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon));
+        building[4].setTag("Classrooms");
         //building[4].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building4));
         //4A: Bio Trek Learning Center
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.057213, -117.826046))
                 .title("4A: Bio Trek Learning Center")
-                .snippet(info.bldg4A));
+                .snippet(info.bldg4A)
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.landmark_icon)));
         // 5: College of Letters, Arts and Social Sciences
         building[5] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.057852, -117.824200))
                 .title("5: College of Letters, Arts and Social Sciences")
                 .snippet(info.bldg5));
+        building[5].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon));
+        building[5].setTag("Classrooms");
         //building[5].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building5));
         // 6: College of Education and Integrative Studies
         building[6] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.058589, -117.822823))
                 .title("6: College of Education and Integrative Studies")
                 .snippet(info.bldg6));
+        building[6].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon));
+        building[6].setTag("Classrooms");
         // building[6].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building6));
         // 7: College of Environmental Design
         building[7] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.057044, -117.827392))
                 .title("7: College of Environmental Design")
                 .snippet(info.bldg7));
+        building[7].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon));
+        building[7].setTag("Classrooms");
         //building[7].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building7));
         // 8: College of Science Building
         building[8] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.058670, -117.824736))
                 .title("8: College of Science Building")
                 .snippet(info.bldg8));
+        building[8].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon));
+        building[8].setTag("Classrooms");
         //building[8].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building8));
         //9: College of Engineering
         building[9] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.059093, -117.822404))
                 .title("9: College of Engineering")
                 .snippet(info.bldg9));
+        building[9].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon));
+        building[9].setTag("Classrooms");
         //building[9].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building9));
         //13: Art Department and Engineering Annex
         building[13] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.058657, -117.820977))
                 .title("13: Art Department and Engineering Anex")
                 .snippet(info.bldg13));
+        building[13].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon));
+        building[13].setTag("Classrooms");
         //   building[13].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building13));
         //13B: Army ROTC
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.058238, -117.820787))
                 .title("13B: Army ROTC")
-                .snippet(info.bldg13B));
+                .snippet(info.bldg13B)
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon)));
         //13C: Army ROTC
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.058355, -117.820678))
                 .title("13C: Army ROTC")
-                .snippet(info.bldg13C));
+                .snippet(info.bldg13C)
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon)));
         //13D: Pre-College TRIO Programs
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.058481, -117.820435))
                 .title("13D: Pre-College TRIO Programs")
-                .snippet(info.bldg13D));
+                .snippet(info.bldg13D)
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon)));
         //15: Library
         building[15] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.057887, -117.821539))
                 .title("15: Library")
                 .snippet(info.bldg15));
+        building[15].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon));
+        building[15].setTag("Classrooms");
         //    building[15].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building15));
         //17: Engineering Laboratories
         building[17] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.059630, -117.821398))
                 .title("17: Engineering Laboratories")
                 .snippet(info.bldg17));
+        building[17].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon));
+        building[17].setTag("Classrooms");
         //     building[17].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building17));
         //20: Residence Hall, Encinitas
         building[20] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.062248, -117.820642))
                 .title("20: Residence Hall, Encinitas")
                 .snippet(info.bldg20));
+        building[20].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.housing_icon));
+        building[20].setTag("Student Housing");
         //       building[20].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building20));
         //21: Residence Hall, Montecito
         building[21] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.062081, -117.819266))
                 .title("21: Residence Hall, Montecito")
                 .snippet(info.bldg21));
+        building[21].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.housing_icon));
+        building[21].setTag("Student Housing");
         //       building[21].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building21));
         //22: Residence Hall, Alamitos
         building[22] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.062114, -117.818024))
                 .title("22: Residence Hall, Alamitos")
                 .snippet(info.bldg22));
+        building[22].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.housing_icon));
+        building[22].setTag("Student Housing");
         //      building[22].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building22));
         //23: Resedence Hall, Aliso
         building[23] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.062845, -117.817848))
                 .title("23: Resedence Hall, Aliso")
                 .snippet(info.bldg23));
+        building[23].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.housing_icon));
+        building[23].setTag("Student Housing");
         //      building[23].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building23));
         //24: Music
         building[24] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.056936, -117.822586))
                 .title("24: Music")
                 .snippet(info.bldg24));
+        building[24].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon));
+        building[24].setTag("Classrooms");
         //     building[24].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building24));
         //24A: Temp Class A
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.056280, -117.822476))
                 .title("24A: Temp Class A")
-                .snippet(info.bldg24A));
+                .snippet(info.bldg24A)
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon)));
         //24B: Temp Class B
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.056166, -117.822405))
                 .title("24B: Temp Class B")
-                .snippet(info.bldg24B));
+                .snippet(info.bldg24B)
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon)));
         //24C: Temp Class C
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.055930, -117.822375))
                 .title("24C: Temp Class C")
-                .snippet(info.bldg24C));
+                .snippet(info.bldg24C)
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon)));
         //24D: Temp Class D
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.056022, -117.822510))
                 .title("24D: Temp Class D")
-                .snippet(info.bldg24D));
+                .snippet(info.bldg24D)
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon)));
         //24E: Temp Class E
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.056172, -117.822624))
                 .title("24E: Temp Class E")
-                .snippet(info.bldg24E));
+                .snippet(info.bldg24E)
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon)));
         //25: Drama Department/Theatre
         building[25] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.056447, -117.822122))
                 .title("25: Drama Department/Theatre")
                 .snippet(info.bldg25));
+        building[25].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.theater_icon));
+        building[25].setTag("Classrooms");
         //26: University Plaza
         building[26] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.056950, -117.820554))
@@ -436,105 +481,138 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .position(new LatLng(34.056709, -117.820577))
                 .title("26A: Student Orientation Center")
                 .snippet(info.bldg26A));
+
         //28: Fruit/crops Unit
         building[28] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.059874, -117.810962))
                 .title("28: Fruit/crops Unit")
                 .snippet(info.bldg28));
+        building[28].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.agriculture_icon));
+        building[28].setTag("Agriculture");
         //       building[28].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building28));
         //29: W.K. Kellogg Arabian Horse Center
         building[29] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.058483, -117.814486))
                 .title("29: W.K. Kellogg Arabian Horse Center"));
+        building[29].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.agriculture_icon));
+        building[29].setTag("Agriculture");
 //        building[29].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building29));
         //30: Agricultural Unit
         building[30] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.055163, -117.828428))
                 .title("30: Agricultural Unit")
                 .snippet(info.bldg30));
+        building[30].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.agriculture_icon));
+        building[30].setTag("Agriculture");
 //        building[30].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building30));
         //31: Poultry Unit/Poultry Houses
         building[31] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.054615, -117.828307))
                 .title("31: Poultry Unit/Poultry Houses")
                 .snippet(info.bldg31));
+        building[31].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.agriculture_icon));
+        building[31].setTag("Agriculture");
 //        building[31].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building31));
         //32:Beef Unit/ Feed Shed
         building[32] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.055488, -117.827618))
                 .title("32:Beef Unit/ Feed Shed")
                 .snippet(info.bldg32));
+        building[32].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.agriculture_icon));
+        building[32].setTag("Agriculture");
 //        building[32].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building32));
         //33: Feed Mill
         building[33] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.053965, -117.827521))
                 .title("33: Feed Mill")
                 .snippet(info.bldg33));
+        building[33].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.agriculture_icon));
+        building[33].setTag("Agriculture");
 //        building[33].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building33));
         //34: Meat Laboratory
         building[34] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.053952, -117.828074))
                 .title("34: Meat Laboratory")
                 .snippet(info.bldg34));
+        building[34].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.agriculture_icon));
+        building[34].setTag("Agriculture");
         //       building[34].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building34));
         //35: BSC - Bronco Student Center
         building[35] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.056285, -117.821159))
                 .title("35: BSC - Bronco Student Center")
                 .snippet(info.bldg35));
+        building[35].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.food_icon));
+        building[35].setTag("Food");
 //        building[35].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building35));
         //35A: W. Keith and Janet Kellogg University Art Gallery
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.057001, -117.821712))
                 .title("35A: W. Keith and Janet Kellogg University Art Gallery")
-                .snippet(info.bldg35A));
+                .snippet(info.bldg35A)
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.art_icon)));
         //37: Swine Unit/Shelters
         building[37] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.052152, -117.822887))
                 .title("37: Swine Unit/Shelters")
                 .snippet(info.bldg37));
+        building[37].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.agriculture_icon));
+        building[37].setTag("Agriculture");
 //        building[37].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building37));
         //38: Sheep/Wool Unit
         building[38] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.052159, -117.822381))
                 .title("38: Sheep/Wool Unit")
                 .snippet(info.bldg38));
+        building[38].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.agriculture_icon));
+        building[38].setTag("Agriculture");
 //        building[38].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building38));
         //41: Darlene May Gymnasium
         building[41] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.054076, -117.821229))
                 .title("41: Darlene May Gymnasium")
                 .snippet(info.bldg41));
+        building[41].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.sports_icon));
+        building[41].setTag("Athletics");
         //    building[41].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building41));
         //42: BRIC - Bronco Recreation Intramural Complex
         building[42] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.054684, -117.820473))
                 .title("42: BRIC - Bronco Recreation Intramural Complex")
                 .snippet(info.bldg42));
+        building[42].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.sports_icon));
+        building[42].setTag("Athletics");
         //      building[42].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building42));
         //43: Kellogg Gymnasium
         building[43] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.054263, -117.819278))
                 .title("43: Kellogg Gymnasium")
                 .snippet(info.bldg43));
+        building[43].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.sports_icon));
+        building[43].setTag("Athletics");
 //        building[43].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building43));
         //45: Agricultural Engineering
         building[45] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.061132, -117.811036))
                 .title("45: Agricultural Engineering")
                 .snippet(info.bldg45));
+        building[45].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.agriculture_icon));
+        building[45].setTag("Agriculture");
 //        building[45].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building45));
         //46: Health Services
         building[46] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.057830, -117.827853))
                 .title("46: Health Services")
-                .snippet(info.bldg46));
+                .snippet(info.bldg46)
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.health_icon)));
 //        building[46].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building46));
         //47: Agricultural Engineering Tractor Shop
         building[47] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.061781, -117.815016))
                 .title("47: Agricultural Engineering Tractor Shop")
                 .snippet(info.bldg47));
+        building[47].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.agriculture_icon));
+        building[47].setTag("Agriculture");
         //building[47].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building47));
         //48: Custodial Offices
         building[48] =mMap.addMarker(new MarkerOptions()
@@ -553,12 +631,16 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .position(new LatLng(34.053928, -117.817950))
                 .title("52: Vista Market")
                 .snippet(info.bldg52));
+        building[52].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.food_icon));
+        building[52].setTag("Food");
 //        building[52].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building52));
         //54: Residence Suites, Vista de las Estrellas
         building[54] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.055359, -117.818905))
                 .title("54: Residence Suites, Vista de las Estrellas")
                 .snippet(info.bldg54));
+        building[54].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.housing_icon));
+        building[54].setTag("Student Housing");
 //        building[54].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building54));
         //55: Foundation Administration Offices
         building[55] =mMap.addMarker(new MarkerOptions()
@@ -577,42 +659,56 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .position(new LatLng(34.060521, -117.822323))
                 .title("57: Residence Halls, Palmitas")
                 .snippet(info.bldg57));
+        building[57].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.housing_icon));
+        building[57].setTag("Student Housing");
 //        building[57].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building57));
         //58: Residence Halls, Cedritos
         building[58] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.061503, -117.821223))
                 .title("58: Residence Halls, Cedritos")
                 .snippet(info.bldg58));
+        building[58].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.housing_icon));
+        building[58].setTag("Student Housing");
 //        building[58].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building58));
         //59:La Cienega Center - University Housing Services
         building[59] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.060838, -117.821909))
                 .title("59:La Cienega Center - University Housing Services")
                 .snippet(info.bldg59));
+        building[59].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.housing_icon));
+        building[59].setTag("Student Housing");
 //        building[59].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building59));
         //60: Residence Suites
         building[60] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.054906, -117.818549))
                 .title("60: Residence Suites")
                 .snippet(info.bldg60));
+        building[60].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.housing_icon));
+        building[60].setTag("Student Housing");
         //       building[60].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building60));
         //61: Residence Suites, Vista del Sol
         building[61] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.054768, -117.818050))
                 .title("61: Residence Suites, Vista del Sol")
                 .snippet(info.bldg61));
+        building[61].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.housing_icon));
+        building[61].setTag("Student Housing");
 //        building[61].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building61));
         //62: Residence Suites, Vista de las Montanas
         building[62] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.054399, -117.817465))
                 .title("62: Residence Suites, Vista de las Montanas")
                 .snippet(info.bldg62));
+        building[62].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.housing_icon));
+        building[62].setTag("Student Housing");
 //        building[62].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building62));
         //63: Residence Suites, Vista del Luna
         building[63] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.053710, -117.817138))
                 .title("63: Residence Suites, Vista del Luna")
                 .snippet(info.bldg63));
+        building[63].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.housing_icon));
+        building[63].setTag("Student Housing");
         //       building[63].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building63));
         //64: Rose Float Laboratory
         building[64] =mMap.addMarker(new MarkerOptions()
@@ -629,6 +725,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .position(new LatLng(34.056024, -117.820506))
                 .title("66: Bronco Bookstore")
                 .snippet(info.bldg66));
+        building[66].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon));
+        building[66].setTag("Classrooms");
         //67: Equine Research Facility
         building[67] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.059253, -117.813959))
@@ -639,11 +737,15 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .position(new LatLng(34.054375, -117.827668))
                 .title("68: Hay Barn")
                 .snippet(info.bldg68));
+        building[68].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.agriculture_icon));
+        building[68].setTag("Agriculture");
         //70: Los Olivos Commons
         building[70] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.062332, -117.821550))
                 .title("70: Los Olivos Commons")
                 .snippet(info.bldg70));
+        building[70].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.food_icon));
+        building[70].setTag("Food");
         //71: Recreation/Maintenance
         building[71] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.062992, -117.816752))
@@ -659,21 +761,29 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .position(new LatLng(34.056560, -117.824966))
                 .title("76: Kellogg West Education/Dining")
                 .snippet(info.bldg76));
+        building[76].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.food_icon));
+        building[76].setTag("Food");
         //77: Kellogg West Main Lodge
         building[77] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.056340, -117.825972))
                 .title("77: Kellogg West Main Lodge")
                 .snippet(info.bldg77));
+        building[77].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.hotel_icon));
+        building[77].setTag("Landmark");
         //78: Kellogg West Addition
         building[78] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.056772, -117.825690))
                 .title("78: Kellogg West Addition")
                 .snippet(info.bldg78));
+        building[78].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.hotel_icon));
+        building[78].setTag("Landmark");
         //79: Collins College of Hospitality Management
         building[79] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.054942, -117.823998))
                 .title("79: Collins College of Hospitality Management")
                 .snippet(info.bldg79));
+        building[79].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon));
+        building[79].setTag("Classrooms");
         //79A: Collins College of Hospitality Management
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.055098, -117.824765))
@@ -689,6 +799,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .position(new LatLng(34.054887, -117.825224))
                 .title("80: Collins College of Hospitality Management, Marriott Learning Center")
                 .snippet(info.bldg80));
+        building[80].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon));
         //81: Facilities Management
         building[81] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.059511, -117.808871))
@@ -714,11 +825,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .position(new LatLng(34.050909, -117.819478))
                 .title("85: I-Poly High School")
                 .snippet(info.bldg85));
+        building[85].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon));
         //86: English Language Institute
         building[86] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.053356, -117.819679))
                 .title("86: English Language Institute")
                 .snippet(info.bldg86));
+        building[86].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon));
         //86A: English Language Institute
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.053225, -117.819977))
@@ -744,7 +857,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         building[90] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.061185, -117.816596))
                 .title("90: Medic-1")
-                .snippet(info.bldg90));
+                .snippet(info.bldg90)
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.health_icon)));
         //91:Student Affairs Information Technology Services
         building[91] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.061403, -117.818651))
@@ -755,6 +869,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .position(new LatLng(34.057763, -117.826177))
                 .title("92: Laboratory Facility")
                 .snippet(info.bldg92));
+        building[92].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon));
         //94: University Office Building
         building[94] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.059105, -117.823269))
@@ -770,11 +885,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .position(new LatLng(34.057845, -117.823344))
                 .title("97: Campus Center")
                 .snippet(info.bldg97));
+        building[97].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.food_icon));
         //98: Classroom/Laboratory/Administration
         building[98] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.059467, -117.820099))
                 .title("98: Classroom/Laboratory/Administration")
                 .snippet(info.bldg98));
+        building[98].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon));
         //99: Storage Building
         building[99] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.061853, -117.810996))
@@ -789,28 +906,32 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         building[106] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.060183, -117.816986))
                 .title("106: Parking Structure")
-                .snippet(info.bldg106)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+                .snippet(info.bldg106));
+        building[106].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.parking_icon));
         //109: Police and Parking Services
         building[109] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.060717, -117.815772))
                 .title("109: Police and Parking Services")
                 .snippet(info.bldg109));
+        building[109].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.parking_icon));
         //111: Manor House
         building[111] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.060512, -117.822935))
                 .title("111: Manor House")
                 .snippet(info.bldg111));
+        building[111].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.hotel_icon));
         //112: Kellogg House Pomona
         building[112] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.062604, -117.824471))
                 .title("112: Kellogg House Pomona")
                 .snippet(info.bldg112));
+        building[112].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.hotel_icon));
         //113: Guest House
         building[113] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.062441, -117.824738))
                 .title("113: Guest House")
                 .snippet(info.bldg113));
+        building[113].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.hotel_icon));
         //116: Child Care Center
         building[116] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.056123, -117.819481))
@@ -820,22 +941,26 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         building[118] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.061289, -117.819552))
                 .title("118: American Red Cross")
-                .snippet(info.bldg118));
+                .snippet(info.bldg118)
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.health_icon)));
         //162: College of Business Admistration
         building[162] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.061289, -117.819552))
                 .title("162: College of Business Admistration")
                 .snippet(info.bldg162));
+        building[162].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon));
         //163: College of Business Admistration
         building[163] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.061216, -117.820182))
                 .title("163: College of Business Admistration")
                 .snippet(info.bldg163));
+        building[163].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon));
         //164: College of Business Admistration
         building[164] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.061583, -117.819867))
                 .title("164: College of Business Admistration")
                 .snippet(info.bldg164));
+        building[164].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon));
         //193: Chilled Water Center Plant
         building[193] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.057019, -117.829539))
@@ -846,12 +971,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .position(new LatLng(34.048704, -117.815410))
                 .title("200: University Village")
                 .snippet(info.bldg200));
-
+        building[200].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.housing_icon));
         //211: Agriscapes/Farm Store
         building[211] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.048422, -117.819040))
                 .title("211: Agriscapes/Farm Store")
                 .snippet(info.bldg211));
+        building[211].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.food_icon));
         //220: Center for Training, Technology and Incubation
         building[220] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.050322, -117.815124))
@@ -868,164 +994,163 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .position(new LatLng(34.060597, -117.824458))
                 .title("Parking Lot A")
                 .snippet(info.lota)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.parking_icon)));
         //Lot B
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.051815, -117.815982))
                 .title("Parking Lot B")
                 .snippet(info.lotb)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.parking_icon)));
         //Lot E1
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.061361, -117.811669))
                 .title("Parking Lot E1")
                 .snippet(info.lote1)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.parking_icon)));
         //Lot E2
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.060774, -117.812506))
                 .title("Parking Lot E2")
                 .snippet(info.lote2)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.parking_icon)));
         //Lot F1
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.062285, -117.817034))
                 .title("Parking Lot F1")
                 .snippet(info.lotf1)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.parking_icon)));
         //Lot F2
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.061556, -117.817721))
                 .title("Parking Lot F2")
                 .snippet(info.lotf2)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.parking_icon)));
         //Lot F3
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.061983, -117.816283))
                 .title("Parking Lot F3")
                 .snippet(info.lotf3)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.parking_icon)));
         //Lot F4
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.061129, -117.817313))
                 .title("Parking Lot F4")
                 .snippet(info.lotf4)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.parking_icon)));
         //Lot F5
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.061591, -117.815532))
                 .title("Parking Lot F5")
                 .snippet(info.lotf5)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
-
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.parking_icon)));
         //Lot F8
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.059191, -117.817206))
                 .title("Parking Lot F8")
                 .snippet(info.lotf8)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.parking_icon)));
         //Lot F9
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.060311, -117.815382))
                 .title("Parking Lot F9")
                 .snippet(info.lotf9)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.parking_icon)));
         //Lot F10
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.061040, -117.814502))
                 .title("Parking Lot F10")
                 .snippet(info.lotf10)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.parking_icon)));
         //Lot G
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.055618, -117.819717))
                 .title("Parking Lot G")
                 .snippet(info.lotg)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.parking_icon)));
         //Lot H
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.060969, -117.818730))
                 .title("Parking Lot H")
                 .snippet(info.loth)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.parking_icon)));
         //Lot I
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.048843, -117.819554))
                 .title("Parking Lot I")
                 .snippet(info.loti)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.parking_icon)));
         //Lot J
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.057245, -117.828768))
                 .title("Parking Lot J")
                 .snippet(info.lotj)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.parking_icon)));
         //Lot L
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.055485, -117.825452))
                 .title("Parking Lot L")
                 .snippet(info.lotl)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.parking_icon)));
         //Lot M
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.055485, -117.829271))
                 .title("Parking Lot M")
                 .snippet(info.lotm)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.parking_icon)));
         //Lot N
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.056143, -117.818822))
                 .title("Parking Lot N")
                 .snippet(info.lotn)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.parking_icon)));
         //Lot O
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.049921, -117.814423))
                 .title("Parking Lot O")
                 .snippet(info.loto)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.parking_icon)));
         //Overflow Parking
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.053437, -117.810647))
                 .title("Overflow Parking")
                 .snippet(info.lotoverfow)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.parking_icon)));
         //Lot P
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.054254, -117.815410))
                 .title("Parking Lot P")
                 .snippet(info.lotp)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.parking_icon)));
         //Parking Structure 2
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.051729, -117.819723))
                 .title("Parking Structure 2")
                 .snippet(info.lotstruct2)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.parking_icon)));
         //Lot Q
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.055036, -117.817105))
                 .title("Parking Lot Q")
                 .snippet(info.lotq)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.parking_icon)));
         //Lot R
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.063551, -117.825602))
                 .title("Parking Lot R")
                 .snippet(info.lotr)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.parking_icon)));
         //Lot U
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.049027, -117.817319))
                 .title("Parking Lot U")
                 .snippet(info.lotu)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.parking_icon)));
         //Unpaved Overflow
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.049578, -117.813821))
                 .title("Unpaved Overflow Parking")
                 .snippet(info.lotunpavedoverflow)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.parking_icon)));
     }
 
     //function for placing markers of other points of interest
@@ -1035,69 +1160,67 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .position(new LatLng(34.049560, -117.818306))
                 .title("Pumpkin patch")
                 .snippet(info.pumpkin)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
-
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.landmark_icon)));
         //BioTrek Ethnobotany Garden
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.057135, -117.826465))
                 .title("BioTrek Ethnobotany Garden")
                 .snippet(info.biotrek)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.landmark_icon)));
         //Engineering Meadow
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.058548, -117.823724))
                 .title("Engineering Meadow")
                 .snippet(info.emeadow)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.landmark_icon)));
         //Japanese Garden
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.059832, -117.820457))
                 .title("Japanese Garden")
                 .snippet(info.jgarden)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.landmark_icon)));
         //Kellogg track and Soccer Stadium
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.052341, -117.816815))
                 .title("Kellogg track and Soccer Stadium")
                 .snippet(info.track)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.sports_icon)));
         //Scolinos Baseball Field
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.053513, -117.815971))
                 .title("Scolinos Baseball Field")
                 .snippet(info.baseball)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.sports_icon)));
         //Rose Garden
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.060819, -117.820413))
                 .title("Rose Garden")
                 .snippet(info.rose)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.landmark_icon)));
         //Soccer Field
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.052695, -117.818546))
                 .title("Soccer Field")
                 .snippet(info.soccer)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.sports_icon)));
         //Tennis court
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.052891, -117.820391))
                 .title("Tennis court")
                 .snippet(info.tennis)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.sports_icon)));
         //University Quad
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.058548, -117.823724))
                 .title("University Quad")
                 .snippet(info.quad)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.landmark_icon)));
         //Turtle Pond
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.061033, -117.821571))
                 .title("Turtle Pond")
                 .snippet(info.tpond)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
-
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.landmark_icon)));
     }
     //function for placing Path markers
     private void buildPath(){
