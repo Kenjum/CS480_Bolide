@@ -58,32 +58,76 @@ public class Details {
     String bldg26 = "Contains the B.E.A.T Office, Native American Student Center, Pride Center, " +
                     "the Latter Day Saints Student Association and REACH.";
     String bldg26A = "Home of Student Orientation Services.";
-    String bldg28 = "";
+    String bldg28 = "The Fruit and Crop Science concentration provides students with detailed knowledge " +
+            "of the production of tree fruits and nuts, grapes, small fruits, vegetables " +
+            "and other row crops, and forages.";
+
     String bldg29 = "Houses the Arabian Horse Center as well as the Veterinarian Clinic.";
     String bldg30 = "";
-    String bldg31 = "";
+    String bldg31 =  "The Cal Poly Poultry Center has housing facilities for 7,000 broilers and 7,000 replacement pullets. " +
+            "In addition, the Poultry Center has two egg production facilitiesâ€”a two-story turbo house " +
+            "and a stack-deck house. Both houses are exact replicas of the facilities " +
+            "currently used by the commercial egg production industry."+
+            "The Poultry Center also contains a research house that can hold approximately 2,2000 birds.";
     String bldg32 = "";
-    String bldg33 = "";
-    String bldg34 = "";
+    String bldg33 = "The feedmill is yet another facility on campus that provides hands on experience to students " +
+            "in this particular field. At the same time, it provides low cost " +
+            "feed products to the animals on campus.";
+    String bldg34 = "Provides students with a hands on experience with meat processing" +
+            " \"The lab is there for agriculture students to understand exactly how to fabricate pieces of meat,\" " +
+            "said Broc Sandelin, chair of animal and veterinary sciences. " +
+            "\"We have a lot of state-of-the-art machinery. Itâ€™s the only working facility of its kind in Southern California.\" -The Poly Post";
+
     String bldg35 = "Home to Subway, Qdoba, Hibachi San, Peet’s Coffee, and Round Table. It also " +
                     "contains ASI, the Games Room Etc., Bronco Copy N Mail, and the Cal Poly Federal Credit Union.";
-    String bldg35A = "";
-    String bldg37  = "";
+    String bldg35A = "The W. Keith & Janet Kellogg University Art Gallery's Mission:\n" +
+            "*bringing diverse, multicultural exhibitions to our campus. " +
+            "\n*connecting Visual Art to other disciplines via educational programming, events and collaboration." +
+            "\n*To promote Cal Poly Pomona to the greater Los Angeles area by " +
+            "welcoming the public to attend our exhibitions and discover our polytechnic identity." +
+            "\n Hours:" +
+            "\nMon & Tues: 4pm - 8pm   Wed, Thurs, Sat & Sun:: 12pm - 4pm  Fri: Closed";
+
+    String bldg37  = "The swine facility and the swine herd are managed by student resident managers. " +
+            "Gestating sows are kept outside in pasture lots until farrowing. " +
+            "The farrowing barn is equipped with 16 stalls and sows are brought into the barn as a group. " +
+            "Piglets are weaned at three to four weeks of age and moved into the enclosed," +
+            " temperature-controlled nursery. Sows are rebred using artificial insemination " +
+            "and returned to the pasture lots.";
+
     String bldg38 = "";
     String bldg41 = "Holds the Women’s Locker Room, Training Room and Volleyball Office.";
-    String bldg42 = "Campus GYM for students. It has workout equipment, an indoor track, basketball " +
-                    "courts and studios for classes. It also contains Jamba Juice and a swimming pool out back.";
+    String bldg42 ="Campus GYM for students. It has workout equipment, an indoor track, basketball " +
+            "courts and studios for classes. It also contains Jamba Juice and a swimming pool out back." +
+            "\nHours:" +
+            "\nMon - Thurs: 6am - 12am  Fri:6am - 11pm  Sat & Sun:10am - 6pm";
+
     String bldg43 = "Contains all of the sports offices, Men’s Locker Room, Human Performance Lab and the gymnasium itself.";
     String bldg45 = "Home of the Apparel Merchandising & Management Department, Agriculture Engineering-Landscape " +
                     "Irrigation Science, Apparel Technology & Research Center, Landscape Irrigation Science, and the " +
                     "Center for Turf, Irrigation & Landscape Technology.";
     String bldg46 = "Includes the Immunization Clinic and provides other health services as well.";
     String bldg47 = "";
-    String bldg48 = "";
+    String bldg48 =  "The Custodial Services unit maintains over 1.9 million square feet of building space." +
+            " The custodial crew is here in the early hours to identify and report any potential problems. " +
+            "They provide general housekeeping tasks for the campus, respond to emergency cleanups, " +
+            "spray for insects inside of buildings, and provide any additional assistance to colleges " +
+            "and schools in their accreditation review process. The staff assists in preparing for and cleaning up" +
+            " after special events. They also lock and unlock buildings to ensure adequate security. " +
+            "Their motto is to \"create and maintain a clean, comfortable and safe campus environment.\"";
+
     String bldg49 = "";
     String bldg52 = "Campus store with groceries and produce items. It is also attached to the campus Denny’s.";
     String bldg54 = "On campus apartment type housing.";
-    String bldg55 = "";
+    String bldg55 = "Cal Poly Pomona is a member of the California State University System, " +
+            "known around the world for providing quality education that is affordable and accessible." +
+            " The 23-campus system is the largest public university system in the United States." +
+            " As an academic institution, Cal Poly Pomona benefits from strong leadership across campus and " +
+            "across disciplines, in its students, faculty, staff and administrators. " +
+            "The university's chief executive is its president," +
+            " who brings leadership and experience to ensure the university serves its mission," +
+            " lives up to its values and achieves its goals.";
+
     String bldg56 = "";
     String bldg57 = "On campus dorms used for student housing.";
     String bldg58 = "On campus dorms used for student housing.";
@@ -129,9 +173,16 @@ public class Details {
     String bldg95 = "Includes the African American Student Center, Asian & Pacific Islander Student " +
                     "Center, Cesar E. Chavez Center for Higher Education, Native American Student " +
                     "Center, Pride Center and Women's Resource Center.";
-    String bldg97 = "Includes Carl’s Jr., Panda Express, Taco Bell Express, Pony Express, Jamba Juice " +
-                    "Express, Fresh Escape and International Grounds. The building also has the Career " +
-                    "Center and Campus Center Computing Lab.";
+    String bldg97 = " The building has the Career " +
+            "Center and Campus Center Computing Lab." +
+            "\nFood Available:" +
+            "\nCarlâ€™s Jr." +
+            "\nPanda Express" +
+            "\nTaco Bell Express" +
+            "\nPony Express" +
+            "\nJamba Juice Express" +
+            "\nFresh Escape and International Grounds";
+
     String bldg98 = "Contains Academic Programs, Administrative Office, Campus Tour Information, " +
                     "Classrooms, Division of Academic & Student Affairs, Financial Aid & Scholarships, " +
                     "Orientation Services, Pony Express, Registrar’s Office and Student Accounting & Cashiering Services.";
@@ -143,7 +194,21 @@ public class Details {
     String bldg112 = "Venue for weddings, corporate meetings, birthday parties, and other special events.";
     String bldg113 = "Part of the Kellogg House Pomona.";
     String bldg116 = "Provide quality preschool services for campus student-parents, faculty, staff, alumni and community.";
-    String bldg118 ="";
+
+    String bldg118 ="American Red Cross is the largest single supplier of blood and blood products in the United States " +
+            "\nDonation Hours:" +
+            "\nWhole Blood:" +
+            "\nM-W: 12 - 7pm " +
+            "Th: 10:30am - 5:30pm " +
+            "\nFri: 7:30am - 12:30pm " +
+            "Sat: 7am - 12:30pm " +
+            "\n\nApheresis" +
+            "\nM-W: 12 - 5:30pm  " +
+            "Thu: 10:30am - 3:45pm" +
+            "\nFri: 7:30am - 1pm " +
+            "Sat: 7am - 12:30pm " +
+            "Sun: 7am - 12:30pm";
+
     String bldg162 = "Includes 2 auditorium style lecture halls along with restrooms.";
     String bldg163 = "Includes classrooms for College of Business classes.";
     String bldg164 = "Includes the Departments for Accounting, Computer Information Systems, Finance, " +
@@ -152,37 +217,170 @@ public class Details {
     String bldg193 = "";
     String bldg200 = "Provides apartment style housing for students. ";
 
-    String bldg211="";
-    String bldg220 ="";
+    String bldg211="AGRIscapes was created in 2001 as an Educational Outreach branch of the Don B. Huntley College of Agriculture at Cal Poly Pomona. " +
+            "\nLocated West of the main campus on Temple Avenue, AGRIscapes occupies 20 acres of farmland and facilities." +
+            "\nOpen Daily 10am-6pm" +
+            "\nFood Availible:" +
+            "\nGrocer" +
+            "\nFresh Produce" +
+            "\nDeli" +
+            "\nWine and Beer";
+
+    String bldg220 ="The Center for Training, Technology & Incubation (CTTI) " +
+            "provides emerging to medium-size companies the opportunity to lease" +
+            " office and wetlab space in an environment that helps accelerates successful growth. " +
+            "CTTi accomplishes this by offering these companies resources available to mature companies " +
+            "and allowing them to selectively access the resources as the need arises. " +
+            "CTTi tenants work in an environment that fosters communication among entrepreneurs; " +
+            "facilitates collaborations with Cal Poly Pomona researchers and students; while leasing " +
+            "office and wetlab space designed to expand with company growth";
+
+
+
 
     //parking lots
-    String lota ="";
-    String lotb="";
-    String lote1 ="";
-    String lote2 = "";
-    String lotf1 = "";
-    String lotf2 = "";
-    String lotf3 = "";
-    String lotf4 = "";
-    String lotf5 = "";
-    String lotf8 = "";
-    String lotf9 = "";
-    String lotf10 = "";
-    String lotg = "";
-    String loth = "";
-    String loti = "";
-    String lotj = "";
-    String lotl = "";
-    String lotm = "";
-    String lotn = "";
-    String loto = "";
-    String lotp = "";
-    String lotq = "";
-    String lotr = "";
-    String lotu = "";
-    String lotunpavedoverflow = "";
-    String lotoverfow = "";
-    String lotstruct2 ="";
+    String lota ="\n Avalible Parking:" +
+            "\n Faculty and Staff" +
+            "\nDisabled";
+
+    String lotb="\n Avalible Parking:" +
+            "\nDesignated accessible parking for Kellogg Gym" +
+            "\nFaculty and Staff" +
+            "\nStudent" +
+            "\nVisitor " +
+            "\nResident";
+
+    String lote1 ="\n Avalible Parking:\nFaculty and Staff" +
+            "\nStudent" +
+            "\nVisitor" +
+            "\nDisabled";
+
+    String lote2 = "\nAvalible Parking:" +
+            "\nFaculty and Staff" +
+            "\nStudent" +
+            "\nVisitor" +
+            "\nDisabled";
+
+    String lotf1 = "\n Avalible Parking:\nFaculty and Staff" +
+            "\nStudent" +
+            "\nVisitor" +
+            "\nNo Disabled";
+
+    String lotf2 = "\n Avalible Parking:\nFaculty and Staff" +
+            "\nVisitor" +
+            "\nDisabled";
+
+    String lotf3 = "\n Avalible Parking:" +
+            "\nFaculty and Staff" +
+            "\nStudent, Visitor" +
+            "\nNo Disabled";
+
+    String lotf4 = "\n Avalible Parking:" +
+            "\nFaculty and Staff" +
+            "\nVisitor" +
+            "\nDisabled" +
+            "\n$1/hour Parking";
+
+    String lotf5 = "\n Avalible Parking:" +
+            "\nFaculty and Staff" +
+            "\nStudent" +
+            "\nVisitor" +
+            "\nNo Disabled";
+
+    String lotf8 = "\n Avalible Parking:\nFaculty and Staff" +
+            "\nStudent" +
+            "\nVisitor" +
+            "\nPresidential" +
+            "\nVIP and Visitor" +
+            "\n$1/hour Parking" +
+            "\n***No Disabled Parking Available***";
+
+    String lotf9 = "\n Avalible Parking:" +
+            "\nFaculty and Staff" +
+            "\nStudent" +
+            "\nVisitor" +
+            "\n***No Disabled Parking Available***";
+
+    String lotf10 = "\n Avalible Parking:" +
+            "\nFaculty and Staff" +
+            "\nStudent" +
+            "\nVisitor" +
+            "\n***No Disabled Parking Available***";
+
+    String lotg = "\n Avalible Parking:" +
+            "\nFaculty and Staff" +
+            "\nResident" +
+            "\nVisitor" +
+            "\n$1/hour Parking";
+
+    String loth = "\n Avalible Parking:\nFaculty and Staff" +
+            "\nStudent" +
+            "\nVisitor" +
+            "\nDisabled";
+
+    String loti = "\n Avalible Parking:" +
+            "\nFaculty and Staff" +
+            "\nStudent" +
+            "\nVisitor" +
+            "\nDisabled";
+
+    String lotj = "\n Avalible Parking:" +
+            "\nFaculty and Staff (J1-J2: 7.00am - 5.30pm; J3-J8)" +
+            "\nStudent (J1-J2: After 5.30pm; J3-J8)" +
+            "\nVisitor (J1-J2: After 5.30pm; J3-J8)" +
+            "\n***No Disabled Parking Available***";
+
+    String lotl = "\n Avalible Parking:" +
+            "\nKellogg West permit Only" +
+            "\nDisabled";
+
+    String lotm = "\n Avalible Parking:\nFaculty and Staff" +
+            "\nStudent" +
+            "\nVisitor" +
+            "\nDisabled";
+
+    String lotn = "\n Avalible Parking:" +
+            "\nFaculty and Staff" +
+            "\nStudent" +
+            "\n***No Disabled Parking Available***";
+
+    String loto = "\n Avalible Parking:" +
+            "\nCTTI permit only" +
+            "\nDisabled";
+    String lotp = "\n Avalible Parking:" +
+            "\nFaculty and Staff" +
+            "\nResident" +
+            "\n***No Disabled Parking Available***";
+
+    String lotq = "\n Avalible Parking:\nFaculty and Staff" +
+            "\nResident" +
+            "\nDisabled";
+
+    String lotr = "\n Avalible Parking:\n\tFaculty and Staff" +
+            "\nStudent" +
+            "\nVisitor" +
+            "\nDisabled";
+
+    String lotu = "\n Avalible Parking:" +
+            "\nFaculty and Staff" +
+            "\nStudent" +
+            "\nVisitor" +
+            "\n$1/hour Parking" +
+            "\nDisabled";
+
+    String lotunpavedoverflow = "\n Avalible Parking:" +
+            "\nStudent";
+
+    String lotoverfow = "\n Avalible Parking:" +
+            "\nFaculty and Staff" +
+            "\nStudent";
+
+    String lotstruct2 ="\n Avalible Parking:" +
+            "\nStudent" +
+            "\nVisitor" +
+            "\nFaculty and Staff" +
+            "\nDisabled";
+
 
     //other points
     String pumpkin ="";
