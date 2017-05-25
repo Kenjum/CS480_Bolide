@@ -1391,21 +1391,26 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                 break;
                             case "HOUSING":
                                 disableAllMarkers();
+                                enableMarker(housingList);
                                 break;
                             case "PARKING":
                                 disableAllMarkers();
+                                enableMarker(parkingList);
                                 break;
                             case "FITNESS":
                                 disableAllMarkers();
+                                enableMarker(sportsList);
                                 break;
                             case "POINTS OF INTEREST":
                                 disableAllMarkers();
                                 break;
                             case "CLASSES":
                                 disableAllMarkers();
+                                enableMarker(classes);
                                 break;
                             case "FOOD":
                                 disableAllMarkers();
+                                enableMarker(food);
                                 break;
                             case "ADMININSTRATION":
                                 disableAllMarkers();
@@ -1432,6 +1437,21 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         for(int i = 0; i < agriculture.size(); i++){
             if(agriculture.get(i)!=null)agriculture.get(i).setVisible(true);
         }
+        for(int i = 0; i < classes.size(); i++){
+            if(classes.get(i)!=null)classes.get(i).setVisible(true);
+        }
+        for(int i = 0; i < housingList.size(); i++){
+            if(housingList.get(i)!=null)housingList.get(i).setVisible(true);
+        }
+        for(int i = 0; i < parkingList.size(); i++){
+            if(parkingList.get(i)!=null)parkingList.get(i).setVisible(true);
+        }
+        for(int i = 0; i < food.size(); i++){
+            if(food.get(i)!=null)food.get(i).setVisible(true);
+        }
+        for(int i = 0; i < sportsList.size(); i++){
+            if(sportsList.get(i)!=null)sportsList.get(i).setVisible(true);
+        }
     }
     public void enableMarker(List<Marker> toEnable){
         for(int i = 0; i < toEnable.size(); i++){
@@ -1442,6 +1462,21 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     public void disableAllMarkers(){
         for(int i = 0; i < agriculture.size(); i++){
             if(agriculture.get(i)!=null)agriculture.get(i).setVisible(false);
+        }
+        for(int i = 0; i < classes.size(); i++){
+            if(classes.get(i)!=null)classes.get(i).setVisible(false);
+        }
+        for(int i = 0; i < housingList.size(); i++){
+            if(housingList.get(i)!=null)housingList.get(i).setVisible(false);
+        }
+        for(int i = 0; i < parkingList.size(); i++){
+            if(parkingList.get(i)!=null)parkingList.get(i).setVisible(false);
+        }
+        for(int i = 0; i < food.size(); i++){
+            if(food.get(i)!=null)food.get(i).setVisible(false);
+        }
+        for(int i = 0; i < sportsList.size(); i++){
+            if(sportsList.get(i)!=null)sportsList.get(i).setVisible(false);
         }
     }
 
