@@ -81,6 +81,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     List<Marker> administration = new ArrayList<Marker>();
     List<Marker> food = new ArrayList<Marker>();
     List<Marker> classes = new ArrayList<Marker>();
+    List<Marker> POI = new ArrayList<Marker>();
 
     Marker current = null;
     Details info = new Details();
@@ -335,11 +336,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         classes.add(building[4]);
         //building[4].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building4));
         //4A: Bio Trek Learning Center
-        mMap.addMarker(new MarkerOptions()
+        Marker ttmp = mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.057213, -117.826046))
                 .title("4A: Bio Trek Learning Center")
                 .snippet(info.bldg4A)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.landmark_icon)));
+        POI.add(ttmp);
         // 5: College of Letters, Arts and Social Sciences
         building[5] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.057852, -117.824200))
@@ -519,6 +521,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .snippet(info.bldg25));
         building[25].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.theater_icon));
         building[25].setTag("Classrooms");
+        POI.add(building[25]);
         //26: University Plaza
         building[26] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.056950, -117.820554))
@@ -604,11 +607,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         food.add(building[35]);
 //        building[35].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building35));
         //35A: W. Keith and Janet Kellogg University Art Gallery
-        mMap.addMarker(new MarkerOptions()
+        Marker ttmp2 = mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.057001, -117.821712))
                 .title("35A: W. Keith and Janet Kellogg University Art Gallery")
                 .snippet(info.bldg35A)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.art_icon)));
+        POI.add(ttmp2);
         //37: Swine Unit/Shelters
         building[37] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.052152, -117.822887))
@@ -666,6 +670,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .title("46: Health Services")
                 .snippet(info.bldg46)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.health_icon)));
+        POI.add(building[46]);
 //        building[46].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building46));
         //47: Agricultural Engineering Tractor Shop
         building[47] =mMap.addMarker(new MarkerOptions()
@@ -846,6 +851,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .snippet(info.bldg77));
         building[77].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.hotel_icon));
         building[77].setTag("Landmark");
+        POI.add(building[77]);
         //78: Kellogg West Addition
         building[78] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.056772, -117.825690))
@@ -853,6 +859,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .snippet(info.bldg78));
         building[78].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.hotel_icon));
         building[78].setTag("Landmark");
+        POI.add(building[78]);
         //79: Collins College of Hospitality Management
         building[79] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.054942, -117.823998))
@@ -939,6 +946,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .title("90: Medic-1")
                 .snippet(info.bldg90)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.health_icon)));
+        POI.add(building[90]);
         //91:Student Affairs Information Technology Services
         building[91] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.061403, -117.818651))
@@ -1007,18 +1015,21 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .title("111: Manor House")
                 .snippet(info.bldg111));
         building[111].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.hotel_icon));
+        POI.add(building[111]);
         //112: Kellogg House Pomona
         building[112] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.062604, -117.824471))
                 .title("112: Kellogg House Pomona")
                 .snippet(info.bldg112));
         building[112].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.hotel_icon));
+        POI.add(building[112]);
         //113: Guest House
         building[113] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.062441, -117.824738))
                 .title("113: Guest House")
                 .snippet(info.bldg113));
         building[113].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.hotel_icon));
+        POI.add(building[113]);
         //116: Child Care Center
         building[116] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.056123, -117.819481))
@@ -1030,6 +1041,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .title("118: American Red Cross")
                 .snippet(info.bldg118)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.health_icon)));
+        POI.add(building[118]);
         //162: College of Business Admistration
         building[162] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.061289, -117.819552))
@@ -1257,24 +1269,28 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .title("Pumpkin patch")
                 .snippet(info.pumpkin)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.landmark_icon)));
+        POI.add(other[0]);
         //BioTrek Ethnobotany Garden
         other[1]=mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.057135, -117.826465))
                 .title("BioTrek Ethnobotany Garden")
                 .snippet(info.biotrek)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.landmark_icon)));
+        POI.add(other[1]);
         //Engineering Meadow
         other[2]=mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.058548, -117.823724))
                 .title("Engineering Meadow")
                 .snippet(info.emeadow)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.landmark_icon)));
+        POI.add(other[2]);
         //Japanese Garden
         other[3]=mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.059832, -117.820457))
                 .title("Japanese Garden")
                 .snippet(info.jgarden)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.landmark_icon)));
+        POI.add(other[3]);
         //Kellogg track and Soccer Stadium
         other[4]=mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.052341, -117.816815))
@@ -1295,6 +1311,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .title("Rose Garden")
                 .snippet(info.rose)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.landmark_icon)));
+        POI.add(other[6]);
         //Soccer Field
         other[7]=mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.052695, -117.818546))
@@ -1316,12 +1333,14 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .title("University Quad")
                 .snippet(info.quad)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.landmark_icon)));
+        POI.add(other[9]);
         //Turtle Pond
         other[10]=mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.061033, -117.821571))
                 .title("Turtle Pond")
                 .snippet(info.tpond)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.landmark_icon)));
+        POI.add(other[10]);
     }
     //function for placing Path markers
     private void buildPath(){
