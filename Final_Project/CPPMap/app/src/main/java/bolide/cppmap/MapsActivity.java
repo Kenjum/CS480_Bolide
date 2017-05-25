@@ -1373,6 +1373,38 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 popup.getMenuInflater().inflate(R.menu.popup_menu, popup.getMenu());
                 popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     public boolean onMenuItemClick(MenuItem item) {
+                        String str = item.toString();
+                        switch(str){
+                            case "ALL":
+                                enableAllMarkers();
+                                break;
+                            case "HOUSING":
+                                disableAllMarkers();
+                                break;
+                            case "PARKING":
+                                disableAllMarkers();
+                                break;
+                            case "FITNESS":
+                                disableAllMarkers();
+                                break;
+                            case "POINTS OF INTEREST":
+                                disableAllMarkers();
+                                break;
+                            case "CLASSES":
+                                disableAllMarkers();
+                                break;
+                            case "FOOD":
+                                disableAllMarkers();
+                                break;
+                            case "ADMININSTRATION":
+                                disableAllMarkers();
+                                break;
+                            case "AGRICULTURE":
+                                disableAllMarkers();
+                                enableMarker(agriculture);
+                                break;
+
+                        }
                         Toast.makeText(
                                 MapsActivity.this,
                                 "Filter: " + item.getTitle(),
@@ -1385,4 +1417,21 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             }
         });
     }
+    public void enableAllMarkers(){
+        for(int i = 0; i < agriculture.size(); i++){
+            if(agriculture.get(i)!=null)agriculture.get(i).setVisible(true);
+        }
+    }
+    public void enableMarker(List<Marker> toEnable){
+        for(int i = 0; i < toEnable.size(); i++){
+            if(toEnable.get(i)!=null)toEnable.get(i).setVisible(true);
+        }
+    }
+
+    public void disableAllMarkers(){
+        for(int i = 0; i < agriculture.size(); i++){
+            if(agriculture.get(i)!=null)agriculture.get(i).setVisible(false);
+        }
+    }
+
 }
