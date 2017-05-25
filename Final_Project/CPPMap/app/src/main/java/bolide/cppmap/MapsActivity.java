@@ -76,7 +76,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-
         //TODO for navigation
         Button btnGo = (Button) findViewById(R.id.btnGo);
 
@@ -146,6 +145,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        //removes google maps directions
+        mMap.getUiSettings().setMapToolbarEnabled(false);
+        //map type
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         //Sets the boundry
         mMap.setLatLngBoundsForCameraTarget(CalPolyPomona);
@@ -261,6 +263,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
         location = locationManager.getLastKnownLocation(provider);
         String userLocation = String.valueOf(location.getLatitude()) + ", "+ String.valueOf(location.getLongitude());
+        if(current != null){
+            current.hideInfoWindow();
+        }
         try{
             new DirectionFinder(this, userLocation, destination).execute();
         }catch(UnsupportedEncodingException e){
