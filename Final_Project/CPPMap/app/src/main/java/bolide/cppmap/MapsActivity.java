@@ -66,6 +66,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private LatLngBounds CalPolyPomona = new LatLngBounds(new LatLng(34.048359, -117.828218), new LatLng(34.065156, -117.806628));
 
     Marker building[] = new Marker[221];
+    ArrayList<Marker> agriculture;
+    ArrayList<Marker> administration;
     Marker current = null;
     Details info = new Details();
 
@@ -498,6 +500,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .snippet(info.bldg28));
         building[28].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.agriculture_icon));
         building[28].setTag("Agriculture");
+        agriculture.add(building[28]);
         //       building[28].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building28));
         //29: W.K. Kellogg Arabian Horse Center
         building[29] =mMap.addMarker(new MarkerOptions()
@@ -505,6 +508,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .title("29: W.K. Kellogg Arabian Horse Center"));
         building[29].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.agriculture_icon));
         building[29].setTag("Agriculture");
+        agriculture.add(building[29]);
 //        building[29].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building29));
         //30: Agricultural Unit
         building[30] =mMap.addMarker(new MarkerOptions()
@@ -513,6 +517,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .snippet(info.bldg30));
         building[30].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.agriculture_icon));
         building[30].setTag("Agriculture");
+        agriculture.add(building[30]);
 //        building[30].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building30));
         //31: Poultry Unit/Poultry Houses
         building[31] =mMap.addMarker(new MarkerOptions()
@@ -521,6 +526,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .snippet(info.bldg31));
         building[31].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.agriculture_icon));
         building[31].setTag("Agriculture");
+        agriculture.add(building[31]);
 //        building[31].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building31));
         //32:Beef Unit/ Feed Shed
         building[32] =mMap.addMarker(new MarkerOptions()
@@ -529,6 +535,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .snippet(info.bldg32));
         building[32].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.agriculture_icon));
         building[32].setTag("Agriculture");
+        agriculture.add(building[32]);
 //        building[32].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building32));
         //33: Feed Mill
         building[33] =mMap.addMarker(new MarkerOptions()
@@ -537,6 +544,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .snippet(info.bldg33));
         building[33].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.agriculture_icon));
         building[33].setTag("Agriculture");
+        agriculture.add(building[33]);
 //        building[33].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building33));
         //34: Meat Laboratory
         building[34] =mMap.addMarker(new MarkerOptions()
@@ -545,6 +553,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .snippet(info.bldg34));
         building[34].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.agriculture_icon));
         building[34].setTag("Agriculture");
+        agriculture.add(building[34]);
         //       building[34].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building34));
         //35: BSC - Bronco Student Center
         building[35] =mMap.addMarker(new MarkerOptions()
@@ -567,6 +576,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .snippet(info.bldg37));
         building[37].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.agriculture_icon));
         building[37].setTag("Agriculture");
+        agriculture.add(building[37]);
 //        building[37].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building37));
         //38: Sheep/Wool Unit
         building[38] =mMap.addMarker(new MarkerOptions()
@@ -575,6 +585,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .snippet(info.bldg38));
         building[38].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.agriculture_icon));
         building[38].setTag("Agriculture");
+        agriculture.add(building[38]);
 //        building[38].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building38));
         //41: Darlene May Gymnasium
         building[41] =mMap.addMarker(new MarkerOptions()
@@ -607,6 +618,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .snippet(info.bldg45));
         building[45].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.agriculture_icon));
         building[45].setTag("Agriculture");
+        agriculture.add(building[45]);
 //        building[45].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building45));
         //46: Health Services
         building[46] =mMap.addMarker(new MarkerOptions()
@@ -622,6 +634,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .snippet(info.bldg47));
         building[47].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.agriculture_icon));
         building[47].setTag("Agriculture");
+        agriculture.add(building[47]);
         //building[47].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building47));
         //48: Custodial Offices
         building[48] =mMap.addMarker(new MarkerOptions()
@@ -748,6 +761,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .snippet(info.bldg68));
         building[68].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.agriculture_icon));
         building[68].setTag("Agriculture");
+        agriculture.add(building[68]);
         //70: Los Olivos Commons
         building[70] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.062332, -117.821550))
