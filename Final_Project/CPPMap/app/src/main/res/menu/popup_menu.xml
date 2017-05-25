@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item
+        android:id="@+id/all_filters"
+        android:title="ALL"/>
+    <item
+        android:id="@+id/housing_filter"
+        android:title="HOUSING"/>
+    <item
+        android:id="@+id/parking_filter"
+        android:title="PARKING"/>
+    <item
+        android:id="@+id/fitness_filter"
+        android:title="FITNESS"/>
+    <item
+        android:id="@+id/pointsOI_filter"
+        android:title="POINTS OF INTEREST"/>
+    <item
+        android:id="@+id/classes_filter"
+        android:title="CLASSES"/>
+    <item
+        android:id="@+id/Food_filter"
+        android:title="FOOD"/>
+    <item
+        android:id="@+id/administration_filter"
+        android:title="ADMININSTRATION"/>
+    <item
+        android:id="@+id/agriculture_filter"
+        android:title="AGRICULTURE"/>
+
+
+</menu>
