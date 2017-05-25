@@ -11,7 +11,7 @@
         android:title="PARKING"/>
     <item
         android:id="@+id/fitness_filter"
-        android:title="PARKING"/>
+        android:title="FITNESS"/>
     <item
         android:id="@+id/pointsOI_filter"
         android:title="POINTS OF INTEREST"/>
