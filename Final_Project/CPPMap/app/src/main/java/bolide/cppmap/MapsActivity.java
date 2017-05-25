@@ -34,6 +34,8 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.support.v7.widget.PopupMenu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -41,6 +43,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, DirectionFinderListener, OnMyLocationButtonClickListener, ActivityCompat.OnRequestPermissionsResultCallback {
     GoogleMap mMap;
@@ -111,6 +114,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
             }
         });
+        assignFilterButton();
         //THIS IS FOR GETTING USER LOCATION
         //Location Manager
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -1275,5 +1279,34 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
             polylinePaths.add(mMap.addPolyline(polylineOptions));
         }
+    }
+
+    public void assignFilterButton(){
+        final Button filterButton = (Button) findViewById(R.id.filter_button);
+        filterButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                //Creating the instance of PopupMenu
+                PopupMenu popup = new PopupMenu(MapsActivity.this, filterButton);
+                //Inflating the Popup using xml file
+                popup.getMenuInflater()
+                        .inflate(R.menu.popup_menu, popup.getMenu());
+
+                //registering popup with OnMenuItemClickListener
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    public boolean onMenuItemClick(MenuItem item) {
+                        Toast.makeText(
+                                MapsActivity.this,
+                                "Filter: " + item.getTitle(),
+                                Toast.LENGTH_SHORT
+                        ).show();
+                        return true;
+                    }
+                });
+
+                popup.show(); //showing popup menu
+            }
+        });
     }
 }
