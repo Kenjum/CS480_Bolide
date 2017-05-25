@@ -506,11 +506,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon)));
         classes.add(tmp7);
         //24E: Temp Class E
-        mMap.addMarker(new MarkerOptions()
+        Marker tmp8 = mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.056172, -117.822624))
                 .title("24E: Temp Class E")
                 .snippet(info.bldg24E)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon)));
+        classes.add(tmp8);
         //25: Drama Department/Theatre
         building[25] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.056447, -117.822122))
@@ -798,6 +799,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .snippet(info.bldg66));
         building[66].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon));
         building[66].setTag("Classrooms");
+        classes.add(building[66]);
         //67: Equine Research Facility
         building[67] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.059253, -117.813959))
@@ -858,6 +860,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .snippet(info.bldg79));
         building[79].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon));
         building[79].setTag("Classrooms");
+        classes.add(building[79]);
         //79A: Collins College of Hospitality Management
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.055098, -117.824765))
@@ -874,6 +877,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .title("80: Collins College of Hospitality Management, Marriott Learning Center")
                 .snippet(info.bldg80));
         building[80].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon));
+        classes.add(building[80]);
         //81: Facilities Management
         building[81] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.059511, -117.808871))
@@ -900,12 +904,14 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .title("85: I-Poly High School")
                 .snippet(info.bldg85));
         building[85].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon));
+        classes.add(building[85]);
         //86: English Language Institute
         building[86] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.053356, -117.819679))
                 .title("86: English Language Institute")
                 .snippet(info.bldg86));
         building[86].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon));
+        classes.add(building[86]);
         //86A: English Language Institute
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.053225, -117.819977))
@@ -944,6 +950,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .title("92: Laboratory Facility")
                 .snippet(info.bldg92));
         building[92].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon));
+        classes.add(building[92]);
         //94: University Office Building
         building[94] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.059105, -117.823269))
@@ -967,6 +974,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .title("98: Classroom/Laboratory/Administration")
                 .snippet(info.bldg98));
         building[98].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon));
+        classes.add(building[98]);
         //99: Storage Building
         building[99] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.061853, -117.810996))
@@ -1028,18 +1036,21 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .title("162: College of Business Admistration")
                 .snippet(info.bldg162));
         building[162].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon));
+        classes.add(building[162]);
         //163: College of Business Admistration
         building[163] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.061216, -117.820182))
                 .title("163: College of Business Admistration")
                 .snippet(info.bldg163));
         building[163].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon));
+        classes.add(building[163]);
         //164: College of Business Admistration
         building[164] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.061583, -117.819867))
                 .title("164: College of Business Admistration")
                 .snippet(info.bldg164));
         building[164].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon));
+        classes.add(building[164]);
         //193: Chilled Water Center Plant
         building[193] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.057019, -117.829539))
