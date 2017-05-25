@@ -10,6 +10,7 @@
     android:layout_height="?attr/actionBarSize"
     android:background="?attr/colorPrimary"
     android:elevation="4dp"
+        android:backgroundTint="#174632"
     android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
     app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
         <Spinner
@@ -45,7 +46,7 @@
         android:layout_marginBottom="11dp"
         android:layout_marginEnd="11dp"
         android:layout_marginRight="11dp"
-        android:backgroundTint="#128700"
+        android:backgroundTint="#ffb617"
         android:text="Go"
         android:textColor="#ffffff" />
 </RelativeLayout>
