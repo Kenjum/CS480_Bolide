@@ -66,8 +66,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private LatLngBounds CalPolyPomona = new LatLngBounds(new LatLng(34.048359, -117.828218), new LatLng(34.065156, -117.806628));
 
     Marker building[] = new Marker[221];
-    ArrayList<Marker> agriculture;
-    ArrayList<Marker> administration;
+    List<Marker> agriculture = new ArrayList<Marker>();
+    List<Marker> administration = new ArrayList<Marker>();
     Marker current = null;
     Details info = new Details();
 
