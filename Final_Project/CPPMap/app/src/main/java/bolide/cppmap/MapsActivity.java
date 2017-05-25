@@ -1287,13 +1287,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
             @Override
             public void onClick(View v) {
-                //Creating the instance of PopupMenu
+                if(current != null && current.isInfoWindowShown())current.hideInfoWindow();
                 PopupMenu popup = new PopupMenu(MapsActivity.this, filterButton);
-                //Inflating the Popup using xml file
-                popup.getMenuInflater()
-                        .inflate(R.menu.popup_menu, popup.getMenu());
-
-                //registering popup with OnMenuItemClickListener
+                popup.getMenuInflater().inflate(R.menu.popup_menu, popup.getMenu());
                 popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     public boolean onMenuItemClick(MenuItem item) {
                         Toast.makeText(
@@ -1304,8 +1300,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         return true;
                     }
                 });
-
-                popup.show(); //showing popup menu
+                popup.show();
             }
         });
     }
