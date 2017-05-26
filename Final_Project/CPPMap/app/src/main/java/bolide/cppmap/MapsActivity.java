@@ -1490,6 +1490,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                 break;
                             case "ADMININSTRATION":
                                 disableAllMarkers();
+                                enableMarker(administration);
                                 break;
                             case "AGRICULTURE":
                                 disableAllMarkers();
@@ -1531,6 +1532,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         for(int i = 0; i < POI.size(); i++){
             if(POI.get(i)!=null)POI.get(i).setVisible(true);
         }
+        for(int i = 0; i < administration.size(); i++){
+            if(administration.get(i)!=null)administration.get(i).setVisible(true);
+        }
     }
     public void enableMarker(List<Marker> toEnable){
         for(int i = 0; i < toEnable.size(); i++){
@@ -1559,6 +1563,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
         for(int i = 0; i < POI.size(); i++){
             if(POI.get(i)!=null)POI.get(i).setVisible(false);
+        }
+        for(int i = 0; i < administration.size(); i++){
+            if(administration.get(i)!=null)administration.get(i).setVisible(false);
         }
     }
 
