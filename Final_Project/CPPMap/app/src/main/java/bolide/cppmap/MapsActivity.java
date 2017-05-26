@@ -528,13 +528,15 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .title("26: University Plaza")
                 .snippet(info.bldg26));
         building[26].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.student_icon));
+        POI.add(building[26]);
         //    building[26].setTag(BitmapFactory.decodeResource(getResources(),R.drawable.building26));
         //26A: Student Orientation Center
-        mMap.addMarker(new MarkerOptions()
+        Marker pTemp = mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.056709, -117.820577))
                 .title("26A: Student Orientation Center")
                 .snippet(info.bldg26A)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.student_icon)));
+        POI.add(pTemp);
         //28: Fruit/crops Unit
         building[28] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.059874, -117.810962))
@@ -958,11 +960,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon)));
         classes.add(ctmp3);
         //86B: English Language Institute
-        mMap.addMarker(new MarkerOptions()
+        Marker ctmp5 = mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.053500, -117.820086))
                 .title("86B: English Language Institute")
                 .snippet(info.bldg86B)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon)));
+        classes.add(ctmp5);
         //86C: English Language Institute
         Marker ctmp4 = mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.053317, -117.820168))
