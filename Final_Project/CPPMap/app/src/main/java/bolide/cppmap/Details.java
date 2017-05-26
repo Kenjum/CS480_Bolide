@@ -239,55 +239,55 @@ public class Details {
 
 
     //parking lots
-    String lota ="\n Avalible Parking:" +
-            "\n Faculty and Staff" +
+    String lota ="Avalible Parking:" +
+            "\nFaculty and Staff" +
             "\nDisabled";
 
-    String lotb="\n Avalible Parking:" +
+    String lotb="Avalible Parking:" +
             "\nDesignated accessible parking for Kellogg Gym" +
             "\nFaculty and Staff" +
             "\nStudent" +
             "\nVisitor " +
             "\nResident";
 
-    String lote1 ="\n Avalible Parking:\nFaculty and Staff" +
+    String lote1 ="Avalible Parking:\nFaculty and Staff" +
             "\nStudent" +
             "\nVisitor" +
             "\nDisabled";
 
-    String lote2 = "\nAvalible Parking:" +
+    String lote2 = "Avalible Parking:" +
             "\nFaculty and Staff" +
             "\nStudent" +
             "\nVisitor" +
             "\nDisabled";
 
-    String lotf1 = "\n Avalible Parking:\nFaculty and Staff" +
+    String lotf1 = "Avalible Parking:\nFaculty and Staff" +
             "\nStudent" +
             "\nVisitor" +
             "\nNo Disabled";
 
-    String lotf2 = "\n Avalible Parking:\nFaculty and Staff" +
+    String lotf2 = "Avalible Parking:\nFaculty and Staff" +
             "\nVisitor" +
             "\nDisabled";
 
-    String lotf3 = "\n Avalible Parking:" +
+    String lotf3 = "Avalible Parking:" +
             "\nFaculty and Staff" +
             "\nStudent, Visitor" +
             "\nNo Disabled";
 
-    String lotf4 = "\n Avalible Parking:" +
+    String lotf4 = "Avalible Parking:" +
             "\nFaculty and Staff" +
             "\nVisitor" +
             "\nDisabled" +
             "\n$1/hour Parking";
 
-    String lotf5 = "\n Avalible Parking:" +
+    String lotf5 = "Avalible Parking:" +
             "\nFaculty and Staff" +
             "\nStudent" +
             "\nVisitor" +
             "\nNo Disabled";
 
-    String lotf8 = "\n Avalible Parking:\nFaculty and Staff" +
+    String lotf8 = "Avalible Parking:\nFaculty and Staff" +
             "\nStudent" +
             "\nVisitor" +
             "\nPresidential" +
@@ -295,87 +295,87 @@ public class Details {
             "\n$1/hour Parking" +
             "\n***No Disabled Parking Available***";
 
-    String lotf9 = "\n Avalible Parking:" +
+    String lotf9 = "Avalible Parking:" +
             "\nFaculty and Staff" +
             "\nStudent" +
             "\nVisitor" +
             "\n***No Disabled Parking Available***";
 
-    String lotf10 = "\n Avalible Parking:" +
+    String lotf10 = "Avalible Parking:" +
             "\nFaculty and Staff" +
             "\nStudent" +
             "\nVisitor" +
             "\n***No Disabled Parking Available***";
 
-    String lotg = "\n Avalible Parking:" +
+    String lotg = "Avalible Parking:" +
             "\nFaculty and Staff" +
             "\nResident" +
             "\nVisitor" +
             "\n$1/hour Parking";
 
-    String loth = "\n Avalible Parking:\nFaculty and Staff" +
+    String loth = "Avalible Parking:\nFaculty and Staff" +
             "\nStudent" +
             "\nVisitor" +
             "\nDisabled";
 
-    String loti = "\n Avalible Parking:" +
+    String loti = "Avalible Parking:" +
             "\nFaculty and Staff" +
             "\nStudent" +
             "\nVisitor" +
             "\nDisabled";
 
-    String lotj = "\n Avalible Parking:" +
+    String lotj = "Avalible Parking:" +
             "\nFaculty and Staff (J1-J2: 7.00am - 5.30pm; J3-J8)" +
             "\nStudent (J1-J2: After 5.30pm; J3-J8)" +
             "\nVisitor (J1-J2: After 5.30pm; J3-J8)" +
             "\n***No Disabled Parking Available***";
 
-    String lotl = "\n Avalible Parking:" +
+    String lotl = "Avalible Parking:" +
             "\nKellogg West permit Only" +
             "\nDisabled";
 
-    String lotm = "\n Avalible Parking:\nFaculty and Staff" +
+    String lotm = "Avalible Parking:\nFaculty and Staff" +
             "\nStudent" +
             "\nVisitor" +
             "\nDisabled";
 
-    String lotn = "\n Avalible Parking:" +
+    String lotn = "Avalible Parking:" +
             "\nFaculty and Staff" +
             "\nStudent" +
             "\n***No Disabled Parking Available***";
 
-    String loto = "\n Avalible Parking:" +
+    String loto = "Avalible Parking:" +
             "\nCTTI permit only" +
             "\nDisabled";
-    String lotp = "\n Avalible Parking:" +
+    String lotp = "Avalible Parking:" +
             "\nFaculty and Staff" +
             "\nResident" +
             "\n***No Disabled Parking Available***";
 
-    String lotq = "\n Avalible Parking:\nFaculty and Staff" +
+    String lotq = "Avalible Parking:\nFaculty and Staff" +
             "\nResident" +
             "\nDisabled";
 
-    String lotr = "\n Avalible Parking:\n\tFaculty and Staff" +
+    String lotr = "Avalible Parking:\n\tFaculty and Staff" +
             "\nStudent" +
             "\nVisitor" +
             "\nDisabled";
 
-    String lotu = "\n Avalible Parking:" +
+    String lotu = "Avalible Parking:" +
             "\nFaculty and Staff" +
             "\nStudent" +
             "\nVisitor" +
             "\n$1/hour Parking" +
             "\nDisabled";
 
-    String lotunpavedoverflow = "\n Avalible Parking:" +
+    String lotunpavedoverflow = "Avalible Parking:" +
             "\nStudent";
 
-    String lotoverfow = "\n Avalible Parking:" +
+    String lotoverfow = "Avalible Parking:" +
             "\nFaculty and Staff" +
             "\nStudent";
 
-    String lotstruct2 ="\n Avalible Parking:" +
+    String lotstruct2 ="Avalible Parking:" +
             "\nStudent" +
             "\nVisitor" +
             "\nFaculty and Staff" +
