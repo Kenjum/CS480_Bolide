@@ -64,7 +64,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     The new LatLng is the southwest corner, the second is the northeast
      */
 
-    private LatLngBounds CalPolyPomona = new LatLngBounds(new LatLng(34.048359, -117.829918), new LatLng(34.065156, -117.806628));
+    private LatLngBounds CalPolyPomona = new LatLngBounds(new LatLng(34.048359, -117.829918), new LatLng(34.066456, -117.806628));
 
     Marker building[] = new Marker[221];
 
