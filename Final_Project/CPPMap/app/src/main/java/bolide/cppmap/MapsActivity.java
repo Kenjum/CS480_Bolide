@@ -166,8 +166,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        //removes google maps directions
+        //removes google maps directions, rotation, and tilt
         mMap.getUiSettings().setMapToolbarEnabled(false);
+        mMap.getUiSettings().setRotateGesturesEnabled(false);
+        mMap.getUiSettings().setTiltGesturesEnabled(false);
         //map type
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         //Sets the boundry
