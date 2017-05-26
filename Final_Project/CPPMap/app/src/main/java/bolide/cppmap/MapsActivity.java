@@ -909,12 +909,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .title("82: Facilities Management Warehouse")
                 .snippet(info.bldg82));
         building[82].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.misc_icon));
-        //82A: Carpenter Shop
+       //82A: Carpenter Shop
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.059969, -117.808919))
                 .title("82A: Carpenter Shop")
-                .snippet(info.bldg82A));
-        building[82].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.misc_icon));
+                .snippet(info.bldg82A)
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.misc_icon)));
         //83: Auto Shop
         building[83] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.059429, -117.808208))
@@ -1093,7 +1093,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .position(new LatLng(34.057019, -117.829539))
                 .title("193: Chilled Water Center Plant")
                 .snippet(info.bldg193));
-        building[164].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.misc_icon));
+        building[193].setIcon(BitmapDescriptorFactory.fromResource(R.drawable.misc_icon));
         //200: University Village
         building[200] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.048704, -117.815410))
