@@ -42,6 +42,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -112,31 +113,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             }
         });
 
-
-        //Spinner
-        Spinner viewSpinner = (Spinner) findViewById(R.id.spinner);
-        ArrayAdapter viewAdapter = ArrayAdapter.createFromResource(this, R.array.locations_array, R.layout.support_simple_spinner_dropdown_item);
-        viewSpinner.setAdapter(viewAdapter);
-        viewSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 0) {
-
-                } else {
-                    current = building[position];
-
-                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(building[position].getPosition(), 20));
-                    current.setTag(BitmapFactory.decodeResource(getResources(), info.getPicture(current.getTitle())));
-                    pict = (Bitmap) current.getTag();
-                    current.showInfoWindow();
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
+        //Initila the search feild
+        assignSearch();
+        //Initialize the filer button
         assignFilterButton();
         //THIS IS FOR GETTING USER LOCATION
         //Location Manager
@@ -1734,5 +1713,25 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             if(administration.get(i)!=null)administration.get(i).setVisible(false);
         }
     }
-
+    public void assignSearch(){
+        Button seachButton = (Button)findViewById(R.id.search_button);
+        seachButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText searchField = (EditText)findViewById(R.id.search_field);
+                String searchparameter = searchField.getText().toString();
+                if(searchparameter != null) {
+                    for (int i = 0; i < searchList.size(); i++) {
+                        String str = searchList.get(i).getTitle();
+                        if (str.contains(searchparameter)) {
+                            current = searchList.get(i);
+                            current.setVisible(true);
+                            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(current.getPosition(), 20));
+                            break;
+                        }
+                    }
+                }
+            }
+        });
+    }
 }
