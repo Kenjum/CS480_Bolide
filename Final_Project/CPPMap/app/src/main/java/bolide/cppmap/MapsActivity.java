@@ -406,6 +406,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .snippet(info.bldg4A)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.landmark_icon)));
         POI.add(ttmp);
+        searchList.add(ttmp);
         // 5: College of Letters, Arts and Social Sciences
         building[5] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.057852, -117.824200))
@@ -473,6 +474,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .snippet(info.bldg13B)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon)));
         classes.add(tmp);
+        searchList.add(tmp);
         //13C: Army ROTC
         Marker tmp2 = mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.058355, -117.820678))
@@ -480,6 +482,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .snippet(info.bldg13C)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon)));
         classes.add(tmp2);
+        searchList.add(tmp2);
         //13D: Pre-College TRIO Programs
         Marker tmp3 = mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.058481, -117.820435))
@@ -487,6 +490,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .snippet(info.bldg13D)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon)));
         classes.add(tmp3);
+        searchList.add(tmp3);
         //15: Library
         building[15] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.057887, -117.821539))
@@ -562,6 +566,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .snippet(info.bldg24A)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon)));
         classes.add(tmp4);
+        searchList.add(tmp4);
         //24B: Temp Class B
         Marker tmp5 = mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.056166, -117.822405))
@@ -569,6 +574,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .snippet(info.bldg24B)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon)));
         classes.add(tmp5);
+        searchList.add(tmp5);
         //24C: Temp Class C
         Marker tmp6 = mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.055930, -117.822375))
@@ -576,6 +582,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .snippet(info.bldg24C)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon)));
         classes.add(tmp6);
+        searchList.add(tmp6);
         //24D: Temp Class D
         Marker tmp7 = mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.056022, -117.822510))
@@ -583,6 +590,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .snippet(info.bldg24D)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon)));
         classes.add(tmp7);
+        searchList.add(tmp7);
         //24E: Temp Class E
         Marker tmp8 = mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.056172, -117.822624))
@@ -590,6 +598,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .snippet(info.bldg24E)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon)));
         classes.add(tmp8);
+        searchList.add(tmp8);
         //25: Drama Department/Theatre
         building[25] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.056447, -117.822122))
@@ -615,6 +624,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .snippet(info.bldg26A)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.student_icon)));
         POI.add(pTemp);
+        searchList.add(pTemp);
         //28: Fruit/crops Unit
         building[28] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.059874, -117.810962))
@@ -702,6 +712,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .snippet(info.bldg35A)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.art_icon)));
         POI.add(ttmp2);
+        searchList.add(ttmp2);
         //37: Swine Unit/Shelters
         building[37] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.052152, -117.822887))
@@ -1015,6 +1026,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .snippet(info.bldg79A)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon)));
         classes.add(ctmp);
+        searchList.add(ctmp);
         //79B: Collins College of Hospitality Management
         Marker ctmp2 = mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.055318, -117.824457))
@@ -1022,6 +1034,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .snippet(info.bldg79B)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon)));
         classes.add(ctmp2);
+        searchList.add(ctmp2);
         //80: Collins College of Hospitality Management, Marriott Learning Center
         building[80] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.054887, -117.825224))
@@ -1053,6 +1066,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .snippet(info.bldg82A)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.misc_icon)));
         administration.add(tttmp);
+        searchList.add(tttmp);
         //83: Auto Shop
         building[83] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.059429, -117.808208))
@@ -1084,6 +1098,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .snippet(info.bldg86A)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon)));
         classes.add(ctmp3);
+        searchList.add(ctmp3);
         //86B: English Language Institute
         Marker ctmp5 = mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.053500, -117.820086))
@@ -1091,6 +1106,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .snippet(info.bldg86B)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon)));
         classes.add(ctmp5);
+        searchList.add(ctmp5);
         //86C: English Language Institute
         Marker ctmp4 = mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.053317, -117.820168))
@@ -1098,6 +1114,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .snippet(info.bldg86C)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.class_icon)));
         classes.add(ctmp4);
+        searchList.add(ctmp4);
         //89: Interim Design Center
         building[89] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.060594, -117.812267))
@@ -1237,6 +1254,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .snippet(info.bldg118)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.health_icon)));
         POI.add(building[118]);
+        searchList.add(building[118]);
         //162: College of Business Admistration
         building[162] =mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(34.061289, -117.819552))
@@ -1547,11 +1565,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.landmark_icon)));
         POI.add(other[10]);
     }
-    //function for placing Path markers
-    private void buildPath(){
-
-    }
-
 
     @Override
     public void onDirectionFinderStart() {
