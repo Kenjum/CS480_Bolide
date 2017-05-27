@@ -1643,11 +1643,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                 break;
 
                         }
-                        Toast.makeText(
-                                MapsActivity.this,
-                                "Filter: " + item.getTitle(),
-                                Toast.LENGTH_SHORT
-                        ).show();
                         return true;
                     }
                 });
@@ -1719,17 +1714,45 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             @Override
             public void onClick(View v) {
                 EditText searchField = (EditText)findViewById(R.id.search_field);
-                String searchparameter = searchField.getText().toString();
+                String searchparameter = searchField.getText().toString().toUpperCase();
                 for(int i = 0; i < searchList.size(); i++){
                     String str = searchList.get(i).getTitle().toUpperCase();
                     if(str.contains(searchparameter)){
                         current = searchList.get(i);
                         current.setVisible(true);
                         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(current.getPosition(), 20));
+                        current.setTag(BitmapFactory.decodeResource(getResources(), info.getPicture(current.getTitle())));
+                        pict = (Bitmap) current.getTag();
+                        mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
+                            @Override
+                            public View getInfoWindow(Marker marker) {
+                                return null;
+                            }
+
+                            @Override
+                            public View getInfoContents(Marker marker) {
+                                View v = getLayoutInflater().inflate(R.layout.custom_info_window, null);
+                                ImageView image = (ImageView) v.findViewById(R.id.marker_image);
+                                TextView Title = (TextView) v.findViewById(R.id.title);
+                                TextView discription = (TextView) v.findViewById(R.id.description);
+                                image.setImageBitmap(pict);
+                                discription.setText(marker.getSnippet());
+                                Title.setText(marker.getTitle());
+                                return v;
+                            }
+                        });
+                        current.showInfoWindow();
                         break;
+                    }if(i == searchList.size()-1) {
+                        Toast.makeText(
+                                MapsActivity.this,
+                                "BLDG #" + searchparameter + " not found",
+                                Toast.LENGTH_SHORT
+                        ).show();
                     }
                 }
             }
         });
     }
+
 }

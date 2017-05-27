@@ -42,7 +42,7 @@
                     android:layout_height="match_parent"
                     android:cursorVisible="true"
                     android:elevation="2dp"
-                    android:ems="3"
+                    android:ems="4"
                     android:gravity="center"
                     android:hint="BLDG #"
                     android:inputType="text"
