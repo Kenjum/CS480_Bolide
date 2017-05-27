@@ -1720,15 +1720,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             public void onClick(View v) {
                 EditText searchField = (EditText)findViewById(R.id.search_field);
                 String searchparameter = searchField.getText().toString();
-                if(searchparameter != null) {
-                    for (int i = 0; i < searchList.size(); i++) {
-                        String str = searchList.get(i).getTitle();
-                        if (str.contains(searchparameter)) {
-                            current = searchList.get(i);
-                            current.setVisible(true);
-                            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(current.getPosition(), 20));
-                            break;
-                        }
+                for(int i = 0; i < searchList.size(); i++){
+                    String str = searchList.get(i).getTitle().toUpperCase();
+                    if(str.contains(searchparameter)){
+                        current = searchList.get(i);
+                        current.setVisible(true);
+                        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(current.getPosition(), 20));
+                        break;
                     }
                 }
             }
