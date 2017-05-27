@@ -9,6 +9,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.location.Criteria;
 import android.location.Location;
+import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -53,6 +54,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     Location location;                      //user location
     private String provider;
+    private LocationListener locationListener;
     private LocationManager locationManager;
     private List<Marker> originMarkers = new ArrayList<>();
     private List<Marker> destinationMarkers = new ArrayList<>();
@@ -104,7 +106,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         btnGo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendRequest();
+                if (current != null) {
+                    sendRequest();
+                }
             }
         });
 
@@ -146,14 +150,65 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         criteria.setCostAllowed(false);
 
         provider = locationManager.getBestProvider(criteria, false);
+        location = locationManager.getLastKnownLocation(provider);
 
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             return;
         }
-        location = locationManager.getLastKnownLocation(provider);
+
+        //for user location updates
+        locationListener = new LocationListener() {
+            @Override
+            public void onLocationChanged(Location locattion) {
+                if (ActivityCompat.checkSelfPermission(getBaseContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getBaseContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                }
+                location = locationManager.getLastKnownLocation(provider);
+                if(polylinePaths.size() > 1){
+                    if (eraseLine(location.getLatitude(), location.getLongitude(),
+                            polylinePaths.get(polylinePaths.size()-1).getPoints().get(polylinePaths.size()-1).latitude, polylinePaths.get(polylinePaths.size()-1).getPoints().get(polylinePaths.size()-1).longitude,
+                            polylinePaths.get(polylinePaths.size()-2).getPoints().get(polylinePaths.size()-2).latitude, polylinePaths.get(polylinePaths.size()-2).getPoints().get(polylinePaths.size()-2).longitude)) {
+                        polylinePaths.get(polylinePaths.size()-1).remove();
+                        polylinePaths.remove(polylinePaths.size()-1);
+                    }
+
+                }
+            }
+
+            @Override
+            public void onStatusChanged(String provider, int status, Bundle extras) {
+
+            }
+
+            @Override
+            public void onProviderEnabled(String provider) {
+
+            }
+
+            @Override
+            public void onProviderDisabled(String provider) {
+
+            }
+        };
+        //every 5 seconds, if you are at least 3 meters away from last location, it will update.
 
     }
 
+    public boolean eraseLine(double userLat, double userLng, double firstLat, double firstLng, double secondLat, double secondLng){
+        double firstDifLat = 0;
+        double firstDifLng = 0;
+        double secondDifLat = 0;
+        double secondDifLng = 0;
+        firstDifLat = Math.abs(Math.abs(userLat) - Math.abs(firstLat));
+        firstDifLng = Math.abs(Math.abs(userLng) - Math.abs(firstLng));
+        secondDifLat = Math.abs(Math.abs(userLat) - Math.abs(secondLat));
+        secondDifLng = Math.abs(Math.abs(userLng) - Math.abs(secondLng));
+
+        //if the user's difference is closer to the location it will return true.
+        if(firstDifLat > secondDifLat && firstDifLng > secondDifLng){
+            return true;
+        }
+        return false;
+    }
 
     /**
      * Manipulates the map once available.
@@ -292,7 +347,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             current.hideInfoWindow();
         }
         try{
-            new DirectionFinder(this, userLocation, destination).execute();
+            new DirectionFinder(this, destination, userLocation).execute();
         }catch(UnsupportedEncodingException e){
             e.printStackTrace();
         }
@@ -1500,7 +1555,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public void onDirectionFinderStart() {
         progressDialog = ProgressDialog.show(this, "Please wait.",
-                "Finding direction..!", true);
+                "Generating path...", true);
 
         if (originMarkers != null) {
             for (Marker marker : originMarkers) {
@@ -1534,10 +1589,14 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     color(Color.BLUE).
                     width(10);
 
-            for (int i = 0; i < route.points.size(); i++)
+            for (int i = 0; i < route.points.size(); i++){
                 polylineOptions.add(route.points.get(i));
+                //This is if you want to allow for dynamic directions
+                polylinePaths.add(mMap.addPolyline(polylineOptions));
+            }
 
-            polylinePaths.add(mMap.addPolyline(polylineOptions));
+            //this is if you want to allow for static directions
+            //polylinePaths.add(mMap.addPolyline(polylineOptions));
         }
     }
 
