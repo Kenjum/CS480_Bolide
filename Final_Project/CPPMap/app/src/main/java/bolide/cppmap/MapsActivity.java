@@ -190,6 +190,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             }
         };
         //every 5 seconds, if you are at least 3 meters away from last location, it will update.
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,3000,1,locationListener);
 
     }
 
