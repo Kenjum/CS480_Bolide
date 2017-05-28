@@ -65,7 +65,7 @@ public class Details {
     String bldg29 = "Houses the Arabian Horse Center as well as the Veterinarian Clinic.";
     String bldg30 = "";
     String bldg31 =  "The Cal Poly Poultry Center has housing facilities for 7,000 broilers and 7,000 replacement pullets. " +
-            "In addition, the Poultry Center has two egg production facilitiesâ€”a two-story turbo house " +
+            "In addition, the Poultry Center has two egg production facilities, a two-story turbo house " +
             "and a stack-deck house. Both houses are exact replicas of the facilities " +
             "currently used by the commercial egg production industry."+
             "The Poultry Center also contains a research house that can hold approximately 2,2000 birds.";
@@ -76,7 +76,7 @@ public class Details {
     String bldg34 = "Provides students with a hands on experience with meat processing" +
             " \"The lab is there for agriculture students to understand exactly how to fabricate pieces of meat,\" " +
             "said Broc Sandelin, chair of animal and veterinary sciences. " +
-            "\"We have a lot of state-of-the-art machinery. Itâ€™s the only working facility of its kind in Southern California.\" -The Poly Post";
+            "\"We have a lot of state-of-the-art machinery. It's the only working facility of its kind in Southern California.\" -The Poly Post";
 
     String bldg35 = "Home to Subway, Qdoba, Hibachi San, Peet’s Coffee, and Round Table. It also " +
                     "contains ASI, the Games Room Etc., Bronco Copy N Mail, and the Cal Poly Federal Credit Union.";
@@ -100,7 +100,7 @@ public class Details {
     String bldg42 ="Campus GYM for students. It has workout equipment, an indoor track, basketball " +
             "courts and studios for classes. It also contains Jamba Juice and a swimming pool out back." +
             "\nHours:" +
-            "\nMon - Thurs: 6am - 12am  Fri:6am - 11pm  Sat & Sun:10am - 6pm";
+            "\nMon - Thurs: 6am - 12am  Fri: 6am - 11pm  Sat & Sun: 10am - 6pm";
 
     String bldg43 = "Contains all of the sports offices, Men’s Locker Room, Human Performance Lab and the gymnasium itself.";
     String bldg45 = "Home of the Apparel Merchandising & Management Department, Agriculture Engineering-Landscape " +
@@ -176,7 +176,7 @@ public class Details {
     String bldg97 = " The building has the Career " +
             "Center and Campus Center Computing Lab." +
             "\nFood Available:" +
-            "\nCarlâ€™s Jr." +
+            "\nCarl's Jr." +
             "\nPanda Express" +
             "\nTaco Bell Express" +
             "\nPony Express" +
