@@ -1481,7 +1481,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         POI.add(other[1]);
         //Engineering Meadow
         other[2]=mMap.addMarker(new MarkerOptions()
-                .position(new LatLng(34.058548, -117.823724))
+                .position(new LatLng(34.059017, -117.821465))
                 .title("Engineering Meadow")
                 .snippet(info.emeadow)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.landmark_icon)));
@@ -1531,7 +1531,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         //University Quad
         other[9]=mMap.addMarker(new MarkerOptions()
-                .position(new LatLng(34.058548, -117.823724))
+                .position(new LatLng(34.058537, -117.823740))
                 .title("University Quad")
                 .snippet(info.quad)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.landmark_icon)));
