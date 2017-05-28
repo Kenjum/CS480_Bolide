@@ -32,19 +32,15 @@ import com.google.android.gms.maps.model.PolylineOptions;
 
 //imports for spinner
 import java.io.UnsupportedEncodingException;
-import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.List;
 
 import android.support.v7.widget.PopupMenu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -211,7 +207,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         //Sets the boundry
         mMap.setLatLngBoundsForCameraTarget(CalPolyPomona);
-        LatLng nearPomona = new LatLng(34.0554622, -117.8181957);
         //Set max Zoom
         mMap.setMinZoomPreference(15);
         //Get Location of the user

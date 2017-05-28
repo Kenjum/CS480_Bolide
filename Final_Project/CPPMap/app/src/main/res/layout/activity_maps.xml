@@ -26,15 +26,21 @@
                 android:layout_height="match_parent"
                 android:id="@+id/filter_button"
                 android:text="Filters"
+                android:backgroundTint="#ffb617"
+                android:layout_alignBaseline="@+id/relativeLayout5"
+                android:layout_alignBottom="@+id/relativeLayout5"
                 android:layout_alignParentRight="true"
-                android:backgroundTint="#ffb617"/>
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="12dp"
+                android:layout_marginEnd="12dp" />
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignParentLeft="true"
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="4dp"
-                android:background="#ffb617">
+                android:background="#ffb617"
+                android:id="@+id/relativeLayout5">
 
                 <EditText
                     android:id="@+id/search_field"

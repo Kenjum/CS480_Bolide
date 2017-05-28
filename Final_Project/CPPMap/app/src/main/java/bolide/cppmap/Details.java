@@ -43,10 +43,10 @@ public class Details {
      String bldg15 = "Houses Starbucks, the Learning Resource Center (LRC), the Reference Desk as " +
                     "well as the Arabian Horse Library." +
                     "\nStarbucks Hours:" +
-                    "\nMonday-Thursday: 7am-10pm" +
-                    "\n         Friday: 7am-5pm" +
-                    "\n       Saturday: 10am-6pm" +
-                    "\n         Sunday: 12pm-9pm";
+                    "\nMon-Thurs: 7:00am-10:00pm" +
+                    "\n                Fri: 7:00am-5:00pm" +
+                    "\n              Sat: 10:00am-6:00pm" +
+                    "\n              Sun: 12:00pm-9:00pm";
     String bldg17 = "Holds the Departments of Aerospace Engineering, Chemical & Materials Engineering, " +
                     "Civil Engineering, Industrial & Manufacturing Engineering, and Mechanical Engineering along with labs.";
     String bldg20 = "On campus dorms used for student housing.";
@@ -86,11 +86,11 @@ public class Details {
     String bldg35 = "Home to various food places as well as. It also contains ASI, the Games Room Etc., " +
                     "Bronco Copy N Mail, and the Cal Poly Federal Credit Union." +
                     "\nFood Available:" +
-                    "\nSubway: Mon-Thurs: 7:30am-7pm, Fri: 7:30am-3pm" +
-                    "\nQdoba: Mon-Thurs: 10:30am-7pm, Fri: 10:30am-2pm" +
-                    "\nHibachi San: Mon-Thurs: 10am-7pm, Fri: 10am-3pm" +
-                    "\nPeet's Coffee/Freshen's: Mon-Thurs: 7:30am-6pm, Fri: 7:30am-2pm" +
-                    "\nRound Table: Mon-Thurs: 10:30am-9pm, Fri: 10:30am-3pm";
+                    "\nSubway: \nMon-Thurs: 7:30am-7pm, Fri: 7:30am-3pm" +
+                    "\nQdoba: \nMon-Thurs: 10:30am-7pm, Fri: 10:30am-2pm" +
+                    "\nHibachi San: \nMon-Thurs: 10am-7pm, Fri: 10am-3pm" +
+                    "\nPeet's Coffee/Freshen's: \nMon-Thurs: 7:30am-6pm, Fri: 7:30am-2pm" +
+                    "\nRound Table: \nMon-Thurs: 10:30am-9pm, Fri: 10:30am-3pm";
     String bldg35A = "The W. Keith & Janet Kellogg University Art Gallery's Mission:\n" +
             "*bringing diverse, multicultural exhibitions to our campus. " +
             "\n*connecting Visual Art to other disciplines via educational programming, events and collaboration." +
@@ -111,9 +111,9 @@ public class Details {
    String bldg42 ="Campus GYM for students. It has workout equipment, an indoor track, basketball " +
             "courts and studios for classes. It also contains Jamba Juice and a swimming pool out back." +
             "\nHours:" +
-            "\nMon - Thurs: 6am - 12am  Fri: 6am - 11pm  Sat & Sun: 10am - 6pm" +
+            "\nMon-Thurs: 6:00am-12:00am  Fri: 6:00am-11:00pm  Sat-Sun: 10:00am-6:00pm" +
             "\nJamba Juice Hours:" +
-            "\nMon-Thurs: 8am-8pm  Fri: 8am-6pm  Sat: 12pm-5pm";
+            "\nMon-Thurs: 8:00am-8:00pm  Fri: 8:00am-6:00pm  Sat: 12:00pm-5:00pm";
     String bldg43 = "Contains all of the sports offices, Men’s Locker Room, Human Performance Lab and the gymnasium itself.";
     String bldg45 = "Home of the Apparel Merchandising & Management Department, Agriculture Engineering-Landscape " +
                     "Irrigation Science, Apparel Technology & Research Center, Landscape Irrigation Science, and the " +
@@ -131,10 +131,10 @@ public class Details {
     String bldg49 = "";
     String bldg52 = "Campus store with groceries and produce items. It is also attached to the campus Denny’s." +
                     "\nHours:" +
-                    "\nMonday-Thursday: 7am-1am" +
-                    "\n         Friday: 7am-10pm" +
-                    "\n       Saturday: 10am-10pm" +
-                    "\n         Sunday: 10am-1am";
+                    "\nMon-Thurs: 7:00am-1:00am" +
+                    "\n                Fri: 7:00am-10:00pm" +
+                    "\n              Sat: 10:00am-10:00pm" +
+                    "\n             Sun: 10:00am-1:00am";
     String bldg54 = "On campus apartment type housing.";
     String bldg55 = "Cal Poly Pomona is a member of the California State University System, " +
             "known around the world for providing quality education that is affordable and accessible." +
@@ -161,25 +161,25 @@ public class Details {
     String bldg68 = "";
     String bldg70 = "The campus dining hall for on campus residents." +
                     "\nHours:" +
-                    "\nMonday-Wednesday: 7am-8pm, 9pm-12am" +
-                    "\n        Thursday: 7am-8pm" +
-                    "\n          Friday: 7am-7:30pm" +
-                    "\n        Saturday: 11am-7:30pm" +
-                    "\n          Sunday: 11am-7:30pm, 9pm-12am";
+                    "\nMon-Wed: 7:00am-8:00pm, 9:00pm-12:00am" +
+                    "\n       Thurs: 7:00am-8:00pm" +
+                    "\n             Fri: 7:00am-7:30pm" +
+                    "\n           Sat: 11:00am-7:30pm" +
+                    "\n          Sun: 11:00am-7:30pm, 9:00pm-12:00am";
     String bldg71 = "";
     String bldg75 = "";
     String bldg76 = "Part of Kellogg West Conference Center and Hotel" +
                     "\nDining Hours:" +
-                    "\n       Monday-Friday: Breakfast from 7am-8:30am" +
-                    "\nSaturday-Sunday: Breakfast from 7am-9:30am" +
+                    "\n       Mon-Fri: Breakfast from 7am-8:30am" +
+                    "\n       Sat-Sun: Breakfast from 7am-9:30am" +
                     "\n              Lunch: Reservation Required" +
-                    "\n    Room Service: 5pm-8pm";
+                    "\n       Room Service: 5pm-8pm";
     String bldg77 = "Part of Kellogg West Conference Center and Hotel";
     String bldg78 = "Part of Kellogg West Conference Center and Hotel";
    String bldg79 = "Holds the Restaurant at Kellogg Ranch and the School of Hotel and Restaurant Management" +
                     "\nRestaurant at Kellogg Ranch Hours:" +
-                    "\n Lunch: Tuesday-Friday 11:30am-1pm" +
-                    "\nDinner: Wednesday-Friday 6pm-7:30pm";
+                    "\n Lunch: Tue-Fri 11:30am-1:00pm" +
+                    "\nDinner: Wed-Fri 6:00pm-7:30pm";
     String bldg79A = "Part of Collins College of Hospitality Management.";
     String bldg79B = "Contains the Collins College of Hospitality Management, Hospitality Management " +
                      "Council, and the Professional Development Institute (CSHM).";
@@ -207,13 +207,13 @@ public class Details {
     String bldg97 = " The building has the Career " +
             "Center and Campus Center Computing Lab." +
             "\nFood Available:" +
-            "\nCarl's Jr.: Mon-Thurs: 7:30am-7pm, Fri: 7:30am-2pm" +
-            "\nPanda Express: Mon-Thurs: 10am-8pm, Fri: 10am-3pm" +
-            "\nTaco Bell Express: Mon-Thurs: 10am-6pm, Fri: 10am-2pm" +
-            "\nPony Express: Mon-Thurs: 7:30am-8pm, Fri: 7:30am-3pm" +
-            "\nJamba Juice Express: Mon-Thurs: 10am-5pm, Fri: 10am-2pm" +
-            "\nFresh Escape: Mon-Thurs: 10am-5pm, Fri: 10am-2pm"+
-            "\nInternational Grounds: Mon-Thurs: 7:30am-7pm, Fri: 7:30am-12pm";
+            "\nCarl's Jr.: \nMon-Thurs: 7:30am-7pm, Fri: 7:30am-2pm" +
+            "\nPanda Express: \nMon-Thurs: 10am-8pm, Fri: 10am-3pm" +
+            "\nTaco Bell Express: \nMon-Thurs: 10am-6pm, Fri: 10am-2pm" +
+            "\nPony Express: \nMon-Thurs: 7:30am-8pm, Fri: 7:30am-3pm" +
+            "\nJamba Juice Express: \nMon-Thurs: 10am-5pm, Fri: 10am-2pm" +
+            "\nFresh Escape: \nMon-Thurs: 10am-5pm, Fri: 10am-2pm"+
+            "\nInternational Grounds: \nMon-Thurs: 7:30am-7pm, Fri: 7:30am-12pm";
 
     String bldg98 = "Contains Academic Programs, Administrative Office, Campus Tour Information, " +
                     "Classrooms, Division of Academic & Student Affairs, Financial Aid & Scholarships, " +
@@ -246,8 +246,8 @@ public class Details {
     String bldg164 = "Includes the Departments for Accounting, Computer Information Systems, Finance, " +
                      "Real Estate & Law, International Business & Marketing, Management & Human Resources " +
                      "and Technology and Operations Management. The building also has Einstein Bros Bagels and Pony Express." +
-                     "\nEinstein's Hours: Mon-Thurs: 7am-7pm, Fri: 7am-4pm" +
-                     "\nPony Express Hours: Mon-Thurs: 7am-10pm, Fri: 7am-5pm";
+                     "\nEinstein's Hours: \nMon-Thurs: 7:00am-7:00pm, Fri: 7:00am-4:00pm" +
+                     "\nPony Express Hours: \nMon-Thurs: 7:00am-10:00pm, Fri: 7:00am-5:00pm";
     String bldg193 = "";
     String bldg200 = "Provides apartment style housing for students. ";
 
