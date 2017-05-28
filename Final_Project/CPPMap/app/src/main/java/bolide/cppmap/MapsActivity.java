@@ -108,7 +108,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 }
             }
         });
-
+        enableMyLocation();
+        while(ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED){
+        }
         //Initila the search feild
         assignSearch();
         //Initialize the filer button
