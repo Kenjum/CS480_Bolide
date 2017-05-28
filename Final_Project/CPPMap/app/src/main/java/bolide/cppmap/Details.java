@@ -40,8 +40,13 @@ public class Details {
     String bldg13C = "College course designed to provide students with the necessary skills and " +
                      "leadership training to become officers in the United States Army.";
     String bldg13D = "Contains the Collaborative After School and Military Science Programs.";
-    String bldg15 = "Houses Starbucks, the Learning Resource Center (LRC), the Reference Desk as " +
-                    "well as the Arabian Horse Library.";
+     String bldg15 = "Houses Starbucks, the Learning Resource Center (LRC), the Reference Desk as " +
+                    "well as the Arabian Horse Library." +
+                    "\nStarbucks Hours:" +
+                    "\nMonday-Thursday: 7am-10pm" +
+                    "\n         Friday: 7am-5pm" +
+                    "\n       Saturday: 10am-6pm" +
+                    "\n         Sunday: 12pm-9pm";
     String bldg17 = "Holds the Departments of Aerospace Engineering, Chemical & Materials Engineering, " +
                     "Civil Engineering, Industrial & Manufacturing Engineering, and Mechanical Engineering along with labs.";
     String bldg20 = "On campus dorms used for student housing.";
@@ -78,8 +83,14 @@ public class Details {
             "said Broc Sandelin, chair of animal and veterinary sciences. " +
             "\"We have a lot of state-of-the-art machinery. It's the only working facility of its kind in Southern California.\" -The Poly Post";
 
-    String bldg35 = "Home to Subway, Qdoba, Hibachi San, Peet’s Coffee, and Round Table. It also " +
-                    "contains ASI, the Games Room Etc., Bronco Copy N Mail, and the Cal Poly Federal Credit Union.";
+    String bldg35 = "Home to various food places as well as. It also contains ASI, the Games Room Etc., " +
+                    "Bronco Copy N Mail, and the Cal Poly Federal Credit Union." +
+                    "\nFood Available:" +
+                    "\nSubway: Mon-Thurs: 7:30am-7pm, Fri: 7:30am-3pm" +
+                    "\nQdoba: Mon-Thurs: 10:30am-7pm, Fri: 10:30am-2pm" +
+                    "\nHibachi San: Mon-Thurs: 10am-7pm, Fri: 10am-3pm" +
+                    "\nPeet's Coffee/Freshen's: Mon-Thurs: 7:30am-6pm, Fri: 7:30am-2pm" +
+                    "\nRound Table: Mon-Thurs: 10:30am-9pm, Fri: 10:30am-3pm";
     String bldg35A = "The W. Keith & Janet Kellogg University Art Gallery's Mission:\n" +
             "*bringing diverse, multicultural exhibitions to our campus. " +
             "\n*connecting Visual Art to other disciplines via educational programming, events and collaboration." +
@@ -97,11 +108,12 @@ public class Details {
 
     String bldg38 = "";
     String bldg41 = "Holds the Women’s Locker Room, Training Room and Volleyball Office.";
-    String bldg42 ="Campus GYM for students. It has workout equipment, an indoor track, basketball " +
+   String bldg42 ="Campus GYM for students. It has workout equipment, an indoor track, basketball " +
             "courts and studios for classes. It also contains Jamba Juice and a swimming pool out back." +
             "\nHours:" +
-            "\nMon - Thurs: 6am - 12am  Fri: 6am - 11pm  Sat & Sun: 10am - 6pm";
-
+            "\nMon - Thurs: 6am - 12am  Fri: 6am - 11pm  Sat & Sun: 10am - 6pm" +
+            "\nJamba Juice Hours:" +
+            "\nMon-Thurs: 8am-8pm  Fri: 8am-6pm  Sat: 12pm-5pm";
     String bldg43 = "Contains all of the sports offices, Men’s Locker Room, Human Performance Lab and the gymnasium itself.";
     String bldg45 = "Home of the Apparel Merchandising & Management Department, Agriculture Engineering-Landscape " +
                     "Irrigation Science, Apparel Technology & Research Center, Landscape Irrigation Science, and the " +
@@ -117,7 +129,12 @@ public class Details {
             "Their motto is to \"create and maintain a clean, comfortable and safe campus environment.\"";
 
     String bldg49 = "";
-    String bldg52 = "Campus store with groceries and produce items. It is also attached to the campus Denny’s.";
+    String bldg52 = "Campus store with groceries and produce items. It is also attached to the campus Denny’s." +
+                    "\nHours:" +
+                    "\nMonday-Thursday: 7am-1am" +
+                    "\n         Friday: 7am-10pm" +
+                    "\n       Saturday: 10am-10pm" +
+                    "\n         Sunday: 10am-1am";
     String bldg54 = "On campus apartment type housing.";
     String bldg55 = "Cal Poly Pomona is a member of the California State University System, " +
             "known around the world for providing quality education that is affordable and accessible." +
@@ -142,13 +159,27 @@ public class Details {
                     "and Renaissance Scholars.";
     String bldg67 = "Contains the Equine Outreach Program.";
     String bldg68 = "";
-    String bldg70 = "The campus dining hall for on campus residents.";
+    String bldg70 = "The campus dining hall for on campus residents." +
+                    "\nHours:" +
+                    "\nMonday-Wednesday: 7am-8pm, 9pm-12am" +
+                    "\n        Thursday: 7am-8pm" +
+                    "\n          Friday: 7am-7:30pm" +
+                    "\n        Saturday: 11am-7:30pm" +
+                    "\n          Sunday: 11am-7:30pm, 9pm-12am";
     String bldg71 = "";
     String bldg75 = "";
-    String bldg76 = "Part of Kellogg West Conference Center and Hotel";
+    String bldg76 = "Part of Kellogg West Conference Center and Hotel" +
+                    "\nDining Hours:" +
+                    "\n       Monday-Friday: Breakfast from 7am-8:30am" +
+                    "\nSaturday-Sunday: Breakfast from 7am-9:30am" +
+                    "\n              Lunch: Reservation Required" +
+                    "\n    Room Service: 5pm-8pm";
     String bldg77 = "Part of Kellogg West Conference Center and Hotel";
     String bldg78 = "Part of Kellogg West Conference Center and Hotel";
-    String bldg79 = "Holds the Restaurant at Kellogg Ranch and the School of Hotel and Restaurant Management ";
+   String bldg79 = "Holds the Restaurant at Kellogg Ranch and the School of Hotel and Restaurant Management" +
+                    "\nRestaurant at Kellogg Ranch Hours:" +
+                    "\n Lunch: Tuesday-Friday 11:30am-1pm" +
+                    "\nDinner: Wednesday-Friday 6pm-7:30pm";
     String bldg79A = "Part of Collins College of Hospitality Management.";
     String bldg79B = "Contains the Collins College of Hospitality Management, Hospitality Management " +
                      "Council, and the Professional Development Institute (CSHM).";
@@ -176,12 +207,13 @@ public class Details {
     String bldg97 = " The building has the Career " +
             "Center and Campus Center Computing Lab." +
             "\nFood Available:" +
-            "\nCarl's Jr." +
-            "\nPanda Express" +
-            "\nTaco Bell Express" +
-            "\nPony Express" +
-            "\nJamba Juice Express" +
-            "\nFresh Escape and International Grounds";
+            "\nCarl's Jr.: Mon-Thurs: 7:30am-7pm, Fri: 7:30am-2pm" +
+            "\nPanda Express: Mon-Thurs: 10am-8pm, Fri: 10am-3pm" +
+            "\nTaco Bell Express: Mon-Thurs: 10am-6pm, Fri: 10am-2pm" +
+            "\nPony Express: Mon-Thurs: 7:30am-8pm, Fri: 7:30am-3pm" +
+            "\nJamba Juice Express: Mon-Thurs: 10am-5pm, Fri: 10am-2pm" +
+            "\nFresh Escape: Mon-Thurs: 10am-5pm, Fri: 10am-2pm"+
+            "\nInternational Grounds: Mon-Thurs: 7:30am-7pm, Fri: 7:30am-12pm";
 
     String bldg98 = "Contains Academic Programs, Administrative Office, Campus Tour Information, " +
                     "Classrooms, Division of Academic & Student Affairs, Financial Aid & Scholarships, " +
@@ -213,7 +245,9 @@ public class Details {
     String bldg163 = "Includes classrooms for College of Business classes.";
     String bldg164 = "Includes the Departments for Accounting, Computer Information Systems, Finance, " +
                      "Real Estate & Law, International Business & Marketing, Management & Human Resources " +
-                     "and Technology and Operations Management. The building also has Einstein Bros Bagels and Pony Express.";
+                     "and Technology and Operations Management. The building also has Einstein Bros Bagels and Pony Express." +
+                     "\nEinstein's Hours: Mon-Thurs: 7am-7pm, Fri: 7am-4pm" +
+                     "\nPony Express Hours: Mon-Thurs: 7am-10pm, Fri: 7am-5pm";
     String bldg193 = "";
     String bldg200 = "Provides apartment style housing for students. ";
 
@@ -383,7 +417,9 @@ public class Details {
 
 
     //other points
-    String pumpkin ="";
+    String pumpkin ="Puts on the Pumpkin Festival every October where the College of Agriculture grows " +
+                    "70,000 pumpkins for the event. The festival also includes corn mazes, horse rides, " +
+                    "a petting zoo, and the Insect Fair with 500,000 live and preserved insects from around the world.";
     String biotrek = "";
     String emeadow = "";
     String jgarden ="";
