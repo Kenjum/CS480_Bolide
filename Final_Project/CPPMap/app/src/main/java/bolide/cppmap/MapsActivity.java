@@ -142,13 +142,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 }
                 location = locationManager.getLastKnownLocation(provider);
                 if(polylinePaths.size() > 1){
-                    if (eraseLine(location.getLatitude(), location.getLongitude(),
-                            polylinePaths.get(polylinePaths.size()-1).getPoints().get(polylinePaths.size()-1).latitude, polylinePaths.get(polylinePaths.size()-1).getPoints().get(polylinePaths.size()-1).longitude,
-                            polylinePaths.get(polylinePaths.size()-2).getPoints().get(polylinePaths.size()-2).latitude, polylinePaths.get(polylinePaths.size()-2).getPoints().get(polylinePaths.size()-2).longitude)) {
-                        polylinePaths.get(polylinePaths.size()-1).remove();
-                        polylinePaths.remove(polylinePaths.size()-1);
-                    }
-
+                    eraseLine(location.getLatitude(), location.getLongitude());
                 }
             }
 
@@ -172,20 +166,23 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     }
 
-    public boolean eraseLine(double userLat, double userLng, double firstLat, double firstLng, double secondLat, double secondLng){
+    public boolean eraseLine(double userLat, double userLng){
         double firstDifLat = 0;
         double firstDifLng = 0;
         double secondDifLat = 0;
         double secondDifLng = 0;
-        firstDifLat = Math.abs(Math.abs(userLat) - Math.abs(firstLat));
-        firstDifLng = Math.abs(Math.abs(userLng) - Math.abs(firstLng));
-        secondDifLat = Math.abs(Math.abs(userLat) - Math.abs(secondLat));
-        secondDifLng = Math.abs(Math.abs(userLng) - Math.abs(secondLng));
-
-        //if the user's difference is closer to the location it will return true.
-        if(firstDifLat > secondDifLat && firstDifLng > secondDifLng){
-            return true;
+        for(int i = polylinePaths.size()-1; i>-1; --i){
+            firstDifLat = Math.abs(Math.abs(userLat) - Math.abs(polylinePaths.get(polylinePaths.size()-1).getPoints().get(polylinePaths.size()-1).latitude));
+            firstDifLng = Math.abs(Math.abs(userLng) - Math.abs(polylinePaths.get(polylinePaths.size()-1).getPoints().get(polylinePaths.size()-1).longitude));
+            secondDifLat = Math.abs(Math.abs(userLat) - Math.abs(polylinePaths.get(i).getPoints().get(i).latitude));
+            secondDifLng = Math.abs(Math.abs(userLng) - Math.abs(polylinePaths.get(i).getPoints().get(i).longitude));
+            //if the user's difference is closer to the location it will return true.
+            if(firstDifLat > secondDifLat && firstDifLng > secondDifLng){
+                polylinePaths.get(polylinePaths.size()-1).remove();
+                polylinePaths.remove(polylinePaths.size()-1);
+            }
         }
+
         return false;
     }
 
